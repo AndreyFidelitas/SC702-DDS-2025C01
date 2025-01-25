@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BD", "BD\BD.sqlproj", "{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventZetaGas", "InventZetaGas\InventZetaGas.csproj", "{9376730C-A9F5-4487-A734-3939254346CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9376730C-A9F5-4487-A734-3939254346CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9376730C-A9F5-4487-A734-3939254346CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9376730C-A9F5-4487-A734-3939254346CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9376730C-A9F5-4487-A734-3939254346CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
