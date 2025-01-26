@@ -44,13 +44,13 @@
             lblZona = new Label();
             txtCodeZona = new TextBox();
             lblCode = new Label();
-            dataGridView1 = new DataGridView();
+            gvZonas = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gvZonas).BeginInit();
             SuspendLayout();
             // 
             // gbRaza
@@ -202,6 +202,7 @@
             // 
             // txtCodeZona
             // 
+            txtCodeZona.Enabled = false;
             txtCodeZona.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtCodeZona.Location = new Point(41, 76);
             txtCodeZona.Name = "txtCodeZona";
@@ -218,13 +219,17 @@
             lblCode.TabIndex = 0;
             lblCode.Text = "Código Zona";
             // 
-            // dataGridView1
+            // gvZonas
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 477);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(905, 172);
-            dataGridView1.TabIndex = 1;
+            gvZonas.AllowUserToAddRows = false;
+            gvZonas.AllowUserToDeleteRows = false;
+            gvZonas.AllowUserToOrderColumns = true;
+            gvZonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvZonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvZonas.Location = new Point(12, 475);
+            gvZonas.Name = "gvZonas";
+            gvZonas.Size = new Size(905, 172);
+            gvZonas.TabIndex = 1;
             // 
             // label1
             // 
@@ -257,17 +262,18 @@
             ClientSize = new Size(1103, 729);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(gvZonas);
             Controls.Add(gbRaza);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Zonas";
             Text = "Zonas";
+            Load += Zonas_Load;
             gbRaza.ResumeLayout(false);
             gbRaza.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gvZonas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,7 +289,7 @@
         private Label lblCode;
         private GroupBox groupBox1;
         private Button btnNew;
-        private DataGridView dataGridView1;
+        private DataGridView gvZonas;
         private Button btnDelete;
         private Button btnAdd;
         private Button btnModify;
