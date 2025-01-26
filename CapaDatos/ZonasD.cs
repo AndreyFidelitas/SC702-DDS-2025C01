@@ -9,9 +9,9 @@ namespace CapaDatos
 {
     public class ZonasD
     {
-            private readonly ConexionDB _conexion = new ConexionDB();
+        private readonly ConexionDB _conexion = new ConexionDB();
 
-            #region "MostrarListaZonas"
+        #region "MostrarListaZonas"
             public DataTable ListarZonas()
             {
                 using (var connection = _conexion.AbrirConexion())
@@ -26,10 +26,27 @@ namespace CapaDatos
                     return dataTable;
                 }
             }
-            #endregion
+        #endregion
 
-            #region "Mantenimiento de Zonas"
-            public string MantenimientoZonas(ZonasE zonas)
+        #region "MostrarListaProvincias"
+        public DataTable ListarProvincias()
+        {
+            using (var connection = _conexion.AbrirConexion())
+            using (var cmd = new SqlCommand("SPListaProvincias", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                var dataTable = new DataTable();
+                using (var dataAdapter = new SqlDataAdapter(cmd))
+                {
+                    dataAdapter.Fill(dataTable);
+                }
+                return dataTable;
+            }
+        }
+        #endregion
+
+        #region "Mantenimiento de Zonas"
+        public string MantenimientoZonas(ZonasE zonas)
             {
                 try
                 {
