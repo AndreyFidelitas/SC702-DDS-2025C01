@@ -121,7 +121,7 @@
             // 
             btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(594, 21);
+            btnDelete.Location = new Point(582, 21);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(158, 43);
             btnDelete.TabIndex = 3;
@@ -143,7 +143,7 @@
             // 
             btnModify.Image = (Image)resources.GetObject("btnModify.Image");
             btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(396, 21);
+            btnModify.Location = new Point(391, 21);
             btnModify.Name = "btnModify";
             btnModify.Size = new Size(158, 43);
             btnModify.TabIndex = 1;
