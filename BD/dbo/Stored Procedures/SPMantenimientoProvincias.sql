@@ -1,9 +1,18 @@
 ﻿
+
 --EXEC SPMantenimientoProvincias null,null,'San José','1';
+--EXEC SPMantenimientoProvincias null,null,'Cartago','1';
+--EXEC SPMantenimientoProvincias null,null,'Heredia','1';
+--EXEC SPMantenimientoProvincias null,null,'Guanacaste','1';
+--EXEC SPMantenimientoProvincias null,null,'Limón','1';
+--EXEC SPMantenimientoProvincias null,null,'Puntarenas','1';
+--EXEC SPMantenimientoProvincias null,null,'Alajuela','1';
+
+
 
 --select * from  Provincia
 
-CREATE PROCEDURE SPMantenimientoProvincias
+CREATE PROCEDURE [dbo].[SPMantenimientoProvincias]
 (
     @ProvinciaID		INT			,
     @ProvinciaCode		VARCHAR(5)			,
