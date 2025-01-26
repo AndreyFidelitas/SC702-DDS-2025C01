@@ -16,5 +16,10 @@ namespace InventZetaGas
         {
             InitializeComponent();
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
