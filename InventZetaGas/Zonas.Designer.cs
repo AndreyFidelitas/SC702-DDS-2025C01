@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zonas));
             gbRaza = new GroupBox();
             groupBox2 = new GroupBox();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            rbtnInactive = new RadioButton();
+            rbtnActive = new RadioButton();
             groupBox1 = new GroupBox();
             btnDelete = new Button();
             btnAdd = new Button();
@@ -74,8 +74,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButton2);
-            groupBox2.Controls.Add(radioButton1);
+            groupBox2.Controls.Add(rbtnInactive);
+            groupBox2.Controls.Add(rbtnActive);
             groupBox2.Location = new Point(422, 76);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(332, 114);
@@ -83,27 +83,29 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Estado";
             // 
-            // radioButton2
+            // rbtnInactive
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(25, 69);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(71, 20);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Inactivo";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbtnInactive.AutoSize = true;
+            rbtnInactive.Location = new Point(25, 69);
+            rbtnInactive.Name = "rbtnInactive";
+            rbtnInactive.Size = new Size(71, 20);
+            rbtnInactive.TabIndex = 1;
+            rbtnInactive.TabStop = true;
+            rbtnInactive.Text = "Inactivo";
+            rbtnInactive.UseVisualStyleBackColor = true;
+            rbtnInactive.CheckedChanged += tbtnInactive_CheckedChanged;
             // 
-            // radioButton1
+            // rbtnActive
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(25, 21);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(62, 20);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Activo";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbtnActive.AutoSize = true;
+            rbtnActive.Location = new Point(25, 21);
+            rbtnActive.Name = "rbtnActive";
+            rbtnActive.Size = new Size(62, 20);
+            rbtnActive.TabIndex = 0;
+            rbtnActive.TabStop = true;
+            rbtnActive.Text = "Activo";
+            rbtnActive.UseVisualStyleBackColor = true;
+            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -127,6 +129,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -138,6 +141,7 @@
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnModify
             // 
@@ -149,6 +153,7 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 
@@ -230,6 +235,7 @@
             gvZonas.Name = "gvZonas";
             gvZonas.Size = new Size(905, 172);
             gvZonas.TabIndex = 1;
+            gvZonas.CellContentClick += gvZonas_CellContentClick;
             // 
             // label1
             // 
@@ -294,8 +300,8 @@
         private Button btnAdd;
         private Button btnModify;
         private GroupBox groupBox2;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton rbtnInactive;
+        private RadioButton rbtnActive;
         private Label label1;
         internal Label label2;
         private Button button1;

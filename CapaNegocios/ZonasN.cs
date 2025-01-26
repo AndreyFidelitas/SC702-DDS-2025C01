@@ -18,5 +18,10 @@ namespace CapaNegocios
         {
             return ZonasD.ListarZonas();
         }
+
+        public DataTable ListaProvincias() 
+        {
+            return ZonasD.ListarProvincias();
+        }
     }
 }

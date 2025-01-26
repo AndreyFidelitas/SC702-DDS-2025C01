@@ -14,8 +14,7 @@ namespace CapaDatos
         #region "MostrarListaZonas"
             public DataTable ListarZonas()
             {
-                using (var connection = _conexion.AbrirConexion())
-                using (var cmd = new SqlCommand("SPListaZonas", connection))
+                using (var cmd = new SqlCommand("SPListaZonas", _conexion.AbrirConexion()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     var dataTable = new DataTable();
@@ -23,6 +22,7 @@ namespace CapaDatos
                     {
                         dataAdapter.Fill(dataTable);
                     }
+                    _conexion.CerrarConexion();
                     return dataTable;
                 }
             }
@@ -31,8 +31,7 @@ namespace CapaDatos
         #region "MostrarListaProvincias"
         public DataTable ListarProvincias()
         {
-            using (var connection = _conexion.AbrirConexion())
-            using (var cmd = new SqlCommand("SPListaProvincias", connection))
+            using (var cmd = new SqlCommand("SPListaProvincias", _conexion.AbrirConexion()))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 var dataTable = new DataTable();
@@ -40,6 +39,7 @@ namespace CapaDatos
                 {
                     dataAdapter.Fill(dataTable);
                 }
+                _conexion.CerrarConexion();
                 return dataTable;
             }
         }
@@ -47,12 +47,11 @@ namespace CapaDatos
 
         #region "Mantenimiento de Zonas"
         public string MantenimientoZonas(ZonasE zonas)
-            {
+        {
                 try
                 {
                     Generales g= new Generales();
-                    using (var connection = _conexion.AbrirConexion())
-                    using (var cmd = new SqlCommand("SPCatalogozonas", connection))
+                    using (var cmd = new SqlCommand("SPCatalogozonas", _conexion.AbrirConexion()))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ProvinciaID", zonas.ProvinciaID);
@@ -62,7 +61,7 @@ namespace CapaDatos
                         cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                         cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                         cmd.ExecuteNonQuery();
-
+                        _conexion.CerrarConexion();
                         return cmd.Parameters["@accion"].Value.ToString();
                     }
                 }
@@ -71,7 +70,7 @@ namespace CapaDatos
                     var value = ex.GetType().ToString();
                     return value;
                 }
-            }
-            #endregion
+        }
+        #endregion
     }
 }
