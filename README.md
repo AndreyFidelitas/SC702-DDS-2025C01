@@ -30,11 +30,13 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     <img src="https://skillicons.dev/icons?i=git,windows,github,dotnet,figma,firebase,github,cs,python,vscode=14" />
   </a>
 </p>
+
 ## Vista previa del proyecto
 Si quieres hechas un vistazo al proyecto, te recomiendo:
 
 Modulo de Zonas
-![image](https://github.com/user-attachments/assets/e36cfe3c-a184-4932-9072-3d71013da20c)
+![image](https://github.com/user-attachments/assets/a6ade586-52ef-4409-bd9a-9e16ce4c581f)
+
 ![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
 ![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
 
