@@ -1,6 +1,6 @@
 ﻿namespace InventZetaGas
 {
-    partial class Form1
+    partial class frmInicio
     {
         /// <summary>
         ///  Required designer variable.
