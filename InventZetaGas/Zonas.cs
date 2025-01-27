@@ -39,7 +39,7 @@ namespace InventZetaGas
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCodeZona.Text))
+            if (string.IsNullOrEmpty(txtZona.Text))
             {
                 MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -93,7 +93,6 @@ namespace InventZetaGas
             {
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvZonas.Rows[e.RowIndex];
-
                 // Asigna los valores de las celdas a los TextBox
                 txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
                 txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
@@ -149,9 +148,9 @@ namespace InventZetaGas
         {
             ZonasE.ZonasCode = txtCodeZona.Text;
             ZonasE.ZonasName = txtZona.Text;
-            ZonasE.ProvinciaID = cbProvincias.SelectedIndex;
+            ZonasE.ProvinciaID = (cbProvincias.SelectedIndex +1);
             g.accion = accion;
-            g.msj = ZonasN.MantenimientoZona(ZonasE);
+            g.msj = ZonasN.MantenimientoZona(ZonasE,g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion

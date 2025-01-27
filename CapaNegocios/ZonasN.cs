@@ -9,9 +9,9 @@ namespace CapaNegocios
 
         ZonasD ZonasD=new ZonasD();
 
-        public string MantenimientoZona(ZonasE zonas)
+        public string MantenimientoZona(ZonasE zonas,string accion)
         {
-            return ZonasD.MantenimientoZonas(zonas);
+            return ZonasD.MantenimientoZonas(zonas,accion);
         }
 
         public DataTable ListaZona ()

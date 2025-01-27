@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -46,12 +47,14 @@ namespace CapaDatos
         #endregion
 
         #region "Mantenimiento de Zonas"
-        public string MantenimientoZonas(ZonasE zonas)
+        public string MantenimientoZonas(ZonasE zonas,string accion)
         {
                 try
                 {
+                    
                     Generales g= new Generales();
-                    using (var cmd = new SqlCommand("SPCatalogozonas", _conexion.AbrirConexion()))
+                    g.accion = accion;
+                    using (var cmd = new SqlCommand("SPMantenimientoZonas", _conexion.AbrirConexion()))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ProvinciaID", zonas.ProvinciaID);
