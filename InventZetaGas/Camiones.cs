@@ -16,5 +16,10 @@ namespace InventZetaGas
         {
             InitializeComponent();
         }
+
+        private void Camiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
