@@ -45,6 +45,8 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
+            lblPlaca = new Label();
+            txtPlaca = new TextBox();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -78,6 +80,8 @@
             // gbRaza
             // 
             gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(txtPlaca);
+            gbRaza.Controls.Add(lblPlaca);
             gbRaza.Controls.Add(groupBox2);
             gbRaza.Controls.Add(groupBox1);
             gbRaza.Controls.Add(txtCamion);
@@ -195,9 +199,9 @@
             lblZona.Font = new Font("Microsoft Sans Serif", 10F);
             lblZona.Location = new Point(41, 117);
             lblZona.Name = "lblZona";
-            lblZona.Size = new Size(70, 17);
+            lblZona.Size = new Size(47, 17);
             lblZona.TabIndex = 2;
-            lblZona.Text = "Camiones";
+            lblZona.Text = "Marca";
             // 
             // txtCodeCamion
             // 
@@ -229,6 +233,24 @@
             gvCamiones.Name = "gvCamiones";
             gvCamiones.Size = new Size(905, 172);
             gvCamiones.TabIndex = 5;
+            // 
+            // lblPlaca
+            // 
+            lblPlaca.AutoSize = true;
+            lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPlaca.Location = new Point(41, 179);
+            lblPlaca.Name = "lblPlaca";
+            lblPlaca.Size = new Size(43, 17);
+            lblPlaca.TabIndex = 9;
+            lblPlaca.Text = "Placa";
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtPlaca.Location = new Point(41, 210);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(289, 22);
+            txtPlaca.TabIndex = 10;
             // 
             // Camiones
             // 
@@ -271,5 +293,7 @@
         private TextBox txtCodeCamion;
         private Label lblCode;
         private DataGridView gvCamiones;
+        private TextBox txtPlaca;
+        private Label lblPlaca;
     }
 }
