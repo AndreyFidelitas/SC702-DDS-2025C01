@@ -13,7 +13,7 @@ namespace InventZetaGas
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmInicio());
             // test del modulo de Zonas
-            Application.Run(new frmInicio());
+            Application.Run(new Zonas());
         }
     }
 }
