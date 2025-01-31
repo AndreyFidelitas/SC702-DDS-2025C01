@@ -11,6 +11,8 @@ namespace CapaEntidades
         public int CamionID { get; set; }
         public string CamionCode { get; set; }
         public string CamionName { get; set; }
+        public string CamionPlaca { get; set; }
+        public string CamionPesaje { get; set; }
         public DateTime CamionCreacion { get; set; }
         public DateTime CamionUpdate { get; set; }
         public DateTime CamionDelete { get; set; }
