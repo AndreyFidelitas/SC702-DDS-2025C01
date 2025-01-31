@@ -173,6 +173,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -184,6 +185,7 @@
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnModify
             // 
@@ -195,6 +197,7 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 
@@ -206,6 +209,7 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // txtCamion
             // 
@@ -255,6 +259,7 @@
             gvCamiones.Name = "gvCamiones";
             gvCamiones.Size = new Size(905, 172);
             gvCamiones.TabIndex = 5;
+            gvCamiones.CellContentClick += gvCamiones_CellContentClick;
             // 
             // txtPesaje
             // 

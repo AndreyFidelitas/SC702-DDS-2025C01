@@ -17,9 +17,38 @@ namespace InventZetaGas
             InitializeComponent();
         }
 
+        #region Metodos del formulario
         private void Camiones_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region MetodosGenerales
     }
 }

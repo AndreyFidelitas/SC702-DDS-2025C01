@@ -1,11 +1,15 @@
-﻿--exec SPMantenimientoTipoCilindro '','100 ml','1';
+﻿
+
+
+--exec SPMantenimientoTipoCilindro 'M0001','100 ml',1,'2';
 
 --SELECT * from TipoCilindro
 
 CREATE PROCEDURE [dbo].[SPMantenimientoTipoCilindro]
 (
     @TipoCilindroCode VARCHAR(5)	,
-    @TipoCilindroName VARCHAR(100)	,
+    @LoteLitraje VARCHAR(100)		,
+	@TipoCilindroStatus	bit			,
     @accion VARCHAR(50) OUTPUT
 )
 AS
@@ -13,9 +17,9 @@ BEGIN
     IF (@accion = '1') -- Insertar nuevo TipoCilindro
     BEGIN
 		
-		IF EXISTS (SELECT 1 FROM TipoCilindro WHERE TipoCilindroName = @TipoCilindroName)
+		IF EXISTS (SELECT 1 FROM TipoCilindro WHERE LoteLitraje = @LoteLitraje)
         BEGIN
-            SET @accion = 'Ya existe la mediada de cilindro: ' + @TipoCilindroName;
+            SET @accion = 'Ya existe la mediada de cilindro: ' + @LoteLitraje;
         END
         ELSE
         BEGIN
@@ -27,12 +31,14 @@ BEGIN
             INSERT INTO TipoCilindro 
             (
                 TipoCilindroCode,
-                TipoCilindroName
+                LoteLitraje		,
+				TipoCilindroStatus
             )
             VALUES 
             (
                 @codnuevo,
-                @TipoCilindroName
+                @LoteLitraje,
+				@TipoCilindroStatus
             );
 
             SET @accion = 'Se generó el código de la medida de cilindro: ' + @codnuevo;
@@ -41,21 +47,37 @@ BEGIN
     END
     ELSE IF (@accion = '2') -- Actualizar TipoCilindro existente
     BEGIN
-       -- Validar si el registro existe por TipoCilindroName
-        IF EXISTS (SELECT 1 FROM TipoCilindro WHERE TipoCilindroName = @TipoCilindroName)
+       -- Validar si el registro existe por LoteLitraje
+        IF EXISTS (SELECT 1 FROM TipoCilindro WHERE LoteLitraje = @LoteLitraje)
         BEGIN
             UPDATE TipoCilindro
             SET 
-                TipoCilindroName = @TipoCilindroName
-			from TipoCilindro t with(nolock)
+                LoteLitraje = @LoteLitraje,
+				TipoCilindroStatus=@TipoCilindroStatus
+			from 
+				TipoCilindro t with(nolock)
             WHERE 
-                 @TipoCilindroCode =  @TipoCilindroCode;
+                 TipoCilindroCode =  @TipoCilindroCode;
 
-            SET @accion = 'Se actualizó la: ' + @TipoCilindroName;
+            SET @accion = 'Se actualizó la: ' + @LoteLitraje;
         END
         ELSE
+		IF EXISTS (SELECT 1 FROM TipoCilindro WHERE TipoCilindroCode = @TipoCilindroCode)
         BEGIN
-            SET @accion = 'No se encontró la medida de cilindro"' + @TipoCilindroName + '".';
+            UPDATE TipoCilindro
+            SET 
+                LoteLitraje = @LoteLitraje,
+				TipoCilindroStatus=@TipoCilindroStatus
+			from 
+				TipoCilindro t with(nolock)
+            WHERE 
+                 TipoCilindroCode =  @TipoCilindroCode;
+
+            SET @accion = 'Se actualizó la: ' + @LoteLitraje;
+        END
+		else
+        BEGIN
+            SET @accion = 'No se encontró la medida de cilindro"' + @LoteLitraje + '".';
         END
     END
 END
