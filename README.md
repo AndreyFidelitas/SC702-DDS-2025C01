@@ -24,6 +24,9 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
 ## Diagrama de Tablas Version 2.0 SQL 🙇🏻 
 ![image](https://github.com/user-attachments/assets/6aa94a59-249e-4dab-a5c7-f64154ab0812)
 
+## Diagrama de Tablas Version 3.0 SQL 🙇🏻 Final Aprobada por supervision 
+![image](https://github.com/user-attachments/assets/680ae220-7a94-4260-b803-ff7230211cc2)
+
 
 
 ## Tecnologías 🛠
