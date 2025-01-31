@@ -32,6 +32,8 @@
             label2 = new Label();
             label1 = new Label();
             gbRaza = new GroupBox();
+            txtPlaca = new TextBox();
+            lblPlaca = new Label();
             groupBox2 = new GroupBox();
             rbtnInactive = new RadioButton();
             rbtnActive = new RadioButton();
@@ -45,8 +47,8 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
-            lblPlaca = new Label();
-            txtPlaca = new TextBox();
+            txtPesaje = new TextBox();
+            lblPesaje = new Label();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -80,6 +82,8 @@
             // gbRaza
             // 
             gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(txtPesaje);
+            gbRaza.Controls.Add(lblPesaje);
             gbRaza.Controls.Add(txtPlaca);
             gbRaza.Controls.Add(lblPlaca);
             gbRaza.Controls.Add(groupBox2);
@@ -91,16 +95,34 @@
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbRaza.Location = new Point(12, 37);
             gbRaza.Name = "gbRaza";
-            gbRaza.Size = new Size(905, 389);
+            gbRaza.Size = new Size(905, 400);
             gbRaza.TabIndex = 4;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtPlaca.Location = new Point(41, 210);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(289, 22);
+            txtPlaca.TabIndex = 10;
+            // 
+            // lblPlaca
+            // 
+            lblPlaca.AutoSize = true;
+            lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPlaca.Location = new Point(41, 179);
+            lblPlaca.Name = "lblPlaca";
+            lblPlaca.Size = new Size(43, 17);
+            lblPlaca.TabIndex = 9;
+            lblPlaca.Text = "Placa";
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(rbtnInactive);
             groupBox2.Controls.Add(rbtnActive);
-            groupBox2.Location = new Point(413, 38);
+            groupBox2.Location = new Point(393, 38);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(335, 129);
             groupBox2.TabIndex = 8;
@@ -135,9 +157,9 @@
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
             groupBox1.Controls.Add(btnNew);
-            groupBox1.Location = new Point(41, 257);
+            groupBox1.Location = new Point(41, 305);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(846, 91);
+            groupBox1.Size = new Size(846, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
@@ -234,23 +256,23 @@
             gvCamiones.Size = new Size(905, 172);
             gvCamiones.TabIndex = 5;
             // 
-            // lblPlaca
+            // txtPesaje
             // 
-            lblPlaca.AutoSize = true;
-            lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
-            lblPlaca.Location = new Point(41, 179);
-            lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(43, 17);
-            lblPlaca.TabIndex = 9;
-            lblPlaca.Text = "Placa";
+            txtPesaje.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtPesaje.Location = new Point(41, 277);
+            txtPesaje.Name = "txtPesaje";
+            txtPesaje.Size = new Size(289, 22);
+            txtPesaje.TabIndex = 12;
             // 
-            // txtPlaca
+            // lblPesaje
             // 
-            txtPlaca.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtPlaca.Location = new Point(41, 210);
-            txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(289, 22);
-            txtPlaca.TabIndex = 10;
+            lblPesaje.AutoSize = true;
+            lblPesaje.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPesaje.Location = new Point(41, 248);
+            lblPesaje.Name = "lblPesaje";
+            lblPesaje.Size = new Size(51, 17);
+            lblPesaje.TabIndex = 11;
+            lblPesaje.Text = "Pesaje";
             // 
             // Camiones
             // 
@@ -295,5 +317,7 @@
         private DataGridView gvCamiones;
         private TextBox txtPlaca;
         private Label lblPlaca;
+        private TextBox txtPesaje;
+        private Label lblPesaje;
     }
 }

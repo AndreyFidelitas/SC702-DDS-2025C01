@@ -1,12 +1,14 @@
 ﻿
---exec SPMantenimientoCamiones 'C0001','test camion1','234595',1,'2';
---select * from Camiones
+
+--exec SPMantenimientoCamiones 'C0001','test camion1','234595',,,1,'2';
+
 
 CREATE PROCEDURE [dbo].[SPMantenimientoCamiones]
 (
     @CamionCode VARCHAR(5)			,
     @CamionName VARCHAR(100)		,
 	@CamionPlaca varchar(10)		,
+	@CamionPesaje varchar(50)		,
     @CamionStatus BIT				,
     @accion VARCHAR(50) OUTPUT
 )
@@ -31,6 +33,7 @@ BEGIN
                 CamionCode,
                 CamionName,
 				CamionPlaca,
+				CamionPesaje,
                 CamionCreacion,
                 CamionStatus
             )
@@ -39,6 +42,7 @@ BEGIN
                 @codnuevo,
                 @CamionName,
 				@CamionPlaca,
+				@CamionPesaje,
                 GETDATE(),
                 @CamionStatus
             );
@@ -55,6 +59,7 @@ BEGIN
             SET 
                 c.CamionName = @CamionName,
 				c.CamionPlaca= @CamionPlaca,
+				c.CamionPesaje=@CamionPesaje,
                 c.CamionStatus = @CamionStatus,
                 c.CamionUpdate = GETDATE()
             FROM 
