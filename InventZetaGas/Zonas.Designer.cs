@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zonas));
             gbRaza = new GroupBox();
+            txtBuscar = new TextBox();
+            label4 = new Label();
+            textBox1 = new TextBox();
             groupBox2 = new GroupBox();
             rbtnInactive = new RadioButton();
             rbtnActive = new RadioButton();
@@ -56,6 +59,9 @@
             // gbRaza
             // 
             gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(txtBuscar);
+            gbRaza.Controls.Add(label4);
+            gbRaza.Controls.Add(textBox1);
             gbRaza.Controls.Add(groupBox2);
             gbRaza.Controls.Add(groupBox1);
             gbRaza.Controls.Add(cbProvincias);
@@ -67,10 +73,39 @@
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbRaza.Location = new Point(12, 40);
             gbRaza.Name = "gbRaza";
-            gbRaza.Size = new Size(905, 389);
+            gbRaza.Size = new Size(905, 414);
             gbRaza.TabIndex = 0;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Enabled = false;
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtBuscar.Location = new Point(148, 374);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(643, 22);
+            txtBuscar.TabIndex = 11;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10F);
+            label4.Location = new Point(41, 377);
+            label4.Name = "label4";
+            label4.Size = new Size(89, 17);
+            label4.TabIndex = 10;
+            label4.Text = "Código Zona";
+            label4.Click += label4_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox1.Location = new Point(502, 213);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(289, 22);
+            textBox1.TabIndex = 9;
             // 
             // groupBox2
             // 
@@ -305,5 +340,8 @@
         private Label label1;
         internal Label label2;
         private Button button1;
+        private TextBox textBox1;
+        private TextBox txtBuscar;
+        private Label label4;
     }
 }

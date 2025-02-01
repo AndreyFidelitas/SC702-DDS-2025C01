@@ -34,7 +34,7 @@ namespace InventZetaGas
         private void Zonas_Load(object sender, EventArgs e)
         {
             CargarDatos();
-            CargarListaProvincias();  
+            CargarListaProvincias();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -100,6 +100,12 @@ namespace InventZetaGas
             }
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         //*****************************************************************
         #region Metodos Generales 
         //metodo para limpiar los datos 
@@ -128,7 +134,7 @@ namespace InventZetaGas
         }
 
         //metodo para cargar las provincias
-        public void CargarListaProvincias() 
+        public void CargarListaProvincias()
         {
 
             cbProvincias.DataSource = ZonasN.ListaProvincias();
@@ -139,7 +145,7 @@ namespace InventZetaGas
         //metodo para cargar los datos de SQL
         public void CargarDatos()
         {
-            
+
             gvZonas.ReadOnly = true;
             gvZonas.DataSource = ZonasN.ListaZona();
         }
@@ -148,12 +154,20 @@ namespace InventZetaGas
         {
             ZonasE.ZonasCode = txtCodeZona.Text;
             ZonasE.ZonasName = txtZona.Text;
-            ZonasE.ProvinciaID = (cbProvincias.SelectedIndex +1);
+            ZonasE.ProvinciaID = (cbProvincias.SelectedIndex + 1);
             g.accion = accion;
-            g.msj = ZonasN.MantenimientoZona(ZonasE,g.accion);
+            g.msj = ZonasN.MantenimientoZona(ZonasE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 
+
+        //private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if(e.KeyChar ==(char)50)
+        //    {
+        //        DataView dataView = ZonasN.ListaZona();
+        //    }
+        //}
     }
 }

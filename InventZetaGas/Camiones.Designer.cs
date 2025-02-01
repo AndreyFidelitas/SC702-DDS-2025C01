@@ -32,6 +32,8 @@
             label2 = new Label();
             label1 = new Label();
             gbRaza = new GroupBox();
+            txtPesaje = new TextBox();
+            lblPesaje = new Label();
             txtPlaca = new TextBox();
             lblPlaca = new Label();
             groupBox2 = new GroupBox();
@@ -47,8 +49,6 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
-            txtPesaje = new TextBox();
-            lblPesaje = new Label();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -99,6 +99,24 @@
             gbRaza.TabIndex = 4;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
+            // 
+            // txtPesaje
+            // 
+            txtPesaje.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtPesaje.Location = new Point(41, 277);
+            txtPesaje.Name = "txtPesaje";
+            txtPesaje.Size = new Size(289, 22);
+            txtPesaje.TabIndex = 12;
+            // 
+            // lblPesaje
+            // 
+            lblPesaje.AutoSize = true;
+            lblPesaje.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPesaje.Location = new Point(41, 248);
+            lblPesaje.Name = "lblPesaje";
+            lblPesaje.Size = new Size(51, 17);
+            lblPesaje.TabIndex = 11;
+            lblPesaje.Text = "Pesaje";
             // 
             // txtPlaca
             // 
@@ -260,24 +278,6 @@
             gvCamiones.Size = new Size(905, 172);
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
-            // 
-            // txtPesaje
-            // 
-            txtPesaje.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtPesaje.Location = new Point(41, 277);
-            txtPesaje.Name = "txtPesaje";
-            txtPesaje.Size = new Size(289, 22);
-            txtPesaje.TabIndex = 12;
-            // 
-            // lblPesaje
-            // 
-            lblPesaje.AutoSize = true;
-            lblPesaje.Font = new Font("Microsoft Sans Serif", 10F);
-            lblPesaje.Location = new Point(41, 248);
-            lblPesaje.Name = "lblPesaje";
-            lblPesaje.Size = new Size(51, 17);
-            lblPesaje.TabIndex = 11;
-            lblPesaje.Text = "Pesaje";
             // 
             // Camiones
             // 
