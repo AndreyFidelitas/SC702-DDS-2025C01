@@ -19,6 +19,7 @@ namespace InventZetaGas
         ZonasN ZonasN = new ZonasN();
         ZonasE ZonasE = new ZonasE();
         Generales g = new Generales();
+        private DataView dataView;
 
 
         public Zonas()
@@ -162,12 +163,15 @@ namespace InventZetaGas
         #endregion
 
 
-        //private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if(e.KeyChar ==(char)50)
-        //    {
-        //        DataView dataView = ZonasN.ListaZona();
-        //    }
-        //}
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)50)
+            {
+                DataTable dt = ZonasN.ListaZona(); // Asegúrate de que ListaZona() devuelve un DataTable
+                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
+                gvZonas.DataSource = dataView;
+            }
+        }
     }
 }
