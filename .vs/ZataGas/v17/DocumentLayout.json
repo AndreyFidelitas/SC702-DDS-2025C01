@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\inventzetagas\\zonas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\inventzetagas\\zonas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}|CapaNegocios\\CapaNegocios.csproj|d:\\andrey\\05 fidelitas\\sc702-dds-2025c01\\capanegocios\\zonasn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,11 +82,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Zonas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Zonas.cs",
+              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "InventZetaGas\\Zonas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T04:41:37.86Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Camiones.cs",
+              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Camiones.cs",
+              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs",
+              "RelativeToolTip": "InventZetaGas\\Camiones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T04:41:07.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Zonas.Designer.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.Designer.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Zonas.Designer.cs",
@@ -95,44 +128,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Zonas.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Zonas.cs",
               "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
               "RelativeToolTip": "InventZetaGas\\Zonas.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAKIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAALAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T05:11:27.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Generales.cs",
-              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaEntidades\\Generales.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Generales.cs",
-              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaEntidades\\Generales.cs",
-              "RelativeToolTip": "CapaEntidades\\Generales.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T03:25:44.191Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ZonasN.cs",
-              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaNegocios\\ZonasN.cs",
-              "RelativeDocumentMoniker": "CapaNegocios\\ZonasN.cs",
-              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaNegocios\\ZonasN.cs",
-              "RelativeToolTip": "CapaNegocios\\ZonasN.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T03:25:17.354Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ZonasD.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaDatos\\ZonasD.cs",
               "RelativeDocumentMoniker": "CapaDatos\\ZonasD.cs",
@@ -144,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ProvinciaE.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaEntidades\\ProvinciaE.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\ProvinciaE.cs",
@@ -156,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "SPMantenimientoProvincias.sql",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPMantenimientoProvincias.sql",
               "RelativeDocumentMoniker": "BD\\dbo\\Stored Procedures\\SPMantenimientoProvincias.sql",
@@ -167,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "SPListaZonas.sql",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPListaZonas.sql",
               "RelativeDocumentMoniker": "BD\\dbo\\Stored Procedures\\SPListaZonas.sql",
@@ -178,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ConexionDB.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaDatos\\SQL\\ConexionDB.cs",
               "RelativeDocumentMoniker": "CapaDatos\\SQL\\ConexionDB.cs",
@@ -190,30 +199,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Zonas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
-              "RelativeDocumentMoniker": "InventZetaGas\\Zonas.cs",
-              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "InventZetaGas\\Zonas.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T05:00:44.374Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Camiones.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Camiones.cs",
-              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs [Dise\u00F1o]",
+              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs [Dise\u00F1o]",
+              "RelativeToolTip": "InventZetaGas\\Camiones.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T20:27:40.543Z"
+              "WhenOpened": "2025-02-01T20:27:40.543Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ZonasN.cs",
+              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaNegocios\\ZonasN.cs",
+              "RelativeDocumentMoniker": "CapaNegocios\\ZonasN.cs",
+              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaNegocios\\ZonasN.cs",
+              "RelativeToolTip": "CapaNegocios\\ZonasN.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T03:25:17.354Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "Generales.cs",
+              "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaEntidades\\Generales.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\Generales.cs",
+              "ToolTip": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaEntidades\\Generales.cs",
+              "RelativeToolTip": "CapaEntidades\\Generales.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T03:25:44.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ZonasE.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaEntidades\\ZonasE.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\ZonasE.cs",
@@ -225,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\Program.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Program.cs",
@@ -237,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "SPMantenimientoTipoCilindro.sql",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPMantenimientoTipoCilindro.sql",
               "RelativeDocumentMoniker": "BD\\dbo\\Stored Procedures\\SPMantenimientoTipoCilindro.sql",
@@ -248,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CapaDatos.csproj",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\CapaDatos\\CapaDatos.csproj",
               "RelativeDocumentMoniker": "CapaDatos\\CapaDatos.csproj",
@@ -260,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "SPMantenimientoZonas.sql",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPMantenimientoZonas.sql",
               "RelativeDocumentMoniker": "BD\\dbo\\Stored Procedures\\SPMantenimientoZonas.sql",
@@ -271,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "frmInicio.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Andrey\\05 Fidelitas\\SC702-DDS-2025C01\\InventZetaGas\\frmInicio.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\frmInicio.cs",
