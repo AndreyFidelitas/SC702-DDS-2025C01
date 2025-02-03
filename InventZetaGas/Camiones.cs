@@ -62,6 +62,7 @@ namespace InventZetaGas
             // Pregunta si desea modificar el dato.
             if (MessageBox.Show($"¿Deseas modificar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+                EstadosModificacion();
                 Mantenimiento("2");
                 Limpiar();
             }
@@ -144,6 +145,20 @@ namespace InventZetaGas
             {
                 rbtnActive.Checked = false;
                 camionE.CamionStatus = rbtnInactive.Checked;
+            }
+        }
+
+        public void EstadosModificacion()
+        {
+            if (rbtnActive.Checked)
+            {
+                rbtnInactive.Checked = false;
+                camionE.CamionStatus = rbtnActive.Checked;
+            }
+            else if (rbtnInactive.Checked)
+            {
+                rbtnActive.Checked = false;
+                camionE.CamionStatus = rbtnActive.Checked;
             }
         }
 

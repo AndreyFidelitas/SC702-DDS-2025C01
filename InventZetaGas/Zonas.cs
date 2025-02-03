@@ -61,6 +61,7 @@ namespace InventZetaGas
             // Pregunta si desea modificar el dato.
             if (MessageBox.Show($"¿Deseas modificar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+                EstadosModificacion();
                 Mantenimiento("2");
                 Limpiar();
             }
@@ -142,6 +143,21 @@ namespace InventZetaGas
                 ZonasE.ZonasEstado = rbtnInactive.Checked;
             }
         }
+
+        public void EstadosModificacion()
+        {
+            if (rbtnActive.Checked)
+            {
+                rbtnInactive.Checked = false;
+                ZonasE.ZonasEstado = rbtnActive.Checked;
+            }
+            else if (rbtnInactive.Checked)
+            {
+                rbtnActive.Checked = false;
+                ZonasE.ZonasEstado = rbtnActive.Checked;
+            }
+        }
+
 
         //metodo para cargar las provincias
         public void CargarListaProvincias()

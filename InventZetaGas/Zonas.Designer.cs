@@ -269,7 +269,7 @@
             gvZonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvZonas.Location = new Point(12, 475);
             gvZonas.Name = "gvZonas";
-            gvZonas.Size = new Size(905, 172);
+            gvZonas.Size = new Size(974, 211);
             gvZonas.TabIndex = 1;
             gvZonas.CellContentClick += gvZonas_CellContentClick;
             // 
@@ -307,7 +307,6 @@
             Controls.Add(label1);
             Controls.Add(gvZonas);
             Controls.Add(gbRaza);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Zonas";
             Text = "Zonas";
             Load += Zonas_Load;

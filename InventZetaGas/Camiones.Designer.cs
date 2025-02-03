@@ -315,7 +315,6 @@
             Controls.Add(gbRaza);
             Controls.Add(label1);
             Controls.Add(label2);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Camiones";
             Text = "Camiones";
             Load += Camiones_Load;
