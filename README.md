@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7405e7db-047f-479e-8679-75d901e73d6e)# Inventarios de estacion de Gas Z (InventZetaGas)
+# Inventarios de estacion de Gas Z (InventZetaGas)
 ![image](https://github.com/user-attachments/assets/6ee66cc3-3f6b-4d3d-84a4-13b5fa88da36)
 
 
@@ -42,7 +42,6 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Inicio
 ![image](https://github.com/user-attachments/assets/636b22aa-e81b-4fa8-abf0-126e921ff63c)
 
-
 - Modulo de Zonas
 ![image](https://github.com/user-attachments/assets/a6ade586-52ef-4409-bd9a-9e16ce4c581f)
 
@@ -51,6 +50,10 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 
 - Modulo de Roles
 ![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
+
+- Modulo de Inicio de Sesion
+![image](https://github.com/user-attachments/assets/8b2552dc-9600-402d-b260-c583aad87814)
+
 
 # Reportes de BI
 ![image](https://github.com/user-attachments/assets/f4be2696-d737-45c5-a75f-cc08a9f72668)
