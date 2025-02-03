@@ -173,5 +173,10 @@ namespace InventZetaGas
                 gvZonas.DataSource = dataView;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

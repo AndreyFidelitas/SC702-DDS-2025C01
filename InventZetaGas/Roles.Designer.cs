@@ -44,6 +44,7 @@
             txtCodeRol = new TextBox();
             lblCode = new Label();
             gvRoles = new DataGridView();
+            label2 = new Label();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -99,6 +100,7 @@
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
             rbtnInactive.UseVisualStyleBackColor = true;
+            rbtnInactive.CheckedChanged += rbtnInactive_CheckedChanged;
             // 
             // rbtnActive
             // 
@@ -110,6 +112,7 @@
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
             rbtnActive.UseVisualStyleBackColor = true;
+            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -133,6 +136,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -144,6 +148,7 @@
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnModify
             // 
@@ -155,6 +160,7 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 
@@ -166,6 +172,7 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // txtRol
             // 
@@ -215,12 +222,28 @@
             gvRoles.Name = "gvRoles";
             gvRoles.Size = new Size(905, 172);
             gvRoles.TabIndex = 6;
+            gvRoles.CellContentClick += gvRoles_CellContentClick;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Cursor = Cursors.Hand;
+            label2.Font = new Font("Microsoft Sans Serif", 12F);
+            label2.ForeColor = Color.DimGray;
+            label2.Location = new Point(22, 9);
+            label2.Name = "label2";
+            label2.Padding = new Padding(3, 0, 3, 0);
+            label2.Size = new Size(26, 20);
+            label2.TabIndex = 7;
+            label2.Text = "X";
+            label2.Click += label2_Click;
             // 
             // Roles
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1103, 729);
+            Controls.Add(label2);
             Controls.Add(gvRoles);
             Controls.Add(gbRaza);
             Controls.Add(label1);
@@ -254,5 +277,6 @@
         private TextBox txtCodeRol;
         private Label lblCode;
         private DataGridView gvRoles;
+        internal Label label2;
     }
 }

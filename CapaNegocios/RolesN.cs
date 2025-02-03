@@ -19,7 +19,7 @@ namespace CapaNegocios
             return rolesD.MantenimientoRoles(roles,accion);
         }
 
-        public DataTable ListaUsuario()
+        public DataTable ListaRoles()
         {
             return rolesD.ListarRoles();
         }

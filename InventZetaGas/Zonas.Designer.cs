@@ -295,6 +295,7 @@
             label2.Size = new Size(26, 20);
             label2.TabIndex = 1;
             label2.Text = "X";
+            label2.Click += label2_Click;
             // 
             // Zonas
             // 
