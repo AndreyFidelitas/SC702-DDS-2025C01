@@ -140,5 +140,10 @@ namespace InventZetaGas
         {
             this.Close();
         }
+
+        private void Roles_Load(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
     }
 }

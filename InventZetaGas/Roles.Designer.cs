@@ -250,6 +250,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Roles";
             Text = "Roles";
+            Load += Roles_Load;
             gbRaza.ResumeLayout(false);
             gbRaza.PerformLayout();
             groupBox2.ResumeLayout(false);
