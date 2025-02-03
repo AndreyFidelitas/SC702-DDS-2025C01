@@ -49,8 +49,9 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 ![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
 
 
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
+# Material de Apoyo
+Material que tuvimos en sesion con los supervisores de la empresa
+![image](https://github.com/user-attachments/assets/398e14be-a39f-4de7-933e-0158722d25bd)
 
 ## Autores ✒️
 * [Daniel Rojas Fuentes](drojas00255@ufide.ac.cr)
