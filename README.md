@@ -1,4 +1,4 @@
-# Inventarios de estacion de Gas Z (InventZetaGas)
+![image](https://github.com/user-attachments/assets/7405e7db-047f-479e-8679-75d901e73d6e)# Inventarios de estacion de Gas Z (InventZetaGas)
 ![image](https://github.com/user-attachments/assets/6ee66cc3-3f6b-4d3d-84a4-13b5fa88da36)
 
 
@@ -58,9 +58,13 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 ![image](https://github.com/user-attachments/assets/742bc774-8b9f-4531-a9c0-e47e89b8ce6f)
 
 
-
-Material que tuvimos en sesion con los supervisores de la empresa
+# Material de Apoyo
+- Material que tuvimos en sesion con los supervisores de la empresa
 ![image](https://github.com/user-attachments/assets/398e14be-a39f-4de7-933e-0158722d25bd)
+
+- Guia para realizar el proyecto.
+![image](https://github.com/user-attachments/assets/7a462c41-8a06-414b-afe9-ace0269d2293)
+
 
 ## Autores ✒️
 * [Daniel Rojas Fuentes](drojas00255@ufide.ac.cr)
