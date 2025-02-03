@@ -39,7 +39,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
 ## Vista previa del proyecto
 Si quieres hechas un vistazo al proyecto, te recomiendo:
 
-- Modulo de Zonas
+- Modulo de Inicio
 ![image](https://github.com/user-attachments/assets/636b22aa-e81b-4fa8-abf0-126e921ff63c)
 
 
