@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlayerUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace InventZetaGas
         public frmInicioSesion()
         {
             InitializeComponent();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPaswword.Text) && !string.IsNullOrEmpty(txtUser.Text))
+            {
+                Inicio frmInicio = new Inicio();
+                frmInicio.Show();
+
+                this.Hide();
+            }
+            else
+                MessageBox.Show("No puede quedar los campos vacios", "Campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
