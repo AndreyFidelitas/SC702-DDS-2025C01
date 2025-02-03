@@ -1,4 +1,5 @@
 ﻿
+
 CREATE PROCEDURE [dbo].[SPListaCamiones]
 AS
 BEGIN
@@ -6,7 +7,7 @@ BEGIN
 
     SELECT 
         c.CamionCode										[Camión ID],
-        c.CamionName										[Nombre Camión]		,
+        c.CamionName										[Marca]				,
 		c.CamionPlaca										[Placa]				,
 		c.CamionPesaje										[Pesaje Camion]		,
         ISNULL(CONVERT(VARCHAR, c.CamionCreacion, 13), '-') [Fecha Creación]	,

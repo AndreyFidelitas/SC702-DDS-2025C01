@@ -1,6 +1,6 @@
 ﻿
 
---exec SPMantenimientoRoles '','Transportista',1,'1'
+--exec SPMantenimientoRoles '','Transportista2',1,'1'
 --select * from Roles
 
 
@@ -75,19 +75,17 @@ BEGIN
     BEGIN
         IF EXISTS (SELECT 1 FROM Roles WHERE @RoleCode = @RoleCode)
         BEGIN
-            -- Verificar si el rol está asociado a algún usuario
-            IF EXISTS (SELECT 1 FROM Usuarios WHERE RoleID = @RoleId)
+   --         -- Verificar si el rol está asociado a algún usuario
+   --         IF EXISTS (SELECT 1 FROM Usuarios WHERE RoleID = @RoleId)
 				
-				--set @RoleID = select
-				--				from Roles
-								
-
-			BEGIN
-                SET @accion = 'No se puede eliminar el rol con ID "' + CAST(@RoleId AS VARCHAR) + '" porque está asociado a uno o más usuarios.';
-                PRINT @accion;
-            END
-            ELSE
-            BEGIN
+			--	--set @RoleID = select
+			--	--				from Roles							
+			--BEGIN
+   --             SET @accion = 'No se puede eliminar el rol con ID "' + CAST(@RoleId AS VARCHAR) + '" porque está asociado a uno o más usuarios.';
+   --             PRINT @accion;
+   --         END
+   --         ELSE
+   --         BEGIN
                 UPDATE Roles
                 SET 
                     RoleStatus = 0
@@ -96,7 +94,7 @@ BEGIN
 
                 SET @accion = 'Se eliminó el rol con ID: ' + CAST(@RoleCode AS VARCHAR);
                 PRINT @accion;
-            END
+   --         END
         END
         ELSE
         BEGIN

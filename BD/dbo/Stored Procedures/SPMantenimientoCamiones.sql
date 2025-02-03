@@ -16,7 +16,7 @@ AS
 BEGIN
     IF (@accion = '1') -- Insertar nuevo camión
     BEGIN
-        IF EXISTS (SELECT 1 FROM Camiones WHERE CamionName = @CamionName)
+        IF EXISTS (SELECT 1 FROM Camiones WHERE CamionPlaca = @CamionPlaca)
         BEGIN
             SET @accion = 'El camión "' + @CamionName + '" ya existe.';
             PRINT @accion;
@@ -53,7 +53,7 @@ BEGIN
     END
     ELSE IF (@accion = '2') -- Actualizar camión existente
     BEGIN
-        IF EXISTS (SELECT 1 FROM Camiones WHERE CamionCode = @CamionCode)
+        IF EXISTS (SELECT 1 FROM Camiones WHERE CamionPlaca = @CamionPlaca)
         BEGIN
             UPDATE c
             SET 
@@ -78,7 +78,7 @@ BEGIN
     END
     ELSE IF (@accion = '3') -- Eliminar camión
     BEGIN
-        IF EXISTS (SELECT 1 FROM Camiones WHERE CamionCode = @CamionCode)
+        IF EXISTS (SELECT 1 FROM Camiones WHERE CamionPlaca = @CamionPlaca)
         BEGIN
             UPDATE c
             SET 
