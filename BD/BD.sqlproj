@@ -82,5 +82,10 @@
     <Build Include="dbo\Tables\InventariosEncabezado.sql" />
     <Build Include="dbo\Tables\InventariosAsignacion.sql" />
     <Build Include="dbo\Tables\InventarioDetalle.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoUsuarios.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoRoles.sql" />
+    <Build Include="dbo\Stored Procedures\SPLogin.sql" />
+    <Build Include="dbo\Stored Procedures\SPListaUsuarios.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GenerarClaseCSharp_Usuarios.sql" />
   </ItemGroup>
 </Project>
