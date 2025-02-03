@@ -98,6 +98,15 @@ namespace InventZetaGas
                 txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
                 txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
                 cbProvincias.Text = row.Cells["Provincia"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
             }
         }
 

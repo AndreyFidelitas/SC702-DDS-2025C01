@@ -36,7 +36,7 @@ namespace CapaDatos
 
                 Generales g = new Generales();
                 g.accion = accion;
-                using (var cmd = new SqlCommand("SPMantenimientoRolesE", _conexion.AbrirConexion()))
+                using (var cmd = new SqlCommand("SPMantenimientoRoles", _conexion.AbrirConexion()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@RoleCode", RolesE.RoleCode);

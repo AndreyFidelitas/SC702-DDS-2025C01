@@ -80,9 +80,6 @@ namespace InventZetaGas
         {
             if (e.RowIndex >= 0)
             {
-
-
-
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvCamiones.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
@@ -119,6 +116,7 @@ namespace InventZetaGas
         //metodo para cargar la lista de camiones
         private void CargarDatos()
         {
+            gvCamiones.ReadOnly = true;
             gvCamiones.DataSource = camionN.ListaCamion();
         }
         //************************************************

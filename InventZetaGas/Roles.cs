@@ -36,6 +36,16 @@ namespace InventZetaGas
                 // Asigna los valores de las celdas a los TextBox
                 txtCodeRol.Text = row.Cells["Codigo Rol"].Value?.ToString();
                 txtRol.Text = row.Cells["Rol"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
             }
         }
 
@@ -64,6 +74,21 @@ namespace InventZetaGas
                 RolesE.RoleStatus = rbtnInactive.Checked;
             }
         }
+
+        public void EstadosModificacion()
+        {
+            if (rbtnActive.Checked)
+            {
+                rbtnInactive.Checked = false;
+                RolesE.RoleStatus = rbtnActive.Checked;
+            }
+            else if (rbtnInactive.Checked)
+            {
+                rbtnActive.Checked = false;
+                RolesE.RoleStatus = rbtnActive.Checked;
+            }
+        }
+
 
         //metodo para cargar los datos de SQL
         public void CargarDatos()
@@ -111,6 +136,7 @@ namespace InventZetaGas
             // Pregunta si desea modificar el dato.
             if (MessageBox.Show($"¿Deseas modificar {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+                EstadosModificacion();
                 Mantenimiento("2");
                 Limpiar();
             }
