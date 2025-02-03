@@ -32,6 +32,8 @@
             label2 = new Label();
             label1 = new Label();
             gbRaza = new GroupBox();
+            txtBuscar = new TextBox();
+            label4 = new Label();
             txtPesaje = new TextBox();
             lblPesaje = new Label();
             txtPlaca = new TextBox();
@@ -49,8 +51,6 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
-            txtBuscar = new TextBox();
-            label4 = new Label();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -104,6 +104,25 @@
             gbRaza.TabIndex = 4;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtBuscar.Location = new Point(148, 397);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(643, 22);
+            txtBuscar.TabIndex = 14;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10F);
+            label4.Location = new Point(41, 400);
+            label4.Name = "label4";
+            label4.Size = new Size(52, 17);
+            label4.TabIndex = 13;
+            label4.Text = "Buscar";
             // 
             // txtPesaje
             // 
@@ -286,26 +305,6 @@
             gvCamiones.Size = new Size(905, 172);
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Enabled = false;
-            txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtBuscar.Location = new Point(148, 397);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(643, 22);
-            txtBuscar.TabIndex = 14;
-            txtBuscar.KeyPress += txtBuscar_KeyPress;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(41, 400);
-            label4.Name = "label4";
-            label4.Size = new Size(52, 17);
-            label4.TabIndex = 13;
-            label4.Text = "Buscar";
             // 
             // Camiones
             // 

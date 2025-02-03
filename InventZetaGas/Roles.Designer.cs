@@ -64,6 +64,7 @@
             // 
             // gbRaza
             // 
+            gbRaza.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             gbRaza.BackColor = Color.White;
             gbRaza.Controls.Add(groupBox2);
             gbRaza.Controls.Add(groupBox1);
@@ -74,7 +75,7 @@
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbRaza.Location = new Point(22, 48);
             gbRaza.Name = "gbRaza";
-            gbRaza.Size = new Size(905, 392);
+            gbRaza.Size = new Size(874, 392);
             gbRaza.TabIndex = 5;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
@@ -85,7 +86,7 @@
             groupBox2.Controls.Add(rbtnActive);
             groupBox2.Location = new Point(393, 38);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(335, 129);
+            groupBox2.Size = new Size(245, 129);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Estado";
@@ -116,23 +117,25 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
             groupBox1.Controls.Add(btnNew);
-            groupBox1.Location = new Point(41, 305);
+            groupBox1.Location = new Point(15, 298);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(846, 77);
+            groupBox1.Size = new Size(760, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
             // btnDelete
             // 
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(582, 21);
+            btnDelete.Location = new Point(480, 21);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(158, 43);
+            btnDelete.Size = new Size(143, 43);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
@@ -140,11 +143,12 @@
             // 
             // btnAdd
             // 
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdd.Location = new Point(209, 21);
+            btnAdd.Location = new Point(160, 21);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(158, 43);
+            btnAdd.Size = new Size(137, 43);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
@@ -152,9 +156,10 @@
             // 
             // btnModify
             // 
+            btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnModify.Image = (Image)resources.GetObject("btnModify.Image");
             btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(391, 21);
+            btnModify.Location = new Point(307, 21);
             btnModify.Name = "btnModify";
             btnModify.Size = new Size(158, 43);
             btnModify.TabIndex = 1;
@@ -164,11 +169,12 @@
             // 
             // btnNew
             // 
+            btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnNew.Image = (Image)resources.GetObject("btnNew.Image");
             btnNew.ImageAlign = ContentAlignment.MiddleLeft;
             btnNew.Location = new Point(18, 21);
             btnNew.Name = "btnNew";
-            btnNew.Size = new Size(158, 43);
+            btnNew.Size = new Size(124, 43);
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
@@ -216,11 +222,12 @@
             gvRoles.AllowUserToAddRows = false;
             gvRoles.AllowUserToDeleteRows = false;
             gvRoles.AllowUserToOrderColumns = true;
+            gvRoles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gvRoles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvRoles.Location = new Point(22, 455);
             gvRoles.Name = "gvRoles";
-            gvRoles.Size = new Size(905, 172);
+            gvRoles.Size = new Size(905, 244);
             gvRoles.TabIndex = 6;
             gvRoles.CellContentClick += gvRoles_CellContentClick;
             // 
@@ -247,7 +254,6 @@
             Controls.Add(gvRoles);
             Controls.Add(gbRaza);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Roles";
             Text = "Roles";
             Load += Roles_Load;

@@ -42,7 +42,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@CamionCode", camiones.CamionCode);
                     cmd.Parameters.AddWithValue("@CamionName", camiones.CamionName);
                     cmd.Parameters.AddWithValue("@CamionPlaca", camiones.CamionPlaca);
-                    cmd.Parameters.AddWithValue("@CamionPesaje", camiones.CamionStatus);
+                    cmd.Parameters.AddWithValue("@CamionPesaje", camiones.CamionPesaje);
+                    cmd.Parameters.AddWithValue("@CamionStatus", camiones.CamionStatus);
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();

@@ -264,6 +264,7 @@
             gvZonas.AllowUserToAddRows = false;
             gvZonas.AllowUserToDeleteRows = false;
             gvZonas.AllowUserToOrderColumns = true;
+            gvZonas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gvZonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvZonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvZonas.Location = new Point(12, 475);

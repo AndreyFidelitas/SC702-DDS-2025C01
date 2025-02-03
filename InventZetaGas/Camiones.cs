@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocios;
 using CapaEntidades;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using System.Numerics;
 
 namespace InventZetaGas
 {
@@ -77,13 +80,26 @@ namespace InventZetaGas
         {
             if (e.RowIndex >= 0)
             {
+
+
+
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvCamiones.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
-                txtCodeCamion.Text = row.Cells["Zona ID"].Value?.ToString();
-                txtCamion.Text = row.Cells["Nombre Zona"].Value?.ToString();
-                txtPesaje.Text = row.Cells["Provincia"].Value?.ToString();
-                txtPlaca.Text = row.Cells["Provincia"].Value?.ToString();
+                txtCodeCamion.Text = row.Cells["Camión ID"].Value?.ToString();
+                txtCamion.Text = row.Cells["Marca"].Value?.ToString();
+                txtPesaje.Text = row.Cells["Pesaje Camion"].Value?.ToString();
+                txtPlaca.Text = row.Cells["Placa"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                   rbtnInactive.Checked = true;
+                }
             }
         }
 
@@ -161,6 +177,8 @@ namespace InventZetaGas
                 DataTable dt = camionN.ListaCamion(); // Asegúrate de que ListaZona() devuelve un DataTable
                 dataView = dt.DefaultView; // Obtiene el DataView del DataTable
                 gvCamiones.DataSource = dataView;
+                string filtro = "Nombre LIKE '%Zeta%'"; // Ajusta el criterio de búsqueda
+                dataView.RowFilter = filtro;
             }
         }
     }
