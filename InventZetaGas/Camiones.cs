@@ -152,5 +152,16 @@ namespace InventZetaGas
         {
             this.Close();
         }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)50)
+            {
+                DataTable dt = camionN.ListaCamion(); // Asegúrate de que ListaZona() devuelve un DataTable
+                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
+                gvCamiones.DataSource = dataView;
+            }
+        }
     }
 }

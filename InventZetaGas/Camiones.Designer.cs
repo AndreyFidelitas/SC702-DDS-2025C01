@@ -49,6 +49,8 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
+            txtBuscar = new TextBox();
+            label4 = new Label();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -83,6 +85,8 @@
             // gbRaza
             // 
             gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(txtBuscar);
+            gbRaza.Controls.Add(label4);
             gbRaza.Controls.Add(txtPesaje);
             gbRaza.Controls.Add(lblPesaje);
             gbRaza.Controls.Add(txtPlaca);
@@ -96,7 +100,7 @@
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbRaza.Location = new Point(12, 37);
             gbRaza.Name = "gbRaza";
-            gbRaza.Size = new Size(905, 392);
+            gbRaza.Size = new Size(905, 430);
             gbRaza.TabIndex = 4;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
@@ -283,6 +287,26 @@
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
             // 
+            // txtBuscar
+            // 
+            txtBuscar.Enabled = false;
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtBuscar.Location = new Point(148, 397);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(643, 22);
+            txtBuscar.TabIndex = 14;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10F);
+            label4.Location = new Point(41, 400);
+            label4.Name = "label4";
+            label4.Size = new Size(52, 17);
+            label4.TabIndex = 13;
+            label4.Text = "Buscar";
+            // 
             // Camiones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -328,5 +352,7 @@
         private Label lblPlaca;
         private TextBox txtPesaje;
         private Label lblPesaje;
+        private TextBox txtBuscar;
+        private Label label4;
     }
 }
