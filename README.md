@@ -52,8 +52,13 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Roles
 ![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
 
+# Reportes de BI
+![image](https://github.com/user-attachments/assets/f4be2696-d737-45c5-a75f-cc08a9f72668)
+![image](https://github.com/user-attachments/assets/a47b34d1-f6d5-48f4-80bf-5150bdfebddb)
+![image](https://github.com/user-attachments/assets/742bc774-8b9f-4531-a9c0-e47e89b8ce6f)
 
-# Material de Apoyo
+
+
 Material que tuvimos en sesion con los supervisores de la empresa
 ![image](https://github.com/user-attachments/assets/398e14be-a39f-4de7-933e-0158722d25bd)
 
