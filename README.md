@@ -45,6 +45,9 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Camiones
 ![image](https://github.com/user-attachments/assets/92af550a-b71c-4c8d-b56c-67b6e0adff17)
 
+- Modulo de Roles
+![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
+
 
 ![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
 ![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
