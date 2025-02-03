@@ -40,6 +40,10 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
 Si quieres hechas un vistazo al proyecto, te recomiendo:
 
 - Modulo de Zonas
+![image](https://github.com/user-attachments/assets/636b22aa-e81b-4fa8-abf0-126e921ff63c)
+
+
+- Modulo de Zonas
 ![image](https://github.com/user-attachments/assets/a6ade586-52ef-4409-bd9a-9e16ce4c581f)
 
 - Modulo de Camiones
