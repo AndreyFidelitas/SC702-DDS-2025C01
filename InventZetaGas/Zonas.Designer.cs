@@ -94,9 +94,9 @@
             label4.Font = new Font("Microsoft Sans Serif", 10F);
             label4.Location = new Point(41, 377);
             label4.Name = "label4";
-            label4.Size = new Size(89, 17);
+            label4.Size = new Size(52, 17);
             label4.TabIndex = 10;
-            label4.Text = "Código Zona";
+            label4.Text = "Buscar";
             label4.Click += label4_Click;
             // 
             // textBox1
