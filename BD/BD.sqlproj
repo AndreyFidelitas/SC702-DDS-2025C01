@@ -87,5 +87,6 @@
     <Build Include="dbo\Stored Procedures\SPLogin.sql" />
     <Build Include="dbo\Stored Procedures\SPListaUsuarios.sql" />
     <Build Include="dbo\Stored Procedures\sp_GenerarClaseCSharp_Usuarios.sql" />
+    <Build Include="dbo\Stored Procedures\SPListaRoles.sql" />
   </ItemGroup>
 </Project>
