@@ -1,12 +1,8 @@
 ﻿using CapaDatos.SQL;
 using CapaEntidades;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CapaDatos
 {
@@ -32,5 +28,33 @@ namespace CapaDatos
         #endregion
 
 
+        #region "Mantenimiento de RolesE"
+        public string MantenimientoRoles(RolesE RolesE, string accion)
+        {
+            try
+            {
+
+                Generales g = new Generales();
+                g.accion = accion;
+                using (var cmd = new SqlCommand("SPMantenimientoRolesE", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@RoleCode", RolesE.RoleCode);
+                    cmd.Parameters.AddWithValue("@RoleName", RolesE.RoleName);
+                    cmd.Parameters.AddWithValue("@RoleStatus", RolesE.RoleStatus);
+                    cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
+                    cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
+                    cmd.ExecuteNonQuery();
+                    _conexion.CerrarConexion();
+                    return cmd.Parameters["@accion"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                var value = ex.GetType().ToString();
+                return value;
+            }
+        }
+        #endregion
     }
 }
