@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocios;
+using static System.Windows.Forms.Design.AxImporter;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -40,41 +41,17 @@ namespace InventZetaGas
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtZona.Text))
-            {
-                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (string.IsNullOrEmpty(txtCodeZona.Text))
-            {
-                // Pregunta si desea registrar el siguiente dato.
-                if (MessageBox.Show($"¿Deseas registrar a {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    // Método para realizar el insert en SQL con la acción "1".
-                    Mantenimiento("1");
-                    Limpiar();
-                }
-            }
+            MantenimientosBotones(1);
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            // Pregunta si desea modificar el dato.
-            if (MessageBox.Show($"¿Deseas modificar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                EstadosModificacion();
-                Mantenimiento("2");
-                Limpiar();
-            }
+            MantenimientosBotones(2);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Pregunta si desea eliminar el dato.
-            if (MessageBox.Show($"¿Deseas eliminar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                Mantenimiento("3");
-                Limpiar();
-            }
+            MantenimientosBotones(3);
         }
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -89,33 +66,29 @@ namespace InventZetaGas
 
         private void gvZonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            // Verifica que el índice de fila sea válido
-            if (e.RowIndex >= 0)
-            {
-                // Obtén la fila seleccionada
-                DataGridViewRow row = gvZonas.Rows[e.RowIndex];
-                // Asigna los valores de las celdas a los TextBox
-                txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
-                txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
-                cbProvincias.Text = row.Cells["Provincia"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
-                if (estado == "Activo")
-                {
-                    rbtnActive.Checked = true;
-                }
-                else if (estado == "Inactivo")
-                {
-                    rbtnInactive.Checked = true;
-                }
-            }
+            SeleecionarDatos(e);
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-
+           
         }
 
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)50)
+            {
+                DataTable dt = ZonasN.ListaZona(); // Asegúrate de que ListaZona() devuelve un DataTable
+                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
+                gvZonas.DataSource = dataView;
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         //*****************************************************************
         #region Metodos Generales 
@@ -187,7 +160,7 @@ namespace InventZetaGas
         }
 
         //metodo general de mantenimientos  
-        public  string Mantenimientos(int opcion)
+        public void MantenimientosBotones(int opcion)
         {
             string resultado = null;
 
@@ -196,13 +169,12 @@ namespace InventZetaGas
             {
                 case 1: 
                     if (string.IsNullOrEmpty(txtZona.Text) )
-                    {
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                     else if (string.IsNullOrEmpty(txtCodeZona.Text))
                     {
-                        // Pregunta si desea registrar el siguiente dato.
-                        if (MessageBox.Show($"¿Deseas registrar a {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (rbtnActive.Checked==false && rbtnActive.Checked==false)
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else if (MessageBox.Show($"¿Deseas registrar a {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
                             // Método para realizar el insert en SQL con la acción "1".
                             Mantenimiento("1");
@@ -220,8 +192,8 @@ namespace InventZetaGas
                     }
                     break;
 
-                case 3: // Opción 3: Validar campo3
-                        // Pregunta si desea eliminar el dato.
+                case 3: 
+                    // Pregunta si desea eliminar el dato.
                     if (MessageBox.Show($"¿Deseas eliminar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         Mantenimiento("3");
@@ -229,30 +201,32 @@ namespace InventZetaGas
                     }
                     break;
             }
+        }
 
-            return resultado; // Si es válido, será null; si no, se retorna un mensaje de error.
+        public void SeleecionarDatos(DataGridViewCellEventArgs e) 
+        {
+            // Verifica que el índice de fila sea válido
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvZonas.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
+                txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
+                cbProvincias.Text = row.Cells["Provincia"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
         }
 
 
         #endregion
-
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (e.KeyChar == (char)50)
-            {
-                DataTable dt = ZonasN.ListaZona(); // Asegúrate de que ListaZona() devuelve un DataTable
-                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
-                gvZonas.DataSource = dataView;
-            }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-
     }
 }
