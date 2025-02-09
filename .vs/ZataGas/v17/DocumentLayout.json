@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}|CapaNegocios\\CapaNegocios.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\capanegocios\\zonasn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}|CapaNegocios\\CapaNegocios.csproj|solutionrelative:capanegocios\\zonasn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\capaentidades\\zonase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\zonase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\capadatos\\zonasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\zonasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,21 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Program.cs",
-              "RelativeDocumentMoniker": "InventZetaGas\\Program.cs",
-              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Program.cs",
-              "RelativeToolTip": "InventZetaGas\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T22:39:39.677Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -36,6 +39,69 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ZonasE.cs",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaEntidades\\ZonasE.cs",
+              "RelativeDocumentMoniker": "CapaEntidades\\ZonasE.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaEntidades\\ZonasE.cs",
+              "RelativeToolTip": "CapaEntidades\\ZonasE.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T04:01:14.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Zonas.cs",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Zonas.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
+              "RelativeToolTip": "InventZetaGas\\Zonas.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA9wDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T03:39:25.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ZonasD.cs",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaDatos\\ZonasD.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\ZonasD.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaDatos\\ZonasD.cs",
+              "RelativeToolTip": "CapaDatos\\ZonasD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T03:10:32.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ZonasN.cs",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaNegocios\\ZonasN.cs",
+              "RelativeDocumentMoniker": "CapaNegocios\\ZonasN.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaNegocios\\ZonasN.cs",
+              "RelativeToolTip": "CapaNegocios\\ZonasN.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T03:36:12.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Zonas.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Zonas.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs [Design]",
+              "RelativeToolTip": "InventZetaGas\\Zonas.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T03:34:21.495Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
