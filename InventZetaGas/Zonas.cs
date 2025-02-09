@@ -185,8 +185,56 @@ namespace InventZetaGas
             g.msj = ZonasN.MantenimientoZona(ZonasE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        #endregion
 
+        //metodo general de mantenimientos  
+        public  string Mantenimientos(int opcion)
+        {
+            string resultado = null;
+
+            // Evaluamos la opción con un switch
+            switch (opcion)
+            {
+                case 1: 
+                    if (string.IsNullOrEmpty(txtZona.Text) )
+                    {
+                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (string.IsNullOrEmpty(txtCodeZona.Text))
+                    {
+                        // Pregunta si desea registrar el siguiente dato.
+                        if (MessageBox.Show($"¿Deseas registrar a {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            // Método para realizar el insert en SQL con la acción "1".
+                            Mantenimiento("1");
+                            Limpiar();
+                        }
+                    }
+                    break;
+                case 2: 
+                    // Pregunta si desea modificar el dato.
+                    if (MessageBox.Show($"¿Deseas modificar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        EstadosModificacion();
+                        Mantenimiento("2");
+                        Limpiar();
+                    }
+                    break;
+
+                case 3: // Opción 3: Validar campo3
+                        // Pregunta si desea eliminar el dato.
+                    if (MessageBox.Show($"¿Deseas eliminar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        Mantenimiento("3");
+                        Limpiar();
+                    }
+                    break;
+            }
+
+            return resultado; // Si es válido, será null; si no, se retorna un mensaje de error.
+        }
+
+
+        #endregion
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -203,5 +251,8 @@ namespace InventZetaGas
         {
             this.Close();
         }
+
+
+
     }
 }
