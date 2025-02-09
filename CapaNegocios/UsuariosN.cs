@@ -4,7 +4,7 @@ using System.Data;
 
 namespace CapaNegocios
 {
-    public  class UsuariosN
+    public class UsuariosN
     {
         UsuariosD UsuariosD = new UsuariosD();
 
@@ -17,6 +17,11 @@ namespace CapaNegocios
         {
             return UsuariosD.ListarUsuarios();
         }
+
+        // Método para el inicio de sesión
+        public UsuariosE LoginUsuario(string usuarioUserName, string password, out string msj)
+        {
+            return UsuariosD.LoginUsuario(usuarioUserName, password, out msj);
+        }
     }
 }
- 

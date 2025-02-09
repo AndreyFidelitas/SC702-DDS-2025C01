@@ -11,7 +11,7 @@ namespace CapaDatos.SQL
     public class ConexionDB
     {
         //Cadena de conexion a la base de datos
-        public static string CadenaConexion = @"Data Source=ANDREY;Initial Catalog=InventZetaGas;Integrated Security=True";
+        public static string CadenaConexion = @"Data Source=Localhost;Initial Catalog=InventZetaGas;Integrated Security=True";
 
         //Variable para la conexion
         public SqlConnection Conexion = new(CadenaConexion);
