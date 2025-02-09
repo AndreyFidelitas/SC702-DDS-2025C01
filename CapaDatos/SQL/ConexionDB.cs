@@ -10,7 +10,7 @@ namespace CapaDatos.SQL
 {
     public class ConexionDB
     {
-        public static string CadenaConexion = @"Data Source=ANDREY;Initial Catalog=InventZetaGas;Integrated Security=True";
+        public static string CadenaConexion = @"Data Source=localhost;Initial Catalog=InventZetaGas;Integrated Security=True";
 
         public SqlConnection Conexion = new(CadenaConexion);
 
