@@ -32,7 +32,6 @@
             gbRaza = new GroupBox();
             txtBuscar = new TextBox();
             label4 = new Label();
-            textBox1 = new TextBox();
             groupBox2 = new GroupBox();
             rbtnInactive = new RadioButton();
             rbtnActive = new RadioButton();
@@ -61,7 +60,6 @@
             gbRaza.BackColor = Color.White;
             gbRaza.Controls.Add(txtBuscar);
             gbRaza.Controls.Add(label4);
-            gbRaza.Controls.Add(textBox1);
             gbRaza.Controls.Add(groupBox2);
             gbRaza.Controls.Add(groupBox1);
             gbRaza.Controls.Add(cbProvincias);
@@ -98,14 +96,6 @@
             label4.TabIndex = 10;
             label4.Text = "Buscar";
             label4.Click += label4_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox1.Location = new Point(502, 213);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(289, 22);
-            textBox1.TabIndex = 9;
             // 
             // groupBox2
             // 
@@ -341,7 +331,6 @@
         private Label label1;
         internal Label label2;
         private Button button1;
-        private TextBox textBox1;
         private TextBox txtBuscar;
         private Label label4;
     }
