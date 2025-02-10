@@ -27,7 +27,7 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@RutaCode", rutas.RutaCode);
                     cmd.Parameters.AddWithValue("@Ruta", rutas.Ruta);
-                    cmd.Parameters.AddWithValue("@@RutaStatus", rutas.RutaStatus);
+                    cmd.Parameters.AddWithValue("@RutaStatus", rutas.RutaStatus);
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
