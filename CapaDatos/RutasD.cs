@@ -14,6 +14,23 @@ namespace CapaDatos
 
         private readonly ConexionDB _conexion = new ConexionDB();
 
+        #region "MostrarListaZonas"
+        public DataTable ListarZonas()
+        {
+            using (var cmd = new SqlCommand("SPListaRutas", _conexion.AbrirConexion()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                var dataTable = new DataTable();
+                using (var dataAdapter = new SqlDataAdapter(cmd))
+                {
+                    dataAdapter.Fill(dataTable); 
+                }
+                _conexion.CerrarConexion();
+                return dataTable;
+            }
+        }
+        #endregion
+
         // metodo de mantenimiento de Zonas
         #region "Mantenimiento de Zonas"
         public string MantenimientoRutas(RutasE rutas, string accion)
