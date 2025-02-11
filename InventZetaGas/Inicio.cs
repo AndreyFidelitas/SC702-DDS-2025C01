@@ -105,9 +105,7 @@ namespace PlayerUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new Rutas());
             hideSubMenu();
         }
         #endregion
