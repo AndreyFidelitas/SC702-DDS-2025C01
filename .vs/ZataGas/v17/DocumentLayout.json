@@ -3,15 +3,39 @@
   "WorkspaceRootPath": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}|BD\\BD.sqlproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPListaRutas.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}|BD\\BD.sqlproj|solutionrelative:BD\\dbo\\Stored Procedures\\SPListaRutas.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\documentos\\04 universidad  \u0026 cursos\\01 fidelitas\\cuatri i 2025\\02 dise\u00F1o y desarrollo de sistemas\\01 proyecto\\sc702-dds-2025c01\\inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\capadatos\\zonasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\zonasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|d:\\documentos\\04 universidad  \u0026 cursos\\01 fidelitas\\cuatri i 2025\\02 dise\u00F1o y desarrollo de sistemas\\01 proyecto\\sc702-dds-2025c01\\capadatos\\rutasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\documentos\\04 universidad  \u0026 cursos\\01 fidelitas\\cuatri i 2025\\02 dise\u00F1o y desarrollo de sistemas\\01 proyecto\\sc702-dds-2025c01\\inventzetagas\\frminiciosesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\frminiciosesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\documentos\\04 universidad  \u0026 cursos\\01 fidelitas\\cuatri i 2025\\02 dise\u00F1o y desarrollo de sistemas\\01 proyecto\\sc702-dds-2025c01\\inventzetagas\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\documentos\\04 universidad  \u0026 cursos\\01 fidelitas\\cuatri i 2025\\02 dise\u00F1o y desarrollo de sistemas\\01 proyecto\\sc702-dds-2025c01\\inventzetagas\\rutas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\rutas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|d:\\documentos\\04 universidad  \u0026 cursos\\01 fidelitas\\cuatri i 2025\\02 dise\u00F1o y desarrollo de sistemas\\01 proyecto\\sc702-dds-2025c01\\inventzetagas\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\capadatos\\rutasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\rutasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,28 +43,16 @@
       "RelativeMoniker": "D:0:0:{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\rutase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\capadatos\\zonasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\zonasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\capadatos\\usuariosd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\usuariosd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\zonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\inventzetagas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}|BD\\BD.sqlproj|D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPListaRutas.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{E21AB7F9-FF1F-47AB-B29B-CFC6E86C5D92}|BD\\BD.sqlproj|solutionrelative:BD\\dbo\\Stored Procedures\\SPListaRutas.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,17 +67,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SPListaRutas.sql ",
-              "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPListaRutas.sql",
-              "RelativeDocumentMoniker": "BD\\dbo\\Stored Procedures\\SPListaRutas.sql",
-              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\BD\\dbo\\Stored Procedures\\SPListaRutas.sql\r\n(ANDREY\\andre)",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-11T01:43:25.694Z",
+              "Title": "Camiones.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Camiones.cs",
+              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs [Dise\u00F1o]",
+              "RelativeToolTip": "InventZetaGas\\Camiones.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T03:26:09.746Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Inicio.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Inicio.cs",
+              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Inicio.cs",
+              "RelativeToolTip": "InventZetaGas\\Inicio.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAlwGcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T03:21:06.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmInicioSesion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\frmInicioSesion.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\frmInicioSesion.cs",
+              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\frmInicioSesion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "InventZetaGas\\frmInicioSesion.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T03:20:56.062Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Roles.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Roles.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Roles.cs",
+              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Roles.cs [Dise\u00F1o]",
+              "RelativeToolTip": "InventZetaGas\\Roles.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T03:12:42.934Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Rutas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Rutas.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Rutas.cs",
+              "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Rutas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "InventZetaGas\\Rutas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T02:38:18.572Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "UsuariosD.cs",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\CapaDatos\\UsuariosD.cs",
               "RelativeDocumentMoniker": "CapaDatos\\UsuariosD.cs",
@@ -78,20 +140,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "ZonasD.cs",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\CapaDatos\\ZonasD.cs",
               "RelativeDocumentMoniker": "CapaDatos\\ZonasD.cs",
               "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\CapaDatos\\ZonasD.cs",
               "RelativeToolTip": "CapaDatos\\ZonasD.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T05:24:35.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Inicio.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Inicio.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Inicio.cs",
@@ -103,20 +165,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "RutasD.cs",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\CapaDatos\\RutasD.cs",
               "RelativeDocumentMoniker": "CapaDatos\\RutasD.cs",
               "ToolTip": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\CapaDatos\\RutasD.cs",
               "RelativeToolTip": "CapaDatos\\RutasD.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-09T20:51:52.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "RutasE.cs",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\CapaEntidades\\RutasE.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\RutasE.cs",
@@ -129,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "Zonas.cs",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Zonas.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Zonas.cs",
@@ -154,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Documentos\\04 Universidad  \u0026 Cursos\\01 Fidelitas\\cuatri I 2025\\02 Dise\u00F1o y Desarrollo de Sistemas\\01 Proyecto\\SC702-DDS-2025C01\\InventZetaGas\\Program.cs",
               "RelativeDocumentMoniker": "InventZetaGas\\Program.cs",
@@ -162,7 +224,8 @@
               "RelativeToolTip": "InventZetaGas\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T22:39:39.677Z"
+              "WhenOpened": "2025-02-03T22:39:39.677Z",
+              "EditorCaption": ""
             }
           ]
         }

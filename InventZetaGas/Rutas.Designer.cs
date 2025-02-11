@@ -89,6 +89,7 @@
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
             rbtnInactive.UseVisualStyleBackColor = true;
+            rbtnInactive.CheckedChanged += rbtnInactive_CheckedChanged;
             // 
             // rbtnActive
             // 
@@ -100,6 +101,7 @@
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
             rbtnActive.UseVisualStyleBackColor = true;
+            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -125,30 +127,33 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdd.Location = new Point(160, 21);
+            btnAdd.Location = new Point(167, 21);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(143, 43);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnModify
             // 
             btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnModify.Image = (Image)resources.GetObject("btnModify.Image");
             btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(307, 21);
+            btnModify.Location = new Point(322, 21);
             btnModify.Name = "btnModify";
             btnModify.Size = new Size(143, 43);
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 
@@ -161,6 +166,7 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // txtRuta
             // 
@@ -222,6 +228,7 @@
             gvRutas.Name = "gvRutas";
             gvRutas.Size = new Size(905, 244);
             gvRutas.TabIndex = 8;
+            gvRutas.CellContentClick += gvRutas_CellContentClick;
             // 
             // Rutas
             // 
