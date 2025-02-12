@@ -137,12 +137,6 @@ namespace InventZetaGas
             gvCamiones.ReadOnly = true;
             gvCamiones.DataSource = camionN.ListaCamion();
         }
-
-        private void CargarDatos(string buscar)
-        {
-            gvCamiones.ReadOnly = true;
-            gvCamiones.DataSource = camionN.ListaCamion();
-        }
         //************************************************
         //metodo para limpiar los campos
         public void Limpiar()

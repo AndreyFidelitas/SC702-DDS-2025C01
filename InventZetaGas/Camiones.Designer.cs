@@ -85,6 +85,7 @@
             // 
             // gbRaza
             // 
+            gbRaza.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             gbRaza.BackColor = Color.White;
             gbRaza.Controls.Add(button1);
             gbRaza.Controls.Add(txtBuscar);
@@ -211,13 +212,14 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
             groupBox1.Controls.Add(btnNew);
             groupBox1.Location = new Point(41, 305);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(846, 77);
+            groupBox1.Size = new Size(864, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
