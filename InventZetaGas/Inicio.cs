@@ -187,5 +187,10 @@ namespace PlayerUI
         {
 
         }
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
