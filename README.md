@@ -54,6 +54,9 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Inicio de Sesion
 ![image](https://github.com/user-attachments/assets/8b2552dc-9600-402d-b260-c583aad87814)
 
+- Modulo de Rutas
+![image](https://github.com/user-attachments/assets/1dcb941a-83f9-4282-9d35-3cb674507558)
+
 
 # Reportes de BI
 ![image](https://github.com/user-attachments/assets/f4be2696-d737-45c5-a75f-cc08a9f72668)
