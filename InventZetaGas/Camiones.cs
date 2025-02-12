@@ -116,6 +116,18 @@ namespace InventZetaGas
         {
             Buscar();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                Buscar();
+        }
+
         #endregion
 
         #region MetodosGenerales
@@ -219,17 +231,5 @@ namespace InventZetaGas
             }
         }
         #endregion
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-                Buscar();
-        }
     }
 }
