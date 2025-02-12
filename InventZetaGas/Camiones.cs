@@ -96,7 +96,7 @@ namespace InventZetaGas
                 }
                 else if (estado == "Inactivo")
                 {
-                   rbtnInactive.Checked = true;
+                    rbtnInactive.Checked = true;
                 }
             }
         }
@@ -111,11 +111,22 @@ namespace InventZetaGas
         {
             Estados();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
         #endregion
 
         #region MetodosGenerales
         //metodo para cargar la lista de camiones
         private void CargarDatos()
+        {
+            gvCamiones.ReadOnly = true;
+            gvCamiones.DataSource = camionN.ListaCamion();
+        }
+
+        private void CargarDatos(string buscar)
         {
             gvCamiones.ReadOnly = true;
             gvCamiones.DataSource = camionN.ListaCamion();
@@ -172,8 +183,41 @@ namespace InventZetaGas
             g.msj = camionN.MantenimientoCamiones(camionE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        //metodo de mantenimiento de Camiones
 
+
+        //metodo de buscar
+        private void Buscar()
+        {
+            // Obtén el DataTable de la lista de camiones
+            DataTable dt = camionN.ListaCamion();
+            dataView = dt.DefaultView;
+
+            string filtro = txtBuscar.Text.Trim();  // Obtén el texto del cuadro de búsqueda
+
+            // Si el filtro está vacío, muestra todos los registros
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dataView.RowFilter = string.Empty;
+            }
+            else
+            {
+                // Aplica el filtro, ajusta según la columna y el valor
+                string filtroAplicado = "Marca LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                dataView.RowFilter = filtroAplicado;
+            }
+
+            // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
+            gvCamiones.DataSource = dataView;
+
+            // Verifica si hay resultados después de aplicar el filtro
+            if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
+            {
+                MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Muestra todos los registros si no se encuentran resultados
+                dataView.RowFilter = string.Empty;
+                gvCamiones.DataSource = dataView;  // Asigna de nuevo los datos completos
+            }
+        }
         #endregion
 
 
@@ -184,15 +228,8 @@ namespace InventZetaGas
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-            if (e.KeyChar == (char)50)
-            {
-                DataTable dt = camionN.ListaCamion(); // Asegúrate de que ListaZona() devuelve un DataTable
-                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
-                gvCamiones.DataSource = dataView;
-                string filtro = "Nombre LIKE '%Zeta%'"; // Ajusta el criterio de búsqueda
-                dataView.RowFilter = filtro;
-            }
+            if (e.KeyChar == 13)
+                Buscar();
         }
     }
 }

@@ -32,6 +32,7 @@
             label2 = new Label();
             label1 = new Label();
             gbRaza = new GroupBox();
+            button1 = new Button();
             txtBuscar = new TextBox();
             label4 = new Label();
             txtPesaje = new TextBox();
@@ -85,6 +86,7 @@
             // gbRaza
             // 
             gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(button1);
             gbRaza.Controls.Add(txtBuscar);
             gbRaza.Controls.Add(label4);
             gbRaza.Controls.Add(txtPesaje);
@@ -105,11 +107,22 @@
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
             // 
+            // button1
+            // 
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(748, 395);
+            button1.Name = "button1";
+            button1.Size = new Size(139, 26);
+            button1.TabIndex = 4;
+            button1.Text = "Buscar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // txtBuscar
             // 
-            txtBuscar.Enabled = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtBuscar.Location = new Point(148, 397);
+            txtBuscar.Location = new Point(99, 397);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
@@ -353,5 +366,6 @@
         private Label lblPesaje;
         private TextBox txtBuscar;
         private Label label4;
+        private Button button1;
     }
 }
