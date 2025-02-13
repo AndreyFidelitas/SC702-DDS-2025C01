@@ -73,7 +73,6 @@
     <Build Include="dbo\Stored Procedures\SPMantenimientoTipoCilindro.sql" />
     <Build Include="dbo\Stored Procedures\SPListaZonas.sql" />
     <Build Include="dbo\Stored Procedures\SPListaProvincias.sql" />
-    <Build Include="dbo\Tables\Camiones.sql" />
     <Build Include="dbo\Stored Procedures\SPListaCamiones.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoCamiones.sql" />
     <Build Include="dbo\Tables\TransacCamion_Cilindros.sql" />
@@ -90,5 +89,6 @@
     <Build Include="dbo\Stored Procedures\SPListaRoles.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoRutas.sql" />
     <Build Include="dbo\Stored Procedures\SPListaRutas.sql" />
+    <Build Include="dbo\Tables\Camiones.sql" />
   </ItemGroup>
 </Project>
