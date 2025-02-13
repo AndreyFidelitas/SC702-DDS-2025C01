@@ -47,6 +47,10 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 
 - Modulo de Camiones
 ![image](https://github.com/user-attachments/assets/92af550a-b71c-4c8d-b56c-67b6e0adff17)
+- Modulo de Camiones V2.0
+![image](https://github.com/user-attachments/assets/df7d14ad-3d51-4756-b828-ca9f1df6f501)
+
+
 
 - Modulo de Roles
 ![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
