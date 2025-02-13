@@ -16,7 +16,12 @@ BEGIN
         CASE 
             WHEN c.CamionStatus = 1 THEN 'Activo'
             ELSE 'Inactivo'
-        END                                               [Estado]
+        END													[Estado]			,
+		CASE 
+            WHEN c.CamionActivty = 1 THEN 'En Operación'
+			when c.CamionActivty = 0 THEN 'Mantenimiento'
+            ELSE '-'										
+        END													[Estado Camion]
     FROM 
         Camiones c WITH (NOLOCK);
 END
