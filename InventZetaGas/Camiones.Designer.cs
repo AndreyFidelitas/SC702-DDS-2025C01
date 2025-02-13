@@ -52,10 +52,14 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
+            groupBox3 = new GroupBox();
+            rbtnVInactive = new RadioButton();
+            rbtnVActive = new RadioButton();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gvCamiones).BeginInit();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // label2
@@ -86,6 +90,7 @@
             // gbRaza
             // 
             gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(groupBox3);
             gbRaza.Controls.Add(button1);
             gbRaza.Controls.Add(txtBuscar);
             gbRaza.Controls.Add(label4);
@@ -320,6 +325,39 @@
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(rbtnVInactive);
+            groupBox3.Controls.Add(rbtnVActive);
+            groupBox3.Location = new Point(393, 173);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(335, 129);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Estado Vehiculo";
+            // 
+            // rbtnVInactive
+            // 
+            rbtnVInactive.AutoSize = true;
+            rbtnVInactive.Location = new Point(25, 79);
+            rbtnVInactive.Name = "rbtnVInactive";
+            rbtnVInactive.Size = new Size(71, 20);
+            rbtnVInactive.TabIndex = 1;
+            rbtnVInactive.TabStop = true;
+            rbtnVInactive.Text = "Inactivo";
+            rbtnVInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnVActive
+            // 
+            rbtnVActive.AutoSize = true;
+            rbtnVActive.Location = new Point(25, 38);
+            rbtnVActive.Name = "rbtnVActive";
+            rbtnVActive.Size = new Size(107, 20);
+            rbtnVActive.TabIndex = 0;
+            rbtnVActive.TabStop = true;
+            rbtnVActive.Text = "En Operación";
+            rbtnVActive.UseVisualStyleBackColor = true;
+            // 
             // Camiones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,6 +376,8 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gvCamiones).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -367,5 +407,8 @@
         private TextBox txtBuscar;
         private Label label4;
         private Button button1;
+        private GroupBox groupBox3;
+        private RadioButton rbtnVInactive;
+        private RadioButton rbtnVActive;
     }
 }
