@@ -1,6 +1,6 @@
 ﻿
 
---exec SPMantenimientoCamiones 'C0001','test camion1','234595',,,1,'2';
+--exec SPMantenimientoCamiones 'C0001','test camion1','234595',,,1,1,'2';
 
 
 CREATE PROCEDURE [dbo].[SPMantenimientoCamiones]
@@ -10,6 +10,7 @@ CREATE PROCEDURE [dbo].[SPMantenimientoCamiones]
 	@CamionPlaca varchar(10)		,
 	@CamionPesaje varchar(50)		,
     @CamionStatus BIT				,
+	@CamionActivty bit				,
     @accion VARCHAR(50) OUTPUT
 )
 AS
@@ -35,7 +36,8 @@ BEGIN
 				CamionPlaca,
 				CamionPesaje,
                 CamionCreacion,
-                CamionStatus
+                CamionStatus,
+				CamionActivty 
             )
             VALUES
             (
@@ -44,7 +46,8 @@ BEGIN
 				@CamionPlaca,
 				@CamionPesaje,
                 GETDATE(),
-                @CamionStatus
+                @CamionStatus,
+				@CamionActivty 
             );
 
             SET @accion = 'Se generó el código del camión: ' + @codnuevo;
@@ -57,11 +60,12 @@ BEGIN
         BEGIN
             UPDATE c
             SET 
-                c.CamionName = @CamionName,
-				c.CamionPlaca= @CamionPlaca,
-				c.CamionPesaje=@CamionPesaje,
-                c.CamionStatus = @CamionStatus,
-                c.CamionUpdate = GETDATE()
+                c.CamionName	=	@CamionName		,
+				c.CamionPlaca	=	@CamionPlaca	,
+				c.CamionPesaje	=	@CamionPesaje	,
+                c.CamionStatus	=	@CamionStatus	,
+				c.CamionActivty =	@CamionActivty	,
+                c.CamionUpdate	=	GETDATE()
             FROM 
                 Camiones c
             WHERE 

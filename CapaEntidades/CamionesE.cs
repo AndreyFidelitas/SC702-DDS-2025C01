@@ -17,5 +17,7 @@ namespace CapaEntidades
         public DateTime CamionUpdate { get; set; }
         public DateTime CamionDelete { get; set; }
         public bool CamionStatus { get; set; }
+        // variable para ver si el camion esta en ruta o en mantenimiento
+        public bool CamionActivty { get; set; } 
     }
 }

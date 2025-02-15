@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocios;
+using static System.Windows.Forms.Design.AxImporter;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -40,41 +41,17 @@ namespace InventZetaGas
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtZona.Text))
-            {
-                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (string.IsNullOrEmpty(txtCodeZona.Text))
-            {
-                // Pregunta si desea registrar el siguiente dato.
-                if (MessageBox.Show($"¿Deseas registrar a {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    // Método para realizar el insert en SQL con la acción "1".
-                    Mantenimiento("1");
-                    Limpiar();
-                }
-            }
+            MantenimientosBotones(1);
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            // Pregunta si desea modificar el dato.
-            if (MessageBox.Show($"¿Deseas modificar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                EstadosModificacion();
-                Mantenimiento("2");
-                Limpiar();
-            }
+            MantenimientosBotones(2);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Pregunta si desea eliminar el dato.
-            if (MessageBox.Show($"¿Deseas eliminar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                Mantenimiento("3");
-                Limpiar();
-            }
+            MantenimientosBotones(3);
         }
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -89,26 +66,7 @@ namespace InventZetaGas
 
         private void gvZonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            // Verifica que el índice de fila sea válido
-            if (e.RowIndex >= 0)
-            {
-                // Obtén la fila seleccionada
-                DataGridViewRow row = gvZonas.Rows[e.RowIndex];
-                // Asigna los valores de las celdas a los TextBox
-                txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
-                txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
-                cbProvincias.Text = row.Cells["Provincia"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
-                if (estado == "Activo")
-                {
-                    rbtnActive.Checked = true;
-                }
-                else if (estado == "Inactivo")
-                {
-                    rbtnInactive.Checked = true;
-                }
-            }
+            SeleecionarDatos(e);
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -116,6 +74,15 @@ namespace InventZetaGas
 
         }
 
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Buscar();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         //*****************************************************************
         #region Metodos Generales 
@@ -185,23 +152,116 @@ namespace InventZetaGas
             g.msj = ZonasN.MantenimientoZona(ZonasE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        #endregion
 
-
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        //metodo general de mantenimientos  
+        public void MantenimientosBotones(int opcion)
         {
+            string resultado = null;
 
-            if (e.KeyChar == (char)50)
+            // Evaluamos la opción con un switch
+            switch (opcion)
             {
-                DataTable dt = ZonasN.ListaZona(); // Asegúrate de que ListaZona() devuelve un DataTable
-                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
-                gvZonas.DataSource = dataView;
+                case 1:
+                    if (string.IsNullOrEmpty(txtZona.Text))
+                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else if (string.IsNullOrEmpty(txtCodeZona.Text))
+                    {
+                        if (rbtnActive.Checked == false && rbtnActive.Checked == false)
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else if (MessageBox.Show($"¿Deseas registrar a {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            // Método para realizar el insert en SQL con la acción "1".
+                            Mantenimiento("1");
+                            Limpiar();
+                        }
+                    }
+                    break;
+                case 2:
+                    // Pregunta si desea modificar el dato.
+                    if (MessageBox.Show($"¿Deseas modificar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        EstadosModificacion();
+                        Mantenimiento("2");
+                        Limpiar();
+                    }
+                    break;
+
+                case 3:
+                    // Pregunta si desea eliminar el dato.
+                    if (MessageBox.Show($"¿Deseas eliminar {txtZona.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        Mantenimiento("3");
+                        Limpiar();
+                    }
+                    break;
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        public void SeleecionarDatos(DataGridViewCellEventArgs e)
         {
-            this.Close();
+            // Verifica que el índice de fila sea válido
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvZonas.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
+                txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
+                cbProvincias.Text = row.Cells["Provincia"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
+        }
+
+        private void Buscar()
+        {
+            // Obtén el DataTable de la lista de camiones
+            DataTable dt = ZonasN.ListaZona();
+            dataView = dt.DefaultView;
+
+            string filtro = txtBuscar.Text.Trim();  // Obtén el texto del cuadro de búsqueda
+
+            // Si el filtro está vacío, muestra todos los registros
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dataView.RowFilter = string.Empty;
+            }
+            else
+            {
+                // Aplica el filtro, ajusta según la columna y el valor
+                string filtroAplicado = "Marca LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                dataView.RowFilter = filtroAplicado;
+            }
+
+            // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
+            gvZonas.DataSource = dataView;
+
+            // Verifica si hay resultados después de aplicar el filtro
+            if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
+            {
+                MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Muestra todos los registros si no se encuentran resultados
+                dataView.RowFilter = string.Empty;
+                gvZonas.DataSource = dataView;  // Asigna de nuevo los datos completos
+            }
+        }
+        #endregion
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Buscar();
         }
     }
 }

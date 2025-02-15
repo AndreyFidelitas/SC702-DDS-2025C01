@@ -12,6 +12,7 @@ using CapaEntidades;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using System.Numerics;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace InventZetaGas
 {
@@ -41,64 +42,22 @@ namespace InventZetaGas
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCamion.Text))
-            {
-                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (string.IsNullOrEmpty(txtCodeCamion.Text))
-            {
-                // Pregunta si desea registrar el siguiente dato.
-                if (MessageBox.Show($"¿Deseas registrar a {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    // Método para realizar el insert en SQL con la acción "1".
-                    Mantenimiento("1");
-                    Limpiar();
-                }
-            }
+            MantenimientosBotones(1);
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            // Pregunta si desea modificar el dato.
-            if (MessageBox.Show($"¿Deseas modificar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                EstadosModificacion();
-                Mantenimiento("2");
-                Limpiar();
-            }
+            MantenimientosBotones(2);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"¿Deseas eliminar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                Mantenimiento("3");
-                Limpiar();
-            }
+            MantenimientosBotones(3);
         }
 
         private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                // Obtén la fila seleccionada
-                DataGridViewRow row = gvCamiones.Rows[e.RowIndex];
-                // Asigna los valores de las celdas a los TextBox
-                txtCodeCamion.Text = row.Cells["Camión ID"].Value?.ToString();
-                txtCamion.Text = row.Cells["Marca"].Value?.ToString();
-                txtPesaje.Text = row.Cells["Pesaje Camion"].Value?.ToString();
-                txtPlaca.Text = row.Cells["Placa"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
-
-                if (estado == "Activo")
-                {
-                    rbtnActive.Checked = true;
-                }
-                else if (estado == "Inactivo")
-                {
-                   rbtnInactive.Checked = true;
-                }
-            }
+            SeleccionarInformacion(e);
         }
 
 
@@ -111,8 +70,25 @@ namespace InventZetaGas
         {
             Estados();
         }
-        #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                Buscar();
+        }
+
+        #endregion
+        //*********************************************************************
         #region MetodosGenerales
         //metodo para cargar la lista de camiones
         private void CargarDatos()
@@ -132,7 +108,7 @@ namespace InventZetaGas
             rbtnInactive.Checked = false;
             CargarDatos();
         }
-
+        //************************************************************************************************
         // metodo para seleccionar los radio button sea activo o inactivo
         public void Estados()
         {
@@ -147,7 +123,7 @@ namespace InventZetaGas
                 camionE.CamionStatus = rbtnInactive.Checked;
             }
         }
-
+        //************************************************************************************************
         public void EstadosModificacion()
         {
             if (rbtnActive.Checked)
@@ -161,7 +137,40 @@ namespace InventZetaGas
                 camionE.CamionStatus = rbtnActive.Checked;
             }
         }
+        //************************************************************************************************
+        //validacion de campos 
+        // Método para verificar si los campos están vacíos
+        public bool ValidarCampos()
+        {
+            bool valid = false;
 
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtCamion.Text))
+            {
+                return valid; 
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtPesaje.Text))
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtPlaca.Text))
+            {
+                return valid;
+            }
+
+            if (rbtnActive.Checked == false && rbtnActive.Checked == false)
+            {
+                return valid;
+            }
+
+            valid = true;
+            return valid;
+        }
+        //************************************************************************************************
         private void Mantenimiento(string accion)
         {
             camionE.CamionCode = txtCodeCamion.Text;
@@ -172,27 +181,116 @@ namespace InventZetaGas
             g.msj = camionN.MantenimientoCamiones(camionE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        //metodo de mantenimiento de Camiones
-
-        #endregion
-
-
-        private void label2_Click(object sender, EventArgs e)
+        //************************************************************************************************
+        //metodo general de mantenimientos  
+        public void MantenimientosBotones(int opcion)
         {
-            this.Close();
-        }
-
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (e.KeyChar == (char)50)
+            string resultado = null;
+            // Evaluamos la opción con un switch
+            switch (opcion)
             {
-                DataTable dt = camionN.ListaCamion(); // Asegúrate de que ListaZona() devuelve un DataTable
-                dataView = dt.DefaultView; // Obtiene el DataView del DataTable
-                gvCamiones.DataSource = dataView;
-                string filtro = "Nombre LIKE '%Zeta%'"; // Ajusta el criterio de búsqueda
-                dataView.RowFilter = filtro;
+                case 1:
+                    if (string.IsNullOrEmpty(txtCodeCamion.Text))
+                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else if (ValidarCampos() == false)
+                    {
+                        if (MessageBox.Show($"¿Deseas registrar a {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            // Método para realizar el insert en SQL con la acción "1".
+                            Mantenimiento("1");
+                            Limpiar();
+                        }
+                    }
+                    break;
+                case 2:
+                    // Pregunta si desea modificar el dato.
+                    if (MessageBox.Show($"¿Deseas modificar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        //metodo para validar los campos
+                        if (ValidarCampos() == false)
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            EstadosModificacion();
+                            Mantenimiento("2");
+                            Limpiar();
+                        }
+                    }
+                    break;
+                case 3:
+                    // Pregunta si desea eliminar el dato.
+                    if (MessageBox.Show($"¿Deseas eliminar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        //metodo para validar los campos
+                        if (ValidarCampos() == false)
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            Mantenimiento("3");
+                            Limpiar();
+                        }
+                    }
+                    break;
             }
         }
+        //************************************************************************************************
+        //metodo de buscar informacion 
+        private void Buscar()
+        {
+            // Obtén el DataTable de la lista de camiones
+            DataTable dt = camionN.ListaCamion();
+            dataView = dt.DefaultView;
+
+            string filtro = txtBuscar.Text.Trim();  // Obtén el texto del cuadro de búsqueda
+
+            // Si el filtro está vacío, muestra todos los registros
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dataView.RowFilter = string.Empty;
+            }
+            else
+            {
+                // Aplica el filtro, ajusta según la columna y el valor
+                string filtroAplicado = "Marca LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                dataView.RowFilter = filtroAplicado;
+            }
+
+            // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
+            gvCamiones.DataSource = dataView;
+
+            // Verifica si hay resultados después de aplicar el filtro
+            if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
+            {
+                MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Muestra todos los registros si no se encuentran resultados
+                dataView.RowFilter = string.Empty;
+                gvCamiones.DataSource = dataView;  // Asigna de nuevo los datos completos
+            }
+        }
+        //************************************************************************************************
+        public void SeleccionarInformacion(DataGridViewCellEventArgs e) 
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvCamiones.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeCamion.Text = row.Cells["Camión ID"].Value?.ToString();
+                txtCamion.Text = row.Cells["Marca"].Value?.ToString();
+                txtPesaje.Text = row.Cells["Pesaje Camion"].Value?.ToString();
+                txtPlaca.Text = row.Cells["Placa"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
+        }
+        #endregion
     }
 }

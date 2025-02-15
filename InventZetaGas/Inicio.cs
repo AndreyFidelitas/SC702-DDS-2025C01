@@ -105,9 +105,7 @@ namespace PlayerUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new Rutas());
             hideSubMenu();
         }
         #endregion
@@ -188,6 +186,11 @@ namespace PlayerUI
         private void panelPlayer_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -512,6 +512,7 @@
             MinimumSize = new Size(950, 600);
             Name = "Inicio";
             StartPosition = FormStartPosition.CenterScreen;
+            FormClosed += Inicio_FormClosed;
             panelSideMenu.ResumeLayout(false);
             panelToolsSubMenu.ResumeLayout(false);
             panelPlaylistSubMenu.ResumeLayout(false);
