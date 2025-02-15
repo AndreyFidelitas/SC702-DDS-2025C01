@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
+using CapaNegocios;
 
 namespace InventZetaGas
 {
     public partial class Rutas : Form
     {
+
+        Rutas r =new Rutas();
+        RutasE rE=new RutasE();
+
+        #region Funciones del formulario
         public Rutas()
         {
             InitializeComponent();
@@ -51,5 +58,21 @@ namespace InventZetaGas
         {
 
         }
+        #endregion
+        //**********************************************************************
+        #region Metodo generales
+
+        public void Limpiar()
+        {
+            txtCodeRuta.Text = "";
+            txtRuta.Text = "";
+        }
+
+        public void CargarDatos() 
+        {
+            
+        }
+        #endregion
+        //**********************************************************************
     }
 }
