@@ -9,19 +9,18 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Verificar si el usuario existe y está activo
     IF EXISTS (SELECT 1 
                FROM Usuarios 
                WHERE UsuarioUserName = @UsuarioUserName 
                  AND Password = @Password
                  AND UsuarioEstado = 1)
     BEGIN
-        -- Devolver la información del usuario
         SELECT 
             u.UsuarioCode         AS [Usuario ID],
             u.UsuarioName         AS [Nombre],
             u.UsuarioApellidos    AS [Apellidos],
             u.UsuarioUserName     AS [Nombre de Usuario],
+            u.RoleID              AS [RoleID],
             r.RoleCode            AS [Código Rol],
             r.RoleName            AS [Nombre Rol]
         FROM 
@@ -36,7 +35,6 @@ BEGIN
     END
     ELSE
     BEGIN
-        -- Si no se encuentra el usuario o las credenciales son inválidas
         SET @Mensaje = 'Nombre de usuario o contraseña incorrectos, o el usuario no está activo.';
     END
 END

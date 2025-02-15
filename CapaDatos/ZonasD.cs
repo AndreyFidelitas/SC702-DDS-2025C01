@@ -10,10 +10,14 @@ namespace CapaDatos
 {
     public class ZonasD
     {
+        //Conexion para la capa datos
         private readonly ConexionDB _conexion = new ConexionDB();
 
+        
         #region "MostrarListaZonas"
-            public DataTable ListarZonas()
+
+        //Metodo para mostrar las zonas
+        public DataTable ListarZonas()
             {
                 using (var cmd = new SqlCommand("SPListaZonas", _conexion.AbrirConexion()))
                 {
@@ -48,8 +52,9 @@ namespace CapaDatos
 
         #region "Mantenimiento de Zonas"
         public string MantenimientoZonas(ZonasE zonas,string accion)
+        //Metodo para insertar y actualizar zonas
         {
-                try
+            try
                 {
                     
                     Generales g= new Generales();

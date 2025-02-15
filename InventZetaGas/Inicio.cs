@@ -13,7 +13,7 @@ namespace PlayerUI
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+        public Inicio(CapaEntidades.UsuariosE usuario)
         {
             InitializeComponent();
             hideSubMenu();
