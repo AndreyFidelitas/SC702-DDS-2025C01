@@ -8,8 +8,11 @@
     [CamionUpdate]   DATETIME      NULL,
     [CamionDelete]   DATETIME      NULL,
     [CamionStatus]   BIT           NULL,
+    [CamionActivty]  BIT           NULL,
     CONSTRAINT [PK__Camiones__80E86F48460A709E] PRIMARY KEY CLUSTERED ([CamionID] ASC)
 );
+
+
 
 
 
