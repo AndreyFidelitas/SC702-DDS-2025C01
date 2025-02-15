@@ -21,6 +21,7 @@ namespace InventZetaGas
         // Add the missing TextBox controls
         private TextBox txtUsuario;
         private TextBox txtPassword;
+        private string updateMsj;
 
         public frmInicioSesion()
         {
@@ -42,14 +43,22 @@ namespace InventZetaGas
 
             if (usuario != null)
             {
-                MessageBox.Show(msj, "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Aquí puedes abrir el formulario principal y pasar el objeto usuario si es necesario
-                // Ejemplo:
-                // FrmMain frm = new FrmMain(usuario);
-                // frm.Show();
-                // this.Hide();
+                // Generar un token único (por ejemplo, utilizando GUID)
+                usuario.token = Guid.NewGuid().ToString();
+
+                // Actualizar el token en la base de datos
+                string updateMsj = usuariosN.ActualizarTokenUsuario(usuario);
+
+                // Actualizamos el token del usuario
+                MessageBox.Show(msj + "\n" + "Token actualizado: " + usuario.token + "\n" + updateMsj, "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+
+                // Abrir el formulario de inicio y pasar la información del usuario
                 Inicio frmInicio = new Inicio(usuario);
                 frmInicio.Show();
+
+                // Ocultar o cerrar el formulario de login
+                this.Hide();
             }
             else
             {

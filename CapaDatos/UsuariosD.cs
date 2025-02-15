@@ -39,7 +39,7 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@UsuarioCode", Usuarios.UsuarioCode);
                     cmd.Parameters.AddWithValue("@UsuarioName", Usuarios.UsuarioName);
-                    // Se puede agregar el resto de los parámetros según el SP
+                    // Agrega aquí los demás parámetros que tu SP requiera
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
@@ -49,8 +49,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                var value = ex.GetType().ToString();
-                return value;
+                return ex.GetType().ToString();
             }
         }
         #endregion
@@ -81,14 +80,14 @@ namespace CapaDatos
                         {
                             usuario = new UsuariosE
                             {
-                                // Se mapean los campos devueltos por SPLogin a la entidad UsuariosE.
-                                // Asegúrate de que los nombres de columna coincidan con los retornados por el SP.
+                                // Asegúrate de mapear correctamente los nombres de columna que retorna el SP.
                                 UsuarioCode = dr["Usuario ID"].ToString(),
                                 UsuarioName = dr["Nombre"].ToString(),
                                 UsuarioApellidos = dr["Apellidos"].ToString(),
-                                UsuarioUserName = dr["Nombre de Usuario"].ToString()
-                                // Si el SP retorna datos de rol (ej. "Código Rol" o "Nombre Rol")
-                                // se podrían agregar propiedades en UsuariosE o mapearlos en otra entidad.
+                                UsuarioUserName = dr["Nombre de Usuario"].ToString(),
+                                // Si manejas la contraseña en el login, asegúrate de asignarla (o dejarla vacía por seguridad)
+                                Password = password,
+                                // Puedes asignar otros datos, por ejemplo, RoleID, etc.
                             };
                         }
                     }
@@ -101,6 +100,40 @@ namespace CapaDatos
                 msj = ex.Message;
             }
             return usuario;
+        }
+        #endregion
+
+        #region "Actualizar Token de Usuario"
+        public string ActualizarTokenUsuario(UsuariosE usuario)
+        {
+            try
+            {
+                using (var cmd = new SqlCommand("SPMantenimientoUsuarios", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    // Se deben enviar todos los parámetros requeridos para la acción de actualización.
+                    cmd.Parameters.AddWithValue("@UsuarioCode", usuario.UsuarioCode);
+                    cmd.Parameters.AddWithValue("@UsuarioName", usuario.UsuarioName);
+                    cmd.Parameters.AddWithValue("@UsuarioApellidos", usuario.UsuarioApellidos);
+                    cmd.Parameters.AddWithValue("@UsuarioUserName", usuario.UsuarioUserName);
+                    cmd.Parameters.AddWithValue("@Password", usuario.Password);
+                    cmd.Parameters.AddWithValue("@token", usuario.token);
+                    // Asegúrate de enviar el RoleID y el estado actual del usuario
+                    cmd.Parameters.AddWithValue("@RoleID", usuario.RoleID);
+                    cmd.Parameters.AddWithValue("@UsuarioEstado", usuario.UsuarioEstado);
+
+                    // La acción "2" representa la actualización.
+                    cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = "2";
+                    cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
+                    cmd.ExecuteNonQuery();
+                    _conexion.CerrarConexion();
+                    return cmd.Parameters["@accion"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         #endregion
     }

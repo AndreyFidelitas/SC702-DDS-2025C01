@@ -18,10 +18,16 @@ namespace CapaNegocios
             return UsuariosD.ListarUsuarios();
         }
 
-        // Método para el inicio de sesión
+        // Método para el login
         public UsuariosE LoginUsuario(string usuarioUserName, string password, out string msj)
         {
             return UsuariosD.LoginUsuario(usuarioUserName, password, out msj);
+        }
+
+        // Método para actualizar el token del usuario
+        public string ActualizarTokenUsuario(UsuariosE usuario)
+        {
+            return UsuariosD.ActualizarTokenUsuario(usuario);
         }
     }
 }
