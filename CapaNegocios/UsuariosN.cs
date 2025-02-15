@@ -25,9 +25,9 @@ namespace CapaNegocios
         }
 
         // Método para actualizar el token del usuario
-        public string ActualizarTokenUsuario(UsuariosE usuario)
+        public string ActualizarToken(string usuarioCode, string token)
         {
-            return UsuariosD.ActualizarTokenUsuario(usuario);
+            return UsuariosD.ActualizarToken(usuarioCode, token);
         }
     }
 }

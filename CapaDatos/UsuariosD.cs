@@ -80,14 +80,12 @@ namespace CapaDatos
                         {
                             usuario = new UsuariosE
                             {
-                                // Asegúrate de mapear correctamente los nombres de columna que retorna el SP.
                                 UsuarioCode = dr["Usuario ID"].ToString(),
                                 UsuarioName = dr["Nombre"].ToString(),
                                 UsuarioApellidos = dr["Apellidos"].ToString(),
                                 UsuarioUserName = dr["Nombre de Usuario"].ToString(),
-                                // Si manejas la contraseña en el login, asegúrate de asignarla (o dejarla vacía por seguridad)
-                                Password = password,
-                                // Puedes asignar otros datos, por ejemplo, RoleID, etc.
+                                RoleID = Convert.ToInt32(dr["RoleID"])
+                                // Puedes mapear RoleCode y RoleName si los necesitas
                             };
                         }
                     }
@@ -101,39 +99,37 @@ namespace CapaDatos
             }
             return usuario;
         }
+
         #endregion
 
         #region "Actualizar Token de Usuario"
-        public string ActualizarTokenUsuario(UsuariosE usuario)
+        public string ActualizarToken(string usuarioCode, string token)
         {
+            string mensaje = "";
             try
             {
-                using (var cmd = new SqlCommand("SPMantenimientoUsuarios", _conexion.AbrirConexion()))
+                using (var cmd = new SqlCommand("SPActualizarToken", _conexion.AbrirConexion()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    // Se deben enviar todos los parámetros requeridos para la acción de actualización.
-                    cmd.Parameters.AddWithValue("@UsuarioCode", usuario.UsuarioCode);
-                    cmd.Parameters.AddWithValue("@UsuarioName", usuario.UsuarioName);
-                    cmd.Parameters.AddWithValue("@UsuarioApellidos", usuario.UsuarioApellidos);
-                    cmd.Parameters.AddWithValue("@UsuarioUserName", usuario.UsuarioUserName);
-                    cmd.Parameters.AddWithValue("@Password", usuario.Password);
-                    cmd.Parameters.AddWithValue("@token", usuario.token);
-                    // Asegúrate de enviar el RoleID y el estado actual del usuario
-                    cmd.Parameters.AddWithValue("@RoleID", usuario.RoleID);
-                    cmd.Parameters.AddWithValue("@UsuarioEstado", usuario.UsuarioEstado);
+                    cmd.Parameters.AddWithValue("@UsuarioCode", usuarioCode);
+                    cmd.Parameters.AddWithValue("@token", token);
 
-                    // La acción "2" representa la actualización.
-                    cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = "2";
-                    cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
+                    SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.NVarChar, 255)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(mensajeParam);
+
                     cmd.ExecuteNonQuery();
+                    mensaje = mensajeParam.Value.ToString();
                     _conexion.CerrarConexion();
-                    return cmd.Parameters["@accion"].Value.ToString();
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                mensaje = ex.Message;
             }
+            return mensaje;
         }
         #endregion
     }
