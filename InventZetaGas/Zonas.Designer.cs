@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zonas));
             gbRaza = new GroupBox();
+            button1 = new Button();
             txtBuscar = new TextBox();
             label4 = new Label();
             groupBox2 = new GroupBox();
@@ -49,7 +50,6 @@
             gvZonas = new DataGridView();
             label1 = new Label();
             label2 = new Label();
-            button1 = new Button();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -77,6 +77,18 @@
             gbRaza.TabIndex = 0;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
+            // 
+            // button1
+            // 
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(748, 368);
+            button1.Name = "button1";
+            button1.Size = new Size(139, 26);
+            button1.TabIndex = 12;
+            button1.Text = "Buscar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // txtBuscar
             // 
@@ -290,18 +302,6 @@
             label2.TabIndex = 1;
             label2.Text = "X";
             label2.Click += label2_Click;
-            // 
-            // button1
-            // 
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(748, 368);
-            button1.Name = "button1";
-            button1.Size = new Size(139, 26);
-            button1.TabIndex = 12;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // Zonas
             // 
