@@ -127,7 +127,7 @@ namespace InventZetaGas
                     if (string.IsNullOrEmpty(txtRuta.Text))
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    if (ValidarCampos() == false)
+                    if (ValidarCampos() == true)
                     {
                         if (MessageBox.Show($"¿Deseas registrar a {txtRuta.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
