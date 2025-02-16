@@ -1,8 +1,6 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using CapaDatos.SQL;
 using CapaEntidades;
 
@@ -11,6 +9,7 @@ namespace CapaDatos
     public class UsuariosD
     {
         private readonly ConexionDB _conexion = new ConexionDB();
+
         #region "MostrarListaUsuarios"
         public DataTable ListarUsuarios()
         {
@@ -33,7 +32,6 @@ namespace CapaDatos
         {
             try
             {
-
                 Generales g = new Generales();
                 g.accion = accion;
                 using (var cmd = new SqlCommand("SPMantenimientoUsuarios", _conexion.AbrirConexion()))
@@ -41,6 +39,7 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@UsuarioCode", Usuarios.UsuarioCode);
                     cmd.Parameters.AddWithValue("@UsuarioName", Usuarios.UsuarioName);
+                    // Agrega aquí los demás parámetros que tu SP requiera
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
@@ -50,9 +49,87 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                var value = ex.GetType().ToString();
-                return value;
+                return ex.GetType().ToString();
             }
+        }
+        #endregion
+
+        #region "Login de Usuario"
+        public UsuariosE LoginUsuario(string usuarioUserName, string password, out string msj)
+        {
+            msj = "";
+            UsuariosE usuario = null;
+            try
+            {
+                using (var cmd = new SqlCommand("SPLogin", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UsuarioUserName", usuarioUserName);
+                    cmd.Parameters.AddWithValue("@Password", password);
+
+                    // Parámetro de salida para el mensaje
+                    SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.NVarChar, 255)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(mensajeParam);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            usuario = new UsuariosE
+                            {
+                                UsuarioCode = dr["Usuario ID"].ToString(),
+                                UsuarioName = dr["Nombre"].ToString(),
+                                UsuarioApellidos = dr["Apellidos"].ToString(),
+                                UsuarioUserName = dr["Nombre de Usuario"].ToString(),
+                                RoleID = Convert.ToInt32(dr["RoleID"])
+                                // Puedes mapear RoleCode y RoleName si los necesitas
+                            };
+                        }
+                    }
+                    _conexion.CerrarConexion();
+                    msj = mensajeParam.Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                msj = ex.Message;
+            }
+            return usuario;
+        }
+
+        #endregion
+
+        #region "Actualizar Token de Usuario"
+        public string ActualizarToken(string usuarioCode, string token)
+        {
+            string mensaje = "";
+            try
+            {
+                using (var cmd = new SqlCommand("SPActualizarToken", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UsuarioCode", usuarioCode);
+                    cmd.Parameters.AddWithValue("@token", token);
+
+                    SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.NVarChar, 255)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(mensajeParam);
+
+                    cmd.ExecuteNonQuery();
+                    mensaje = mensajeParam.Value.ToString();
+                    _conexion.CerrarConexion();
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+            }
+            return mensaje;
         }
         #endregion
     }

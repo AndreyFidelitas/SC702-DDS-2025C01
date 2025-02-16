@@ -1,4 +1,5 @@
-﻿namespace InventZetaGas
+﻿
+namespace InventZetaGas
 {
     partial class frmInicioSesion
     {
@@ -204,6 +205,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
