@@ -45,6 +45,10 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Zonas
 ![image](https://github.com/user-attachments/assets/a6ade586-52ef-4409-bd9a-9e16ce4c581f)
 
+- Modulo de Zonas version2.0
+![image](https://github.com/user-attachments/assets/1633454e-c887-4ec5-a5ff-1ee51e79ddff)
+
+
 - Modulo de Camiones
 ![image](https://github.com/user-attachments/assets/92af550a-b71c-4c8d-b56c-67b6e0adff17)
 
