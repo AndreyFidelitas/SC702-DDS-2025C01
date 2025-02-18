@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\frminiciosesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\frminiciosesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\cilindros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\cilindros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}|CapaNegocios\\CapaNegocios.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\capanegocios\\usuariosn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}|CapaNegocios\\CapaNegocios.csproj|solutionrelative:capanegocios\\usuariosn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\capadatos\\usuariosd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\usuariosd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}|CapaEntidades\\CapaEntidades.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\capaentidades\\usuariose.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\usuariose.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|c:\\users\\drask\\source\\repos\\sc702-dds-2025c01\\inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9376730C-A9F5-4487-A734-3939254346CD}|InventZetaGas\\InventZetaGas.csproj|solutionrelative:inventzetagas\\camiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,51 +39,72 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmInicioSesion.cs",
-              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\frmInicioSesion.cs",
-              "RelativeDocumentMoniker": "InventZetaGas\\frmInicioSesion.cs",
-              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\frmInicioSesion.cs*",
-              "RelativeToolTip": "InventZetaGas\\frmInicioSesion.cs*",
-              "ViewState": "AgIAABMAAAAAAAAAAAD4vxgAAAAjAAAAAAAAAA==",
+              "Title": "Cilindros.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Cilindros.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Cilindros.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Cilindros.cs [Design]",
+              "RelativeToolTip": "InventZetaGas\\Cilindros.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T19:37:17.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T01:28:32.872Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UsuariosD.cs",
-              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaDatos\\UsuariosD.cs",
-              "RelativeDocumentMoniker": "CapaDatos\\UsuariosD.cs",
-              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaDatos\\UsuariosD.cs",
-              "RelativeToolTip": "CapaDatos\\UsuariosD.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAcwIAAAAANAAAAAAAAAA==",
+              "Title": "Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Usuarios.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Usuarios.cs",
+              "RelativeToolTip": "InventZetaGas\\Usuarios.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAIA4wCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T20:14:01.172Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuariosE.cs",
-              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaEntidades\\UsuariosE.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\UsuariosE.cs",
-              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaEntidades\\UsuariosE.cs",
-              "RelativeToolTip": "CapaEntidades\\UsuariosE.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T20:15:38.126Z"
+              "WhenOpened": "2025-02-18T00:55:32.563Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuariosN.cs",
-              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaNegocios\\UsuariosN.cs",
-              "RelativeDocumentMoniker": "CapaNegocios\\UsuariosN.cs",
-              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\CapaNegocios\\UsuariosN.cs",
-              "RelativeToolTip": "CapaNegocios\\UsuariosN.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Title": "Usuarios.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Usuarios.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Usuarios.cs [Design]",
+              "RelativeToolTip": "InventZetaGas\\Usuarios.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T20:15:49.649Z"
+              "WhenOpened": "2025-02-17T23:53:10.757Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "a0c44af5-db3d-43b2-8b79-458aa1ae4b31",
+        "Display": 0,
+        "X": 657,
+        "Y": 294,
+        "Width": 1254,
+        "Height": 636,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Camiones.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs",
+              "RelativeDocumentMoniker": "InventZetaGas\\Camiones.cs",
+              "ToolTip": "C:\\Users\\drask\\source\\repos\\SC702-DDS-2025C01\\InventZetaGas\\Camiones.cs [Design]",
+              "RelativeToolTip": "InventZetaGas\\Camiones.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T00:05:39.655Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

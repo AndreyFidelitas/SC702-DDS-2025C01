@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace InventZetaGas
 {
-    public partial class Usuarios : Form
+    public partial class Cilindros : Form
     {
-        public Usuarios()
+        public Cilindros()
         {
             InitializeComponent();
-        }
-
-        private void Usuarios_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void lblCode_Click(object sender, EventArgs e)
@@ -32,12 +22,22 @@ namespace InventZetaGas
 
         }
 
-        private void lblPlaca_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
