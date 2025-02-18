@@ -123,6 +123,23 @@ namespace InventZetaGas
                 camionE.CamionStatus = rbtnInactive.Checked;
             }
         }
+
+        public void EstadosCamion()
+        {
+            if (rbtnVActive.Checked)
+            {
+                rbtnVInactive.Checked = false;
+                camionE.CamionActivty = rbtnActive.Checked;
+            }
+            else if (rbtnVInactive.Checked)
+            {
+                rbtnVActive.Checked = false;
+                camionE.CamionActivty = rbtnInactive.Checked;
+            }
+        }
+
+
+
         //************************************************************************************************
         public void EstadosModificacion()
         {
@@ -190,9 +207,10 @@ namespace InventZetaGas
             switch (opcion)
             {
                 case 1:
-                    if (string.IsNullOrEmpty(txtCodeCamion.Text))
+                    if (!string.IsNullOrEmpty(txtCodeCamion.Text))
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else if (ValidarCampos() == false)
+                    
+                    if (ValidarCampos() == true)
                     {
                         if (MessageBox.Show($"¿Deseas registrar a {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
@@ -201,13 +219,15 @@ namespace InventZetaGas
                             Limpiar();
                         }
                     }
+                    else 
+                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 2:
                     // Pregunta si desea modificar el dato.
                     if (MessageBox.Show($"¿Deseas modificar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         //metodo para validar los campos
-                        if (ValidarCampos() == false)
+                        if (ValidarCampos() == true)
                             MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                         {
@@ -222,7 +242,7 @@ namespace InventZetaGas
                     if (MessageBox.Show($"¿Deseas eliminar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         //metodo para validar los campos
-                        if (ValidarCampos() == false)
+                        if (ValidarCampos() == true)
                             MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                         {

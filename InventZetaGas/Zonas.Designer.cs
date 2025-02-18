@@ -92,7 +92,6 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Enabled = false;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtBuscar.Location = new Point(99, 372);
             txtBuscar.Name = "txtBuscar";
