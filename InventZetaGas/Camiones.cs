@@ -13,6 +13,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using System.Numerics;
 using static System.Windows.Forms.Design.AxImporter;
+using System.Diagnostics.Eventing.Reader;
 
 namespace InventZetaGas
 {
@@ -147,7 +148,7 @@ namespace InventZetaGas
             // Verifica si algún campo está vacío devuelve  un false
             if (string.IsNullOrEmpty(txtCamion.Text))
             {
-                return valid; 
+                return valid;
             }
 
             // Verifica si algún campo está vacío devuelve  un false
@@ -268,7 +269,7 @@ namespace InventZetaGas
             }
         }
         //************************************************************************************************
-        public void SeleccionarInformacion(DataGridViewCellEventArgs e) 
+        public void SeleccionarInformacion(DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -292,5 +293,10 @@ namespace InventZetaGas
             }
         }
         #endregion
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
