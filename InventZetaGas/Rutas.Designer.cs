@@ -63,7 +63,7 @@
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbRaza.Location = new Point(22, 48);
             gbRaza.Name = "gbRaza";
-            gbRaza.Size = new Size(874, 392);
+            gbRaza.Size = new Size(954, 392);
             gbRaza.TabIndex = 6;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Rutas";
@@ -105,7 +105,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
@@ -226,7 +225,7 @@
             gvRutas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvRutas.Location = new Point(22, 458);
             gvRutas.Name = "gvRutas";
-            gvRutas.Size = new Size(905, 244);
+            gvRutas.Size = new Size(954, 254);
             gvRutas.TabIndex = 8;
             gvRutas.CellContentClick += gvRutas_CellContentClick;
             // 
@@ -234,12 +233,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 729);
+            ClientSize = new Size(1125, 739);
             Controls.Add(gvRutas);
             Controls.Add(label1);
             Controls.Add(gbRaza);
             Name = "Rutas";
             Text = "Rutas";
+            Load += Rutas_Load;
             gbRaza.ResumeLayout(false);
             gbRaza.PerformLayout();
             groupBox2.ResumeLayout(false);

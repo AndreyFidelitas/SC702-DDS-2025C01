@@ -39,14 +39,25 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
 ## Vista previa del proyecto
 Si quieres hechas un vistazo al proyecto, te recomiendo:
 
+- Modulo de Rutas
+![image](https://github.com/user-attachments/assets/609469a2-cff7-439c-9250-ac78740c0246)
+
 - Modulo de Inicio
 ![image](https://github.com/user-attachments/assets/636b22aa-e81b-4fa8-abf0-126e921ff63c)
 
 - Modulo de Zonas
 ![image](https://github.com/user-attachments/assets/a6ade586-52ef-4409-bd9a-9e16ce4c581f)
 
+- Modulo de Zonas version2.0
+![image](https://github.com/user-attachments/assets/1633454e-c887-4ec5-a5ff-1ee51e79ddff)
+
+
 - Modulo de Camiones
 ![image](https://github.com/user-attachments/assets/92af550a-b71c-4c8d-b56c-67b6e0adff17)
+
+- Modulo de Camiones version 2.0 
+![image](https://github.com/user-attachments/assets/10cb4f80-3dcb-48dc-bd36-72b9846f5585)
+
 
 - Modulo de Roles
 ![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
