@@ -91,6 +91,7 @@
     <Build Include="dbo\Stored Procedures\SPListaRutas.sql" />
     <Build Include="dbo\Tables\Camiones.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoRutas.sql" />
+    <Build Include="dbo\Stored Procedures\SPListaClientes.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\BD_20250213_00-05-59.dacpac" />
