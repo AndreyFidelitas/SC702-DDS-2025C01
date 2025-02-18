@@ -1,0 +1,356 @@
+﻿namespace InventZetaGas
+{
+    partial class Usuarios
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
+            gbRaza = new GroupBox();
+            groupBox3 = new GroupBox();
+            rbtnVInactive = new RadioButton();
+            rbtnVActive = new RadioButton();
+            button1 = new Button();
+            txtBuscar = new TextBox();
+            label4 = new Label();
+            txtPesaje = new TextBox();
+            lblPesaje = new Label();
+            txtPlaca = new TextBox();
+            lblPlaca = new Label();
+            groupBox2 = new GroupBox();
+            rbtnInactive = new RadioButton();
+            rbtnActive = new RadioButton();
+            groupBox1 = new GroupBox();
+            btnDelete = new Button();
+            btnAdd = new Button();
+            btnModify = new Button();
+            btnNew = new Button();
+            txtCamion = new TextBox();
+            lblZona = new Label();
+            txtCodeCamion = new TextBox();
+            lblCode = new Label();
+            gbRaza.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // gbRaza
+            // 
+            gbRaza.BackColor = Color.White;
+            gbRaza.Controls.Add(groupBox3);
+            gbRaza.Controls.Add(button1);
+            gbRaza.Controls.Add(txtBuscar);
+            gbRaza.Controls.Add(label4);
+            gbRaza.Controls.Add(txtPesaje);
+            gbRaza.Controls.Add(lblPesaje);
+            gbRaza.Controls.Add(txtPlaca);
+            gbRaza.Controls.Add(lblPlaca);
+            gbRaza.Controls.Add(groupBox2);
+            gbRaza.Controls.Add(groupBox1);
+            gbRaza.Controls.Add(txtCamion);
+            gbRaza.Controls.Add(lblZona);
+            gbRaza.Controls.Add(txtCodeCamion);
+            gbRaza.Controls.Add(lblCode);
+            gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
+            gbRaza.Location = new Point(-52, 10);
+            gbRaza.Name = "gbRaza";
+            gbRaza.Size = new Size(905, 430);
+            gbRaza.TabIndex = 5;
+            gbRaza.TabStop = false;
+            gbRaza.Text = "Datos de Zonas";
+            gbRaza.Enter += gbRaza_Enter;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(rbtnVInactive);
+            groupBox3.Controls.Add(rbtnVActive);
+            groupBox3.Location = new Point(393, 173);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(335, 129);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Estado Vehiculo";
+            // 
+            // rbtnVInactive
+            // 
+            rbtnVInactive.AutoSize = true;
+            rbtnVInactive.Location = new Point(25, 79);
+            rbtnVInactive.Name = "rbtnVInactive";
+            rbtnVInactive.Size = new Size(71, 20);
+            rbtnVInactive.TabIndex = 1;
+            rbtnVInactive.TabStop = true;
+            rbtnVInactive.Text = "Inactivo";
+            rbtnVInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnVActive
+            // 
+            rbtnVActive.AutoSize = true;
+            rbtnVActive.Location = new Point(25, 38);
+            rbtnVActive.Name = "rbtnVActive";
+            rbtnVActive.Size = new Size(107, 20);
+            rbtnVActive.TabIndex = 0;
+            rbtnVActive.TabStop = true;
+            rbtnVActive.Text = "En Operación";
+            rbtnVActive.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(748, 395);
+            button1.Name = "button1";
+            button1.Size = new Size(139, 26);
+            button1.TabIndex = 4;
+            button1.Text = "Buscar";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtBuscar.Location = new Point(99, 397);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(643, 22);
+            txtBuscar.TabIndex = 14;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10F);
+            label4.Location = new Point(41, 400);
+            label4.Name = "label4";
+            label4.Size = new Size(52, 17);
+            label4.TabIndex = 13;
+            label4.Text = "Buscar";
+            // 
+            // txtPesaje
+            // 
+            txtPesaje.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtPesaje.Location = new Point(41, 277);
+            txtPesaje.Name = "txtPesaje";
+            txtPesaje.Size = new Size(289, 22);
+            txtPesaje.TabIndex = 12;
+            // 
+            // lblPesaje
+            // 
+            lblPesaje.AutoSize = true;
+            lblPesaje.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPesaje.Location = new Point(41, 248);
+            lblPesaje.Name = "lblPesaje";
+            lblPesaje.Size = new Size(51, 17);
+            lblPesaje.TabIndex = 11;
+            lblPesaje.Text = "Pesaje";
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtPlaca.Location = new Point(41, 210);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(289, 22);
+            txtPlaca.TabIndex = 10;
+            // 
+            // lblPlaca
+            // 
+            lblPlaca.AutoSize = true;
+            lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
+            lblPlaca.Location = new Point(41, 179);
+            lblPlaca.Name = "lblPlaca";
+            lblPlaca.Size = new Size(43, 17);
+            lblPlaca.TabIndex = 9;
+            lblPlaca.Text = "Placa";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(rbtnInactive);
+            groupBox2.Controls.Add(rbtnActive);
+            groupBox2.Location = new Point(393, 38);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(335, 129);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Estado";
+            // 
+            // rbtnInactive
+            // 
+            rbtnInactive.AutoSize = true;
+            rbtnInactive.Location = new Point(25, 79);
+            rbtnInactive.Name = "rbtnInactive";
+            rbtnInactive.Size = new Size(71, 20);
+            rbtnInactive.TabIndex = 1;
+            rbtnInactive.TabStop = true;
+            rbtnInactive.Text = "Inactivo";
+            rbtnInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnActive
+            // 
+            rbtnActive.AutoSize = true;
+            rbtnActive.Location = new Point(25, 38);
+            rbtnActive.Name = "rbtnActive";
+            rbtnActive.Size = new Size(62, 20);
+            rbtnActive.TabIndex = 0;
+            rbtnActive.TabStop = true;
+            rbtnActive.Text = "Activo";
+            rbtnActive.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(btnAdd);
+            groupBox1.Controls.Add(btnModify);
+            groupBox1.Controls.Add(btnNew);
+            groupBox1.Location = new Point(41, 305);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(846, 77);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
+            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDelete.Location = new Point(582, 21);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(158, 43);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Eliminar";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(209, 21);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(158, 43);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "Agregar";
+            btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnModify
+            // 
+            btnModify.Image = (Image)resources.GetObject("btnModify.Image");
+            btnModify.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModify.Location = new Point(391, 21);
+            btnModify.Name = "btnModify";
+            btnModify.Size = new Size(158, 43);
+            btnModify.TabIndex = 1;
+            btnModify.Text = "Modificar";
+            btnModify.UseVisualStyleBackColor = true;
+            // 
+            // btnNew
+            // 
+            btnNew.Image = (Image)resources.GetObject("btnNew.Image");
+            btnNew.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNew.Location = new Point(18, 21);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(158, 43);
+            btnNew.TabIndex = 0;
+            btnNew.Text = "Nuevo";
+            btnNew.UseVisualStyleBackColor = true;
+            // 
+            // txtCamion
+            // 
+            txtCamion.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtCamion.Location = new Point(41, 145);
+            txtCamion.Name = "txtCamion";
+            txtCamion.Size = new Size(289, 22);
+            txtCamion.TabIndex = 3;
+            // 
+            // lblZona
+            // 
+            lblZona.AutoSize = true;
+            lblZona.Font = new Font("Microsoft Sans Serif", 10F);
+            lblZona.Location = new Point(41, 117);
+            lblZona.Name = "lblZona";
+            lblZona.Size = new Size(47, 17);
+            lblZona.TabIndex = 2;
+            lblZona.Text = "Marca";
+            // 
+            // txtCodeCamion
+            // 
+            txtCodeCamion.Enabled = false;
+            txtCodeCamion.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtCodeCamion.Location = new Point(41, 76);
+            txtCodeCamion.Name = "txtCodeCamion";
+            txtCodeCamion.Size = new Size(292, 22);
+            txtCodeCamion.TabIndex = 1;
+            // 
+            // lblCode
+            // 
+            lblCode.AutoSize = true;
+            lblCode.Font = new Font("Microsoft Sans Serif", 10F);
+            lblCode.Location = new Point(41, 38);
+            lblCode.Name = "lblCode";
+            lblCode.Size = new Size(118, 17);
+            lblCode.TabIndex = 0;
+            lblCode.Text = "Código Camiones";
+            // 
+            // Usuarios
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(901, 450);
+            Controls.Add(gbRaza);
+            Name = "Usuarios";
+            Text = "Usuarios";
+            Load += Usuarios_Load;
+            gbRaza.ResumeLayout(false);
+            gbRaza.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private GroupBox gbRaza;
+        private GroupBox groupBox3;
+        private RadioButton rbtnVInactive;
+        private RadioButton rbtnVActive;
+        private Button button1;
+        private TextBox txtBuscar;
+        private Label label4;
+        private TextBox txtPesaje;
+        private Label lblPesaje;
+        private TextBox txtPlaca;
+        private Label lblPlaca;
+        private GroupBox groupBox2;
+        private RadioButton rbtnInactive;
+        private RadioButton rbtnActive;
+        private GroupBox groupBox1;
+        private Button btnDelete;
+        private Button btnAdd;
+        private Button btnModify;
+        private Button btnNew;
+        private TextBox txtCamion;
+        private Label lblZona;
+        private TextBox txtCodeCamion;
+        private Label lblCode;
+    }
+}
