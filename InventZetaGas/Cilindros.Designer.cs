@@ -58,6 +58,8 @@
             numericUpDown7 = new NumericUpDown();
             label8 = new Label();
             pictureBox8 = new PictureBox();
+            comboBox1 = new ComboBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)nUD_TotalCilindros).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -328,11 +330,31 @@
             pictureBox8.TabIndex = 26;
             pictureBox8.TabStop = false;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(30, 134);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 27;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 10F);
+            label9.Location = new Point(30, 114);
+            label9.Name = "label9";
+            label9.Size = new Size(107, 17);
+            label9.TabIndex = 28;
+            label9.Text = "Tipo de Cilindro";
+            // 
             // Cilindros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label9);
+            Controls.Add(comboBox1);
             Controls.Add(pictureBox8);
             Controls.Add(label8);
             Controls.Add(numericUpDown7);
@@ -412,5 +434,7 @@
         private NumericUpDown numericUpDown7;
         private Label label8;
         private PictureBox pictureBox8;
+        private ComboBox comboBox1;
+        private Label label9;
     }
 }
