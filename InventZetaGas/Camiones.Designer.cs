@@ -32,6 +32,9 @@
             label2 = new Label();
             label1 = new Label();
             gbRaza = new GroupBox();
+            groupBox3 = new GroupBox();
+            rbtnVInactive = new RadioButton();
+            rbtnVActive = new RadioButton();
             button1 = new Button();
             txtBuscar = new TextBox();
             label4 = new Label();
@@ -52,14 +55,11 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
-            groupBox3 = new GroupBox();
-            rbtnVInactive = new RadioButton();
-            rbtnVActive = new RadioButton();
             gbRaza.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gvCamiones).BeginInit();
-            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // label2
@@ -112,6 +112,72 @@
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Zonas";
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(rbtnVInactive);
+            groupBox3.Controls.Add(rbtnVActive);
+            groupBox3.Location = new Point(393, 173);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(335, 129);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Estado Vehiculo";
+            // 
+            // rbtnVInactive
+            // 
+            rbtnVInactive.AutoSize = true;
+            rbtnVInactive.Location = new Point(25, 79);
+            rbtnVInactive.Name = "rbtnVInactive";
+            rbtnVInactive.Size = new Size(131, 20);
+            rbtnVInactive.TabIndex = 1;
+            rbtnVInactive.TabStop = true;
+            rbtnVInactive.Text = "En Mantenimiento";
+            rbtnVInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnVActive
+            // 
+            rbtnVActive.AutoSize = true;
+            rbtnVActive.Location = new Point(25, 38);
+            rbtnVActive.Name = "rbtnVActive";
+            rbtnVActive.Size = new Size(107, 20);
+            rbtnVActive.TabIndex = 0;
+            rbtnVActive.TabStop = true;
+            rbtnVActive.Text = "En Operación";
+            rbtnVActive.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(rbtnVInactive);
+            groupBox3.Controls.Add(rbtnVActive);
+            groupBox3.Location = new Point(393, 173);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(335, 129);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Estado Vehiculo";
+            // 
+            // rbtnVInactive
+            // 
+            rbtnVInactive.AutoSize = true;
+            rbtnVInactive.Location = new Point(25, 79);
+            rbtnVInactive.Name = "rbtnVInactive";
+            rbtnVInactive.Size = new Size(71, 20);
+            rbtnVInactive.TabIndex = 1;
+            rbtnVInactive.TabStop = true;
+            rbtnVInactive.Text = "Inactivo";
+            rbtnVInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnVActive
+            // 
+            rbtnVActive.AutoSize = true;
+            rbtnVActive.Location = new Point(25, 38);
+            rbtnVActive.Name = "rbtnVActive";
+            rbtnVActive.Size = new Size(107, 20);
+            rbtnVActive.TabIndex = 0;
+            rbtnVActive.TabStop = true;
+            rbtnVActive.Text = "En Operación";
+            rbtnVActive.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             button1.Image = (Image)resources.GetObject("button1.Image");
@@ -131,6 +197,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             txtBuscar.KeyPress += txtBuscar_KeyPress;
             // 
             // label4
@@ -325,39 +392,6 @@
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
             // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(rbtnVInactive);
-            groupBox3.Controls.Add(rbtnVActive);
-            groupBox3.Location = new Point(393, 173);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(335, 129);
-            groupBox3.TabIndex = 9;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Estado Vehiculo";
-            // 
-            // rbtnVInactive
-            // 
-            rbtnVInactive.AutoSize = true;
-            rbtnVInactive.Location = new Point(25, 79);
-            rbtnVInactive.Name = "rbtnVInactive";
-            rbtnVInactive.Size = new Size(71, 20);
-            rbtnVInactive.TabIndex = 1;
-            rbtnVInactive.TabStop = true;
-            rbtnVInactive.Text = "Inactivo";
-            rbtnVInactive.UseVisualStyleBackColor = true;
-            // 
-            // rbtnVActive
-            // 
-            rbtnVActive.AutoSize = true;
-            rbtnVActive.Location = new Point(25, 38);
-            rbtnVActive.Name = "rbtnVActive";
-            rbtnVActive.Size = new Size(107, 20);
-            rbtnVActive.TabIndex = 0;
-            rbtnVActive.TabStop = true;
-            rbtnVActive.Text = "En Operación";
-            rbtnVActive.UseVisualStyleBackColor = true;
-            // 
             // Camiones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -372,12 +406,12 @@
             Load += Camiones_Load;
             gbRaza.ResumeLayout(false);
             gbRaza.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gvCamiones).EndInit();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

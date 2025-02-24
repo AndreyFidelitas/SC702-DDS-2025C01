@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/.vs/ZataGas/v17/DocumentLayout.json
+/.vs/ZataGas/v17/.suo

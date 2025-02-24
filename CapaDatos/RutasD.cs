@@ -40,7 +40,7 @@ namespace CapaDatos
 
                 Generales g = new Generales();
                 g.accion = accion;
-                using (var cmd = new SqlCommand("SPMantenimientoZonas", _conexion.AbrirConexion()))
+                using (var cmd = new SqlCommand("SPMantenimientoRutas", _conexion.AbrirConexion()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@RutaCode", rutas.RutaCode);
