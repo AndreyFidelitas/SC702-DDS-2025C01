@@ -23,8 +23,6 @@ namespace InventZetaGas
         public frmInicioSesion()
         {
             InitializeComponent();
-            // Initialize the TextBox controls
-
         }
 
         private void btnNew_Click(object sender, EventArgs e)
