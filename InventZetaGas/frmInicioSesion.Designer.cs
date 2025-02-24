@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics;
+
 namespace InventZetaGas
 {
     partial class frmInicioSesion
@@ -209,7 +211,7 @@ namespace InventZetaGas
 
         private void label3_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Application.Exit();
         }
 
         #endregion

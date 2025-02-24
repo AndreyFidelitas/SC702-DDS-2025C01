@@ -115,9 +115,7 @@ namespace PlayerUI
         #region ToolsSubMenu
         private void button13_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new Cilindros());
             hideSubMenu();
         }
 
