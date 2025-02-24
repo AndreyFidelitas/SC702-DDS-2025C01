@@ -77,7 +77,8 @@ namespace InventZetaGas
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Buscar();
+            if (e.KeyChar == 13)
+                Buscar();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -251,6 +252,7 @@ namespace InventZetaGas
                 // Muestra todos los registros si no se encuentran resultados
                 dataView.RowFilter = string.Empty;
                 gvZonas.DataSource = dataView;  // Asigna de nuevo los datos completos
+                txtBuscar.Text = "";
             }
         }
         #endregion

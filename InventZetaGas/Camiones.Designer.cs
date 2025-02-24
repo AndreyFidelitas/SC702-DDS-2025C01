@@ -357,7 +357,7 @@
             gvCamiones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvCamiones.Location = new Point(12, 473);
             gvCamiones.Name = "gvCamiones";
-            gvCamiones.Size = new Size(974, 211);
+            gvCamiones.Size = new Size(887, 211);
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
             // 

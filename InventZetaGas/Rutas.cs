@@ -29,7 +29,25 @@ namespace InventZetaGas
 
         private void gvRutas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleecionarDatos(e);
+            //SeleecionarDatos(e);
+            // Verifica que el índice de fila sea válido
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvRutas.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeRuta.Text = row.Cells["Codigo Ruta"].Value?.ToString();
+                txtRuta.Text = row.Cells["Ruta"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)

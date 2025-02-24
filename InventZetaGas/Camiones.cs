@@ -136,8 +136,6 @@ namespace InventZetaGas
             }
         }
 
-
-
         //************************************************************************************************
         public void EstadosModificacion()
         {
@@ -178,10 +176,10 @@ namespace InventZetaGas
                 return valid;
             }
 
-            if (rbtnActive.Checked == false && rbtnActive.Checked == false)
-            {
-                return valid;
-            }
+            //if (rbtnActive.Checked == false && rbtnActive.Checked == false)
+            //{
+            //    return valid;
+            //}
 
             valid = true;
             return valid;
@@ -226,11 +224,12 @@ namespace InventZetaGas
                     if (MessageBox.Show($"¿Deseas modificar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         //metodo para validar los campos
-                        if (ValidarCampos() == true)
+                        if (ValidarCampos() == false)
                             MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                         {
                             EstadosModificacion();
+                            EstadosCamion();
                             Mantenimiento("2");
                             Limpiar();
                         }
@@ -284,6 +283,7 @@ namespace InventZetaGas
                 // Muestra todos los registros si no se encuentran resultados
                 dataView.RowFilter = string.Empty;
                 gvCamiones.DataSource = dataView;  // Asigna de nuevo los datos completos
+                txtBuscar.Text = "";
             }
         }
         //************************************************************************************************
