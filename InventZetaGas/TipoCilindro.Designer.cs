@@ -35,16 +35,16 @@
             groupBox2 = new GroupBox();
             rbtnInactive = new RadioButton();
             rbtnActive = new RadioButton();
+            groupBox1 = new GroupBox();
+            btnDelete = new Button();
+            btnAdd = new Button();
+            btnModify = new Button();
+            btnNew = new Button();
             txtCilindro = new TextBox();
             lblLoteLitraje = new Label();
             txtCodeCilindro = new TextBox();
             lblTipoCilindroCode = new Label();
             label1 = new Label();
-            btnNew = new Button();
-            btnModify = new Button();
-            btnAdd = new Button();
-            btnDelete = new Button();
-            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)gvCilindros).BeginInit();
             gbRaza.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -57,12 +57,13 @@
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Microsoft Sans Serif", 12F);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(99, 19);
+            label2.Location = new Point(12, 9);
             label2.Name = "label2";
             label2.Padding = new Padding(3, 0, 3, 0);
             label2.Size = new Size(26, 20);
             label2.TabIndex = 11;
             label2.Text = "X";
+            label2.Click += label2_Click;
             // 
             // gvCilindros
             // 
@@ -72,10 +73,11 @@
             gvCilindros.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gvCilindros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvCilindros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvCilindros.Location = new Point(99, 465);
+            gvCilindros.Location = new Point(21, 445);
             gvCilindros.Name = "gvCilindros";
-            gvCilindros.Size = new Size(905, 244);
+            gvCilindros.Size = new Size(874, 244);
             gvCilindros.TabIndex = 10;
+            gvCilindros.CellContentClick += gvCilindros_CellContentClick;
             // 
             // gbRaza
             // 
@@ -88,7 +90,7 @@
             gbRaza.Controls.Add(txtCodeCilindro);
             gbRaza.Controls.Add(lblTipoCilindroCode);
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
-            gbRaza.Location = new Point(99, 58);
+            gbRaza.Location = new Point(21, 47);
             gbRaza.Name = "gbRaza";
             gbRaza.Size = new Size(874, 392);
             gbRaza.TabIndex = 9;
@@ -117,6 +119,7 @@
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
             rbtnInactive.UseVisualStyleBackColor = true;
+            rbtnInactive.CheckedChanged += rbtnInactive_CheckedChanged;
             // 
             // rbtnActive
             // 
@@ -128,6 +131,72 @@
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
             rbtnActive.UseVisualStyleBackColor = true;
+            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(btnAdd);
+            groupBox1.Controls.Add(btnModify);
+            groupBox1.Controls.Add(btnNew);
+            groupBox1.Location = new Point(15, 298);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(842, 77);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
+            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDelete.Location = new Point(480, 21);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(143, 50);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Eliminar";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.Location = new Point(164, 21);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(137, 50);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "Agregar";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnModify
+            // 
+            btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            btnModify.Image = (Image)resources.GetObject("btnModify.Image");
+            btnModify.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModify.Location = new Point(307, 21);
+            btnModify.Name = "btnModify";
+            btnModify.Size = new Size(158, 50);
+            btnModify.TabIndex = 1;
+            btnModify.Text = "Modificar";
+            btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
+            // 
+            // btnNew
+            // 
+            btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            btnNew.Image = (Image)resources.GetObject("btnNew.Image");
+            btnNew.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNew.Location = new Point(16, 21);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(124, 50);
+            btnNew.TabIndex = 0;
+            btnNew.Text = "Nuevo";
+            btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // txtCilindro
             // 
@@ -171,74 +240,12 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15F);
             label1.ForeColor = SystemColors.GrayText;
-            label1.Location = new Point(519, 19);
+            label1.Location = new Point(430, 9);
             label1.Name = "label1";
             label1.Size = new Size(229, 25);
             label1.TabIndex = 8;
             label1.Text = "Modulo Tipos de Cilindro";
             label1.Click += label1_Click;
-            // 
-            // btnNew
-            // 
-            btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnNew.Image = (Image)resources.GetObject("btnNew.Image");
-            btnNew.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNew.Location = new Point(16, 21);
-            btnNew.Name = "btnNew";
-            btnNew.Size = new Size(124, 50);
-            btnNew.TabIndex = 0;
-            btnNew.Text = "Nuevo";
-            btnNew.UseVisualStyleBackColor = true;
-            btnNew.Click += btnNew_Click;
-            // 
-            // btnModify
-            // 
-            btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnModify.Image = (Image)resources.GetObject("btnModify.Image");
-            btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(307, 21);
-            btnModify.Name = "btnModify";
-            btnModify.Size = new Size(158, 50);
-            btnModify.TabIndex = 1;
-            btnModify.Text = "Modificar";
-            btnModify.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
-            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdd.Location = new Point(164, 21);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(137, 50);
-            btnAdd.TabIndex = 2;
-            btnAdd.Text = "Agregar";
-            btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(480, 21);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(143, 50);
-            btnDelete.TabIndex = 3;
-            btnDelete.Text = "Eliminar";
-            btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(btnDelete);
-            groupBox1.Controls.Add(btnAdd);
-            groupBox1.Controls.Add(btnModify);
-            groupBox1.Controls.Add(btnNew);
-            groupBox1.Location = new Point(15, 298);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1434, 77);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
             // 
             // TipoCilindro
             // 
@@ -251,6 +258,7 @@
             Controls.Add(label1);
             Name = "TipoCilindro";
             Text = "TipoCilindro";
+            Load += TipoCilindro_Load;
             ((System.ComponentModel.ISupportInitialize)gvCilindros).EndInit();
             gbRaza.ResumeLayout(false);
             gbRaza.PerformLayout();
