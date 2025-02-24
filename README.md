@@ -51,13 +51,37 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Camiones V2.0
 ![image](https://github.com/user-attachments/assets/df7d14ad-3d51-4756-b828-ca9f1df6f501)
 
-
-
 - Modulo de Roles
 ![image](https://github.com/user-attachments/assets/e38489e7-c36c-4b5f-91ca-d7b2448d648a)
 
+
+
+# Modulos del sprint 2
+
+- Modulo de Reporte de Cilindros
+![image](https://github.com/user-attachments/assets/26581749-4b4f-482b-80be-46b123a18636)
+
+- Modulo de Tipos de Cilindro
+![image](https://github.com/user-attachments/assets/293faecc-6d27-4e40-9923-aba058420fd9)
+
+- Modulo de Camiones
+![image](https://github.com/user-attachments/assets/8ca187fe-2aef-4582-a7b7-b76ace2d6fd2)
+
+- Modulo de Zonas
+![image](https://github.com/user-attachments/assets/f624e5e8-6a64-4744-b9cc-de600c7e5e1a)
+
+- Modulo de Usuarios
+![image](https://github.com/user-attachments/assets/a742bcb4-b2f4-4965-9021-7e6b2a78399d)
+
 - Modulo de Inicio de Sesion
-![image](https://github.com/user-attachments/assets/8b2552dc-9600-402d-b260-c583aad87814)
+![image](https://github.com/user-attachments/assets/9ca38022-5258-4d41-bcde-9c1df0a20d85)
+
+
+
+- Optimizacion de Codigos de Camiones
+- Optimizacion de Rutas
+
+
 
 
 # Reportes de BI
@@ -72,6 +96,10 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 
 - Guia para realizar el proyecto.
 ![image](https://github.com/user-attachments/assets/7a462c41-8a06-414b-afe9-ace0269d2293)
+
+- Generar Token
+![image](https://github.com/user-attachments/assets/5d17e7a2-2339-4099-8d8b-97a0fc78d2e2)
+
 
 
 ## Autores ✒️
