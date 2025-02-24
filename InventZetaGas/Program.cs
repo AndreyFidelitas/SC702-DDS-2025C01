@@ -15,7 +15,10 @@ namespace InventZetaGas
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmInicio());
             // test del modulo de Zonas
-            Application.Run(new frmInicioSesion());
+
+            CapaEntidades.UsuariosE users =new CapaEntidades.UsuariosE();
+
+            Application.Run(new Inicio(users));
         }
     }
 }
