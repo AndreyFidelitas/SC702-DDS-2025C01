@@ -97,5 +97,6 @@
   <ItemGroup>
     <None Include="Snapshots\BD_20250213_00-05-59.dacpac" />
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
+    <None Include="Snapshots\BD_20250224_13-10-32.dacpac" />
   </ItemGroup>
 </Project>

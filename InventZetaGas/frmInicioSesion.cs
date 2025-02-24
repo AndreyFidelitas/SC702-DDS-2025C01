@@ -16,7 +16,7 @@ namespace InventZetaGas
     public partial class frmInicioSesion : Form
     {
         UsuariosN usuariosN = new UsuariosN();
-
+        Generales g =new Generales();
         private string updateMsj;
 
 
@@ -26,6 +26,18 @@ namespace InventZetaGas
         }
 
         private void btnNew_Click(object sender, EventArgs e)
+        {
+            InicioSesion();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            g.msj = "En mantenimiento para el siguiente sprint #3";
+            MessageBox.Show(g.msj,"Mantenimiento para Sprint #3", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        public void InicioSesion() 
         {
             string usuarioUserName = txtUser.Text.Trim();
             string password = txtPaswword.Text.Trim();
