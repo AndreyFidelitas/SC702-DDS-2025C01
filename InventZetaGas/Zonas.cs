@@ -236,7 +236,7 @@ namespace InventZetaGas
             else
             {
                 // Aplica el filtro, ajusta según la columna y el valor
-                string filtroAplicado = "Marca LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                string filtroAplicado = "Provincia LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
                 dataView.RowFilter = filtroAplicado;
             }
 
@@ -256,7 +256,7 @@ namespace InventZetaGas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
+            Buscar();
         }
 
         private void button1_Click(object sender, EventArgs e)
