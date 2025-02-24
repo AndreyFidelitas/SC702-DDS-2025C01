@@ -145,6 +145,39 @@
             rbtnVActive.Text = "En Operación";
             rbtnVActive.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(rbtnVInactive);
+            groupBox3.Controls.Add(rbtnVActive);
+            groupBox3.Location = new Point(393, 173);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(335, 129);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Estado Vehiculo";
+            // 
+            // rbtnVInactive
+            // 
+            rbtnVInactive.AutoSize = true;
+            rbtnVInactive.Location = new Point(25, 79);
+            rbtnVInactive.Name = "rbtnVInactive";
+            rbtnVInactive.Size = new Size(71, 20);
+            rbtnVInactive.TabIndex = 1;
+            rbtnVInactive.TabStop = true;
+            rbtnVInactive.Text = "Inactivo";
+            rbtnVInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbtnVActive
+            // 
+            rbtnVActive.AutoSize = true;
+            rbtnVActive.Location = new Point(25, 38);
+            rbtnVActive.Name = "rbtnVActive";
+            rbtnVActive.Size = new Size(107, 20);
+            rbtnVActive.TabIndex = 0;
+            rbtnVActive.TabStop = true;
+            rbtnVActive.Text = "En Operación";
+            rbtnVActive.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             button1.Image = (Image)resources.GetObject("button1.Image");
@@ -164,6 +197,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             txtBuscar.KeyPress += txtBuscar_KeyPress;
             // 
             // label4
