@@ -195,7 +195,6 @@
             button13.Text = " Reporte Inventarios";
             button13.TextAlign = ContentAlignment.MiddleLeft;
             button13.UseVisualStyleBackColor = false;
-            button13.Visible = false;
             button13.Click += button13_Click;
             // 
             // btnTools
