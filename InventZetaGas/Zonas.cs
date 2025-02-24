@@ -37,6 +37,7 @@ namespace InventZetaGas
         {
             CargarDatos();
             CargarListaProvincias();
+            cbProvincias.SelectedIndex = -1;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -256,7 +257,7 @@ namespace InventZetaGas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Buscar();
+            //Buscar();
         }
 
         private void button1_Click(object sender, EventArgs e)

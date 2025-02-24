@@ -111,6 +111,7 @@ namespace InventZetaGas
             txtPaswword.PasswordChar = '*';
             txtPaswword.Size = new Size(364, 22);
             txtPaswword.TabIndex = 3;
+            txtPaswword.KeyPress += txtPaswword_KeyPress;
             // 
             // lblCode
             // 

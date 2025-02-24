@@ -84,6 +84,7 @@ namespace InventZetaGas
         //metodo para CargarDatos de las Rutas.
         public void CargarDatos()
         {
+            gvRutas.ReadOnly = true;    
             gvRutas.DataSource = rN.ListaRutas();
         }
 

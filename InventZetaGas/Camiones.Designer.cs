@@ -128,44 +128,12 @@
             rbtnVInactive.AutoSize = true;
             rbtnVInactive.Location = new Point(25, 79);
             rbtnVInactive.Name = "rbtnVInactive";
-            rbtnVInactive.Size = new Size(131, 20);
-            rbtnVInactive.TabIndex = 1;
-            rbtnVInactive.TabStop = true;
-            rbtnVInactive.Text = "En Mantenimiento";
-            rbtnVInactive.UseVisualStyleBackColor = true;
-            // 
-            // rbtnVActive
-            // 
-            rbtnVActive.AutoSize = true;
-            rbtnVActive.Location = new Point(25, 38);
-            rbtnVActive.Name = "rbtnVActive";
-            rbtnVActive.Size = new Size(107, 20);
-            rbtnVActive.TabIndex = 0;
-            rbtnVActive.TabStop = true;
-            rbtnVActive.Text = "En Operación";
-            rbtnVActive.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(rbtnVInactive);
-            groupBox3.Controls.Add(rbtnVActive);
-            groupBox3.Location = new Point(393, 173);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(335, 129);
-            groupBox3.TabIndex = 9;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Estado Vehiculo";
-            // 
-            // rbtnVInactive
-            // 
-            rbtnVInactive.AutoSize = true;
-            rbtnVInactive.Location = new Point(25, 79);
-            rbtnVInactive.Name = "rbtnVInactive";
             rbtnVInactive.Size = new Size(71, 20);
             rbtnVInactive.TabIndex = 1;
             rbtnVInactive.TabStop = true;
             rbtnVInactive.Text = "Inactivo";
             rbtnVInactive.UseVisualStyleBackColor = true;
+            rbtnVInactive.CheckedChanged += rbtnVInactive_CheckedChanged;
             // 
             // rbtnVActive
             // 
@@ -177,6 +145,7 @@
             rbtnVActive.TabStop = true;
             rbtnVActive.Text = "En Operación";
             rbtnVActive.UseVisualStyleBackColor = true;
+            rbtnVActive.CheckedChanged += rbtnVActive_CheckedChanged;
             // 
             // button1
             // 

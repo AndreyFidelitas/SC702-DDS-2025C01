@@ -154,6 +154,7 @@ namespace InventZetaGas
                 rbtnActive.Checked = false;
                 camionE.CamionStatus = rbtnActive.Checked;
             }
+
         }
         //************************************************************************************************
         //validacion de campos 
@@ -210,7 +211,7 @@ namespace InventZetaGas
                 case 1:
                     if (!string.IsNullOrEmpty(txtCodeCamion.Text))
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     if (ValidarCampos() == true)
                     {
                         if (MessageBox.Show($"¿Deseas registrar a {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -220,7 +221,7 @@ namespace InventZetaGas
                             Limpiar();
                         }
                     }
-                    else 
+                    else
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 2:
@@ -317,6 +318,16 @@ namespace InventZetaGas
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void rbtnVInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            EstadosCamion();
+        }
+
+        private void rbtnVActive_CheckedChanged(object sender, EventArgs e)
+        {
+            EstadosCamion();
         }
     }
 }

@@ -172,10 +172,9 @@
             button12.Padding = new Padding(35, 0, 0, 0);
             button12.Size = new Size(233, 40);
             button12.TabIndex = 1;
-            button12.Text = "Effects and filters";
+            button12.Text = "Clientes";
             button12.TextAlign = ContentAlignment.MiddleLeft;
             button12.UseVisualStyleBackColor = false;
-            button12.Visible = false;
             button12.Click += button12_Click;
             // 
             // button13

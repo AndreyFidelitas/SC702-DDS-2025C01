@@ -62,7 +62,9 @@ namespace InventZetaGas
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MantenimientosBotones(3);
+            g.msj = "Se encuentra en mantenimiento para sprint #3";
+            MessageBox.Show(g.msj, "mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MantenimientosBotones(3);
         }
 
         private void rbtnInactive_CheckedChanged(object sender, EventArgs e)
@@ -190,6 +192,7 @@ namespace InventZetaGas
         //metodo para CargarDatos de las Rutas.
         public void CargarDatos()
         {
+            gvCilindros.ReadOnly = true;
             gvCilindros.DataSource = cilindrosN.ListaTipoCilindro();
         }
         #endregion

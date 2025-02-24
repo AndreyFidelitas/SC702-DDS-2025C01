@@ -16,7 +16,7 @@ namespace InventZetaGas
     public partial class frmInicioSesion : Form
     {
         UsuariosN usuariosN = new UsuariosN();
-        Generales g =new Generales();
+        Generales g = new Generales();
         private string updateMsj;
 
 
@@ -33,11 +33,16 @@ namespace InventZetaGas
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             g.msj = "En mantenimiento para el siguiente sprint #3";
-            MessageBox.Show(g.msj,"Mantenimiento para Sprint #3", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(g.msj, "Mantenimiento para Sprint #3", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void txtPaswword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //InicioSesion();
+        }
 
-        public void InicioSesion() 
+        #region Metodos Generales
+        public void InicioSesion()
         {
             string usuarioUserName = txtUser.Text.Trim();
             string password = txtPaswword.Text.Trim();
@@ -72,5 +77,6 @@ namespace InventZetaGas
                 MessageBox.Show(msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }
