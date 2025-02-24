@@ -60,6 +60,7 @@
             pictureBox8 = new PictureBox();
             comboBox1 = new ComboBox();
             label9 = new Label();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)nUD_TotalCilindros).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -81,7 +82,7 @@
             // cbZonas
             // 
             cbZonas.FormattingEnabled = true;
-            cbZonas.Location = new Point(30, 48);
+            cbZonas.Location = new Point(24, 68);
             cbZonas.Name = "cbZonas";
             cbZonas.Size = new Size(121, 23);
             cbZonas.TabIndex = 0;
@@ -90,7 +91,7 @@
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(30, 18);
+            lblCode.Location = new Point(24, 38);
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(48, 17);
             lblCode.TabIndex = 1;
@@ -101,7 +102,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(208, 16);
+            label1.Location = new Point(202, 36);
             label1.Name = "label1";
             label1.Size = new Size(204, 17);
             label1.TabIndex = 2;
@@ -111,14 +112,14 @@
             // lblTotalCilindros
             // 
             lblTotalCilindros.AutoSize = true;
-            lblTotalCilindros.Location = new Point(364, 48);
+            lblTotalCilindros.Location = new Point(358, 68);
             lblTotalCilindros.Name = "lblTotalCilindros";
             lblTotalCilindros.Size = new Size(0, 15);
             lblTotalCilindros.TabIndex = 3;
             // 
             // nUD_TotalCilindros
             // 
-            nUD_TotalCilindros.Location = new Point(245, 46);
+            nUD_TotalCilindros.Location = new Point(239, 66);
             nUD_TotalCilindros.Name = "nUD_TotalCilindros";
             nUD_TotalCilindros.Size = new Size(120, 23);
             nUD_TotalCilindros.TabIndex = 4;
@@ -127,7 +128,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(51, 252);
+            label2.Location = new Point(50, 263);
             label2.Name = "label2";
             label2.Size = new Size(58, 17);
             label2.TabIndex = 5;
@@ -138,7 +139,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10F);
-            label3.Location = new Point(180, 252);
+            label3.Location = new Point(179, 263);
             label3.Name = "label3";
             label3.Size = new Size(58, 17);
             label3.TabIndex = 6;
@@ -149,7 +150,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(307, 252);
+            label4.Location = new Point(306, 263);
             label4.Name = "label4";
             label4.Size = new Size(58, 17);
             label4.TabIndex = 7;
@@ -159,7 +160,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10F);
-            label5.Location = new Point(433, 252);
+            label5.Location = new Point(432, 263);
             label5.Name = "label5";
             label5.Size = new Size(58, 17);
             label5.TabIndex = 8;
@@ -170,7 +171,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(557, 252);
+            label6.Location = new Point(556, 263);
             label6.Name = "label6";
             label6.Size = new Size(58, 17);
             label6.TabIndex = 9;
@@ -180,7 +181,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(682, 252);
+            label7.Location = new Point(681, 263);
             label7.Name = "label7";
             label7.Size = new Size(66, 17);
             label7.TabIndex = 10;
@@ -188,42 +189,42 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(25, 272);
+            numericUpDown1.Location = new Point(24, 283);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 11;
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(151, 272);
+            numericUpDown2.Location = new Point(150, 283);
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(120, 23);
             numericUpDown2.TabIndex = 12;
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(277, 272);
+            numericUpDown3.Location = new Point(276, 283);
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(120, 23);
             numericUpDown3.TabIndex = 13;
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(403, 272);
+            numericUpDown4.Location = new Point(402, 283);
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(120, 23);
             numericUpDown4.TabIndex = 14;
             // 
             // numericUpDown5
             // 
-            numericUpDown5.Location = new Point(529, 272);
+            numericUpDown5.Location = new Point(528, 283);
             numericUpDown5.Name = "numericUpDown5";
             numericUpDown5.Size = new Size(120, 23);
             numericUpDown5.TabIndex = 15;
             // 
             // numericUpDown6
             // 
-            numericUpDown6.Location = new Point(655, 272);
+            numericUpDown6.Location = new Point(654, 283);
             numericUpDown6.Name = "numericUpDown6";
             numericUpDown6.Size = new Size(120, 23);
             numericUpDown6.TabIndex = 16;
@@ -236,7 +237,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.istockphoto_1243075130_612x612;
-            pictureBox1.Location = new Point(245, 75);
+            pictureBox1.Location = new Point(239, 95);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(119, 131);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -246,7 +247,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(171, 301);
+            pictureBox2.Location = new Point(170, 312);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(76, 81);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -256,7 +257,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.istockphoto_1381628440_612x612;
-            pictureBox3.Location = new Point(292, 301);
+            pictureBox3.Location = new Point(291, 312);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(87, 92);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -266,7 +267,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.images__1_;
-            pictureBox4.Location = new Point(51, 301);
+            pictureBox4.Location = new Point(50, 312);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(73, 68);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -276,7 +277,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources._23476370_un_globo_de_gas_propano_cilindro_de_gas_cilindros_de_gas_doméstico_depósito_de_gas;
-            pictureBox5.Location = new Point(420, 301);
+            pictureBox5.Location = new Point(419, 312);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(85, 104);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -286,7 +287,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.cilindro_gas_normal_45_kg_1;
-            pictureBox6.Location = new Point(536, 301);
+            pictureBox6.Location = new Point(535, 312);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(97, 124);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -296,7 +297,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = Properties.Resources._174309674_cilindro_de_gas_vector_icono_negro_ilustración_vectorial_glp_sobre_fondo_blanco_icono_de;
-            pictureBox7.Location = new Point(655, 301);
+            pictureBox7.Location = new Point(654, 312);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(120, 137);
             pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -305,7 +306,7 @@
             // 
             // numericUpDown7
             // 
-            numericUpDown7.Location = new Point(495, 46);
+            numericUpDown7.Location = new Point(489, 66);
             numericUpDown7.Name = "numericUpDown7";
             numericUpDown7.Size = new Size(120, 23);
             numericUpDown7.TabIndex = 24;
@@ -314,7 +315,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 10F);
-            label8.Location = new Point(456, 18);
+            label8.Location = new Point(450, 38);
             label8.Name = "label8";
             label8.Size = new Size(193, 17);
             label8.TabIndex = 25;
@@ -323,7 +324,7 @@
             // pictureBox8
             // 
             pictureBox8.Image = Properties.Resources.images_27;
-            pictureBox8.Location = new Point(490, 75);
+            pictureBox8.Location = new Point(484, 95);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(125, 100);
             pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -333,7 +334,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(30, 134);
+            comboBox1.Location = new Point(24, 154);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 27;
@@ -342,17 +343,32 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 10F);
-            label9.Location = new Point(30, 114);
+            label9.Location = new Point(24, 134);
             label9.Name = "label9";
             label9.Size = new Size(107, 17);
             label9.TabIndex = 28;
             label9.Text = "Tipo de Cilindro";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Cursor = Cursors.Hand;
+            label10.Font = new Font("Microsoft Sans Serif", 12F);
+            label10.ForeColor = Color.DimGray;
+            label10.Location = new Point(12, 9);
+            label10.Name = "label10";
+            label10.Padding = new Padding(3, 0, 3, 0);
+            label10.Size = new Size(26, 20);
+            label10.TabIndex = 29;
+            label10.Text = "X";
+            label10.Click += label10_Click;
+            // 
             // Cilindros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(815, 468);
+            Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(comboBox1);
             Controls.Add(pictureBox8);
@@ -436,5 +452,6 @@
         private PictureBox pictureBox8;
         private ComboBox comboBox1;
         private Label label9;
+        internal Label label10;
     }
 }
