@@ -56,10 +56,7 @@ namespace InventZetaGas
             MantenimientosBotones(3);
         }
 
-        private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            SeleccionarInformacion(e);
-        }
+
 
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -328,6 +325,11 @@ namespace InventZetaGas
         private void rbtnVActive_CheckedChanged(object sender, EventArgs e)
         {
             EstadosCamion();
+        }
+
+        private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SeleccionarInformacion(e);
         }
     }
 }

@@ -352,12 +352,12 @@
             gvCamiones.AllowUserToAddRows = false;
             gvCamiones.AllowUserToDeleteRows = false;
             gvCamiones.AllowUserToOrderColumns = true;
+            gvCamiones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             gvCamiones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvCamiones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvCamiones.Location = new Point(12, 473);
             gvCamiones.Name = "gvCamiones";
-            gvCamiones.RowHeadersWidth = 51;
-            gvCamiones.Size = new Size(905, 172);
+            gvCamiones.Size = new Size(974, 211);
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
             // 
@@ -402,7 +402,6 @@
         private Label lblZona;
         private TextBox txtCodeCamion;
         private Label lblCode;
-        private DataGridView gvCamiones;
         private TextBox txtPlaca;
         private Label lblPlaca;
         private TextBox txtPesaje;
@@ -413,5 +412,6 @@
         private GroupBox groupBox3;
         private RadioButton rbtnVInactive;
         private RadioButton rbtnVActive;
+        private DataGridView gvCamiones;
     }
 }
