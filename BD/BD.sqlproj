@@ -59,7 +59,6 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
-    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Zonas.sql" />
@@ -95,8 +94,6 @@
     <Build Include="dbo\Stored Procedures\SPListaCilindro.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Snapshots\BD_20250213_00-05-59.dacpac" />
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
-    <None Include="Snapshots\BD_20250224_13-10-32.dacpac" />
   </ItemGroup>
 </Project>
