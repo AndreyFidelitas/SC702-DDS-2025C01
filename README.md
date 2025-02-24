@@ -5,7 +5,7 @@
 ## Documentacion
 - [Diagrama de tablas version 1.0](https://www.figma.com/board/NWER76Ptkq2sj4y2qMxZVE/Untitled?node-id=0-1&p=f&t=rjRQBglw82uUkuQS-0)
 - [Diccionario de Base de Datos InventZetaGas Version 1.0](https://github.com/user-attachments/files/18565278/Diccionario.de.Base.de.Datos.InventZetaGas.Version.1.0.docx)
-[Diccionario de Base de Datos InventZetaGas Version 2.0](https://github.com/user-attachments/files/18936932/Diccionario.de.Base.de.Datos.InventZetaGas.Version.2.0.docx)
+- [Diccionario de Base de Datos InventZetaGas Version 2.0](https://github.com/user-attachments/files/18936932/Diccionario.de.Base.de.Datos.InventZetaGas.Version.2.0.docx)
 
 
 
