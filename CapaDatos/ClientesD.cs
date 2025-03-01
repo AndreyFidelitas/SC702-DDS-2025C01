@@ -28,6 +28,7 @@ namespace CapaDatos
                 return dataTable;
             }
         }
+        #endregion
 
         #region "Mantenimiento de Clientes"
         public string MantenimientoClientes(ClientesE clientesE, string accion)
@@ -59,6 +60,6 @@ namespace CapaDatos
         }
         #endregion
 
-        #endregion
+
     }
 }

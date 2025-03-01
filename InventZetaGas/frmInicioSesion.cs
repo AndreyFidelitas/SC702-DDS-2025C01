@@ -16,8 +16,8 @@ namespace InventZetaGas
     public partial class frmInicioSesion : Form
     {
         UsuariosN usuariosN = new UsuariosN();
-
-        private string updateMsj;
+        UsuariosE usuariosE= new UsuariosE();
+        Generales generales = new Generales();
 
 
         public frmInicioSesion()
@@ -29,13 +29,20 @@ namespace InventZetaGas
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            string usuarioUserName = txtUser.Text.Trim();
-            string password = txtPaswword.Text.Trim();
+            InicioSesion();
+        }
+
+        //Metodo para iniciar sesion
+        private void InicioSesion()
+        {
+            usuariosE.UsuarioName = txtUser.Text.Trim();
+            usuariosE.Password = txtPaswword.Text.Trim();
             string msj;
 
             // Llamar al método de login (ya implementado)
-            UsuariosE usuario = usuariosN.LoginUsuario(usuarioUserName, password, out msj);
+            UsuariosE usuario = usuariosN.LoginUsuario(usuariosE.UsuarioName, usuariosE.Password, out msj);
 
+            //verifica el usuario
             if (usuario != null)
             {
                 // Generar un token único usando Guid
@@ -47,11 +54,6 @@ namespace InventZetaGas
                 // Asignar el token actualizado al objeto usuario (si lo necesitas en la aplicación)
                 usuario.token = tokenNuevo;
 
-                MessageBox.Show(msj + "\n" +
-                                "Token actualizado: " + tokenNuevo + "\n" +
-                                updateMsj,
-                                "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 // Abrir el formulario de inicio y redirigir al usuario
                 Inicio frmInicio = new Inicio(usuario);
                 frmInicio.Show();
@@ -59,7 +61,8 @@ namespace InventZetaGas
             }
             else
             {
-                MessageBox.Show(msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                generales.msj = msj;
+                MessageBox.Show(generales.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
