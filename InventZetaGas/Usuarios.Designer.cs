@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             gbUsuarios = new GroupBox();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            cbRol = new ComboBox();
             btnBuscar = new Button();
             txtBuscar = new TextBox();
             label4 = new Label();
@@ -48,10 +52,6 @@
             txtCodeCamion = new TextBox();
             lblCode = new Label();
             gvCamiones = new DataGridView();
-            cbRol = new ComboBox();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            label2 = new Label();
             gbUsuarios.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -83,6 +83,44 @@
             gbUsuarios.TabIndex = 5;
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10F);
+            label2.Location = new Point(47, 251);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 17);
+            label2.TabIndex = 18;
+            label2.Text = "Password";
+            label2.Click += label2_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox1.Location = new Point(41, 277);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(292, 22);
+            textBox1.TabIndex = 17;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 10F);
+            label1.Location = new Point(393, 179);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 17);
+            label1.TabIndex = 16;
+            label1.Text = "Rol de Usuario";
+            // 
+            // cbRol
+            // 
+            cbRol.FormattingEnabled = true;
+            cbRol.Location = new Point(393, 208);
+            cbRol.Name = "cbRol";
+            cbRol.Size = new Size(292, 24);
+            cbRol.TabIndex = 15;
             // 
             // btnBuscar
             // 
@@ -220,6 +258,7 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // txtCamion
             // 
@@ -271,44 +310,6 @@
             gvCamiones.RowHeadersWidth = 51;
             gvCamiones.Size = new Size(905, 172);
             gvCamiones.TabIndex = 6;
-            // 
-            // cbRol
-            // 
-            cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(393, 208);
-            cbRol.Name = "cbRol";
-            cbRol.Size = new Size(292, 24);
-            cbRol.TabIndex = 15;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(393, 179);
-            label1.Name = "label1";
-            label1.Size = new Size(102, 17);
-            label1.TabIndex = 16;
-            label1.Text = "Rol de Usuario";
-            // 
-            // textBox1
-            // 
-            textBox1.Enabled = false;
-            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox1.Location = new Point(41, 277);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(292, 22);
-            textBox1.TabIndex = 17;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(47, 251);
-            label2.Name = "label2";
-            label2.Size = new Size(69, 17);
-            label2.TabIndex = 18;
-            label2.Text = "Password";
-            label2.Click += label2_Click;
             // 
             // Usuarios
             // 
