@@ -37,7 +37,6 @@
             button12 = new Button();
             button13 = new Button();
             btnTools = new Button();
-            btnEqualizer = new Button();
             panelPlaylistSubMenu = new Panel();
             button1 = new Button();
             button6 = new Button();
@@ -72,7 +71,6 @@
             panelSideMenu.Controls.Add(btnHelp);
             panelSideMenu.Controls.Add(panelToolsSubMenu);
             panelSideMenu.Controls.Add(btnTools);
-            panelSideMenu.Controls.Add(btnEqualizer);
             panelSideMenu.Controls.Add(panelPlaylistSubMenu);
             panelSideMenu.Controls.Add(btnPlaylist);
             panelSideMenu.Controls.Add(panelMediaSubMenu);
@@ -95,7 +93,7 @@
             btnExit.ForeColor = Color.White;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(0, 715);
+            btnExit.Location = new Point(0, 670);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(5, 0, 0, 0);
             btnExit.Size = new Size(233, 45);
@@ -117,7 +115,7 @@
             btnHelp.ForeColor = Color.White;
             btnHelp.Image = (Image)resources.GetObject("btnHelp.Image");
             btnHelp.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHelp.Location = new Point(0, 682);
+            btnHelp.Location = new Point(0, 637);
             btnHelp.Name = "btnHelp";
             btnHelp.Padding = new Padding(5, 0, 0, 0);
             btnHelp.Size = new Size(233, 33);
@@ -135,7 +133,7 @@
             panelToolsSubMenu.Controls.Add(button12);
             panelToolsSubMenu.Controls.Add(button13);
             panelToolsSubMenu.Dock = DockStyle.Top;
-            panelToolsSubMenu.Location = new Point(0, 552);
+            panelToolsSubMenu.Location = new Point(0, 507);
             panelToolsSubMenu.Name = "panelToolsSubMenu";
             panelToolsSubMenu.Size = new Size(233, 130);
             panelToolsSubMenu.TabIndex = 7;
@@ -174,10 +172,9 @@
             button12.Padding = new Padding(35, 0, 0, 0);
             button12.Size = new Size(233, 40);
             button12.TabIndex = 1;
-            button12.Text = "Effects and filters";
+            button12.Text = "Clientes";
             button12.TextAlign = ContentAlignment.MiddleLeft;
             button12.UseVisualStyleBackColor = false;
-            button12.Visible = false;
             button12.Click += button12_Click;
             // 
             // button13
@@ -194,10 +191,9 @@
             button13.Padding = new Padding(35, 0, 0, 0);
             button13.Size = new Size(233, 40);
             button13.TabIndex = 0;
-            button13.Text = "Media converter";
+            button13.Text = " Reporte Inventarios";
             button13.TextAlign = ContentAlignment.MiddleLeft;
             button13.UseVisualStyleBackColor = false;
-            button13.Visible = false;
             button13.Click += button13_Click;
             // 
             // btnTools
@@ -211,38 +207,16 @@
             btnTools.ForeColor = Color.White;
             btnTools.Image = (Image)resources.GetObject("btnTools.Image");
             btnTools.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTools.Location = new Point(0, 513);
+            btnTools.Location = new Point(0, 468);
             btnTools.Name = "btnTools";
             btnTools.Padding = new Padding(5, 0, 0, 0);
             btnTools.Size = new Size(233, 39);
             btnTools.TabIndex = 6;
-            btnTools.Text = "  Tools";
+            btnTools.Text = "  Inventarios";
             btnTools.TextAlign = ContentAlignment.MiddleLeft;
             btnTools.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnTools.UseVisualStyleBackColor = false;
             btnTools.Click += btnTools_Click;
-            // 
-            // btnEqualizer
-            // 
-            btnEqualizer.BackColor = Color.FromArgb(1, 38, 90);
-            btnEqualizer.Dock = DockStyle.Top;
-            btnEqualizer.FlatAppearance.BorderSize = 0;
-            btnEqualizer.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
-            btnEqualizer.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
-            btnEqualizer.FlatStyle = FlatStyle.Flat;
-            btnEqualizer.ForeColor = Color.White;
-            btnEqualizer.Image = (Image)resources.GetObject("btnEqualizer.Image");
-            btnEqualizer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEqualizer.Location = new Point(0, 468);
-            btnEqualizer.Name = "btnEqualizer";
-            btnEqualizer.Padding = new Padding(5, 0, 0, 0);
-            btnEqualizer.Size = new Size(233, 45);
-            btnEqualizer.TabIndex = 5;
-            btnEqualizer.Text = "  Equalizer";
-            btnEqualizer.TextAlign = ContentAlignment.MiddleLeft;
-            btnEqualizer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEqualizer.UseVisualStyleBackColor = false;
-            btnEqualizer.Click += btnEqualizer_Click;
             // 
             // panelPlaylistSubMenu
             // 
@@ -539,7 +513,6 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button btnTools;
-        private System.Windows.Forms.Button btnEqualizer;
         private System.Windows.Forms.Panel panelPlaylistSubMenu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;

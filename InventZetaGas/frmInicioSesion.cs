@@ -23,11 +23,26 @@ namespace InventZetaGas
         public frmInicioSesion()
         {
             InitializeComponent();
-            // Initialize the TextBox controls
-
         }
 
         private void btnNew_Click(object sender, EventArgs e)
+        {
+            InicioSesion();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            g.msj = "En mantenimiento para el siguiente sprint #3";
+            MessageBox.Show(g.msj, "Mantenimiento para Sprint #3", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txtPaswword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //InicioSesion();
+        }
+
+        #region Metodos Generales
+        public void InicioSesion()
         {
             InicioSesion();
         }
@@ -65,5 +80,6 @@ namespace InventZetaGas
                 MessageBox.Show(generales.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }

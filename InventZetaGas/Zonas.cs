@@ -37,6 +37,7 @@ namespace InventZetaGas
         {
             CargarDatos();
             CargarListaProvincias();
+            cbProvincias.SelectedIndex = -1;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -76,7 +77,8 @@ namespace InventZetaGas
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Buscar();
+            if (e.KeyChar == 13)
+                Buscar();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -236,7 +238,7 @@ namespace InventZetaGas
             else
             {
                 // Aplica el filtro, ajusta según la columna y el valor
-                string filtroAplicado = "Marca LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                string filtroAplicado = "Provincia LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
                 dataView.RowFilter = filtroAplicado;
             }
 
@@ -250,13 +252,14 @@ namespace InventZetaGas
                 // Muestra todos los registros si no se encuentran resultados
                 dataView.RowFilter = string.Empty;
                 gvZonas.DataSource = dataView;  // Asigna de nuevo los datos completos
+                txtBuscar.Text = "";
             }
         }
         #endregion
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
+            //Buscar();
         }
 
         private void button1_Click(object sender, EventArgs e)

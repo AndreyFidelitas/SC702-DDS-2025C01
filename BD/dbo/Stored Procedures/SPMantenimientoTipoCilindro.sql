@@ -1,9 +1,10 @@
 ﻿
 
 
---exec SPMantenimientoTipoCilindro 'M0001','100 ml',1,'2';
 
---SELECT * from TipoCilindro
+--exec SPMantenimientoTipoCilindro '','143 ml',1,'1';
+
+--select * FROM TipoCilindro
 
 CREATE PROCEDURE [dbo].[SPMantenimientoTipoCilindro]
 (
@@ -19,14 +20,15 @@ BEGIN
 		
 		IF EXISTS (SELECT 1 FROM TipoCilindro WHERE LoteLitraje = @LoteLitraje)
         BEGIN
-            SET @accion = 'Ya existe la mediada de cilindro: ' + @LoteLitraje;
+            SET @accion = 'Ya existe la medida de cilindro: ' + @LoteLitraje;
         END
         ELSE
         BEGIN
-            DECLARE @codnuevo VARCHAR(5), @codmax VARCHAR(5);
-            SET @codmax = (SELECT MAX(TipoCilindroCode) FROM TipoCilindro with(nolock));
-            SET @codmax = ISNULL(@codmax, 'M0000');
-            SET @codnuevo = 'M' + RIGHT('0000' + CAST(CAST(RIGHT(@codmax, 4) AS INT) + 1 AS VARCHAR), 4);
+			declare @codnuevo varchar(5), @codmax varchar(6)
+			
+			set @codmax = (select max(TipoCilindroCode) from TipoCilindro)
+			set @codmax = isnull(@codmax,'M0000')
+			set @codnuevo = 'M'+RIGHT(RIGHT(@codmax,4)+10001,4)
 
             INSERT INTO TipoCilindro 
             (
@@ -41,7 +43,8 @@ BEGIN
 				@TipoCilindroStatus
             );
 
-            SET @accion = 'Se generó el código de la medida de cilindro: ' + @codnuevo;
+			SET @accion = 'Se generó la medida'+ @LoteLitraje+'codigo:' +@codnuevo;
+			print @accion
         END
 
     END
