@@ -28,6 +28,23 @@ namespace CapaDatos
         #endregion
 
 
+        #region "MostrarListaRoles"
+        public DataTable CargaRoles()
+        {
+            using (var cmd = new SqlCommand("SPCargaRoles", _conexion.AbrirConexion()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                var dataTable = new DataTable();
+                using (var dataAdapter = new SqlDataAdapter(cmd))
+                {
+                    dataAdapter.Fill(dataTable);
+                }
+                _conexion.CerrarConexion();
+                return dataTable;
+            }
+        }
+        #endregion
+
         #region "Mantenimiento de RolesE"
         public string MantenimientoRoles(RolesE RolesE, string accion)
         {

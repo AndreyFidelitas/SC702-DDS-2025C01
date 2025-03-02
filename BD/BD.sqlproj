@@ -94,6 +94,7 @@
     <Build Include="dbo\Stored Procedures\SPMantenimientoClientes.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoCilindros_1.sql" />
     <Build Include="dbo\Stored Procedures\SPListaCilindro_1.sql" />
+    <Build Include="dbo\Stored Procedures\SPCargaRoles.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />

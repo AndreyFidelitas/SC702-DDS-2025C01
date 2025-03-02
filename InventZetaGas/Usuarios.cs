@@ -27,7 +27,9 @@ namespace InventZetaGas
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-
+            CargarDatos();
+            CargarListaRoles();
+            cbRol.SelectedIndex = -1;
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -136,12 +138,12 @@ namespace InventZetaGas
         }
 
         //metodo para cargar las provincias
-        public void CargarListaProvincias()
+        public void CargarListaRoles()
         {
 
-            cbRol.DataSource = RolesN.ListaRoles();
-            cbRol.DisplayMember = "Provincia";
-            cbRol.ValueMember = "Provincia ID";
+            cbRol.DataSource = RolesN.CargarRoles();
+            cbRol.DisplayMember = "Rol";
+            cbRol.ValueMember = "Codigo Rol";
         }
 
 

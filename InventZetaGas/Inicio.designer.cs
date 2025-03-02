@@ -155,7 +155,6 @@
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             btnUsuarios.UseVisualStyleBackColor = false;
-            btnUsuarios.Visible = false;
             btnUsuarios.Click += button10_Click;
             // 
             // button12

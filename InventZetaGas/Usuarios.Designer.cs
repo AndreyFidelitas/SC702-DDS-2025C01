@@ -128,7 +128,6 @@
             // 
             // txtNombre
             // 
-            txtNombre.Enabled = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtNombre.Location = new Point(38, 96);
             txtNombre.Name = "txtNombre";
@@ -158,7 +157,6 @@
             // 
             // txtContraseña
             // 
-            txtContraseña.Enabled = false;
             txtContraseña.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtContraseña.Location = new Point(41, 277);
             txtContraseña.Name = "txtContraseña";
@@ -177,6 +175,7 @@
             // 
             // cbRol
             // 
+            cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRol.FormattingEnabled = true;
             cbRol.Location = new Point(389, 277);
             cbRol.Name = "cbRol";
