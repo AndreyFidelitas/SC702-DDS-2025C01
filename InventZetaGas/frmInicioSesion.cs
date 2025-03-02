@@ -16,7 +16,7 @@ namespace InventZetaGas
     public partial class frmInicioSesion : Form
     {
         UsuariosN usuariosN = new UsuariosN();
-        UsuariosE usuariosE= new UsuariosE();
+        UsuariosE usuariosE = new UsuariosE();
         Generales g = new Generales();
 
 
@@ -38,7 +38,8 @@ namespace InventZetaGas
 
         private void txtPaswword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //InicioSesion();
+            if (e.KeyChar == 13)
+                InicioSesion();
         }
 
         #region Metodos Generales
@@ -76,5 +77,6 @@ namespace InventZetaGas
             }
         }
         #endregion
+
     }
 }
