@@ -17,7 +17,7 @@ namespace InventZetaGas
     {
         UsuariosN usuariosN = new UsuariosN();
         UsuariosE usuariosE= new UsuariosE();
-        Generales generales = new Generales();
+        Generales g = new Generales();
 
 
         public frmInicioSesion()
@@ -42,11 +42,6 @@ namespace InventZetaGas
         }
 
         #region Metodos Generales
-        public void InicioSesion()
-        {
-            InicioSesion();
-        }
-
         //Metodo para iniciar sesion
         private void InicioSesion()
         {
@@ -76,8 +71,8 @@ namespace InventZetaGas
             }
             else
             {
-                generales.msj = msj;
-                MessageBox.Show(generales.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                g.msj = msj;
+                MessageBox.Show(g.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion

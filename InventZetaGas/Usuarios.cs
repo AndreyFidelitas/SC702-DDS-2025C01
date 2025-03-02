@@ -18,6 +18,7 @@ namespace InventZetaGas
         UsuariosD userD = new UsuariosD();
         UsuariosE userE = new UsuariosE();
         UsuariosN userN = new UsuariosN();
+        RolesN RolesN = new RolesN();
 
         public Usuarios()
         {
@@ -72,15 +73,13 @@ namespace InventZetaGas
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
         {
-
+            Estados();
         }
 
         private void rbtnInactive_CheckedChanged(object sender, EventArgs e)
         {
             Estados();
         }
-
-
 
         #region Mantenimientos Generales
         //Metodo para cargar los datos en data grid view.
@@ -134,6 +133,15 @@ namespace InventZetaGas
                 rbtnActive.Checked = false;
                 userE.UsuarioEstado = rbtnActive.Checked;
             }
+        }
+
+        //metodo para cargar las provincias
+        public void CargarListaProvincias()
+        {
+
+            cbRol.DataSource = RolesN.ListaRoles();
+            cbRol.DisplayMember = "Provincia";
+            cbRol.ValueMember = "Provincia ID";
         }
 
 
