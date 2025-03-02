@@ -30,14 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             gbUsuarios = new GroupBox();
+            txtCedula = new TextBox();
+            label7 = new Label();
+            txtNombre = new TextBox();
+            label6 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtContraseña = new TextBox();
             label1 = new Label();
             cbRol = new ComboBox();
             btnBuscar = new Button();
             txtBuscar = new TextBox();
             label4 = new Label();
-            txtPlaca = new TextBox();
+            txtUsuario = new TextBox();
             lblPlaca = new Label();
             groupBox2 = new GroupBox();
             rbtnInactive = new RadioButton();
@@ -47,68 +51,114 @@
             btnAdd = new Button();
             btnModify = new Button();
             btnNew = new Button();
-            txtCamion = new TextBox();
+            txtApellidos = new TextBox();
             lblZona = new Label();
-            txtCodeCamion = new TextBox();
+            txtCodeUser = new TextBox();
             lblCode = new Label();
-            gvCamiones = new DataGridView();
+            gvUsuarios = new DataGridView();
+            label3 = new Label();
+            label5 = new Label();
+            btnSearchID = new Button();
             gbUsuarios.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gvCamiones).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gvUsuarios).BeginInit();
             SuspendLayout();
             // 
             // gbUsuarios
             // 
             gbUsuarios.BackColor = Color.White;
+            gbUsuarios.Controls.Add(btnSearchID);
+            gbUsuarios.Controls.Add(txtCedula);
+            gbUsuarios.Controls.Add(label7);
+            gbUsuarios.Controls.Add(txtNombre);
+            gbUsuarios.Controls.Add(label6);
             gbUsuarios.Controls.Add(label2);
-            gbUsuarios.Controls.Add(textBox1);
+            gbUsuarios.Controls.Add(txtContraseña);
             gbUsuarios.Controls.Add(label1);
             gbUsuarios.Controls.Add(cbRol);
             gbUsuarios.Controls.Add(btnBuscar);
             gbUsuarios.Controls.Add(txtBuscar);
             gbUsuarios.Controls.Add(label4);
-            gbUsuarios.Controls.Add(txtPlaca);
+            gbUsuarios.Controls.Add(txtUsuario);
             gbUsuarios.Controls.Add(lblPlaca);
             gbUsuarios.Controls.Add(groupBox2);
             gbUsuarios.Controls.Add(groupBox1);
-            gbUsuarios.Controls.Add(txtCamion);
+            gbUsuarios.Controls.Add(txtApellidos);
             gbUsuarios.Controls.Add(lblZona);
-            gbUsuarios.Controls.Add(txtCodeCamion);
+            gbUsuarios.Controls.Add(txtCodeUser);
             gbUsuarios.Controls.Add(lblCode);
             gbUsuarios.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbUsuarios.Location = new Point(12, 39);
             gbUsuarios.Name = "gbUsuarios";
-            gbUsuarios.Size = new Size(910, 433);
+            gbUsuarios.Size = new Size(910, 446);
             gbUsuarios.TabIndex = 5;
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
+            // 
+            // txtCedula
+            // 
+            txtCedula.Enabled = false;
+            txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtCedula.Location = new Point(389, 47);
+            txtCedula.Name = "txtCedula";
+            txtCedula.Size = new Size(292, 22);
+            txtCedula.TabIndex = 22;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 10F);
+            label7.Location = new Point(389, 27);
+            label7.Name = "label7";
+            label7.Size = new Size(52, 17);
+            label7.TabIndex = 21;
+            label7.Text = "Cedula";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Enabled = false;
+            txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtNombre.Location = new Point(38, 96);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(292, 22);
+            txtNombre.TabIndex = 20;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 10F);
+            label6.Location = new Point(38, 76);
+            label6.Name = "label6";
+            label6.Size = new Size(58, 17);
+            label6.TabIndex = 19;
+            label6.Text = "Nombre";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(47, 251);
+            label2.Location = new Point(41, 257);
             label2.Name = "label2";
-            label2.Size = new Size(69, 17);
+            label2.Size = new Size(81, 17);
             label2.TabIndex = 18;
-            label2.Text = "Password";
+            label2.Text = "Contraseña";
             label2.Click += label2_Click;
             // 
-            // textBox1
+            // txtContraseña
             // 
-            textBox1.Enabled = false;
-            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox1.Location = new Point(41, 277);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(292, 22);
-            textBox1.TabIndex = 17;
+            txtContraseña.Enabled = false;
+            txtContraseña.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtContraseña.Location = new Point(41, 277);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Size = new Size(292, 22);
+            txtContraseña.TabIndex = 17;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(393, 179);
+            label1.Location = new Point(389, 257);
             label1.Name = "label1";
             label1.Size = new Size(102, 17);
             label1.TabIndex = 16;
@@ -117,7 +167,7 @@
             // cbRol
             // 
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(393, 208);
+            cbRol.Location = new Point(389, 277);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(292, 24);
             cbRol.TabIndex = 15;
@@ -126,7 +176,7 @@
             // 
             btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(748, 395);
+            btnBuscar.Location = new Point(748, 411);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(139, 26);
             btnBuscar.TabIndex = 4;
@@ -136,7 +186,7 @@
             // txtBuscar
             // 
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtBuscar.Location = new Point(99, 397);
+            txtBuscar.Location = new Point(99, 413);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
@@ -145,36 +195,36 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(41, 400);
+            label4.Location = new Point(41, 416);
             label4.Name = "label4";
             label4.Size = new Size(52, 17);
             label4.TabIndex = 13;
             label4.Text = "Buscar";
             // 
-            // txtPlaca
+            // txtUsuario
             // 
-            txtPlaca.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtPlaca.Location = new Point(41, 210);
-            txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(289, 22);
-            txtPlaca.TabIndex = 10;
+            txtUsuario.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtUsuario.Location = new Point(41, 210);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(289, 22);
+            txtUsuario.TabIndex = 10;
             // 
             // lblPlaca
             // 
             lblPlaca.AutoSize = true;
             lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
-            lblPlaca.Location = new Point(41, 179);
+            lblPlaca.Location = new Point(38, 190);
             lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(75, 17);
+            lblPlaca.Size = new Size(131, 17);
             lblPlaca.TabIndex = 9;
-            lblPlaca.Text = "UserName";
+            lblPlaca.Text = "Nombre de Usuario";
             lblPlaca.Click += lblPlaca_Click;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(rbtnInactive);
             groupBox2.Controls.Add(rbtnActive);
-            groupBox2.Location = new Point(393, 38);
+            groupBox2.Location = new Point(389, 96);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(335, 129);
             groupBox2.TabIndex = 8;
@@ -209,7 +259,7 @@
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
             groupBox1.Controls.Add(btnNew);
-            groupBox1.Location = new Point(41, 305);
+            groupBox1.Location = new Point(41, 321);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(846, 77);
             groupBox1.TabIndex = 7;
@@ -260,63 +310,100 @@
             btnNew.UseVisualStyleBackColor = true;
             btnNew.Click += btnNew_Click;
             // 
-            // txtCamion
+            // txtApellidos
             // 
-            txtCamion.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCamion.Location = new Point(41, 145);
-            txtCamion.Name = "txtCamion";
-            txtCamion.Size = new Size(289, 22);
-            txtCamion.TabIndex = 3;
+            txtApellidos.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtApellidos.Location = new Point(38, 157);
+            txtApellidos.Name = "txtApellidos";
+            txtApellidos.Size = new Size(292, 22);
+            txtApellidos.TabIndex = 3;
             // 
             // lblZona
             // 
             lblZona.AutoSize = true;
             lblZona.Font = new Font("Microsoft Sans Serif", 10F);
-            lblZona.Location = new Point(41, 117);
+            lblZona.Location = new Point(41, 133);
             lblZona.Name = "lblZona";
             lblZona.Size = new Size(65, 17);
             lblZona.TabIndex = 2;
             lblZona.Text = "Apellidos";
             // 
-            // txtCodeCamion
+            // txtCodeUser
             // 
-            txtCodeCamion.Enabled = false;
-            txtCodeCamion.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeCamion.Location = new Point(41, 76);
-            txtCodeCamion.Name = "txtCodeCamion";
-            txtCodeCamion.Size = new Size(292, 22);
-            txtCodeCamion.TabIndex = 1;
+            txtCodeUser.Enabled = false;
+            txtCodeUser.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtCodeUser.Location = new Point(38, 47);
+            txtCodeUser.Name = "txtCodeUser";
+            txtCodeUser.Size = new Size(292, 22);
+            txtCodeUser.TabIndex = 1;
             // 
             // lblCode
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(41, 38);
+            lblCode.Location = new Point(38, 27);
             lblCode.Name = "lblCode";
-            lblCode.Size = new Size(131, 17);
+            lblCode.Size = new Size(105, 17);
             lblCode.TabIndex = 0;
-            lblCode.Text = "Nombre de Usuario";
+            lblCode.Text = "Codigo Usuario";
             lblCode.Click += lblCode_Click;
             // 
-            // gvCamiones
+            // gvUsuarios
             // 
-            gvCamiones.AllowUserToAddRows = false;
-            gvCamiones.AllowUserToDeleteRows = false;
-            gvCamiones.AllowUserToOrderColumns = true;
-            gvCamiones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gvCamiones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvCamiones.Location = new Point(12, 478);
-            gvCamiones.Name = "gvCamiones";
-            gvCamiones.RowHeadersWidth = 51;
-            gvCamiones.Size = new Size(905, 172);
-            gvCamiones.TabIndex = 6;
+            gvUsuarios.AllowUserToAddRows = false;
+            gvUsuarios.AllowUserToDeleteRows = false;
+            gvUsuarios.AllowUserToOrderColumns = true;
+            gvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvUsuarios.Location = new Point(12, 491);
+            gvUsuarios.Name = "gvUsuarios";
+            gvUsuarios.RowHeadersWidth = 51;
+            gvUsuarios.Size = new Size(905, 159);
+            gvUsuarios.TabIndex = 6;
+            gvUsuarios.CellContentClick += gvUsuarios_CellContentClick;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Cursor = Cursors.Hand;
+            label3.Font = new Font("Microsoft Sans Serif", 12F);
+            label3.ForeColor = Color.DimGray;
+            label3.Location = new Point(12, 9);
+            label3.Name = "label3";
+            label3.Padding = new Padding(3, 0, 3, 0);
+            label3.Size = new Size(26, 20);
+            label3.TabIndex = 12;
+            label3.Text = "X";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 15F);
+            label5.ForeColor = SystemColors.GrayText;
+            label5.Location = new Point(304, 5);
+            label5.Name = "label5";
+            label5.Size = new Size(159, 25);
+            label5.TabIndex = 13;
+            label5.Text = "Modulo Usuarios";
+            // 
+            // btnSearchID
+            // 
+            btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
+            btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSearchID.Location = new Point(687, 45);
+            btnSearchID.Name = "btnSearchID";
+            btnSearchID.Size = new Size(37, 24);
+            btnSearchID.TabIndex = 23;
+            btnSearchID.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(930, 674);
-            Controls.Add(gvCamiones);
+            Controls.Add(label5);
+            Controls.Add(label3);
+            Controls.Add(gvUsuarios);
             Controls.Add(gbUsuarios);
             Name = "Usuarios";
             Text = "Usuarios";
@@ -326,8 +413,9 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gvCamiones).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gvUsuarios).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -336,7 +424,7 @@
         private Button btnBuscar;
         private TextBox txtBuscar;
         private Label label4;
-        private TextBox txtPlaca;
+        private TextBox txtUsuario;
         private Label lblPlaca;
         private GroupBox groupBox2;
         private RadioButton rbtnInactive;
@@ -346,14 +434,21 @@
         private Button btnAdd;
         private Button btnModify;
         private Button btnNew;
-        private TextBox txtCamion;
+        private TextBox txtApellidos;
         private Label lblZona;
-        private TextBox txtCodeCamion;
+        private TextBox txtCodeUser;
         private Label lblCode;
-        private DataGridView gvCamiones;
-        private TextBox textBox1;
+        private DataGridView gvUsuarios;
+        private TextBox txtContraseña;
         private Label label1;
         private ComboBox cbRol;
         private Label label2;
+        internal Label label3;
+        private Label label5;
+        private TextBox txtNombre;
+        private Label label6;
+        private TextBox txtCedula;
+        private Label label7;
+        private Button btnSearchID;
     }
 }

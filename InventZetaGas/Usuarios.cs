@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+using CapaEntidades;
+using CapaNegocios;
 
 namespace InventZetaGas
 {
     public partial class Usuarios : Form
     {
+        UsuariosD userD = new UsuariosD();
+        UsuariosE userE = new UsuariosE();
+        UsuariosN userN = new UsuariosN();
+
         public Usuarios()
         {
             InitializeComponent();
@@ -44,7 +51,32 @@ namespace InventZetaGas
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            limpiar();
         }
+
+        private void gvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CargarDatos();
+        }
+
+        #region Mantenimientos Generales
+        //Metodo para cargar los datos en data grid view.
+        private void CargarDatos()
+        {
+            gvUsuarios.DataSource=userN.ListaUsuario();
+        }
+
+        //metodo para limpiar los campos
+        private void limpiar()
+        {
+            txtCodeUser.Text = "";
+            txtNombre.Text = "";
+            txtApellidos.Text = "";
+            txtContraseña.Text = "";
+            txtUsuario.Text = "";
+            cbRol.SelectedIndex = -1;
+        }
+        #endregion
+
     }
 }
