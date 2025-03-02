@@ -65,6 +65,22 @@ namespace InventZetaGas
             BuscarDatos(1);
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnActive_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            Estados();
+        }
+
+
 
         #region Mantenimientos Generales
         //Metodo para cargar los datos en data grid view.
@@ -90,13 +106,43 @@ namespace InventZetaGas
             cbRol.SelectedIndex = -1;
         }
 
+
+        // metodo para seleccionar los radio button sea activo o inactivo
+        public void Estados()
+        {
+            if (rbtnActive.Checked)
+            {
+                rbtnInactive.Checked = false;
+                userE.UsuarioEstado = rbtnActive.Checked;
+            }
+            else if (rbtnInactive.Checked)
+            {
+                rbtnActive.Checked = false;
+                userE.UsuarioEstado = rbtnInactive.Checked;
+            }
+        }
+
+        public void EstadosModificacion()
+        {
+            if (rbtnActive.Checked)
+            {
+                rbtnInactive.Checked = false;
+                userE.UsuarioEstado = rbtnActive.Checked;
+            }
+            else if (rbtnInactive.Checked)
+            {
+                rbtnActive.Checked = false;
+                userE.UsuarioEstado = rbtnActive.Checked;
+            }
+        }
+
+
         //metodo par buscar informacion segun lo que se solicite
         private void BuscarDatos(int opcion)
         {
 
         }
         #endregion
-
 
     }
 }
