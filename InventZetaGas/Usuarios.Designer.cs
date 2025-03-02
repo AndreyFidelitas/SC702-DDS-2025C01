@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             gbUsuarios = new GroupBox();
+            btnSearchID = new Button();
             txtCedula = new TextBox();
             label7 = new Label();
             txtNombre = new TextBox();
@@ -58,7 +59,6 @@
             gvUsuarios = new DataGridView();
             label3 = new Label();
             label5 = new Label();
-            btnSearchID = new Button();
             gbUsuarios.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -95,6 +95,17 @@
             gbUsuarios.TabIndex = 5;
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
+            // 
+            // btnSearchID
+            // 
+            btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
+            btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSearchID.Location = new Point(687, 45);
+            btnSearchID.Name = "btnSearchID";
+            btnSearchID.Size = new Size(37, 24);
+            btnSearchID.TabIndex = 23;
+            btnSearchID.UseVisualStyleBackColor = true;
+            btnSearchID.Click += btnSearchID_Click;
             // 
             // txtCedula
             // 
@@ -182,6 +193,7 @@
             btnBuscar.TabIndex = 4;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscar
             // 
@@ -350,8 +362,6 @@
             // 
             // gvUsuarios
             // 
-            gvUsuarios.AllowUserToAddRows = false;
-            gvUsuarios.AllowUserToDeleteRows = false;
             gvUsuarios.AllowUserToOrderColumns = true;
             gvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -385,16 +395,6 @@
             label5.Size = new Size(159, 25);
             label5.TabIndex = 13;
             label5.Text = "Modulo Usuarios";
-            // 
-            // btnSearchID
-            // 
-            btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
-            btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchID.Location = new Point(687, 45);
-            btnSearchID.Name = "btnSearchID";
-            btnSearchID.Size = new Size(37, 24);
-            btnSearchID.TabIndex = 23;
-            btnSearchID.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 
