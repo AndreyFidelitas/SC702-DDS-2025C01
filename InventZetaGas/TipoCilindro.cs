@@ -62,7 +62,9 @@ namespace InventZetaGas
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MantenimientosBotones(3);
+            g.msj = "Se encuentra en mantenimiento para sprint #3";
+            MessageBox.Show(g.msj, "mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MantenimientosBotones(3);
         }
 
         private void rbtnInactive_CheckedChanged(object sender, EventArgs e)
@@ -75,6 +77,7 @@ namespace InventZetaGas
         {
             txtCilindro.Text = "";
             txtCodeCilindro.Text = "";
+            CargarDatos();
         }
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -118,7 +121,7 @@ namespace InventZetaGas
             switch (opcion)
             {
                 case 1:
-                    if (string.IsNullOrEmpty(txtCodeCilindro.Text))
+                    if (!string.IsNullOrEmpty(txtCodeCilindro.Text))
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (ValidarCampos() == true)
@@ -189,6 +192,7 @@ namespace InventZetaGas
         //metodo para CargarDatos de las Rutas.
         public void CargarDatos()
         {
+            gvCilindros.ReadOnly = true;
             gvCilindros.DataSource = cilindrosN.ListaTipoCilindro();
         }
         #endregion

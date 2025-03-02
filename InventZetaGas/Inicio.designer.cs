@@ -33,7 +33,7 @@
             btnExit = new Button();
             btnHelp = new Button();
             panelToolsSubMenu = new Panel();
-            button10 = new Button();
+            btnUsuarios = new Button();
             button12 = new Button();
             button13 = new Button();
             btnTools = new Button();
@@ -129,7 +129,7 @@
             // panelToolsSubMenu
             // 
             panelToolsSubMenu.BackColor = Color.FromArgb(35, 32, 39);
-            panelToolsSubMenu.Controls.Add(button10);
+            panelToolsSubMenu.Controls.Add(btnUsuarios);
             panelToolsSubMenu.Controls.Add(button12);
             panelToolsSubMenu.Controls.Add(button13);
             panelToolsSubMenu.Dock = DockStyle.Top;
@@ -138,25 +138,25 @@
             panelToolsSubMenu.Size = new Size(233, 130);
             panelToolsSubMenu.TabIndex = 7;
             // 
-            // button10
+            // btnUsuarios
             // 
-            button10.BackColor = Color.FromArgb(26, 26, 26);
-            button10.Dock = DockStyle.Top;
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 38, 46);
-            button10.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 38, 46);
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.ForeColor = Color.White;
-            button10.Location = new Point(0, 80);
-            button10.Name = "button10";
-            button10.Padding = new Padding(35, 0, 0, 0);
-            button10.Size = new Size(233, 47);
-            button10.TabIndex = 2;
-            button10.Text = "Preferences";
-            button10.TextAlign = ContentAlignment.MiddleLeft;
-            button10.UseVisualStyleBackColor = false;
-            button10.Visible = false;
-            button10.Click += button10_Click;
+            btnUsuarios.BackColor = Color.FromArgb(26, 26, 26);
+            btnUsuarios.Dock = DockStyle.Top;
+            btnUsuarios.FlatAppearance.BorderSize = 0;
+            btnUsuarios.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 38, 46);
+            btnUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 38, 46);
+            btnUsuarios.FlatStyle = FlatStyle.Flat;
+            btnUsuarios.ForeColor = Color.White;
+            btnUsuarios.Location = new Point(0, 80);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Padding = new Padding(35, 0, 0, 0);
+            btnUsuarios.Size = new Size(233, 47);
+            btnUsuarios.TabIndex = 2;
+            btnUsuarios.Text = "Usuarios";
+            btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
+            btnUsuarios.UseVisualStyleBackColor = false;
+            btnUsuarios.Visible = false;
+            btnUsuarios.Click += button10_Click;
             // 
             // button12
             // 
@@ -172,10 +172,9 @@
             button12.Padding = new Padding(35, 0, 0, 0);
             button12.Size = new Size(233, 40);
             button12.TabIndex = 1;
-            button12.Text = "Effects and filters";
+            button12.Text = "Clientes";
             button12.TextAlign = ContentAlignment.MiddleLeft;
             button12.UseVisualStyleBackColor = false;
-            button12.Visible = false;
             button12.Click += button12_Click;
             // 
             // button13
@@ -510,7 +509,7 @@
         private System.Windows.Forms.Button btnMedia;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Panel panelToolsSubMenu;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button btnTools;

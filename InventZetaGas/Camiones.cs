@@ -56,10 +56,7 @@ namespace InventZetaGas
             MantenimientosBotones(3);
         }
 
-        private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            SeleccionarInformacion(e);
-        }
+
 
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -139,8 +136,6 @@ namespace InventZetaGas
             }
         }
 
-
-
         //************************************************************************************************
         public void EstadosModificacion()
         {
@@ -154,6 +149,7 @@ namespace InventZetaGas
                 rbtnActive.Checked = false;
                 camionE.CamionStatus = rbtnActive.Checked;
             }
+
         }
         //************************************************************************************************
         //validacion de campos 
@@ -180,10 +176,10 @@ namespace InventZetaGas
                 return valid;
             }
 
-            if (rbtnActive.Checked == false && rbtnActive.Checked == false)
-            {
-                return valid;
-            }
+            //if (rbtnActive.Checked == false && rbtnActive.Checked == false)
+            //{
+            //    return valid;
+            //}
 
             valid = true;
             return valid;
@@ -210,7 +206,7 @@ namespace InventZetaGas
                 case 1:
                     if (!string.IsNullOrEmpty(txtCodeCamion.Text))
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     if (ValidarCampos() == true)
                     {
                         if (MessageBox.Show($"¿Deseas registrar a {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -220,7 +216,7 @@ namespace InventZetaGas
                             Limpiar();
                         }
                     }
-                    else 
+                    else
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 2:
@@ -228,11 +224,12 @@ namespace InventZetaGas
                     if (MessageBox.Show($"¿Deseas modificar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         //metodo para validar los campos
-                        if (ValidarCampos() == true)
+                        if (ValidarCampos() == false)
                             MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                         {
                             EstadosModificacion();
+                            EstadosCamion();
                             Mantenimiento("2");
                             Limpiar();
                         }
@@ -286,6 +283,7 @@ namespace InventZetaGas
                 // Muestra todos los registros si no se encuentran resultados
                 dataView.RowFilter = string.Empty;
                 gvCamiones.DataSource = dataView;  // Asigna de nuevo los datos completos
+                txtBuscar.Text = "";
             }
         }
         //************************************************************************************************
@@ -317,6 +315,21 @@ namespace InventZetaGas
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void rbtnVInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            EstadosCamion();
+        }
+
+        private void rbtnVActive_CheckedChanged(object sender, EventArgs e)
+        {
+            EstadosCamion();
+        }
+
+        private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SeleccionarInformacion(e);
         }
     }
 }

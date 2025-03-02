@@ -59,7 +59,6 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
-    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Zonas.sql" />
@@ -91,11 +90,10 @@
     <Build Include="dbo\Stored Procedures\SPListaRutas.sql" />
     <Build Include="dbo\Tables\Camiones.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoRutas.sql" />
-    <Build Include="dbo\Stored Procedures\SPMantenimientoCilindros.sql" />
-    <Build Include="dbo\Stored Procedures\SPListaCilindro.sql" />
+    <Build Include="dbo\Stored Procedures\SPListaClientes.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoClientes.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Snapshots\BD_20250213_00-05-59.dacpac" />
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
   </ItemGroup>
 </Project>

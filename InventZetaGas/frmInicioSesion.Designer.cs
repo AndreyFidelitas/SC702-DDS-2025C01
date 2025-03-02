@@ -111,6 +111,7 @@ namespace InventZetaGas
             txtPaswword.PasswordChar = '*';
             txtPaswword.Size = new Size(364, 22);
             txtPaswword.TabIndex = 3;
+            txtPaswword.KeyPress += txtPaswword_KeyPress;
             // 
             // lblCode
             // 
@@ -165,6 +166,7 @@ namespace InventZetaGas
             linkLabel1.TabIndex = 8;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Ha olvidado la contrasena?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label3
             // 
