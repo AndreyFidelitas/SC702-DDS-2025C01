@@ -56,13 +56,13 @@
             lblZona = new Label();
             txtCodeUser = new TextBox();
             lblCode = new Label();
-            gvUsuarios = new DataGridView();
+            gvClientes = new DataGridView();
             label3 = new Label();
             label5 = new Label();
             gbUsuarios.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gvUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gvClientes).BeginInit();
             SuspendLayout();
             // 
             // gbUsuarios
@@ -354,16 +354,16 @@
             lblCode.TabIndex = 0;
             lblCode.Text = "Codigo Usuario";
             // 
-            // gvUsuarios
+            // gvClientes
             // 
-            gvUsuarios.AllowUserToOrderColumns = true;
-            gvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvUsuarios.Location = new Point(12, 478);
-            gvUsuarios.Name = "gvUsuarios";
-            gvUsuarios.RowHeadersWidth = 51;
-            gvUsuarios.Size = new Size(910, 159);
-            gvUsuarios.TabIndex = 7;
+            gvClientes.AllowUserToOrderColumns = true;
+            gvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvClientes.Location = new Point(12, 478);
+            gvClientes.Name = "gvClientes";
+            gvClientes.RowHeadersWidth = 51;
+            gvClientes.Size = new Size(910, 159);
+            gvClientes.TabIndex = 7;
             // 
             // label3
             // 
@@ -396,7 +396,7 @@
             ClientSize = new Size(930, 674);
             Controls.Add(label5);
             Controls.Add(label3);
-            Controls.Add(gvUsuarios);
+            Controls.Add(gvClientes);
             Controls.Add(gbUsuarios);
             Name = "Clientes";
             Text = "Clientes";
@@ -405,7 +405,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gvUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -439,7 +439,7 @@
         private Label lblZona;
         private TextBox txtCodeUser;
         private Label lblCode;
-        private DataGridView gvUsuarios;
+        private DataGridView gvClientes;
         internal Label label3;
         private Label label5;
     }

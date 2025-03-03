@@ -4,14 +4,15 @@
 -- Description:	Store procedure para tener la 
 -- lista de clientes.
 -- =============================================
-CREATE PROCEDURE SPListaClientes
+CREATE PROCEDURE [dbo].[SPListaClientes]
 AS
 BEGIN
 	SELECT 
-		 ClientesCode										   [Codigo Cliente]		,
-		 RazonSocial										   [Razón Social]		,
-		 Empresa											   [Empresa]			,
-		 ClientesRol										   [Rol Cliente]		,
+		 c.ClientesCode										   [Codigo Cliente]		,
+		 c.Cedula											   [Cedula]				,
+		 c.RazonSocial										   [Razón Social]		,
+		 c.Empresa											   [Empresa]			,
+		 c.ClientesRol										   [Rol Cliente]		,
 		 ISNULL(CONVERT(VARCHAR, c.ClientesCreacion, 13), '-') [Fecha Creacion]		,
 		 ISNULL(CONVERT(VARCHAR, c.ClientesUpdate, 13), '-')   [Fecha Actualizacion],
 		 ISNULL(CONVERT(VARCHAR, c.ClientesDelete, 13), '-')   [Fecha Eliminado]	,

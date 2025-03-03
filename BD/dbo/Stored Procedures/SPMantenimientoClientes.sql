@@ -5,9 +5,10 @@
 --select * from Clientes
 
 
-create PROCEDURE [dbo].[SPMantenimientoClientes]
+CREATE PROCEDURE [dbo].[SPMantenimientoClientes]
 (
 	@ClientesCode	varchar(5)			,
+	@Cedula			int					,
 	@RazonSocial	varchar(100) 		,
 	@Empresa		varchar(100) 		,
 	@ClientesRol	varchar(100) 		,
@@ -39,6 +40,7 @@ BEGIN
             INSERT INTO Clientes
             (
 				ClientesCode		,
+				Cedula				,
 				RazonSocial			,
 				Empresa				,
 				ClientesRol			,
@@ -49,7 +51,8 @@ BEGIN
             )
             VALUES
             (
-				@codnuevo,
+				@codnuevo			,
+				@Cedula				,
 				@RazonSocial		,
 				@Empresa			,
 				@ClientesRol		,
@@ -76,7 +79,8 @@ BEGIN
 				ClientesRol		= @ClientesRol	,
 				ClientesUpdate	= GETDATE()
             WHERE 
-                @ClientesCode = @ClientesCode;
+                ClientesCode	=	@ClientesCode or 
+				Cedula			=	@Cedula	;
 
             SET @accion = 'Se actualizó el cliente con ID: ' + CAST(@ClientesCode AS VARCHAR);
             PRINT @accion;
@@ -96,7 +100,8 @@ BEGIN
                     ClientesStatus	= 0,
 					ClientesDelete	=GETDATE()
                 WHERE 
-                    ClientesCode = @ClientesCode;
+                    ClientesCode	=	@ClientesCode or 
+					Cedula			=	@Cedula	;
 
                 SET @accion = 'Se eliminó el cliente con ID: ' + CAST(@ClientesCode AS VARCHAR);
                 PRINT @accion;
