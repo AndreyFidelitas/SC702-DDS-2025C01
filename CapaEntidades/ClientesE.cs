@@ -8,18 +8,15 @@ namespace CapaEntidades
 {
     public class ClientesE
     {
-        public int UsuarioID { get; set; }
+        public int ClientesID { get; set; }
+        public string ClientesCode { get; set; }
         public int Cedula { get; set; }
-        public string UsuarioCode { get; set; }
-        public string UsuarioName { get; set; }
-        public string UsuarioApellidos { get; set; }
-        public string UsuarioUserName { get; set; }
-        public string Password { get; set; }
-        public string token { get; set; }
-        public int RoleID { get; set; }
-        public DateTime UsuarioCreacion { get; set; }
-        public DateTime UsuarioUpdate { get; set; }
-        public DateTime UsuarioDelete { get; set; }
-        public bool UsuarioEstado { get; set; }
+        public string RazonSocial { get; set; }
+        public string Empresa { get; set; }
+        public string ClientesRol { get; set; }
+        public DateTime ClientesCreacion { get; set; }
+        public DateTime ClientesUpdate { get; set; }
+        public DateTime ClientesDelete { get; set; }
+        public bool ClientesStatus { get; set; }
     }
 }
