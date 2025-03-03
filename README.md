@@ -72,6 +72,8 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Usuarios
 ![image](https://github.com/user-attachments/assets/f44c7aba-fd5c-49c9-901a-9be8a5cc19c0)
 
+- Modulo de Clientes
+![image](https://github.com/user-attachments/assets/39e0dd9b-fee5-4551-87ce-6c9ce8fdfeb0)
 
 
 
