@@ -90,7 +90,6 @@ namespace InventZetaGas
             Estados();
         }
 
-        #region Mantenimientos Generales
         //Metodo para cargar los datos en data grid view.
         private void CargarDatos()
         {
@@ -103,6 +102,17 @@ namespace InventZetaGas
             _ = BuscarAsync(1);
         }
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            MantenimientosBotones(2);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            MantenimientosBotones(3);
+        }
+
+        #region Mantenimientos Generales
         //metodo para limpiar los campos
         private void Limpiar()
         {
@@ -112,8 +122,8 @@ namespace InventZetaGas
             txtContraseña.Text = "";
             txtUsuario.Text = "";
             cbRol.SelectedIndex = -1;
+            CargarDatos();
         }
-
 
         // metodo para seleccionar los radio button sea activo o inactivo
         public void Estados()
@@ -264,17 +274,8 @@ namespace InventZetaGas
             return valid;
         }
         //************************************************************************************************
-        #endregion
 
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            MantenimientosBotones(2);
-        }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            MantenimientosBotones(3);
-        }
         //*************************************************************************************************
         public async Task BuscarAsync(int opcion) 
         {
@@ -325,5 +326,6 @@ namespace InventZetaGas
                     break;
             }
         }
+        #endregion
     }
 }
