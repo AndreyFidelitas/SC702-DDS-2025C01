@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaDatos;
 using CapaEntidades;
 using CapaNegocios;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace InventZetaGas
 {
@@ -72,7 +73,7 @@ namespace InventZetaGas
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            MantenimientosBotones(1);
         }
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -153,10 +154,10 @@ namespace InventZetaGas
         {
             userE.UsuarioCode = txtCodeUser.Text;
             userE.UsuarioName = txtNombre.Text;
-            userE.UsuarioApellidos = txtApellidos.Text; 
-            userE.UsuarioUserName= txtUsuario.Text;
-            userE.RoleID= Convert.ToInt32(cbRol.SelectedIndex+1);
-            userE.Password =txtContraseña.Text;
+            userE.UsuarioApellidos = txtApellidos.Text;
+            userE.UsuarioUserName = txtUsuario.Text;
+            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 1);
+            userE.Password = txtContraseña.Text;
             g.accion = accion;
             //g.msj = camionN.MantenimientoCamiones(camionE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -244,7 +245,7 @@ namespace InventZetaGas
             }
 
             // Verifica si algún campo está vacío devuelve  un false
-            if (cbRol.SelectedIndex==-1)
+            if (cbRol.SelectedIndex == -1)
             {
                 return valid;
             }
@@ -261,5 +262,14 @@ namespace InventZetaGas
         //************************************************************************************************
         #endregion
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            MantenimientosBotones(2);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            MantenimientosBotones(3);
+        }
     }
 }

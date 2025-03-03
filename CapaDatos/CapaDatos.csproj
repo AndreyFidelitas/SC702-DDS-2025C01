@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="API\" />
+  </ItemGroup>
+
 </Project>
