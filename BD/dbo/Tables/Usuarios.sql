@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[Usuarios] (
     [UsuarioID]        INT           IDENTITY (1, 1) NOT NULL,
+    [Cedula]           INT           NULL,
     [UsuarioCode]      VARCHAR (5)   NULL,
     [UsuarioName]      VARCHAR (100) NULL,
     [UsuarioApellidos] VARCHAR (100) NULL,
@@ -14,10 +15,4 @@
     CONSTRAINT [PK__Usuarios__2B3DE7985455D719] PRIMARY KEY CLUSTERED ([UsuarioID] ASC),
     CONSTRAINT [FK_Usuarios_Roles] FOREIGN KEY ([RoleID]) REFERENCES [dbo].[Roles] ([RolesId])
 );
-
-
-
-
-
-
 

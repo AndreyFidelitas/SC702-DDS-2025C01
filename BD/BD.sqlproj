@@ -66,10 +66,8 @@
     <Build Include="dbo\Stored Procedures\SPMantenimientoZonas.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoProvincias.sql" />
     <Build Include="dbo\Stored Procedures\sp_GenerarClaseCSharp.sql" />
-    <Build Include="dbo\Tables\Usuarios.sql" />
     <Build Include="dbo\Tables\TipoCilindro.sql" />
     <Build Include="dbo\Tables\Pedidos.sql" />
-    <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoTipoCilindro.sql" />
     <Build Include="dbo\Stored Procedures\SPListaZonas.sql" />
     <Build Include="dbo\Stored Procedures\SPListaProvincias.sql" />
@@ -95,6 +93,8 @@
     <Build Include="dbo\Stored Procedures\SPMantenimientoCilindros_1.sql" />
     <Build Include="dbo\Stored Procedures\SPListaCilindro_1.sql" />
     <Build Include="dbo\Stored Procedures\SPCargaRoles.sql" />
+    <Build Include="dbo\Tables\Usuarios.sql" />
+    <Build Include="dbo\Tables\Clientes.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
