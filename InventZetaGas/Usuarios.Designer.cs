@@ -160,6 +160,7 @@
             txtContraseña.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtContraseña.Location = new Point(41, 277);
             txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(292, 22);
             txtContraseña.TabIndex = 17;
             // 
@@ -169,9 +170,9 @@
             label1.Font = new Font("Microsoft Sans Serif", 10F);
             label1.Location = new Point(389, 257);
             label1.Name = "label1";
-            label1.Size = new Size(102, 17);
+            label1.Size = new Size(29, 17);
             label1.TabIndex = 16;
-            label1.Text = "Rol de Usuario";
+            label1.Text = "Rol";
             // 
             // cbRol
             // 

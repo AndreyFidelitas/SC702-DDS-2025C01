@@ -19,6 +19,8 @@ namespace InventZetaGas
         UsuariosE userE = new UsuariosE();
         UsuariosN userN = new UsuariosN();
         RolesN RolesN = new RolesN();
+        Generales g = new Generales();
+
 
         public Usuarios()
         {
@@ -54,7 +56,7 @@ namespace InventZetaGas
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            limpiar();
+            Limpiar();
         }
 
         private void gvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -65,7 +67,7 @@ namespace InventZetaGas
         //boton para buscar informacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            BuscarDatos(1);
+            //BuscarDatos(1);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -97,7 +99,7 @@ namespace InventZetaGas
         }
 
         //metodo para limpiar los campos
-        private void limpiar()
+        private void Limpiar()
         {
             txtCodeUser.Text = "";
             txtNombre.Text = "";
@@ -146,12 +148,117 @@ namespace InventZetaGas
             cbRol.ValueMember = "Codigo Rol";
         }
 
-
-        //metodo par buscar informacion segun lo que se solicite
-        private void BuscarDatos(int opcion)
+        //************************************************************************************************
+        private void Mantenimiento(string accion)
         {
-
+            userE.UsuarioCode = txtCodeUser.Text;
+            userE.UsuarioName = txtNombre.Text;
+            userE.UsuarioApellidos = txtApellidos.Text; 
+            userE.UsuarioUserName= txtUsuario.Text;
+            userE.RoleID= Convert.ToInt32(cbRol.SelectedIndex+1);
+            userE.Password =txtContraseña.Text;
+            g.accion = accion;
+            //g.msj = camionN.MantenimientoCamiones(camionE, g.accion);
+            MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        //************************************************************************************************
+        //metodo general de mantenimientos  
+        public void MantenimientosBotones(int opcion)
+        {
+            string resultado = null;
+            // Evaluamos la opción con un switch
+            switch (opcion)
+            {
+                case 1:
+                    if (!string.IsNullOrEmpty(txtCodeUser.Text))
+                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (ValidarCampos() == true)
+                    {
+                        if (MessageBox.Show($"¿Deseas registrar a {txtNombre.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            // Método para realizar el insert en SQL con la acción "1".
+                            Mantenimiento("1");
+                            Limpiar();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 2:
+                    // Pregunta si desea modificar el dato.
+                    if (MessageBox.Show($"¿Deseas modificar {txtNombre.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        //metodo para validar los campos
+                        if (ValidarCampos() == false)
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            EstadosModificacion();
+                            Mantenimiento("2");
+                            Limpiar();
+                        }
+                    }
+                    break;
+                case 3:
+                    // Pregunta si desea eliminar el dato.
+                    if (MessageBox.Show($"¿Deseas eliminar {txtNombre.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        //metodo para validar los campos
+                        if (ValidarCampos() == true)
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            Mantenimiento("3");
+                            Limpiar();
+                        }
+                    }
+                    break;
+            }
+        }
+
+        //************************************************************************************************
+        //validacion de campos 
+        // Método para verificar si los campos están vacíos
+        public bool ValidarCampos()
+        {
+            bool valid = false;
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtApellidos.Text))
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtUsuario.Text))
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (cbRol.SelectedIndex==-1)
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtContraseña.Text))
+            {
+                return valid;
+            }
+
+            valid = true;
+            return valid;
+        }
+        //************************************************************************************************
         #endregion
 
     }
