@@ -5,6 +5,7 @@
 ## Documentacion
 - [Diagrama de tablas version 1.0](https://www.figma.com/board/NWER76Ptkq2sj4y2qMxZVE/Untitled?node-id=0-1&p=f&t=rjRQBglw82uUkuQS-0)
 - [Diccionario de Base de Datos InventZetaGas Version 1.0.docx](https://github.com/user-attachments/files/18565278/Diccionario.de.Base.de.Datos.InventZetaGas.Version.1.0.docx)
+- [Propuestas de KPIs](https://github.com/user-attachments/files/19057072/Propuestas.de.KPIs.docx)
 
 
 
@@ -67,6 +68,12 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 
 - Modulo de Rutas
 ![image](https://github.com/user-attachments/assets/1dcb941a-83f9-4282-9d35-3cb674507558)
+
+- Modulo de Usuarios
+![image](https://github.com/user-attachments/assets/f44c7aba-fd5c-49c9-901a-9be8a5cc19c0)
+
+
+
 
 
 # Reportes de BI
