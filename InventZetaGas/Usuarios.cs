@@ -24,6 +24,7 @@ namespace InventZetaGas
         UsuariosN userN = new UsuariosN();
         RolesN RolesN = new RolesN();
         Generales g = new Generales();
+        private DataView dataView;
 
 
         public Usuarios()
@@ -71,7 +72,7 @@ namespace InventZetaGas
         //boton para buscar informacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //BuscarDatos(1);
+            _ = BuscarAsync(2);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace InventZetaGas
         //Boton para buscar la cedula del usuario.
         private void btnSearchID_Click(object sender, EventArgs e)
         {
-            BuscarAsync(1);
+            _ = BuscarAsync(1);
         }
 
         //metodo para limpiar los campos
@@ -292,7 +293,35 @@ namespace InventZetaGas
                     
                     break;
                 case 2:
-                    
+
+                    // Obtén el DataTable de la lista de camiones
+                    DataTable dt = userN.ListaUsuario();
+                    dataView = dt.DefaultView;
+
+                    string filtro = txtBuscar.Text.Trim();  // Obtén el texto del cuadro de búsqueda
+
+                    // Si el filtro está vacío, muestra todos los registros
+                    if (string.IsNullOrEmpty(filtro))
+                        dataView.RowFilter = string.Empty;
+                    else
+                    {
+                        // Aplica el filtro, ajusta según la columna y el valor
+                        string filtroAplicado = "Nombre de Usuario LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                        dataView.RowFilter = filtroAplicado;
+                    }
+
+                    // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
+                    gvUsuarios.DataSource = dataView;
+
+                    // Verifica si hay resultados después de aplicar el filtro
+                    if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
+                    {
+                        MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        // Muestra todos los registros si no se encuentran resultados
+                        dataView.RowFilter = string.Empty;
+                        gvUsuarios.DataSource = dataView;  // Asigna de nuevo los datos completos
+                        txtBuscar.Text = "";
+                    }
                     break;
             }
         }
