@@ -173,10 +173,9 @@ namespace InventZetaGas
             userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 1);
             userE.Password = txtContraseña.Text;
             g.accion = accion;
-            //g.msj = camionN.MantenimientoCamiones(camionE, g.accion);
+            g.msj = userN.MantenimientoUsuarios(userE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
         //************************************************************************************************
         //metodo general de mantenimientos  
         public void MantenimientosBotones(int opcion)
@@ -273,9 +272,6 @@ namespace InventZetaGas
             valid = true;
             return valid;
         }
-        //************************************************************************************************
-
-
         //*************************************************************************************************
         public async Task BuscarAsync(int opcion) 
         {
@@ -288,13 +284,11 @@ namespace InventZetaGas
                         Limpiar();
                     else
                     {
-                        ApiResponse apiService = new ApiResponse();
                         ApiResponse apiResponse = await userN.ObtenerDatosCedulaAsync(int.Parse(txtCedula.Text));
                     }
                     
                     break;
                 case 2:
-
                     // Obtén el DataTable de la lista de camiones
                     DataTable dt = userN.ListaUsuario();
                     dataView = dt.DefaultView;
