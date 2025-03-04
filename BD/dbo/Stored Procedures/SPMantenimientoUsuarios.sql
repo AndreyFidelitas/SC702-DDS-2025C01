@@ -5,7 +5,8 @@
 CREATE PROCEDURE [dbo].[SPMantenimientoUsuarios]
 (
     @UsuarioCode VARCHAR(5),        -- Código del usuario
-    @UsuarioName VARCHAR(100),      -- Nombre del usuario
+    @Cedula	int,
+	@UsuarioName VARCHAR(100),      -- Nombre del usuario
     @UsuarioApellidos VARCHAR(100), -- Apellidos del usuario
     @UsuarioUserName VARCHAR(100),  -- Nombre de usuario
     @Password VARCHAR(100),         -- Contraseña
@@ -33,7 +34,8 @@ BEGIN
             INSERT INTO Usuarios
             (
                 UsuarioCode,
-                UsuarioName,
+                Cedula,
+				UsuarioName,
                 UsuarioApellidos,
                 UsuarioUserName,
                 Password,
@@ -45,11 +47,12 @@ BEGIN
             VALUES
             (
                 @codnuevo,
+				@Cedula,
                 @UsuarioName,
                 @UsuarioApellidos,
                 @UsuarioUserName,
                 @Password,
-                @token,
+                null,
                 @RoleID,
                 GETDATE(),
                 @UsuarioEstado
@@ -66,17 +69,18 @@ BEGIN
             UPDATE u
             SET 
                 u.UsuarioName = @UsuarioName,
-                u.UsuarioApellidos = @UsuarioApellidos,
-                u.UsuarioUserName = @UsuarioUserName,
-                u.Password = @Password,
-                u.token = @token,
-                u.RoleID = @RoleID,
-                u.UsuarioEstado = @UsuarioEstado,
-                u.UsuarioUpdate = GETDATE()
+                u.UsuarioApellidos	= @UsuarioApellidos,
+                u.UsuarioUserName	= @UsuarioUserName,
+                u.Password			= @Password,
+                u.token				= @token,
+                u.RoleID			= @RoleID,
+                u.UsuarioEstado		= @UsuarioEstado,
+                u.UsuarioUpdate		= GETDATE()
             FROM 
                 Usuarios u
             WHERE 
-                u.UsuarioCode = @UsuarioCode;
+                u.UsuarioCode	=	@UsuarioCode or 
+				u.Cedula		=	@Cedula;
 
             SET @accion = 'Se modificó el usuario: ' + @UsuarioName + ' ' + @UsuarioApellidos;
             PRINT @accion;
@@ -98,7 +102,8 @@ BEGIN
             FROM 
                 Usuarios u
             WHERE 
-                u.UsuarioCode = @UsuarioCode;
+                u.UsuarioCode	=	@UsuarioCode or 
+				u.Cedula		=	@Cedula;
 
             SET @accion = 'Se eliminó el usuario: ' + @UsuarioName + ' ' + @UsuarioApellidos;
             PRINT @accion;

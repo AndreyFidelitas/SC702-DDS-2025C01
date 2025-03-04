@@ -49,7 +49,7 @@ namespace CapaDatos
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
-                    _conexion.CerrarConexion();
+                    _conexion.CerrarConexion(); 
                     return cmd.Parameters["@accion"].Value.ToString();
                 }
             }
