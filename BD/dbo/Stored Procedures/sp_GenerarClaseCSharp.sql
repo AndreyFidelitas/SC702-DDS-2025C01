@@ -1,4 +1,4 @@
-﻿create PROCEDURE [dbo].[sp_GenerarClaseCSharp]
+﻿CREATE PROCEDURE [dbo].[sp_GenerarClaseCSharp]
     @NombreTabla NVARCHAR(128)
 AS
 BEGIN

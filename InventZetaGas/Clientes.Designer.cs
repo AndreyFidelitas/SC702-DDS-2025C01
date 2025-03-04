@@ -1,6 +1,6 @@
 ﻿namespace InventZetaGas
 {
-    partial class Usuarios
+    partial class Clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             gbUsuarios = new GroupBox();
             btnSearchID = new Button();
             txtCedula = new TextBox();
@@ -56,13 +56,13 @@
             lblZona = new Label();
             txtCodeUser = new TextBox();
             lblCode = new Label();
-            gvUsuarios = new DataGridView();
+            gvClientes = new DataGridView();
             label3 = new Label();
             label5 = new Label();
             gbUsuarios.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gvUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gvClientes).BeginInit();
             SuspendLayout();
             // 
             // gbUsuarios
@@ -89,10 +89,10 @@
             gbUsuarios.Controls.Add(txtCodeUser);
             gbUsuarios.Controls.Add(lblCode);
             gbUsuarios.Font = new Font("Microsoft Sans Serif", 9.75F);
-            gbUsuarios.Location = new Point(12, 39);
+            gbUsuarios.Location = new Point(12, 30);
             gbUsuarios.Name = "gbUsuarios";
-            gbUsuarios.Size = new Size(910, 446);
-            gbUsuarios.TabIndex = 5;
+            gbUsuarios.Size = new Size(910, 442);
+            gbUsuarios.TabIndex = 6;
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
             // 
@@ -100,18 +100,17 @@
             // 
             btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
             btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchID.Location = new Point(687, 45);
+            btnSearchID.Location = new Point(336, 36);
             btnSearchID.Name = "btnSearchID";
             btnSearchID.Size = new Size(37, 24);
             btnSearchID.TabIndex = 23;
             btnSearchID.UseVisualStyleBackColor = true;
-            btnSearchID.Click += btnSearchID_Click;
             // 
             // txtCedula
             // 
             txtCedula.Enabled = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(389, 47);
+            txtCedula.Location = new Point(38, 38);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(292, 22);
             txtCedula.TabIndex = 22;
@@ -120,7 +119,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(389, 27);
+            label7.Location = new Point(38, 18);
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
@@ -153,7 +152,6 @@
             label2.Size = new Size(81, 17);
             label2.TabIndex = 18;
             label2.Text = "Contraseña";
-            label2.Click += label2_Click;
             // 
             // txtContraseña
             // 
@@ -187,18 +185,17 @@
             // 
             btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(748, 411);
+            btnBuscar.Location = new Point(748, 407);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(139, 26);
             btnBuscar.TabIndex = 4;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscar
             // 
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtBuscar.Location = new Point(99, 413);
+            txtBuscar.Location = new Point(99, 409);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
@@ -207,7 +204,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(41, 416);
+            label4.Location = new Point(41, 412);
             label4.Name = "label4";
             label4.Size = new Size(52, 17);
             label4.TabIndex = 13;
@@ -230,7 +227,6 @@
             lblPlaca.Size = new Size(131, 17);
             lblPlaca.TabIndex = 9;
             lblPlaca.Text = "Nombre de Usuario";
-            lblPlaca.Click += lblPlaca_Click;
             // 
             // groupBox2
             // 
@@ -253,7 +249,6 @@
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
             rbtnInactive.UseVisualStyleBackColor = true;
-            rbtnInactive.CheckedChanged += rbtnInactive_CheckedChanged;
             // 
             // rbtnActive
             // 
@@ -265,7 +260,6 @@
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
             rbtnActive.UseVisualStyleBackColor = true;
-            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -273,7 +267,7 @@
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
             groupBox1.Controls.Add(btnNew);
-            groupBox1.Location = new Point(41, 321);
+            groupBox1.Location = new Point(41, 317);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(846, 77);
             groupBox1.TabIndex = 7;
@@ -289,7 +283,6 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -301,7 +294,6 @@
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnModify
             // 
@@ -313,7 +305,6 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
-            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 
@@ -325,7 +316,6 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
-            btnNew.Click += btnNew_Click;
             // 
             // txtApellidos
             // 
@@ -349,7 +339,7 @@
             // 
             txtCodeUser.Enabled = false;
             txtCodeUser.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeUser.Location = new Point(38, 47);
+            txtCodeUser.Location = new Point(389, 38);
             txtCodeUser.Name = "txtCodeUser";
             txtCodeUser.Size = new Size(292, 22);
             txtCodeUser.TabIndex = 1;
@@ -358,24 +348,22 @@
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(38, 27);
+            lblCode.Location = new Point(389, 18);
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(105, 17);
             lblCode.TabIndex = 0;
             lblCode.Text = "Codigo Usuario";
-            lblCode.Click += lblCode_Click;
             // 
-            // gvUsuarios
+            // gvClientes
             // 
-            gvUsuarios.AllowUserToOrderColumns = true;
-            gvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvUsuarios.Location = new Point(12, 491);
-            gvUsuarios.Name = "gvUsuarios";
-            gvUsuarios.RowHeadersWidth = 51;
-            gvUsuarios.Size = new Size(905, 159);
-            gvUsuarios.TabIndex = 6;
-            gvUsuarios.CellContentClick += gvUsuarios_CellContentClick;
+            gvClientes.AllowUserToOrderColumns = true;
+            gvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvClientes.Location = new Point(12, 478);
+            gvClientes.Name = "gvClientes";
+            gvClientes.RowHeadersWidth = 51;
+            gvClientes.Size = new Size(910, 159);
+            gvClientes.TabIndex = 7;
             // 
             // label3
             // 
@@ -383,11 +371,11 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Microsoft Sans Serif", 12F);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(12, 9);
+            label3.Location = new Point(12, 7);
             label3.Name = "label3";
             label3.Padding = new Padding(3, 0, 3, 0);
             label3.Size = new Size(26, 20);
-            label3.TabIndex = 12;
+            label3.TabIndex = 13;
             label3.Text = "X";
             // 
             // label5
@@ -395,30 +383,29 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 15F);
             label5.ForeColor = SystemColors.GrayText;
-            label5.Location = new Point(304, 5);
+            label5.Location = new Point(338, 2);
             label5.Name = "label5";
-            label5.Size = new Size(159, 25);
-            label5.TabIndex = 13;
-            label5.Text = "Modulo Usuarios";
+            label5.Size = new Size(153, 25);
+            label5.TabIndex = 14;
+            label5.Text = "Modulo Clientes";
             // 
-            // Usuarios
+            // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(930, 674);
             Controls.Add(label5);
             Controls.Add(label3);
-            Controls.Add(gvUsuarios);
+            Controls.Add(gvClientes);
             Controls.Add(gbUsuarios);
-            Name = "Usuarios";
-            Text = "Usuarios";
-            Load += Usuarios_Load;
+            Name = "Clientes";
+            Text = "Clientes";
             gbUsuarios.ResumeLayout(false);
             gbUsuarios.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gvUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -426,6 +413,15 @@
         #endregion
 
         private GroupBox gbUsuarios;
+        private Button btnSearchID;
+        private TextBox txtCedula;
+        private Label label7;
+        private TextBox txtNombre;
+        private Label label6;
+        private Label label2;
+        private TextBox txtContraseña;
+        private Label label1;
+        private ComboBox cbRol;
         private Button btnBuscar;
         private TextBox txtBuscar;
         private Label label4;
@@ -443,17 +439,8 @@
         private Label lblZona;
         private TextBox txtCodeUser;
         private Label lblCode;
-        private DataGridView gvUsuarios;
-        private TextBox txtContraseña;
-        private Label label1;
-        private ComboBox cbRol;
-        private Label label2;
+        private DataGridView gvClientes;
         internal Label label3;
         private Label label5;
-        private TextBox txtNombre;
-        private Label label6;
-        private TextBox txtCedula;
-        private Label label7;
-        private Button btnSearchID;
     }
 }

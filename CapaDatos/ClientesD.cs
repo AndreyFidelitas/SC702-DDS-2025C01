@@ -41,6 +41,7 @@ namespace CapaDatos
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ClientesCode", clientesE.ClientesCode);
+                    cmd.Parameters.AddWithValue("@@Cedula", clientesE.Cedula);
                     cmd.Parameters.AddWithValue("@RazonSocial", clientesE.RazonSocial);
                     cmd.Parameters.AddWithValue("@Empresa", clientesE.Empresa);
                     cmd.Parameters.AddWithValue("@ClientesRol", clientesE.ClientesRol);

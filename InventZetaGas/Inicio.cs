@@ -121,9 +121,7 @@ namespace PlayerUI
 
         private void button12_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new Clientes());
             hideSubMenu();
         }
 
