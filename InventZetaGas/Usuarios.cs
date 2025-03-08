@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
+using System.Windows.Forms.VisualStyles;
 using CapaDatos;
 using CapaEntidades;
 using CapaNegocios;
@@ -167,6 +168,7 @@ namespace InventZetaGas
         private void Mantenimiento(string accion)
         {
             userE.UsuarioCode = txtCodeUser.Text;
+            userE.Cedula = Int32.Parse(txtCedula.Text);
             userE.UsuarioName = txtNombre.Text;
             userE.UsuarioApellidos = txtApellidos.Text;
             userE.UsuarioUserName = txtUsuario.Text;

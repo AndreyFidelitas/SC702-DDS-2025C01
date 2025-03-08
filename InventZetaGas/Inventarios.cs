@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InventZetaGas
 {
-    public partial class InventariosEncabezado : Form
+    public partial class Inventarios : Form
     {
-        public InventariosEncabezado()
+        public Inventarios()
         {
             InitializeComponent();
         }

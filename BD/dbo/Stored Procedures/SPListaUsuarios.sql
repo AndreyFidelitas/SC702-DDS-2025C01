@@ -7,7 +7,8 @@ BEGIN
 
     SELECT 
         u.UsuarioCode                                       [Usuario ID]		,
-        u.UsuarioName                                       [Nombre]			,
+        u.Cedula											[Cedula]			,
+		u.UsuarioName                                       [Nombre]			,
         u.UsuarioApellidos                                  [Apellidos]			,
         u.UsuarioUserName                                   [Nombre de Usuario]	,
         r.RoleName                                          [ID Rol]			,
