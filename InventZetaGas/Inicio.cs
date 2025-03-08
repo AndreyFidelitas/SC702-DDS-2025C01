@@ -187,7 +187,7 @@ namespace PlayerUI
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new InventariosEncabezado());
+            openChildForm(new Inventarios());
             hideSubMenu();
         }
 
