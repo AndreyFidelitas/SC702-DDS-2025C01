@@ -105,6 +105,5 @@ namespace InventZetaGas
                 return false; // La cédula no es válida
             }
         }
-
     }
 }

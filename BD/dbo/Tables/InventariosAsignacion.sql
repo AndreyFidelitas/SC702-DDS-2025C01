@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[InventariosAsignacion] (
     [InventAsign]   INT      IDENTITY (1, 1) NOT NULL,
-    [TransacID]     INT      NOT NULL,
+    [TransacID]     INT      NULL,
     [IdRuta]        INT      NOT NULL,
     [FechaCreacion] DATETIME NULL,
     [FechaUpdate]   DATETIME NULL,
@@ -12,4 +12,6 @@
     CONSTRAINT [FK_InventariosAsignacion_Rutas] FOREIGN KEY ([IdRuta]) REFERENCES [dbo].[Rutas] ([IdRuta]),
     CONSTRAINT [FK_InventariosAsignacion_TransacCamion_Cilindros] FOREIGN KEY ([TransacID]) REFERENCES [dbo].[TransacCamion_Cilindros] ([TransacID])
 );
+
+
 
