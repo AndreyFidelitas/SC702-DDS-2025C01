@@ -38,5 +38,12 @@ namespace CapaNegocios
             var value = await api.ObtenerDatosCedulaAsync(ID);
             return value;
         }
+        // metodo para recuperar la contrasena 
+        public string RecuperarPassword(UsuariosE users)
+        {
+            var value = UsuariosD.RecuperarContrasena(users);
+            return value;
+        }
+
     }
 }

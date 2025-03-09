@@ -138,5 +138,45 @@ namespace CapaDatos
             return mensaje;
         }
         #endregion
+
+        //**********************************************************************
+        //Metodos para traer la informacion o la cuenta a recuperar.
+        [Obsolete]
+        public string RecuperarContrasena(UsuariosE users)
+        {
+            string msj = "";
+            UsuariosE usuario = null;
+            try
+            {
+                using (var cmd = new SqlCommand("ValidarUsuario", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cedula", users.Cedula);
+                    cmd.Parameters.AddWithValue("@UsuarioUserName", users.UsuarioUserName);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            usuario = new UsuariosE
+                            {
+                                UsuarioCode = dr["Usuario ID"].ToString(),
+                                Cedula = int.Parse(dr["Cedula"].ToString()),
+                                UsuarioName = dr["Nombre"].ToString(),
+                                UsuarioApellidos = dr["Apellidos"].ToString(),
+                                UsuarioUserName = dr["Nombre de Usuario"].ToString(),
+                                Password = dr["Contraseña"].ToString()
+                            };
+                        }
+                    }
+                    _conexion.CerrarConexion();
+                    msj = usuario.Password;
+                }
+            }
+            catch (Exception ex)
+            {
+                msj = "";
+            }
+            return msj;
+        }
     }
 }
