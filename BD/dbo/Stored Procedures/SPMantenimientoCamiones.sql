@@ -1,6 +1,19 @@
 ﻿
-
---exec SPMantenimientoCamiones 'C0001','test camion1','234595',,,1,1,'2';
+--exec SPMantenimientoCamiones null,'Camion','123456','3000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','742175','3500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','978578','4000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','753423','4500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','982465','5000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','065418','5500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','ADE549','6000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','POW657','6500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','MNH987','7000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','ERT845','7500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','HJT654','8000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','JYT620','8500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','WRE985','9000',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','MNB357','9500',1,1,'1';
+--exec SPMantenimientoCamiones null,'Camion','RGD951','10000',1,1,'1';
 
 
 CREATE PROCEDURE [dbo].[SPMantenimientoCamiones]
