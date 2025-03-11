@@ -100,6 +100,20 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Generar Token
 ![image](https://github.com/user-attachments/assets/5d17e7a2-2339-4099-8d8b-97a0fc78d2e2)
 
+- Modulo de Recuperacion
+![image](https://github.com/user-attachments/assets/f74ee8e7-2f55-42ec-bc7b-2429493e7ab8)
+
+- Cambios en el menu
+![image](https://github.com/user-attachments/assets/eae06226-6e45-49be-9f1d-e67bacd907d9)
+
+- Modulo de Clientes
+![image](https://github.com/user-attachments/assets/ae105331-2348-49ae-b6e7-8be9c6247cc6)
+
+- Modulo de Inventarios
+![image](https://github.com/user-attachments/assets/6e3208a1-6938-4423-ae09-bc87bb168094)
+
+- Modulo de Clientes
+![image](https://github.com/user-attachments/assets/6b9cd07d-1c23-4a0d-b82e-04a7b16fcc21)
 
 
 ## Autores ✒️
