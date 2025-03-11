@@ -1,14 +1,18 @@
 ﻿
-
-
---exec SPMantenimientoClientes '','305160774','Empresa 1','Administrador',1,'1';
+--exec SPMantenimientoClientes null,3101396094,'Arcos Dorados','McDonalds','',1,'1';
+--exec SPMantenimientoClientes null,3101706562,'ALIMENTOS EXCLUSIVOS BK CR, SOCIEDAD ANÓNIMA (BKCR)','Burguer King','',1,'1';
+--exec SPMantenimientoClientes null,3101027122,'Servicentro La Tica Sociedad Anonima','Servicentro La Tica','',1,'1';
+--exec SPMantenimientoClientes null,3101825962,'3-101-825962 S.A','TrovaServicentros','',1,'1';
+--exec SPMantenimientoClientes null,3101030349,'LEMAYSA SOCIEDAD ANONIMA','Soles Barrio Cuba','',1,'1';
+--exec SPMantenimientoClientes null,3102109834,'PROMOCIONES TURISTICAS EL TROPICO LIMITADA','PROMOCIONES TURISTICAS EL TROPICO LIMITADA','',1,'1';
+--exec SPMantenimientoClientes null,3101487195,'KRATOS APERTURA S.A','SERVICENTRO METROPOLI','',1,'1';
 --select * from Clientes
 
 
 CREATE PROCEDURE [dbo].[SPMantenimientoClientes]
 (
 	@ClientesCode	varchar(5)			,
-	@Cedula			int					,
+	@Cedula			bigint				,
 	@RazonSocial	varchar(100) 		,
 	@Empresa		varchar(100) 		,
 	@ClientesRol	varchar(100) 		,
