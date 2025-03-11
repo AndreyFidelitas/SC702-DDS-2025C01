@@ -97,9 +97,6 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Guia para realizar el proyecto.
 ![image](https://github.com/user-attachments/assets/7a462c41-8a06-414b-afe9-ace0269d2293)
 
-- Generar Token
-![image](https://github.com/user-attachments/assets/5d17e7a2-2339-4099-8d8b-97a0fc78d2e2)
-
 - Modulo de Recuperacion
 ![image](https://github.com/user-attachments/assets/f74ee8e7-2f55-42ec-bc7b-2429493e7ab8)
 
