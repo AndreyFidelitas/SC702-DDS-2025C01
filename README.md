@@ -95,6 +95,7 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 ![image](https://github.com/user-attachments/assets/398e14be-a39f-4de7-933e-0158722d25bd)
 
 - Guia para realizar el proyecto.
+
 ![image](https://github.com/user-attachments/assets/7a462c41-8a06-414b-afe9-ace0269d2293)
 
 - Modulo de Recuperacion
