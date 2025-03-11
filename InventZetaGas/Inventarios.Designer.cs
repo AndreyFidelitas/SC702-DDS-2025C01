@@ -128,7 +128,7 @@
             groupBox1.Size = new Size(305, 129);
             groupBox1.TabIndex = 25;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Datos de Usuarios";
+            groupBox1.Text = "Detalles del Inventario";
             // 
             // txtCantidadCilindro
             // 
