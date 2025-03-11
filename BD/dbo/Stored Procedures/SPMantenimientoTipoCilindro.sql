@@ -2,11 +2,8 @@
 
 
 
---exec SPMantenimientoTipoCilindro NULL,'25 LBS',1,'1';
---exec SPMantenimientoTipoCilindro NULL,'20 LBS',1,'1';
---exec SPMantenimientoTipoCilindro NULL,'35 LBS',1,'1';
---exec SPMantenimientoTipoCilindro NULL,'100 LBS',1,'1';
---exec SPMantenimientoTipoCilindro NULL,'Granel',1,'1';
+--exec SPMantenimientoTipoCilindro '','143 ml',1,'1';
+
 --select * FROM TipoCilindro
 
 CREATE PROCEDURE [dbo].[SPMantenimientoTipoCilindro]

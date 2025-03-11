@@ -1,12 +1,9 @@
 ﻿
 -- Crear el procedimiento almacenado
 
---exec SPMantenimientoZonas null,null,'Lima',1,1;
---exec SPMantenimientoZonas null,null,'Coyol',1,1;
---exec SPMantenimientoZonas null,null,'Limon',1,1;
---exec SPMantenimientoZonas null,null,'Bagaces',1,1;
---exec SPMantenimientoZonas null,null,'Guapiles',1,1;
---exec SPMantenimientoZonas null,nul,'Florencia',1,1;
+--exec SPMantenimientoZonas 1,Z0001,'Planta TEST1',1,1;
+--exec SPMantenimientoZonas 1,Z0001,'Planta TEST',0,2;
+
 --select * from Zonas
 
 CREATE PROCEDURE [dbo].[SPMantenimientoZonas]

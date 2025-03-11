@@ -1,7 +1,6 @@
 ﻿
---exec SPMantenimientoRoles null,'Administrador',1,'1'
---exec SPMantenimientoRoles null,'Supervisor',1,'1'
---exec SPMantenimientoRoles null,'Transportista',1,'1'
+
+--exec SPMantenimientoRoles '','Transportista2',1,'1'
 --select * from Roles
 
 
