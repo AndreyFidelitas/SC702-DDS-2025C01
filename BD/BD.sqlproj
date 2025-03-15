@@ -96,6 +96,7 @@
     <Build Include="dbo\Tables\Usuarios.sql" />
     <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Stored Procedures\ValidarUsuario.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoPedidos.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
