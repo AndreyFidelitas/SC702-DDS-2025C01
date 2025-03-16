@@ -98,6 +98,7 @@
     <Build Include="dbo\Stored Procedures\ValidarUsuario.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoPedidos.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoInventariosEncabezado.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoInventarioDetalle.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
