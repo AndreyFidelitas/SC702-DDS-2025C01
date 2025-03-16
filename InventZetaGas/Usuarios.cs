@@ -63,9 +63,6 @@ namespace InventZetaGas
         private void btnNew_Click(object sender, EventArgs e)
         {
             Limpiar();
-            txtNombre.Text = "OLMAN ANDREY";
-            txtApellidos.Text = "SANCHEZ ZUNIGA";
-            txtUsuario.Text = "OSANCHEZZ";
             rbtnActive.Checked = true;
         }
 
@@ -121,6 +118,7 @@ namespace InventZetaGas
         //metodo para limpiar los campos
         private void Limpiar()
         {
+            txtCedula.Text = "";
             txtCodeUser.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
@@ -176,7 +174,7 @@ namespace InventZetaGas
             userE.UsuarioName = txtNombre.Text;
             userE.UsuarioApellidos = txtApellidos.Text;
             userE.UsuarioUserName = txtUsuario.Text;
-            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 1);
+            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 2);
             userE.Password = txtContraseña.Text;
             g.accion = accion;
             g.msj = userN.MantenimientoUsuarios(userE, g.accion);
