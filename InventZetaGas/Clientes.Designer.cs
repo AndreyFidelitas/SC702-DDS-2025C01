@@ -88,7 +88,7 @@
             // 
             btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
             btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchID.Location = new Point(336, 36);
+            btnSearchID.Location = new Point(339, 114);
             btnSearchID.Name = "btnSearchID";
             btnSearchID.Size = new Size(37, 24);
             btnSearchID.TabIndex = 23;
@@ -99,7 +99,7 @@
             // 
             txtCedula.Enabled = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(38, 38);
+            txtCedula.Location = new Point(41, 116);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(292, 22);
             txtCedula.TabIndex = 22;
@@ -108,7 +108,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(38, 18);
+            label7.Location = new Point(41, 96);
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
@@ -117,7 +117,7 @@
             // txtRazonSocial
             // 
             txtRazonSocial.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtRazonSocial.Location = new Point(38, 96);
+            txtRazonSocial.Location = new Point(41, 174);
             txtRazonSocial.Name = "txtRazonSocial";
             txtRazonSocial.Size = new Size(292, 22);
             txtRazonSocial.TabIndex = 20;
@@ -126,7 +126,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(38, 76);
+            label6.Location = new Point(41, 154);
             label6.Name = "label6";
             label6.Size = new Size(91, 17);
             label6.TabIndex = 19;
@@ -167,7 +167,7 @@
             // 
             groupBox2.Controls.Add(rbtnInactive);
             groupBox2.Controls.Add(rbtnActive);
-            groupBox2.Location = new Point(389, 96);
+            groupBox2.Location = new Point(391, 56);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(335, 129);
             groupBox2.TabIndex = 8;
@@ -259,7 +259,7 @@
             // txtEmpresa
             // 
             txtEmpresa.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtEmpresa.Location = new Point(38, 157);
+            txtEmpresa.Location = new Point(41, 235);
             txtEmpresa.Name = "txtEmpresa";
             txtEmpresa.Size = new Size(292, 22);
             txtEmpresa.TabIndex = 3;
@@ -268,7 +268,7 @@
             // 
             lblZona.AutoSize = true;
             lblZona.Font = new Font("Microsoft Sans Serif", 10F);
-            lblZona.Location = new Point(41, 133);
+            lblZona.Location = new Point(44, 211);
             lblZona.Name = "lblZona";
             lblZona.Size = new Size(64, 17);
             lblZona.TabIndex = 2;
@@ -278,7 +278,7 @@
             // 
             txtCodeUser.Enabled = false;
             txtCodeUser.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeUser.Location = new Point(389, 38);
+            txtCodeUser.Location = new Point(41, 56);
             txtCodeUser.Name = "txtCodeUser";
             txtCodeUser.Size = new Size(292, 22);
             txtCodeUser.TabIndex = 1;
@@ -287,7 +287,7 @@
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(389, 18);
+            lblCode.Location = new Point(41, 36);
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(105, 17);
             lblCode.TabIndex = 0;
