@@ -184,6 +184,7 @@
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
             rbtnInactive.UseVisualStyleBackColor = true;
+            rbtnInactive.CheckedChanged += rbtnInactive_CheckedChanged;
             // 
             // rbtnActive
             // 
@@ -195,6 +196,7 @@
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
             rbtnActive.UseVisualStyleBackColor = true;
+            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
             // 
             // groupBox1
             // 

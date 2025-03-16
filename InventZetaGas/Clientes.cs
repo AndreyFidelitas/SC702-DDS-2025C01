@@ -50,7 +50,7 @@ namespace InventZetaGas
 
         private void btnSearchID_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -69,6 +69,15 @@ namespace InventZetaGas
             CargarDatos();
         }
 
+        private void rbtnActive_CheckedChanged(object sender, EventArgs e)
+        {
+            Estados();
+        }
+
+        private void rbtnInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            Estados();
+        }
 
         #region Mantenimientos Generales
         //metodo para limpiar los campos
@@ -108,7 +117,6 @@ namespace InventZetaGas
                 userE.ClientesStatus = rbtnActive.Checked;
             }
         }
-
 
         //************************************************************************************************
         private void Mantenimiento(string accion)
@@ -178,12 +186,12 @@ namespace InventZetaGas
         }
 
         //************************************************************************************************
-        private void CargarDatos() 
+        private void CargarDatos()
         {
-            gvClientes.DataSource=userN.ListaClientes();
-        
+            gvClientes.DataSource = userN.ListaClientes();
+
         }
-        
+
         //validacion de campos 
         // Método para verificar si los campos están vacíos
         public bool ValidarCampos()
@@ -254,5 +262,7 @@ namespace InventZetaGas
             }
         }
         #endregion
+
+
     }
 }
