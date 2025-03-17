@@ -93,7 +93,7 @@
             btnRecuperar.BackColor = Color.FromArgb(1, 38, 90);
             btnRecuperar.ForeColor = SystemColors.ButtonHighlight;
             btnRecuperar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRecuperar.Location = new Point(546, 133);
+            btnRecuperar.Location = new Point(547, 141);
             btnRecuperar.Name = "btnRecuperar";
             btnRecuperar.Size = new Size(202, 47);
             btnRecuperar.TabIndex = 11;
@@ -105,7 +105,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(359, 73);
+            label1.Location = new Point(360, 81);
             label1.Name = "label1";
             label1.Size = new Size(52, 17);
             label1.TabIndex = 10;
@@ -114,7 +114,7 @@
             // txtCedula
             // 
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(384, 93);
+            txtCedula.Location = new Point(385, 101);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(364, 22);
             txtCedula.TabIndex = 8;
@@ -124,7 +124,7 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Microsoft Sans Serif", 10F);
             linkLabel1.LinkColor = SystemColors.ControlText;
-            linkLabel1.Location = new Point(647, 185);
+            linkLabel1.Location = new Point(648, 201);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(101, 17);
             linkLabel1.TabIndex = 13;
@@ -155,6 +155,7 @@
             Controls.Add(txtCedula);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RecuperacionContraseña";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RecuperacionContraseña";

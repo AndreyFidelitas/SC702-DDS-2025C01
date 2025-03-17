@@ -1,11 +1,25 @@
 ﻿
 -- Ejemplo de ejecución:
--- EXEC SPMantenimientoUsuarios 'U0001', 'Juan', 'Perez', 'jperez', 'password123', 'token123', 1, 1, @accion OUTPUT;
+ --EXEC SPMantenimientoUsuarios null,305100255, 'Daniel', 'Rojas', 'Drojas', 'password123', 'token123', 1, 1, '1';
+ --EXEC SPMantenimientoUsuarios null,305160774, 'Andrey', 'Sanchez', 'Asanchez', 'password123', 'token123', 1, 1, '1';
+ --EXEC SPMantenimientoUsuarios null,118240183, 'Clifford', 'Garos', 'Cgaros', 'password123', 'token123', 1, 1, '1';
+ --EXEC SPMantenimientoUsuarios null,202850639, 'Pedro', 'Perez', 'Pperez', 'password123', 'token123', 1, 2, '1';
+ --EXEC SPMantenimientoUsuarios null,102650551, 'Ramiro', 'Ramirez', 'Rramirez', 'password123', 'token123', 1, 3, '1';
+ --EXEC SPMantenimientoUsuarios null,119170739, 'Pablo', 'Mendez', 'Pmendez', 'password123', 'token123', 1, 3, '1';
+ --EXEC SPMantenimientoUsuarios null,101781004, 'Juan', 'Guzman', 'Jguzman', 'password123', 'token123', 1, 3, '1';
+ --EXEC SPMantenimientoUsuarios null,102060452, 'Jorge', 'Navarro', 'Jnavarro', 'password123', 'token123', 1, 3, '1';
+ --EXEC SPMantenimientoUsuarios null,206190454, 'Bryan', 'Mata', 'Bmata', 'password123', 'token123', 1, 3, '1';
+ --EXEC SPMantenimientoUsuarios null,501140240, 'Jesus', 'Arce', 'Jarce', 'password123', 'token123', 1, 3, '1';
+
+--Select * from Usuarios
+
+--ALTER TABLE Usuarios 
+--ALTER COLUMN Cedula BIGINT;
 
 CREATE PROCEDURE [dbo].[SPMantenimientoUsuarios]
 (
     @UsuarioCode VARCHAR(5),        -- Código del usuario
-    @Cedula	int,
+    @Cedula	int,					-- Cedula del Empleado
 	@UsuarioName VARCHAR(100),      -- Nombre del usuario
     @UsuarioApellidos VARCHAR(100), -- Apellidos del usuario
     @UsuarioUserName VARCHAR(100),  -- Nombre de usuario
