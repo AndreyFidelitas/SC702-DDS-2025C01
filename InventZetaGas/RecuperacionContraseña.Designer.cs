@@ -128,7 +128,6 @@
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtCedula.Location = new Point(375, 184);
             txtCedula.Name = "txtCedula";
-            txtCedula.PasswordChar = '*';
             txtCedula.Size = new Size(364, 22);
             txtCedula.TabIndex = 8;
             // 

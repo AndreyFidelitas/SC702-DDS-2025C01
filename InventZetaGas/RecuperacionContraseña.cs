@@ -58,7 +58,7 @@ namespace InventZetaGas
                 {
                     userE.UsuarioUserName = txtUsuario.Text;
                     var  value=userD.RecuperarContrasena(userE);
-                    MessageBox.Show("Este seria la nueva contrasena,"+value+"", "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Este seria la nueva contrasena,"+value+"", "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
