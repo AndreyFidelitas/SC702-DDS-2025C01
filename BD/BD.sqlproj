@@ -100,6 +100,7 @@
     <Build Include="dbo\Stored Procedures\SPMantenimientoPedidos.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoInventariosEncabezado.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoInventarioDetalle.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoInventariosAsignacion.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
