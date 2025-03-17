@@ -33,17 +33,11 @@
             btnSearchID = new Button();
             txtCedula = new TextBox();
             label7 = new Label();
-            txtNombre = new TextBox();
+            txtRazonSocial = new TextBox();
             label6 = new Label();
-            label2 = new Label();
-            txtContraseña = new TextBox();
-            label1 = new Label();
-            cbRol = new ComboBox();
             btnBuscar = new Button();
             txtBuscar = new TextBox();
             label4 = new Label();
-            txtUsuario = new TextBox();
-            lblPlaca = new Label();
             groupBox2 = new GroupBox();
             rbtnInactive = new RadioButton();
             rbtnActive = new RadioButton();
@@ -52,7 +46,7 @@
             btnAdd = new Button();
             btnModify = new Button();
             btnNew = new Button();
-            txtApellidos = new TextBox();
+            txtEmpresa = new TextBox();
             lblZona = new Label();
             txtCodeUser = new TextBox();
             lblCode = new Label();
@@ -71,20 +65,14 @@
             gbUsuarios.Controls.Add(btnSearchID);
             gbUsuarios.Controls.Add(txtCedula);
             gbUsuarios.Controls.Add(label7);
-            gbUsuarios.Controls.Add(txtNombre);
+            gbUsuarios.Controls.Add(txtRazonSocial);
             gbUsuarios.Controls.Add(label6);
-            gbUsuarios.Controls.Add(label2);
-            gbUsuarios.Controls.Add(txtContraseña);
-            gbUsuarios.Controls.Add(label1);
-            gbUsuarios.Controls.Add(cbRol);
             gbUsuarios.Controls.Add(btnBuscar);
             gbUsuarios.Controls.Add(txtBuscar);
             gbUsuarios.Controls.Add(label4);
-            gbUsuarios.Controls.Add(txtUsuario);
-            gbUsuarios.Controls.Add(lblPlaca);
             gbUsuarios.Controls.Add(groupBox2);
             gbUsuarios.Controls.Add(groupBox1);
-            gbUsuarios.Controls.Add(txtApellidos);
+            gbUsuarios.Controls.Add(txtEmpresa);
             gbUsuarios.Controls.Add(lblZona);
             gbUsuarios.Controls.Add(txtCodeUser);
             gbUsuarios.Controls.Add(lblCode);
@@ -100,17 +88,18 @@
             // 
             btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
             btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchID.Location = new Point(336, 36);
+            btnSearchID.Location = new Point(339, 114);
             btnSearchID.Name = "btnSearchID";
             btnSearchID.Size = new Size(37, 24);
             btnSearchID.TabIndex = 23;
             btnSearchID.UseVisualStyleBackColor = true;
+            btnSearchID.Click += btnSearchID_Click;
             // 
             // txtCedula
             // 
             txtCedula.Enabled = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(38, 38);
+            txtCedula.Location = new Point(41, 116);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(292, 22);
             txtCedula.TabIndex = 22;
@@ -119,67 +108,29 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(38, 18);
+            label7.Location = new Point(41, 96);
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
             label7.Text = "Cedula";
             // 
-            // txtNombre
+            // txtRazonSocial
             // 
-            txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtNombre.Location = new Point(38, 96);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(292, 22);
-            txtNombre.TabIndex = 20;
+            txtRazonSocial.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtRazonSocial.Location = new Point(41, 174);
+            txtRazonSocial.Name = "txtRazonSocial";
+            txtRazonSocial.Size = new Size(292, 22);
+            txtRazonSocial.TabIndex = 20;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(38, 76);
+            label6.Location = new Point(41, 154);
             label6.Name = "label6";
-            label6.Size = new Size(58, 17);
+            label6.Size = new Size(91, 17);
             label6.TabIndex = 19;
-            label6.Text = "Nombre";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(41, 257);
-            label2.Name = "label2";
-            label2.Size = new Size(81, 17);
-            label2.TabIndex = 18;
-            label2.Text = "Contraseña";
-            // 
-            // txtContraseña
-            // 
-            txtContraseña.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtContraseña.Location = new Point(41, 277);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.PasswordChar = '*';
-            txtContraseña.Size = new Size(292, 22);
-            txtContraseña.TabIndex = 17;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(389, 257);
-            label1.Name = "label1";
-            label1.Size = new Size(29, 17);
-            label1.TabIndex = 16;
-            label1.Text = "Rol";
-            // 
-            // cbRol
-            // 
-            cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(389, 277);
-            cbRol.Name = "cbRol";
-            cbRol.Size = new Size(292, 24);
-            cbRol.TabIndex = 15;
+            label6.Text = "Razon Social";
             // 
             // btnBuscar
             // 
@@ -191,6 +142,7 @@
             btnBuscar.TabIndex = 4;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscar
             // 
@@ -199,6 +151,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
             // 
             // label4
             // 
@@ -210,29 +163,11 @@
             label4.TabIndex = 13;
             label4.Text = "Buscar";
             // 
-            // txtUsuario
-            // 
-            txtUsuario.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtUsuario.Location = new Point(41, 210);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(289, 22);
-            txtUsuario.TabIndex = 10;
-            // 
-            // lblPlaca
-            // 
-            lblPlaca.AutoSize = true;
-            lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
-            lblPlaca.Location = new Point(38, 190);
-            lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(131, 17);
-            lblPlaca.TabIndex = 9;
-            lblPlaca.Text = "Nombre de Usuario";
-            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(rbtnInactive);
             groupBox2.Controls.Add(rbtnActive);
-            groupBox2.Location = new Point(389, 96);
+            groupBox2.Location = new Point(391, 56);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(335, 129);
             groupBox2.TabIndex = 8;
@@ -249,6 +184,7 @@
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
             rbtnInactive.UseVisualStyleBackColor = true;
+            rbtnInactive.CheckedChanged += rbtnInactive_CheckedChanged;
             // 
             // rbtnActive
             // 
@@ -260,6 +196,7 @@
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
             rbtnActive.UseVisualStyleBackColor = true;
+            rbtnActive.CheckedChanged += rbtnActive_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -283,6 +220,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -294,6 +232,7 @@
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnModify
             // 
@@ -305,6 +244,7 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 
@@ -316,30 +256,31 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
-            // txtApellidos
+            // txtEmpresa
             // 
-            txtApellidos.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtApellidos.Location = new Point(38, 157);
-            txtApellidos.Name = "txtApellidos";
-            txtApellidos.Size = new Size(292, 22);
-            txtApellidos.TabIndex = 3;
+            txtEmpresa.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtEmpresa.Location = new Point(41, 235);
+            txtEmpresa.Name = "txtEmpresa";
+            txtEmpresa.Size = new Size(292, 22);
+            txtEmpresa.TabIndex = 3;
             // 
             // lblZona
             // 
             lblZona.AutoSize = true;
             lblZona.Font = new Font("Microsoft Sans Serif", 10F);
-            lblZona.Location = new Point(41, 133);
+            lblZona.Location = new Point(44, 211);
             lblZona.Name = "lblZona";
-            lblZona.Size = new Size(65, 17);
+            lblZona.Size = new Size(64, 17);
             lblZona.TabIndex = 2;
-            lblZona.Text = "Apellidos";
+            lblZona.Text = "Empresa";
             // 
             // txtCodeUser
             // 
             txtCodeUser.Enabled = false;
             txtCodeUser.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeUser.Location = new Point(389, 38);
+            txtCodeUser.Location = new Point(41, 56);
             txtCodeUser.Name = "txtCodeUser";
             txtCodeUser.Size = new Size(292, 22);
             txtCodeUser.TabIndex = 1;
@@ -348,7 +289,7 @@
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(389, 18);
+            lblCode.Location = new Point(41, 36);
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(105, 17);
             lblCode.TabIndex = 0;
@@ -400,6 +341,7 @@
             Controls.Add(gbUsuarios);
             Name = "Clientes";
             Text = "Clientes";
+            Load += Clientes_Load;
             gbUsuarios.ResumeLayout(false);
             gbUsuarios.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -416,17 +358,13 @@
         private Button btnSearchID;
         private TextBox txtCedula;
         private Label label7;
-        private TextBox txtNombre;
+        private TextBox txtRazonSocial;
         private Label label6;
-        private Label label2;
-        private TextBox txtContraseña;
         private Label label1;
         private ComboBox cbRol;
         private Button btnBuscar;
         private TextBox txtBuscar;
         private Label label4;
-        private TextBox txtUsuario;
-        private Label lblPlaca;
         private GroupBox groupBox2;
         private RadioButton rbtnInactive;
         private RadioButton rbtnActive;
@@ -435,7 +373,7 @@
         private Button btnAdd;
         private Button btnModify;
         private Button btnNew;
-        private TextBox txtApellidos;
+        private TextBox txtEmpresa;
         private Label lblZona;
         private TextBox txtCodeUser;
         private Label lblCode;

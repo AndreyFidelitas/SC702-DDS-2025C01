@@ -1,5 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[ValidarUsuario]
-    @Cedula INT = NULL,  -- Parámetro opcional para buscar un usuario específico
+﻿    @Cedula INT = NULL,  -- Parámetro opcional para buscar un usuario específico
     @UsuarioUserName varchar(100) = NULL -- Parámetro opcional para buscar por cédula
 AS
 BEGIN

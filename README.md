@@ -5,7 +5,7 @@
 ## Documentacion
 - [Diagrama de tablas version 1.0](https://www.figma.com/board/NWER76Ptkq2sj4y2qMxZVE/Untitled?node-id=0-1&p=f&t=rjRQBglw82uUkuQS-0)
 - [Diccionario de Base de Datos InventZetaGas Version 1.0.docx](https://github.com/user-attachments/files/18565278/Diccionario.de.Base.de.Datos.InventZetaGas.Version.1.0.docx)
-- [Propuestas de KPIs](https://github.com/user-attachments/files/19057072/Propuestas.de.KPIs.docx)
+- [Propuestas.de.KPIs.docx](https://github.com/user-attachments/files/19146685/Propuestas.de.KPIs.docx)
 
 
 
