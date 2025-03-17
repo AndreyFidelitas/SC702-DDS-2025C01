@@ -68,7 +68,7 @@ namespace InventZetaGas
 
         private void gvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            CargarDatos();
+            SeleecionarDatos(e);
         }
 
         //boton para buscar informacion
@@ -95,6 +95,7 @@ namespace InventZetaGas
         //Metodo para cargar los datos en data grid view.
         private void CargarDatos()
         {
+            gvUsuarios.ReadOnly = true;
             gvUsuarios.DataSource = userN.ListaUsuario();
         }
 
@@ -280,7 +281,7 @@ namespace InventZetaGas
         private string GenerarNombreUsuario(string nombre, string apellidos)
         {
             string nombreUsuario = "";
-            
+
             // Obtener las partes del nombre y apellidos
             string[] partesNombre = nombre.Split(' ');
             string[] partesApellidos = apellidos.Split(' ');
@@ -307,7 +308,7 @@ namespace InventZetaGas
         private string GenerarContraseña(string nombre, string apellidos, string cedula)
         {
             string contraseña = "";
-            
+
             try
             {
                 // Obtener partes del nombre y apellidos
@@ -353,7 +354,7 @@ namespace InventZetaGas
                     else
                     {
                         ApiResponse apiResponse = await userN.ObtenerDatosCedulaAsync(int.Parse(txtCedula.Text));
-                        if (apiResponse!=null)
+                        if (apiResponse != null)
                         {
                             string[] nombreCompleto = apiResponse.Nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             if (nombreCompleto.Length > 0)
@@ -431,6 +432,33 @@ namespace InventZetaGas
                     break;
             }
         }
+
+        public void SeleecionarDatos(DataGridViewCellEventArgs e)
+        {
+            // Verifica que el índice de fila sea válido
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvUsuarios.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeUser.Text = row.Cells["Usuario ID"].Value?.ToString();
+                txtCedula.Text = row.Cells["Cedula"].Value?.ToString();
+                txtNombre.Text = row.Cells["Nombre"].Value?.ToString();
+                txtApellidos.Text = row.Cells["Apellidos"].Value?.ToString();
+                txtUsuario.Text = row.Cells["Nombre de Usuario"].Value?.ToString();
+                cbRol.Text = row.Cells["ID Rol"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
+        }
+
         #endregion
 
         private void gbUsuarios_Enter(object sender, EventArgs e)
