@@ -128,7 +128,6 @@
             // 
             // txtNombre
             // 
-            txtNombre.Enabled = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtNombre.Location = new Point(38, 96);
             txtNombre.Name = "txtNombre";
@@ -158,10 +157,10 @@
             // 
             // txtContraseña
             // 
-            txtContraseña.Enabled = false;
             txtContraseña.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtContraseña.Location = new Point(41, 277);
             txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(292, 22);
             txtContraseña.TabIndex = 17;
             // 
@@ -171,12 +170,13 @@
             label1.Font = new Font("Microsoft Sans Serif", 10F);
             label1.Location = new Point(389, 257);
             label1.Name = "label1";
-            label1.Size = new Size(102, 17);
+            label1.Size = new Size(29, 17);
             label1.TabIndex = 16;
-            label1.Text = "Rol de Usuario";
+            label1.Text = "Rol";
             // 
             // cbRol
             // 
+            cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRol.FormattingEnabled = true;
             cbRol.Location = new Point(389, 277);
             cbRol.Name = "cbRol";
@@ -289,6 +289,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -312,6 +313,7 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click;
             // 
             // btnNew
             // 

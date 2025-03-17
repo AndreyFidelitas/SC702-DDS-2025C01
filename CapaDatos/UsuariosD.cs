@@ -38,12 +38,18 @@ namespace CapaDatos
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@UsuarioCode", Usuarios.UsuarioCode);
+                    cmd.Parameters.AddWithValue("@Cedula", Usuarios.Cedula);
                     cmd.Parameters.AddWithValue("@UsuarioName", Usuarios.UsuarioName);
+                    cmd.Parameters.AddWithValue("@UsuarioApellidos", Usuarios.UsuarioApellidos);
+                    cmd.Parameters.AddWithValue("@UsuarioUserName", Usuarios.UsuarioUserName);
+                    cmd.Parameters.AddWithValue("@Password", Usuarios.Password);
+                    cmd.Parameters.AddWithValue("@RoleID", Usuarios.RoleID);
+                    cmd.Parameters.AddWithValue("@UsuarioEstado", Usuarios.UsuarioEstado);
                     // Agrega aquí los demás parámetros que tu SP requiera
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
-                    _conexion.CerrarConexion();
+                    _conexion.CerrarConexion(); 
                     return cmd.Parameters["@accion"].Value.ToString();
                 }
             }

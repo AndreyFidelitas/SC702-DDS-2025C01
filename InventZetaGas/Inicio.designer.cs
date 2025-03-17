@@ -33,6 +33,8 @@
             btnExit = new Button();
             btnHelp = new Button();
             panelToolsSubMenu = new Panel();
+            button7 = new Button();
+            button5 = new Button();
             btnUsuarios = new Button();
             button12 = new Button();
             button13 = new Button();
@@ -79,7 +81,7 @@
             panelSideMenu.Dock = DockStyle.Left;
             panelSideMenu.Location = new Point(0, 0);
             panelSideMenu.Name = "panelSideMenu";
-            panelSideMenu.Size = new Size(250, 701);
+            panelSideMenu.Size = new Size(250, 795);
             panelSideMenu.TabIndex = 0;
             // 
             // btnExit
@@ -93,10 +95,10 @@
             btnExit.ForeColor = Color.White;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(0, 670);
+            btnExit.Location = new Point(0, 750);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(5, 0, 0, 0);
-            btnExit.Size = new Size(233, 45);
+            btnExit.Size = new Size(250, 45);
             btnExit.TabIndex = 9;
             btnExit.Text = "  Exit";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
@@ -115,10 +117,10 @@
             btnHelp.ForeColor = Color.White;
             btnHelp.Image = (Image)resources.GetObject("btnHelp.Image");
             btnHelp.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHelp.Location = new Point(0, 637);
+            btnHelp.Location = new Point(0, 710);
             btnHelp.Name = "btnHelp";
             btnHelp.Padding = new Padding(5, 0, 0, 0);
-            btnHelp.Size = new Size(233, 33);
+            btnHelp.Size = new Size(250, 39);
             btnHelp.TabIndex = 8;
             btnHelp.Text = "  Help";
             btnHelp.TextAlign = ContentAlignment.MiddleLeft;
@@ -129,14 +131,54 @@
             // panelToolsSubMenu
             // 
             panelToolsSubMenu.BackColor = Color.FromArgb(35, 32, 39);
+            panelToolsSubMenu.Controls.Add(button7);
+            panelToolsSubMenu.Controls.Add(button5);
             panelToolsSubMenu.Controls.Add(btnUsuarios);
             panelToolsSubMenu.Controls.Add(button12);
             panelToolsSubMenu.Controls.Add(button13);
             panelToolsSubMenu.Dock = DockStyle.Top;
             panelToolsSubMenu.Location = new Point(0, 507);
             panelToolsSubMenu.Name = "panelToolsSubMenu";
-            panelToolsSubMenu.Size = new Size(233, 130);
+            panelToolsSubMenu.Size = new Size(250, 203);
             panelToolsSubMenu.TabIndex = 7;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(26, 26, 26);
+            button7.Dock = DockStyle.Top;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 38, 46);
+            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 38, 46);
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.ForeColor = Color.White;
+            button7.Location = new Point(0, 158);
+            button7.Name = "button7";
+            button7.Padding = new Padding(35, 0, 0, 0);
+            button7.Size = new Size(250, 45);
+            button7.TabIndex = 4;
+            button7.Text = "Detalle de Inventarios";
+            button7.TextAlign = ContentAlignment.MiddleLeft;
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click_1;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.FromArgb(26, 26, 26);
+            button5.Dock = DockStyle.Top;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 38, 46);
+            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 38, 46);
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.ForeColor = Color.White;
+            button5.Location = new Point(0, 114);
+            button5.Name = "button5";
+            button5.Padding = new Padding(35, 0, 0, 0);
+            button5.Size = new Size(250, 44);
+            button5.TabIndex = 3;
+            button5.Text = "Inventarios";
+            button5.TextAlign = ContentAlignment.MiddleLeft;
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click_1;
             // 
             // btnUsuarios
             // 
@@ -150,12 +192,11 @@
             btnUsuarios.Location = new Point(0, 80);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Padding = new Padding(35, 0, 0, 0);
-            btnUsuarios.Size = new Size(233, 47);
+            btnUsuarios.Size = new Size(250, 34);
             btnUsuarios.TabIndex = 2;
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             btnUsuarios.UseVisualStyleBackColor = false;
-            btnUsuarios.Visible = false;
             btnUsuarios.Click += button10_Click;
             // 
             // button12
@@ -170,7 +211,7 @@
             button12.Location = new Point(0, 40);
             button12.Name = "button12";
             button12.Padding = new Padding(35, 0, 0, 0);
-            button12.Size = new Size(233, 40);
+            button12.Size = new Size(250, 40);
             button12.TabIndex = 1;
             button12.Text = "Clientes";
             button12.TextAlign = ContentAlignment.MiddleLeft;
@@ -189,9 +230,9 @@
             button13.Location = new Point(0, 0);
             button13.Name = "button13";
             button13.Padding = new Padding(35, 0, 0, 0);
-            button13.Size = new Size(233, 40);
+            button13.Size = new Size(250, 40);
             button13.TabIndex = 0;
-            button13.Text = " Reporte Inventarios";
+            button13.Text = " Reporte Cilindros";
             button13.TextAlign = ContentAlignment.MiddleLeft;
             button13.UseVisualStyleBackColor = false;
             button13.Click += button13_Click;
@@ -210,7 +251,7 @@
             btnTools.Location = new Point(0, 468);
             btnTools.Name = "btnTools";
             btnTools.Padding = new Padding(5, 0, 0, 0);
-            btnTools.Size = new Size(233, 39);
+            btnTools.Size = new Size(250, 39);
             btnTools.TabIndex = 6;
             btnTools.Text = "  Inventarios";
             btnTools.TextAlign = ContentAlignment.MiddleLeft;
@@ -228,7 +269,7 @@
             panelPlaylistSubMenu.Dock = DockStyle.Top;
             panelPlaylistSubMenu.Location = new Point(0, 303);
             panelPlaylistSubMenu.Name = "panelPlaylistSubMenu";
-            panelPlaylistSubMenu.Size = new Size(233, 165);
+            panelPlaylistSubMenu.Size = new Size(250, 165);
             panelPlaylistSubMenu.TabIndex = 4;
             // 
             // button1
@@ -243,7 +284,7 @@
             button1.Location = new Point(0, 120);
             button1.Name = "button1";
             button1.Padding = new Padding(35, 0, 0, 0);
-            button1.Size = new Size(233, 40);
+            button1.Size = new Size(250, 40);
             button1.TabIndex = 3;
             button1.Text = "Rutas";
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -262,7 +303,7 @@
             button6.Location = new Point(0, 80);
             button6.Name = "button6";
             button6.Padding = new Padding(35, 0, 0, 0);
-            button6.Size = new Size(233, 40);
+            button6.Size = new Size(250, 40);
             button6.TabIndex = 2;
             button6.Text = "Cilindros";
             button6.TextAlign = ContentAlignment.MiddleLeft;
@@ -281,7 +322,7 @@
             btncamiones.Location = new Point(0, 40);
             btncamiones.Name = "btncamiones";
             btncamiones.Padding = new Padding(35, 0, 0, 0);
-            btncamiones.Size = new Size(233, 40);
+            btncamiones.Size = new Size(250, 40);
             btncamiones.TabIndex = 1;
             btncamiones.Text = "Camiones";
             btncamiones.TextAlign = ContentAlignment.MiddleLeft;
@@ -300,7 +341,7 @@
             button8.Location = new Point(0, 0);
             button8.Name = "button8";
             button8.Padding = new Padding(35, 0, 0, 0);
-            button8.Size = new Size(233, 40);
+            button8.Size = new Size(250, 40);
             button8.TabIndex = 0;
             button8.Text = "Zonas";
             button8.TextAlign = ContentAlignment.MiddleLeft;
@@ -321,7 +362,7 @@
             btnPlaylist.Location = new Point(0, 258);
             btnPlaylist.Name = "btnPlaylist";
             btnPlaylist.Padding = new Padding(5, 0, 0, 0);
-            btnPlaylist.Size = new Size(233, 45);
+            btnPlaylist.Size = new Size(250, 45);
             btnPlaylist.TabIndex = 3;
             btnPlaylist.Text = "  Gestion de Cilindros";
             btnPlaylist.TextAlign = ContentAlignment.MiddleLeft;
@@ -338,7 +379,7 @@
             panelMediaSubMenu.Dock = DockStyle.Top;
             panelMediaSubMenu.Location = new Point(0, 137);
             panelMediaSubMenu.Name = "panelMediaSubMenu";
-            panelMediaSubMenu.Size = new Size(233, 121);
+            panelMediaSubMenu.Size = new Size(250, 121);
             panelMediaSubMenu.TabIndex = 2;
             // 
             // button4
@@ -353,7 +394,7 @@
             button4.Location = new Point(0, 80);
             button4.Name = "button4";
             button4.Padding = new Padding(35, 0, 0, 0);
-            button4.Size = new Size(233, 40);
+            button4.Size = new Size(250, 40);
             button4.TabIndex = 2;
             button4.Text = "Permisos";
             button4.TextAlign = ContentAlignment.MiddleLeft;
@@ -372,7 +413,7 @@
             button3.Location = new Point(0, 40);
             button3.Name = "button3";
             button3.Padding = new Padding(35, 0, 0, 0);
-            button3.Size = new Size(233, 40);
+            button3.Size = new Size(250, 40);
             button3.TabIndex = 1;
             button3.Text = "Usuarios";
             button3.TextAlign = ContentAlignment.MiddleLeft;
@@ -391,7 +432,7 @@
             button2.Location = new Point(0, 0);
             button2.Name = "button2";
             button2.Padding = new Padding(35, 0, 0, 0);
-            button2.Size = new Size(233, 40);
+            button2.Size = new Size(250, 40);
             button2.TabIndex = 0;
             button2.Text = "Roles";
             button2.TextAlign = ContentAlignment.MiddleLeft;
@@ -412,7 +453,7 @@
             btnMedia.Location = new Point(0, 92);
             btnMedia.Name = "btnMedia";
             btnMedia.Padding = new Padding(5, 0, 0, 0);
-            btnMedia.Size = new Size(233, 45);
+            btnMedia.Size = new Size(250, 45);
             btnMedia.TabIndex = 1;
             btnMedia.Text = "  Administración";
             btnMedia.TextAlign = ContentAlignment.MiddleLeft;
@@ -427,7 +468,7 @@
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(233, 92);
+            panelLogo.Size = new Size(250, 92);
             panelLogo.TabIndex = 0;
             // 
             // pictureBox1
@@ -444,7 +485,7 @@
             // 
             panelPlayer.BackColor = Color.FromArgb(1, 38, 90);
             panelPlayer.Dock = DockStyle.Bottom;
-            panelPlayer.Location = new Point(250, 622);
+            panelPlayer.Location = new Point(250, 716);
             panelPlayer.Name = "panelPlayer";
             panelPlayer.Size = new Size(923, 79);
             panelPlayer.TabIndex = 1;
@@ -457,14 +498,14 @@
             panelChildForm.Dock = DockStyle.Fill;
             panelChildForm.Location = new Point(250, 0);
             panelChildForm.Name = "panelChildForm";
-            panelChildForm.Size = new Size(923, 622);
+            panelChildForm.Size = new Size(923, 716);
             panelChildForm.TabIndex = 2;
             // 
             // pictureBox9
             // 
             pictureBox9.Anchor = AnchorStyles.None;
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(340, 198);
+            pictureBox9.Location = new Point(340, 205);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(224, 224);
             pictureBox9.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -476,7 +517,7 @@
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1173, 701);
+            ClientSize = new Size(1173, 795);
             Controls.Add(panelChildForm);
             Controls.Add(panelPlayer);
             Controls.Add(panelSideMenu);
@@ -507,7 +548,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnMedia;
-        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Panel panelToolsSubMenu;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button button12;
@@ -525,6 +565,9 @@
         private System.Windows.Forms.Panel panelChildForm;
         private PictureBox pictureBox9;
         private PictureBox pictureBox1;
+        private Button btnHelp;
+        private Button button7;
+        private Button button5;
     }
 }
 

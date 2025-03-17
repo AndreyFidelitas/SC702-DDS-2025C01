@@ -23,5 +23,10 @@ namespace CapaNegocios
         {
             return rolesD.ListarRoles();
         }
+
+        public DataTable CargarRoles()
+        {
+            return rolesD.CargaRoles();
+        }
     }
 }

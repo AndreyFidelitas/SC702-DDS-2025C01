@@ -10,6 +10,7 @@ namespace CapaEntidades
     {
         public int ClientesID { get; set; }
         public string ClientesCode { get; set; }
+        public int Cedula { get; set; }
         public string RazonSocial { get; set; }
         public string Empresa { get; set; }
         public string ClientesRol { get; set; }

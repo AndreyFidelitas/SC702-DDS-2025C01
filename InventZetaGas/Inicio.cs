@@ -121,9 +121,7 @@ namespace PlayerUI
 
         private void button12_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new Clientes());
             hideSubMenu();
         }
 
@@ -185,6 +183,18 @@ namespace PlayerUI
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new Inventarios());
+            hideSubMenu();
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new InventarioDetalle());
+            hideSubMenu();
         }
     }
 }
