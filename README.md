@@ -76,12 +76,12 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Inicio de Sesion
 ![image](https://github.com/user-attachments/assets/9ca38022-5258-4d41-bcde-9c1df0a20d85)
 
-
+- Modulo de Recuperacion de contrasena
+![image](https://github.com/user-attachments/assets/3ff30bd5-b8a3-4550-bef8-20d7fcb58b94)
 
 - Optimizacion de Codigos de Camiones
 - Optimizacion de Rutas
-
-
+- Optimizacion y automatizacion de usuarios
 
 
 # Reportes de BI
