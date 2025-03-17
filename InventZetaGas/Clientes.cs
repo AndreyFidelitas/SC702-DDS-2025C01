@@ -53,10 +53,6 @@ namespace InventZetaGas
 
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -214,7 +210,7 @@ namespace InventZetaGas
             return valid;
         }
         //*************************************************************************************************
-        public async Task BuscarAsync(int opcion)
+        public void BuscarAsync(int opcion)
         {
             string resultado = null;
             // Evaluamos la opción con un switch
@@ -238,11 +234,13 @@ namespace InventZetaGas
 
                     // Si el filtro está vacío, muestra todos los registros
                     if (string.IsNullOrEmpty(filtro))
+                    {
                         dataView.RowFilter = string.Empty;
+                    }
                     else
                     {
                         // Aplica el filtro, ajusta según la columna y el valor
-                        string filtroAplicado = "Nombre de Usuario LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                        string filtroAplicado = "Cedula LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
                         dataView.RowFilter = filtroAplicado;
                     }
 
@@ -264,5 +262,9 @@ namespace InventZetaGas
         #endregion
 
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarAsync(2);
+        }
     }
 }

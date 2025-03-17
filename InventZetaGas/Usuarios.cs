@@ -74,7 +74,8 @@ namespace InventZetaGas
         //boton para buscar informacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            _ = BuscarAsync(2);
+            //_ = BuscarAsync(2);
+            BusquedaUser();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -409,27 +410,30 @@ namespace InventZetaGas
 
                     // Si el filtro está vacío, muestra todos los registros
                     if (string.IsNullOrEmpty(filtro))
+                    {
                         dataView.RowFilter = string.Empty;
+                    }
                     else
                     {
                         // Aplica el filtro, ajusta según la columna y el valor
-                        string filtroAplicado = "Nombre de Usuario LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                        string filtroAplicado = "Cedula LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
                         dataView.RowFilter = filtroAplicado;
-                    }
 
-                    // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
-                    gvUsuarios.DataSource = dataView;
 
-                    // Verifica si hay resultados después de aplicar el filtro
-                    if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
-                    {
-                        MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        // Muestra todos los registros si no se encuentran resultados
-                        dataView.RowFilter = string.Empty;
-                        gvUsuarios.DataSource = dataView;  // Asigna de nuevo los datos completos
-                        txtBuscar.Text = "";
+                        // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
+                        gvUsuarios.DataSource = dataView;
+
+                        // Verifica si hay resultados después de aplicar el filtro
+                        if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
+                        {
+                            MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            // Muestra todos los registros si no se encuentran resultados
+                            dataView.RowFilter = string.Empty;
+                            gvUsuarios.DataSource = dataView;  // Asigna de nuevo los datos completos
+                            txtBuscar.Text = "";
+                        }
                     }
-                    break;
+                break;
             }
         }
 
@@ -456,6 +460,60 @@ namespace InventZetaGas
                 {
                     rbtnInactive.Checked = true;
                 }
+            }
+        }
+
+        private void BusquedaUser()
+        {
+            // Obtén el DataTable de la lista de camiones
+            DataTable dt = userN.ListaUsuario();
+            dataView = dt.DefaultView;
+
+            string filtro = txtBuscar.Text.Trim();  // Obtén el texto del cuadro de búsqueda
+
+            // Si el filtro está vacío, muestra todos los registros
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dataView.RowFilter = string.Empty;
+            }
+            else
+            {
+                // Check if the 'Cedula' column is of type Int32
+                if (dt.Columns["Cedula"].DataType == typeof(int))
+                {
+                    // If 'Cedula' is an integer, apply a numeric filter
+                    int filtroInt;
+                    if (int.TryParse(filtro, out filtroInt))
+                    {
+                        // Apply the filter for an integer column
+                        string filtroAplicado = "Cedula = " + filtroInt.ToString();
+                        dataView.RowFilter = filtroAplicado;
+                    }
+                    else
+                    {
+                        // If the filter text is not a valid integer, clear the filter
+                        dataView.RowFilter = string.Empty;
+                    }
+                }
+                else if (dt.Columns["Cedula"].DataType == typeof(string))
+                {
+                    // If 'Cedula' is a string, apply the LIKE filter
+                    string filtroAplicado = "Cedula LIKE '%" + filtro + "%'";
+                    dataView.RowFilter = filtroAplicado;
+                }
+            }
+
+            // Assign the DataView to the DataGridView to show the filtered result
+            gvUsuarios.DataSource = dataView;
+
+            // Check if there are no results after applying the filter
+            if (dataView.Count == 0)  // If no records match the filter
+            {
+                MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Show all records if no results found
+                dataView.RowFilter = string.Empty;
+                gvUsuarios.DataSource = dataView;  // Reassign the full data
+                txtBuscar.Text = "";
             }
         }
 
