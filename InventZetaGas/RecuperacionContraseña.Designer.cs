@@ -35,9 +35,7 @@
             pictureBox2 = new PictureBox();
             btnRecuperar = new Button();
             label1 = new Label();
-            lblCode = new Label();
             txtCedula = new TextBox();
-            txtUsuario = new TextBox();
             linkLabel1 = new LinkLabel();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -95,7 +93,7 @@
             btnRecuperar.BackColor = Color.FromArgb(1, 38, 90);
             btnRecuperar.ForeColor = SystemColors.ButtonHighlight;
             btnRecuperar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRecuperar.Location = new Point(537, 224);
+            btnRecuperar.Location = new Point(546, 133);
             btnRecuperar.Name = "btnRecuperar";
             btnRecuperar.Size = new Size(202, 47);
             btnRecuperar.TabIndex = 11;
@@ -107,44 +105,26 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(350, 164);
+            label1.Location = new Point(359, 73);
             label1.Name = "label1";
             label1.Size = new Size(52, 17);
             label1.TabIndex = 10;
             label1.Text = "Cédula";
             // 
-            // lblCode
-            // 
-            lblCode.AutoSize = true;
-            lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(350, 73);
-            lblCode.Name = "lblCode";
-            lblCode.Size = new Size(57, 17);
-            lblCode.TabIndex = 9;
-            lblCode.Text = "Usuario";
-            // 
             // txtCedula
             // 
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(375, 184);
+            txtCedula.Location = new Point(384, 93);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(364, 22);
             txtCedula.TabIndex = 8;
-            // 
-            // txtUsuario
-            // 
-            txtUsuario.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtUsuario.Location = new Point(375, 93);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(364, 22);
-            txtUsuario.TabIndex = 7;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Microsoft Sans Serif", 10F);
             linkLabel1.LinkColor = SystemColors.ControlText;
-            linkLabel1.Location = new Point(638, 276);
+            linkLabel1.Location = new Point(647, 185);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(101, 17);
             linkLabel1.TabIndex = 13;
@@ -172,9 +152,7 @@
             Controls.Add(linkLabel1);
             Controls.Add(btnRecuperar);
             Controls.Add(label1);
-            Controls.Add(lblCode);
             Controls.Add(txtCedula);
-            Controls.Add(txtUsuario);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "RecuperacionContraseña";
@@ -196,9 +174,7 @@
         private PictureBox pictureBox2;
         private Button btnRecuperar;
         private Label label1;
-        private Label lblCode;
         private TextBox txtCedula;
-        private TextBox txtUsuario;
         private LinkLabel linkLabel1;
         private Label label2;
     }
