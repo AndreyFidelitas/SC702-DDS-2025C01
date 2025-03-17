@@ -94,6 +94,7 @@
     <Build Include="dbo\Stored Procedures\SPListaCilindro_1.sql" />
     <Build Include="dbo\Stored Procedures\SPCargaRoles.sql" />
     <Build Include="dbo\Tables\Usuarios.sql" />
+    <Build Include="dbo\Stored Procedures\ValidarUsuario.sql" />
     <Build Include="dbo\Tables\Clientes.sql" />
     <Build Include="dbo\Stored Procedures\ValidarUsuario.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoPedidos.sql" />

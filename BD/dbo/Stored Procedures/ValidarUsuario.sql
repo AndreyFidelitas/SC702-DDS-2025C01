@@ -1,5 +1,4 @@
-﻿CREATE PROCEDURE ValidarUsuario
-    @Cedula INT = NULL,  -- Parámetro opcional para buscar un usuario específico
+﻿    @Cedula INT = NULL,  -- Parámetro opcional para buscar un usuario específico
     @UsuarioUserName varchar(100) = NULL -- Parámetro opcional para buscar por cédula
 AS
 BEGIN
@@ -23,6 +22,6 @@ BEGIN
     INNER JOIN 
         Roles r WITH (NOLOCK) ON u.RoleID = r.RolesId
     WHERE 
-        (@UsuarioUserName IS NULL OR u.UsuarioUserName = @UsuarioUserName)  -- Filtro por UsuarioCode (opcional)
-        AND (@Cedula IS NULL OR u.Cedula = @Cedula);						-- Filtro por Cédula (opcional)
+        --(@UsuarioUserName IS NULL OR u.UsuarioUserName = @UsuarioUserName)  -- Filtro por UsuarioCode (opcional)
+        (@Cedula IS NULL OR u.Cedula = @Cedula);						-- Filtro por Cédula (opcional)
 END;

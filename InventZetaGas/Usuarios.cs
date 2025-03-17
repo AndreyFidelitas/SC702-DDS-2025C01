@@ -63,6 +63,7 @@ namespace InventZetaGas
         private void btnNew_Click(object sender, EventArgs e)
         {
             Limpiar();
+            rbtnActive.Checked = true;
         }
 
         private void gvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -117,6 +118,7 @@ namespace InventZetaGas
         //metodo para limpiar los campos
         private void Limpiar()
         {
+            txtCedula.Text = "";
             txtCodeUser.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
@@ -172,7 +174,7 @@ namespace InventZetaGas
             userE.UsuarioName = txtNombre.Text;
             userE.UsuarioApellidos = txtApellidos.Text;
             userE.UsuarioUserName = txtUsuario.Text;
-            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 1);
+            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 2);
             userE.Password = txtContraseña.Text;
             g.accion = accion;
             g.msj = userN.MantenimientoUsuarios(userE, g.accion);
@@ -275,9 +277,73 @@ namespace InventZetaGas
             return valid;
         }
         //*************************************************************************************************
-        public async Task BuscarAsync(int opcion) 
+        private string GenerarNombreUsuario(string nombre, string apellidos)
         {
-            string resultado = null;
+            string nombreUsuario = "";
+            
+            // Obtener las partes del nombre y apellidos
+            string[] partesNombre = nombre.Split(' ');
+            string[] partesApellidos = apellidos.Split(' ');
+
+            // Tomar la primera letra del primer nombre
+            if (partesNombre.Length > 0 && partesNombre[0].Length > 0)
+                nombreUsuario += partesNombre[0].Substring(0, 1).ToUpper();
+
+            // Tomar la primera letra del segundo nombre si existe
+            if (partesNombre.Length > 1 && partesNombre[1].Length > 0)
+                nombreUsuario += partesNombre[1].Substring(0, 1).ToUpper();
+
+            // Agregar el primer apellido completo
+            if (partesApellidos.Length > 0)
+                nombreUsuario += partesApellidos[0].ToUpper();
+
+            // Agregar la primera letra del segundo apellido
+            if (partesApellidos.Length > 1 && partesApellidos[1].Length > 0)
+                nombreUsuario += partesApellidos[1].Substring(0, 1).ToUpper();
+
+            return nombreUsuario;
+        }
+
+        private string GenerarContraseña(string nombre, string apellidos, string cedula)
+        {
+            string contraseña = "";
+            
+            try
+            {
+                // Obtener partes del nombre y apellidos
+                string[] partesNombre = nombre.Split(' ');
+                string[] partesApellidos = apellidos.Split(' ');
+
+                // Primera letra del primer nombre en mayúscula
+                if (partesNombre.Length > 0 && partesNombre[0].Length > 0)
+                    contraseña += partesNombre[0].Substring(0, 1).ToUpper();
+
+                // Primeras dos letras del primer apellido en minúscula
+                if (partesApellidos.Length > 0 && partesApellidos[0].Length >= 2)
+                    contraseña += partesApellidos[0].Substring(0, 2).ToLower();
+
+                // Últimos 4 dígitos de la cédula
+                if (cedula.Length >= 4)
+                    contraseña += cedula.Substring(cedula.Length - 4);
+
+                // Primera letra del segundo apellido en mayúscula
+                if (partesApellidos.Length > 1 && partesApellidos[1].Length > 0)
+                    contraseña += partesApellidos[1].Substring(0, 1).ToUpper();
+
+                // Agregar un carácter especial
+                contraseña += "@";
+            }
+            catch
+            {
+                // Si hay algún error, crear una contraseña básica
+                contraseña = "Pass" + cedula.Substring(cedula.Length - 4) + "@";
+            }
+
+            return contraseña;
+        }
+
+        public async Task BuscarAsync(int opcion)
+        {
             // Evaluamos la opción con un switch
             switch (opcion)
             {
@@ -287,8 +353,51 @@ namespace InventZetaGas
                     else
                     {
                         ApiResponse apiResponse = await userN.ObtenerDatosCedulaAsync(int.Parse(txtCedula.Text));
+                        if (apiResponse!=null)
+                        {
+                            string[] nombreCompleto = apiResponse.Nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (nombreCompleto.Length > 0)
+                            {
+                                string nombres = "";
+                                string apellidos = "";
+
+                                // Si solo hay una parte, asumimos que es nombre
+                                if (nombreCompleto.Length == 1)
+                                {
+                                    nombres = nombreCompleto[0];
+                                }
+                                // Si hay dos partes, asumimos nombre y apellido
+                                else if (nombreCompleto.Length == 2)
+                                {
+                                    nombres = nombreCompleto[0];
+                                    apellidos = nombreCompleto[1];
+                                }
+                                // Si hay tres partes, asumimos un nombre y dos apellidos
+                                else if (nombreCompleto.Length == 3)
+                                {
+                                    nombres = nombreCompleto[0];
+                                    apellidos = nombreCompleto[1] + " " + nombreCompleto[2];
+                                }
+                                // Si hay cuatro o más partes
+                                else if (nombreCompleto.Length >= 4)
+                                {
+                                    nombres = nombreCompleto[0] + " " + nombreCompleto[1];
+                                    apellidos = nombreCompleto[2] + " " + nombreCompleto[3];
+                                }
+
+                                txtNombre.Text = nombres;
+                                txtApellidos.Text = apellidos;
+                                txtUsuario.Text = GenerarNombreUsuario(nombres, apellidos);
+                                txtContraseña.Text = GenerarContraseña(nombres, apellidos, txtCedula.Text);
+                                rbtnActive.Checked = true;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron datos para la cédula ingresada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Limpiar();
+                        }
                     }
-                    
                     break;
                 case 2:
                     // Obtén el DataTable de la lista de camiones
@@ -323,5 +432,10 @@ namespace InventZetaGas
             }
         }
         #endregion
+
+        private void gbUsuarios_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
