@@ -113,6 +113,9 @@ Si quieres hechas un vistazo al proyecto, te recomiendo:
 - Modulo de Clientes
 ![image](https://github.com/user-attachments/assets/6b9cd07d-1c23-4a0d-b82e-04a7b16fcc21)
 
+![image](https://github.com/user-attachments/assets/6ef892eb-4edd-4c40-9765-56cd8d44d454)
+
+
 
 ## Autores ✒️
 * [Daniel Rojas Fuentes](drojas00255@ufide.ac.cr)
