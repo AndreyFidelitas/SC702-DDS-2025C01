@@ -158,7 +158,10 @@ namespace PlayerUI
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Abrir el formulario de inicio y redirigir al usuario
+            frmInicioSesion rContrasena = new frmInicioSesion();
+            rContrasena.Show();
+            this.Hide();
         }
 
         private Form activeForm = null;

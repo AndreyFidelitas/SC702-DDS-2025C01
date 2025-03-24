@@ -56,19 +56,28 @@ namespace InventZetaGas
             //verifica el usuario
             if (usuario != null)
             {
-                // Generar un token único usando Guid
-                string tokenNuevo = Guid.NewGuid().ToString();
+                
+                if(usuario.UsuarioEstado == false)
+                {
+                    g.msj = msj;
+                    MessageBox.Show(g.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else { 
+                
+                    // Generar un token único usando Guid
+                    string tokenNuevo = Guid.NewGuid().ToString();
 
-                // Actualizar el token en la base de datos mediante el nuevo SP
-                string updateMsj = usuariosN.ActualizarToken(usuario.UsuarioCode, tokenNuevo);
+                    // Actualizar el token en la base de datos mediante el nuevo SP
+                    string updateMsj = usuariosN.ActualizarToken(usuario.UsuarioCode, tokenNuevo);
 
-                // Asignar el token actualizado al objeto usuario (si lo necesitas en la aplicación)
-                usuario.token = tokenNuevo;
+                    // Asignar el token actualizado al objeto usuario (si lo necesitas en la aplicación)
+                    usuario.token = tokenNuevo;
 
-                // Abrir el formulario de inicio y redirigir al usuario
-                Inicio frmInicio = new Inicio(usuario);
-                frmInicio.Show();
-                this.Hide();
+                    // Abrir el formulario de inicio y redirigir al usuario
+                    Inicio frmInicio = new Inicio(usuario);
+                    frmInicio.Show();
+                    this.Hide();
+                }
             }
             else
             {

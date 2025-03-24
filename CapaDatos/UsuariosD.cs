@@ -94,7 +94,8 @@ namespace CapaDatos
                                 UsuarioName = dr["Nombre"].ToString(),
                                 UsuarioApellidos = dr["Apellidos"].ToString(),
                                 UsuarioUserName = dr["Nombre de Usuario"].ToString(),
-                                RoleID = Convert.ToInt32(dr["RoleID"])
+                                RoleID = Convert.ToInt32(dr["RoleID"]),
+                                UsuarioEstado = bool.Parse(dr["Estado"].ToString())
                                 // Puedes mapear RoleCode y RoleName si los necesitas
                             };
                         }
