@@ -41,6 +41,12 @@ namespace InventZetaGas
             if (e.KeyChar == 13)
                 InicioSesion();
         }
+
+        private void lkUnirse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UsuariosNuevo();
+        }
+
         //***************************************************************************************************
         #region Metodos Generales
         //Metodo para iniciar sesion
@@ -56,14 +62,15 @@ namespace InventZetaGas
             //verifica el usuario
             if (usuario != null)
             {
-                
-                if(usuario.UsuarioEstado == false)
+
+                if (usuario.UsuarioEstado == false)
                 {
                     g.msj = msj;
                     MessageBox.Show(g.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else { 
-                
+                else
+                {
+
                     // Generar un token único usando Guid
                     string tokenNuevo = Guid.NewGuid().ToString();
 
@@ -86,7 +93,7 @@ namespace InventZetaGas
             }
         }
         //***************************************************************************************************
-        private void RecuperarContrasena() 
+        private void RecuperarContrasena()
         {
             // Abrir el formulario de inicio y redirigir al usuario
             RecuperacionContraseña rContrasena = new RecuperacionContraseña();
@@ -94,7 +101,13 @@ namespace InventZetaGas
             this.Hide();
         }
         //***************************************************************************************************
+        private void UsuariosNuevo()
+        {
+            // Abrir el formulario de inicio y redirigir al usuario
+            UsuarioNuevos usuarionuevo = new UsuarioNuevos();
+            usuarionuevo.Show();
+            this.Hide();
+        }
         #endregion
-
     }
 }
