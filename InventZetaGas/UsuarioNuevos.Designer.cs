@@ -38,6 +38,7 @@
             txtCedula = new TextBox();
             label1 = new Label();
             textBox1 = new TextBox();
+            linkLabel1 = new LinkLabel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -66,12 +67,13 @@
             // btnNew
             // 
             btnNew.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNew.Location = new Point(647, 340);
+            btnNew.Location = new Point(646, 307);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(202, 47);
             btnNew.TabIndex = 11;
             btnNew.Text = "Registrarse";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // lblNombre
             // 
@@ -129,11 +131,24 @@
             textBox1.Size = new Size(364, 22);
             textBox1.TabIndex = 12;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Microsoft Sans Serif", 10F);
+            linkLabel1.LinkColor = SystemColors.ControlText;
+            linkLabel1.Location = new Point(747, 368);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(101, 17);
+            linkLabel1.TabIndex = 14;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Menu Principal";
+            // 
             // UsuarioNuevos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(874, 417);
+            Controls.Add(linkLabel1);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(btnNew);
@@ -161,5 +176,6 @@
         private TextBox txtCedula;
         private Label label1;
         private TextBox textBox1;
+        private LinkLabel linkLabel1;
     }
 }
