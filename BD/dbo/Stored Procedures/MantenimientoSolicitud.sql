@@ -24,9 +24,27 @@ BEGIN
     BEGIN
         -- Si no existe, realizamos la inserción
         INSERT INTO dbo.UsuariosSolcitud 
-            (Cedula, SolicitudCode, Name, Apellidos, SolcitudAceptada, SolcitudRechaza, SolcitudEstado, UsuarioID)
+		(
+			Cedula			,
+			SolicitudCode	,
+			Name			, 
+			Apellidos		, 
+			SolcitudAceptada, 
+			SolcitudRechaza	, 
+			SolcitudEstado	,
+			UsuarioID
+		)
         VALUES 
-            (@Cedula, @SolicitudCode, @Name, @Apellidos, @SolcitudAceptada, @SolcitudRechaza, @SolcitudEstado, @UsuarioID)
+        (
+			@Cedula			,	
+			@SolicitudCode	, 
+			@Name			,	
+			@Apellidos		,
+			null			,
+			null			,
+			null			,
+			null
+		)
         
         -- Si la inserción es exitosa, asignamos 1 a @Resultado (Insertado correctamente)
         SET @Resultado = 1
