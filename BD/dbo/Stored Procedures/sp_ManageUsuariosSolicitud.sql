@@ -1,7 +1,6 @@
 ﻿
-CREATE PROCEDURE sp_ManageUsuariosSolicitud
-    @Operacion VARCHAR(10),
-    @SolicitudID INT = NULL,
+
+CREATE PROCEDURE [dbo].[sp_ManageUsuariosSolicitud]
     @SolicitudCode VARCHAR(5) = NULL,
     @Cedula INT = NULL,
     @Name VARCHAR(100) = NULL,
