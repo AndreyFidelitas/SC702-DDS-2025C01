@@ -193,5 +193,57 @@ namespace CapaDatos
                 return Convert.ToBase64String(tokenData);
             }
         }
+
+
+        #region "Mantenimiento de Clientes"
+        public string MantenimientoSolicitudUsuarios(UsuariosSolicitud usuarioS, string accion)
+        {
+            try
+            {
+                Generales g = new Generales();
+                g.accion = accion;
+                using (var cmd = new SqlCommand("sp_ManageUsuariosSolicitud", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@SolicitudCode", usuarioS.SolicitudCode);
+                    cmd.Parameters.AddWithValue("@Cedula", usuarioS.Cedula);
+                    cmd.Parameters.AddWithValue("@Name", usuarioS.Name);
+                    cmd.Parameters.AddWithValue("@Apellidos", usuarioS.Apellidos);
+                    cmd.Parameters.AddWithValue("@SolcitudAceptada", usuarioS.SolcitudAceptada);
+                    cmd.Parameters.AddWithValue("@SolcitudRechaza", usuarioS.SolcitudRechaza);
+                    cmd.Parameters.AddWithValue("@SolcitudEstado", usuarioS.SolcitudEstado);
+                    cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.SolcitudEstado);
+                    // Agrega aquí los demás parámetros que tu SP requiera
+                    cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
+                    cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
+                    cmd.ExecuteNonQuery();
+                    _conexion.CerrarConexion();
+                    return cmd.Parameters["@accion"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.GetType().ToString();
+            }
+        }
+        #endregion
+
+
+        #region "MostrarListaUsuarios"
+        public DataTable ListarSolicitudUsuarios()
+        {
+            using (var cmd = new SqlCommand("SPListaSolicitudUsuarios", _conexion.AbrirConexion()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                var dataTable = new DataTable();
+                using (var dataAdapter = new SqlDataAdapter(cmd))
+                {
+                    dataAdapter.Fill(dataTable);
+                }
+                _conexion.CerrarConexion();
+                return dataTable;
+            }
+        }
+        #endregion
     }
 }
