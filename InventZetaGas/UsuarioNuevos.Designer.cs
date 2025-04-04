@@ -37,7 +37,7 @@
             txtNombre = new TextBox();
             txtCedula = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtApellido = new TextBox();
             linkLabel1 = new LinkLabel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -122,14 +122,14 @@
             label1.TabIndex = 13;
             label1.Text = "Apellidos";
             // 
-            // textBox1
+            // txtApellido
             // 
-            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            textBox1.Location = new Point(388, 267);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.Size = new Size(364, 22);
-            textBox1.TabIndex = 12;
+            txtApellido.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtApellido.Location = new Point(388, 267);
+            txtApellido.Name = "txtApellido";
+            txtApellido.PasswordChar = '*';
+            txtApellido.Size = new Size(364, 22);
+            txtApellido.TabIndex = 12;
             // 
             // linkLabel1
             // 
@@ -142,6 +142,7 @@
             linkLabel1.TabIndex = 14;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Menu Principal";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // UsuarioNuevos
             // 
@@ -150,7 +151,7 @@
             ClientSize = new Size(874, 417);
             Controls.Add(linkLabel1);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtApellido);
             Controls.Add(btnNew);
             Controls.Add(lblNombre);
             Controls.Add(lblCode);
@@ -175,7 +176,7 @@
         private TextBox txtNombre;
         private TextBox txtCedula;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtApellido;
         private LinkLabel linkLabel1;
     }
 }
