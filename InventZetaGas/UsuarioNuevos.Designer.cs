@@ -100,7 +100,6 @@
             txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtNombre.Location = new Point(388, 173);
             txtNombre.Name = "txtNombre";
-            txtNombre.PasswordChar = '*';
             txtNombre.Size = new Size(364, 22);
             txtNombre.TabIndex = 8;
             // 
@@ -127,7 +126,6 @@
             txtApellido.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtApellido.Location = new Point(388, 267);
             txtApellido.Name = "txtApellido";
-            txtApellido.PasswordChar = '*';
             txtApellido.Size = new Size(364, 22);
             txtApellido.TabIndex = 12;
             // 
@@ -160,6 +158,7 @@
             Controls.Add(panel2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UsuarioNuevos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UsuarioNuevos";
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

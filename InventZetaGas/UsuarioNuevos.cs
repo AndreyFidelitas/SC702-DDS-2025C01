@@ -31,8 +31,17 @@ namespace InventZetaGas
         #region metodos generales
         private void UsuariosNuevo()
         {
-            Mantenimiento("1");
-            Limpiar();
+            if(ValidarCampos()==true)
+            {
+                Mantenimiento("1");
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+
         }
 
         //modulo de mantenimiento.
@@ -43,7 +52,6 @@ namespace InventZetaGas
             userE.Apellidos = txtApellido.Text;
             g.accion = accion;
             g.msj = userN.MantenimientoSolicitudUsuarios(userE, g.accion);
-            MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Limpiar()
@@ -51,6 +59,37 @@ namespace InventZetaGas
             txtApellido.Text = "";
             txtCedula.Text = "";
             txtNombre.Text = "";
+        }
+
+
+
+        //************************************************************************************************
+        //validacion de campos 
+        // Método para verificar si los campos están vacíos
+        public bool ValidarCampos()
+        {
+            bool valid = false;
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtApellido.Text))
+            {
+                return valid;
+            }
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtCedula.Text))
+            {
+                return valid;
+            }
+
+            valid = true;
+            return valid;
         }
         #endregion
 

@@ -209,10 +209,13 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@Cedula", usuarioS.Cedula);
                     cmd.Parameters.AddWithValue("@Name", usuarioS.Name);
                     cmd.Parameters.AddWithValue("@Apellidos", usuarioS.Apellidos);
-                    cmd.Parameters.AddWithValue("@SolcitudAceptada", usuarioS.SolcitudAceptada);
-                    cmd.Parameters.AddWithValue("@SolcitudRechaza", usuarioS.SolcitudRechaza);
-                    cmd.Parameters.AddWithValue("@SolcitudEstado", usuarioS.SolcitudEstado);
-                    cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.SolcitudEstado);
+                    if(accion =="2")
+                    {
+                        cmd.Parameters.AddWithValue("@SolcitudAceptada", usuarioS.SolcitudAceptada);
+                        cmd.Parameters.AddWithValue("@SolcitudRechaza", usuarioS.SolcitudRechaza);
+                        cmd.Parameters.AddWithValue("@SolcitudEstado", usuarioS.SolcitudEstado);
+                        cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.UsuarioID);
+                    }
                     // Agrega aquí los demás parámetros que tu SP requiera
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
