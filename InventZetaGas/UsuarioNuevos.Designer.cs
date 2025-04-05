@@ -158,6 +158,7 @@
             Controls.Add(txtNombre);
             Controls.Add(txtCedula);
             Controls.Add(panel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UsuarioNuevos";
             Text = "UsuarioNuevos";
             panel2.ResumeLayout(false);

@@ -17,6 +17,7 @@ namespace InventZetaGas
     {
         UsuariosSolicitud userE =new UsuariosSolicitud();
         UsuariosN userN =new UsuariosN();
+        Generales g=new Generales();
         public UsuarioNuevos()
         {
             InitializeComponent();
