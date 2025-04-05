@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaEntidades;
 
 namespace PlayerUI
 {
@@ -97,7 +98,7 @@ namespace PlayerUI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            openChildForm(new TipoCilindro());
+            openChildForm(new InventZetaGas.TipoCilindro());
             hideSubMenu();
         }
 
@@ -196,7 +197,7 @@ namespace PlayerUI
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new InventarioDetalle());
+            openChildForm(new InventZetaGas.InventarioDetalle());
             hideSubMenu();
         }
     }

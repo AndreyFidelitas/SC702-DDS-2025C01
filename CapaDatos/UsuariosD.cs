@@ -147,6 +147,36 @@ namespace CapaDatos
         }
         #endregion
 
+        #region "Verificar Sesión de Usuario"
+        public bool VerificarSesion(string usuarioCode, string token)
+        {
+            bool sesionValida = false;
+            try
+            {
+                using (var cmd = new SqlCommand("SPVerificarSesion", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UsuarioCode", usuarioCode);
+                    cmd.Parameters.AddWithValue("@token", token);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            sesionValida = true;
+                        }
+                    }
+                    _conexion.CerrarConexion();
+                }
+            }
+            catch (Exception)
+            {
+                sesionValida = false;
+            }
+            return sesionValida;
+        }
+        #endregion
+
         //**********************************************************************
         //Metodos para traer la informacion o la cuenta a recuperar.
         [Obsolete]
