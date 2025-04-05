@@ -1,4 +1,5 @@
-﻿using CapaEntidades;
+﻿using CapaDatos;
+using CapaEntidades;
 using CapaNegocios;
 using PlayerUI;
 using System;
@@ -32,8 +33,7 @@ namespace InventZetaGas
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            g.msj = "En mantenimiento para el siguiente sprint #3";
-            MessageBox.Show(g.msj, "Mantenimiento para Sprint #3", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RecuperarContrasena();
         }
 
         private void txtPaswword_KeyPress(object sender, KeyPressEventArgs e)
@@ -41,7 +41,7 @@ namespace InventZetaGas
             if (e.KeyChar == 13)
                 InicioSesion();
         }
-
+        //***************************************************************************************************
         #region Metodos Generales
         //Metodo para iniciar sesion
         private void InicioSesion()
@@ -76,6 +76,15 @@ namespace InventZetaGas
                 MessageBox.Show(g.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //***************************************************************************************************
+        private void RecuperarContrasena() 
+        {
+            // Abrir el formulario de inicio y redirigir al usuario
+            RecuperacionContraseña rContrasena = new RecuperacionContraseña();
+            rContrasena.Show();
+            this.Hide();
+        }
+        //***************************************************************************************************
         #endregion
 
     }

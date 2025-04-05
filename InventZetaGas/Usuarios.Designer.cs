@@ -95,12 +95,13 @@
             gbUsuarios.TabIndex = 5;
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
+            gbUsuarios.Enter += gbUsuarios_Enter;
             // 
             // btnSearchID
             // 
             btnSearchID.Image = (Image)resources.GetObject("btnSearchID.Image");
             btnSearchID.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearchID.Location = new Point(687, 45);
+            btnSearchID.Location = new Point(336, 46);
             btnSearchID.Name = "btnSearchID";
             btnSearchID.Size = new Size(37, 24);
             btnSearchID.TabIndex = 23;
@@ -109,9 +110,8 @@
             // 
             // txtCedula
             // 
-            txtCedula.Enabled = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(389, 47);
+            txtCedula.Location = new Point(38, 48);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(292, 22);
             txtCedula.TabIndex = 22;
@@ -120,7 +120,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(389, 27);
+            label7.Location = new Point(38, 28);
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
@@ -349,7 +349,7 @@
             // 
             txtCodeUser.Enabled = false;
             txtCodeUser.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeUser.Location = new Point(38, 47);
+            txtCodeUser.Location = new Point(389, 60);
             txtCodeUser.Name = "txtCodeUser";
             txtCodeUser.Size = new Size(292, 22);
             txtCodeUser.TabIndex = 1;
@@ -358,7 +358,7 @@
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(38, 27);
+            lblCode.Location = new Point(389, 40);
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(105, 17);
             lblCode.TabIndex = 0;

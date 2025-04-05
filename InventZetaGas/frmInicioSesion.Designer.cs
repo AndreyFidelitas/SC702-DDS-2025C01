@@ -136,7 +136,7 @@ namespace InventZetaGas
             // btnNew
             // 
             btnNew.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNew.Location = new Point(537, 245);
+            btnNew.Location = new Point(537, 249);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(202, 47);
             btnNew.TabIndex = 6;
@@ -160,7 +160,7 @@ namespace InventZetaGas
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Microsoft Sans Serif", 10F);
             linkLabel1.LinkColor = SystemColors.ControlText;
-            linkLabel1.Location = new Point(558, 307);
+            linkLabel1.Location = new Point(558, 308);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(181, 17);
             linkLabel1.TabIndex = 8;

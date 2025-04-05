@@ -63,17 +63,19 @@ namespace InventZetaGas
         private void btnNew_Click(object sender, EventArgs e)
         {
             Limpiar();
+            rbtnActive.Checked = true;
         }
 
         private void gvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            CargarDatos();
+            SeleecionarDatos(e);
         }
 
         //boton para buscar informacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            _ = BuscarAsync(2);
+            //_ = BuscarAsync(2);
+            BusquedaUser();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -94,6 +96,7 @@ namespace InventZetaGas
         //Metodo para cargar los datos en data grid view.
         private void CargarDatos()
         {
+            gvUsuarios.ReadOnly = true;
             gvUsuarios.DataSource = userN.ListaUsuario();
         }
 
@@ -117,6 +120,7 @@ namespace InventZetaGas
         //metodo para limpiar los campos
         private void Limpiar()
         {
+            txtCedula.Text = "";
             txtCodeUser.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
@@ -172,7 +176,7 @@ namespace InventZetaGas
             userE.UsuarioName = txtNombre.Text;
             userE.UsuarioApellidos = txtApellidos.Text;
             userE.UsuarioUserName = txtUsuario.Text;
-            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 1);
+            userE.RoleID = Convert.ToInt32(cbRol.SelectedIndex + 2);
             userE.Password = txtContraseña.Text;
             g.accion = accion;
             g.msj = userN.MantenimientoUsuarios(userE, g.accion);
@@ -275,9 +279,73 @@ namespace InventZetaGas
             return valid;
         }
         //*************************************************************************************************
-        public async Task BuscarAsync(int opcion) 
+        private string GenerarNombreUsuario(string nombre, string apellidos)
         {
-            string resultado = null;
+            string nombreUsuario = "";
+
+            // Obtener las partes del nombre y apellidos
+            string[] partesNombre = nombre.Split(' ');
+            string[] partesApellidos = apellidos.Split(' ');
+
+            // Tomar la primera letra del primer nombre
+            if (partesNombre.Length > 0 && partesNombre[0].Length > 0)
+                nombreUsuario += partesNombre[0].Substring(0, 1).ToUpper();
+
+            // Tomar la primera letra del segundo nombre si existe
+            if (partesNombre.Length > 1 && partesNombre[1].Length > 0)
+                nombreUsuario += partesNombre[1].Substring(0, 1).ToUpper();
+
+            // Agregar el primer apellido completo
+            if (partesApellidos.Length > 0)
+                nombreUsuario += partesApellidos[0].ToUpper();
+
+            // Agregar la primera letra del segundo apellido
+            if (partesApellidos.Length > 1 && partesApellidos[1].Length > 0)
+                nombreUsuario += partesApellidos[1].Substring(0, 1).ToUpper();
+
+            return nombreUsuario;
+        }
+
+        private string GenerarContraseña(string nombre, string apellidos, string cedula)
+        {
+            string contraseña = "";
+
+            try
+            {
+                // Obtener partes del nombre y apellidos
+                string[] partesNombre = nombre.Split(' ');
+                string[] partesApellidos = apellidos.Split(' ');
+
+                // Primera letra del primer nombre en mayúscula
+                if (partesNombre.Length > 0 && partesNombre[0].Length > 0)
+                    contraseña += partesNombre[0].Substring(0, 1).ToUpper();
+
+                // Primeras dos letras del primer apellido en minúscula
+                if (partesApellidos.Length > 0 && partesApellidos[0].Length >= 2)
+                    contraseña += partesApellidos[0].Substring(0, 2).ToLower();
+
+                // Últimos 4 dígitos de la cédula
+                if (cedula.Length >= 4)
+                    contraseña += cedula.Substring(cedula.Length - 4);
+
+                // Primera letra del segundo apellido en mayúscula
+                if (partesApellidos.Length > 1 && partesApellidos[1].Length > 0)
+                    contraseña += partesApellidos[1].Substring(0, 1).ToUpper();
+
+                // Agregar un carácter especial
+                contraseña += "@";
+            }
+            catch
+            {
+                // Si hay algún error, crear una contraseña básica
+                contraseña = "Pass" + cedula.Substring(cedula.Length - 4) + "@";
+            }
+
+            return contraseña;
+        }
+
+        public async Task BuscarAsync(int opcion)
+        {
             // Evaluamos la opción con un switch
             switch (opcion)
             {
@@ -287,8 +355,51 @@ namespace InventZetaGas
                     else
                     {
                         ApiResponse apiResponse = await userN.ObtenerDatosCedulaAsync(int.Parse(txtCedula.Text));
+                        if (apiResponse != null)
+                        {
+                            string[] nombreCompleto = apiResponse.Nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (nombreCompleto.Length > 0)
+                            {
+                                string nombres = "";
+                                string apellidos = "";
+
+                                // Si solo hay una parte, asumimos que es nombre
+                                if (nombreCompleto.Length == 1)
+                                {
+                                    nombres = nombreCompleto[0];
+                                }
+                                // Si hay dos partes, asumimos nombre y apellido
+                                else if (nombreCompleto.Length == 2)
+                                {
+                                    nombres = nombreCompleto[0];
+                                    apellidos = nombreCompleto[1];
+                                }
+                                // Si hay tres partes, asumimos un nombre y dos apellidos
+                                else if (nombreCompleto.Length == 3)
+                                {
+                                    nombres = nombreCompleto[0];
+                                    apellidos = nombreCompleto[1] + " " + nombreCompleto[2];
+                                }
+                                // Si hay cuatro o más partes
+                                else if (nombreCompleto.Length >= 4)
+                                {
+                                    nombres = nombreCompleto[0] + " " + nombreCompleto[1];
+                                    apellidos = nombreCompleto[2] + " " + nombreCompleto[3];
+                                }
+
+                                txtNombre.Text = nombres;
+                                txtApellidos.Text = apellidos;
+                                txtUsuario.Text = GenerarNombreUsuario(nombres, apellidos);
+                                txtContraseña.Text = GenerarContraseña(nombres, apellidos, txtCedula.Text);
+                                rbtnActive.Checked = true;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron datos para la cédula ingresada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Limpiar();
+                        }
                     }
-                    
                     break;
                 case 2:
                     // Obtén el DataTable de la lista de camiones
@@ -299,29 +410,118 @@ namespace InventZetaGas
 
                     // Si el filtro está vacío, muestra todos los registros
                     if (string.IsNullOrEmpty(filtro))
+                    {
                         dataView.RowFilter = string.Empty;
+                    }
                     else
                     {
                         // Aplica el filtro, ajusta según la columna y el valor
-                        string filtroAplicado = "Nombre de Usuario LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
+                        string filtroAplicado = "Cedula LIKE '%" + filtro + "%'";  // Filtra según la columna 'Marca'
                         dataView.RowFilter = filtroAplicado;
-                    }
 
-                    // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
-                    gvUsuarios.DataSource = dataView;
 
-                    // Verifica si hay resultados después de aplicar el filtro
-                    if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
-                    {
-                        MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        // Muestra todos los registros si no se encuentran resultados
-                        dataView.RowFilter = string.Empty;
-                        gvUsuarios.DataSource = dataView;  // Asigna de nuevo los datos completos
-                        txtBuscar.Text = "";
+                        // Asigna el DataView al DataGridView para que se muestre el resultado filtrado
+                        gvUsuarios.DataSource = dataView;
+
+                        // Verifica si hay resultados después de aplicar el filtro
+                        if (dataView.Count == 0)  // Si no hay registros que coincidan con el filtro
+                        {
+                            MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            // Muestra todos los registros si no se encuentran resultados
+                            dataView.RowFilter = string.Empty;
+                            gvUsuarios.DataSource = dataView;  // Asigna de nuevo los datos completos
+                            txtBuscar.Text = "";
+                        }
                     }
-                    break;
+                break;
             }
         }
+
+        public void SeleecionarDatos(DataGridViewCellEventArgs e)
+        {
+            // Verifica que el índice de fila sea válido
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvUsuarios.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeUser.Text = row.Cells["Usuario ID"].Value?.ToString();
+                txtCedula.Text = row.Cells["Cedula"].Value?.ToString();
+                txtNombre.Text = row.Cells["Nombre"].Value?.ToString();
+                txtApellidos.Text = row.Cells["Apellidos"].Value?.ToString();
+                txtUsuario.Text = row.Cells["Nombre de Usuario"].Value?.ToString();
+                cbRol.Text = row.Cells["ID Rol"].Value?.ToString();
+                var estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (estado == "Inactivo")
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
+        }
+
+        private void BusquedaUser()
+        {
+            // Obtén el DataTable de la lista de camiones
+            DataTable dt = userN.ListaUsuario();
+            dataView = dt.DefaultView;
+
+            string filtro = txtBuscar.Text.Trim();  // Obtén el texto del cuadro de búsqueda
+
+            // Si el filtro está vacío, muestra todos los registros
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dataView.RowFilter = string.Empty;
+            }
+            else
+            {
+                // Check if the 'Cedula' column is of type Int32
+                if (dt.Columns["Cedula"].DataType == typeof(int))
+                {
+                    // If 'Cedula' is an integer, apply a numeric filter
+                    int filtroInt;
+                    if (int.TryParse(filtro, out filtroInt))
+                    {
+                        // Apply the filter for an integer column
+                        string filtroAplicado = "Cedula = " + filtroInt.ToString();
+                        dataView.RowFilter = filtroAplicado;
+                    }
+                    else
+                    {
+                        // If the filter text is not a valid integer, clear the filter
+                        dataView.RowFilter = string.Empty;
+                    }
+                }
+                else if (dt.Columns["Cedula"].DataType == typeof(string))
+                {
+                    // If 'Cedula' is a string, apply the LIKE filter
+                    string filtroAplicado = "Cedula LIKE '%" + filtro + "%'";
+                    dataView.RowFilter = filtroAplicado;
+                }
+            }
+
+            // Assign the DataView to the DataGridView to show the filtered result
+            gvUsuarios.DataSource = dataView;
+
+            // Check if there are no results after applying the filter
+            if (dataView.Count == 0)  // If no records match the filter
+            {
+                MessageBox.Show("No se encontraron resultados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Show all records if no results found
+                dataView.RowFilter = string.Empty;
+                gvUsuarios.DataSource = dataView;  // Reassign the full data
+                txtBuscar.Text = "";
+            }
+        }
+
         #endregion
+
+        private void gbUsuarios_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -156,7 +156,7 @@
             button7.Padding = new Padding(35, 0, 0, 0);
             button7.Size = new Size(250, 45);
             button7.TabIndex = 4;
-            button7.Text = "Detalle de Inventarios";
+            button7.Text = "Asignaciones";
             button7.TextAlign = ContentAlignment.MiddleLeft;
             button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click_1;
