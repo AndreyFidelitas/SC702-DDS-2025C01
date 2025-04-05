@@ -80,6 +80,9 @@ namespace InventZetaGas
                     // Asignar el token actualizado al objeto usuario (si lo necesitas en la aplicación)
                     usuario.token = tokenNuevo;
 
+                    // Inicializar la sesión del usuario
+                    SesionUsuario.IniciarSesion(usuario);
+
                     // Abrir el formulario de inicio y redirigir al usuario
                     Inicio frmInicio = new Inicio(usuario);
                     frmInicio.Show();
