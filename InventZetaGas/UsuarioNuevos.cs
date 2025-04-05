@@ -29,12 +29,21 @@ namespace InventZetaGas
         }
 
         #region metodos generales
+
+        //*******************************************************************************************************************
         private void UsuariosNuevo()
         {
             if(ValidarCampos()==true)
             {
-                Mantenimiento("1");
-                Limpiar();
+                if (userN.ValidacionSolicitudUsuarios(userE) == true) 
+                {
+                    MessageBox.Show("Ya el usuario existe","Usuario Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Mantenimiento("1");
+                    Limpiar();
+                }
             }
             else
             {
@@ -43,7 +52,7 @@ namespace InventZetaGas
             }
 
         }
-
+        //*******************************************************************************************************************
         //modulo de mantenimiento.
         private void Mantenimiento(string accion)
         {
@@ -60,9 +69,6 @@ namespace InventZetaGas
             txtCedula.Text = "";
             txtNombre.Text = "";
         }
-
-
-
         //************************************************************************************************
         //validacion de campos 
         // Método para verificar si los campos están vacíos
@@ -92,7 +98,7 @@ namespace InventZetaGas
             return valid;
         }
         #endregion
-
+        //************************************************************************************************
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Abrir el formulario de inicio y redirigir al usuario
@@ -100,6 +106,6 @@ namespace InventZetaGas
             usuarionuevo.Show();
             this.Hide();
         }
-
+        //************************************************************************************************
     }
 }

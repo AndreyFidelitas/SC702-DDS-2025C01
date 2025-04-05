@@ -6,12 +6,15 @@ using CapaEntidades;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Security.Cryptography;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 
 namespace CapaDatos
 {
     public class UsuariosD
     {
         private readonly ConexionDB _conexion = new ConexionDB();
+        Generales g=new Generales();
 
         #region "MostrarListaUsuarios"
         public DataTable ListarUsuarios()
@@ -226,7 +229,9 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                return ex.GetType().ToString();
+                g.modulo = "Mantenimiento Solicitud Usuarios" + "\n" + "Modulo de Mantenimiento Usuarios";
+                g.msj = ex.Message;
+                return g.msj;
             }
         }
         #endregion
@@ -248,5 +253,48 @@ namespace CapaDatos
             }
         }
         #endregion
+        //*********************************************************************************************
+        //Metodos para traer la informacion o la cuenta a recuperar.
+        [Obsolete]
+        public bool ValidarSolicitudUsuario(UsuariosSolicitud users)
+        {
+            bool value;
+            UsuariosSolicitud usuario = null;
+            try
+            {
+                using (var cmd = new SqlCommand("ValidarUsuario", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cedula", users.Cedula);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            usuario = new UsuariosSolicitud
+                            {
+                                SolicitudCode = dr["Usuario ID"].ToString(),
+                                Cedula = int.Parse(dr["Cedula"].ToString()),
+                                Name = dr["Nombre"].ToString(),
+                                Apellidos = dr["Apellidos"].ToString(),
+                                SolcitudEstado = bool.Parse(dr["Estado"].ToString())
+                            };
+                        }
+                    }
+                    _conexion.CerrarConexion();
+                    if (usuario != null)
+                        value = true;
+                    else
+                        value = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                value = false;
+                g.modulo = "Validar Solicitud Usuarios"+"\n"+"Modulo de Solicitud Usuarios";
+                g.msj= ex.Message;  
+            }
+            return value;
+        }
+        //************************************************************************************************
     }
 }

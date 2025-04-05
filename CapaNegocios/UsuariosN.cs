@@ -56,5 +56,10 @@ namespace CapaNegocios
             return UsuariosD.ListarSolicitudUsuarios();
         }
 
+        [Obsolete]
+        public bool ValidacionSolicitudUsuarios(UsuariosSolicitud SUsuario)
+        {
+            return UsuariosD.ValidarSolicitudUsuario(SUsuario);
+        }
     }
 }
