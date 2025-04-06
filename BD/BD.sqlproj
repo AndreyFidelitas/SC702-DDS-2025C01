@@ -104,6 +104,7 @@
     <Build Include="dbo\Tables\UsuariosSolcitud.sql" />
     <Build Include="dbo\Stored Procedures\sp_ManageUsuariosSolicitud.sql" />
     <Build Include="dbo\Stored Procedures\sp_ValidarUsuarioSolicitud.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoInventariosAsignacion.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
