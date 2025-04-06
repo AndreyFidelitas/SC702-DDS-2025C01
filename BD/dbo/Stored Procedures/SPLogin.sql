@@ -22,7 +22,8 @@ BEGIN
             u.UsuarioUserName     AS [Nombre de Usuario],
             u.RoleID              AS [RoleID],
             r.RoleCode            AS [Código Rol],
-            r.RoleName            AS [Nombre Rol]
+            r.RoleName            AS [Nombre Rol],
+			u.UsuarioEstado		  AS [Estado]
         FROM 
             Usuarios u
         INNER JOIN 
