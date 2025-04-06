@@ -50,7 +50,7 @@ BEGIN
 			null				,
 			null
 		);
-
+    
 		SET @accion = 'Se generó el usuario en nuestra base de datos: ' + @codnuevo;
         PRINT @accion;
 	

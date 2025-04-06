@@ -400,3 +400,5 @@ FodyWeavers.xsd
 /.vs/ZataGas/v17/.suo
 /.vs/ZataGas/v17/.suo
 /.vs/ZataGas/v17/.suo
+/CapaDatos/SQLite
+/packages.config

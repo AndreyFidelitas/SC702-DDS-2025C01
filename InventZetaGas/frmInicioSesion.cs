@@ -41,6 +41,12 @@ namespace InventZetaGas
             if (e.KeyChar == 13)
                 InicioSesion();
         }
+
+        private void lkUnirse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UsuariosNuevo();
+        }
+
         //***************************************************************************************************
         #region Metodos Generales
         //Metodo para iniciar sesion
@@ -56,19 +62,32 @@ namespace InventZetaGas
             //verifica el usuario
             if (usuario != null)
             {
-                // Generar un token único usando Guid
-                string tokenNuevo = Guid.NewGuid().ToString();
 
-                // Actualizar el token en la base de datos mediante el nuevo SP
-                string updateMsj = usuariosN.ActualizarToken(usuario.UsuarioCode, tokenNuevo);
+                if (usuario.UsuarioEstado == false)
+                {
+                    g.msj = msj;
+                    MessageBox.Show(g.msj, "Error en el inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
 
-                // Asignar el token actualizado al objeto usuario (si lo necesitas en la aplicación)
-                usuario.token = tokenNuevo;
+                    // Generar un token único usando Guid
+                    string tokenNuevo = Guid.NewGuid().ToString();
 
-                // Abrir el formulario de inicio y redirigir al usuario
-                Inicio frmInicio = new Inicio(usuario);
-                frmInicio.Show();
-                this.Hide();
+                    // Actualizar el token en la base de datos mediante el nuevo SP
+                    string updateMsj = usuariosN.ActualizarToken(usuario.UsuarioCode, tokenNuevo);
+
+                    // Asignar el token actualizado al objeto usuario (si lo necesitas en la aplicación)
+                    usuario.token = tokenNuevo;
+
+                    // Inicializar la sesión del usuario
+                    SesionUsuario.IniciarSesion(usuario);
+
+                    // Abrir el formulario de inicio y redirigir al usuario
+                    Inicio frmInicio = new Inicio(usuario);
+                    frmInicio.Show();
+                    this.Hide();
+                }
             }
             else
             {
@@ -77,7 +96,7 @@ namespace InventZetaGas
             }
         }
         //***************************************************************************************************
-        private void RecuperarContrasena() 
+        private void RecuperarContrasena()
         {
             // Abrir el formulario de inicio y redirigir al usuario
             RecuperacionContraseña rContrasena = new RecuperacionContraseña();
@@ -85,7 +104,13 @@ namespace InventZetaGas
             this.Hide();
         }
         //***************************************************************************************************
+        private void UsuariosNuevo()
+        {
+            // Abrir el formulario de inicio y redirigir al usuario
+            UsuarioNuevos usuarionuevo = new UsuarioNuevos();
+            usuarionuevo.Show();
+            this.Hide();
+        }
         #endregion
-
     }
 }
