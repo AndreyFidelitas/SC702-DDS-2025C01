@@ -35,6 +35,14 @@ namespace InventZetaGas
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
+            // Verificar si hay una sesión activa
+            if (!SesionUsuario.SesionActiva())
+            {
+                MessageBox.Show("No hay una sesión activa. Por favor, inicie sesión nuevamente.", "Error de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             CargarDatos();
             CargarListaRoles();
             cbRol.SelectedIndex = -1;
@@ -155,7 +163,7 @@ namespace InventZetaGas
             else if (rbtnInactive.Checked)
             {
                 rbtnActive.Checked = false;
-                userE.UsuarioEstado = rbtnActive.Checked;
+                userE.UsuarioEstado = rbtnInactive.Checked;
             }
         }
 
@@ -186,6 +194,14 @@ namespace InventZetaGas
         //metodo general de mantenimientos  
         public void MantenimientosBotones(int opcion)
         {
+            // Verificar si hay una sesión activa
+            if (!SesionUsuario.SesionActiva())
+            {
+                MessageBox.Show("No hay una sesión activa. Por favor, inicie sesión nuevamente.", "Error de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             string resultado = null;
             // Evaluamos la opción con un switch
             switch (opcion)
@@ -346,6 +362,14 @@ namespace InventZetaGas
 
         public async Task BuscarAsync(int opcion)
         {
+            // Verificar si hay una sesión activa
+            if (!SesionUsuario.SesionActiva())
+            {
+                MessageBox.Show("No hay una sesión activa. Por favor, inicie sesión nuevamente.", "Error de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             // Evaluamos la opción con un switch
             switch (opcion)
             {
@@ -465,6 +489,14 @@ namespace InventZetaGas
 
         private void BusquedaUser()
         {
+            // Verificar si hay una sesión activa
+            if (!SesionUsuario.SesionActiva())
+            {
+                MessageBox.Show("No hay una sesión activa. Por favor, inicie sesión nuevamente.", "Error de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             // Obtén el DataTable de la lista de camiones
             DataTable dt = userN.ListaUsuario();
             dataView = dt.DefaultView;

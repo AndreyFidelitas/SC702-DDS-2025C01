@@ -44,6 +44,7 @@ namespace InventZetaGas
             label2 = new Label();
             linkLabel1 = new LinkLabel();
             label3 = new Label();
+            lkUnirse = new LinkLabel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -182,12 +183,26 @@ namespace InventZetaGas
             label3.Text = "X";
             label3.Click += label3_Click;
             // 
+            // lkUnirse
+            // 
+            lkUnirse.AutoSize = true;
+            lkUnirse.Font = new Font("Microsoft Sans Serif", 10F);
+            lkUnirse.LinkColor = SystemColors.ControlText;
+            lkUnirse.Location = new Point(522, 333);
+            lkUnirse.Name = "lkUnirse";
+            lkUnirse.Size = new Size(217, 17);
+            lkUnirse.TabIndex = 10;
+            lkUnirse.TabStop = true;
+            lkUnirse.Text = "Quieres unirte a nuestro equipo?";
+            lkUnirse.LinkClicked += lkUnirse_LinkClicked;
+            // 
             // frmInicioSesion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(204, 204, 204);
             ClientSize = new Size(800, 379);
+            Controls.Add(lkUnirse);
             Controls.Add(label3);
             Controls.Add(linkLabel1);
             Controls.Add(label2);
@@ -230,5 +245,6 @@ namespace InventZetaGas
         private Label label2;
         private LinkLabel linkLabel1;
         internal Label label3;
+        private LinkLabel lkUnirse;
     }
 }

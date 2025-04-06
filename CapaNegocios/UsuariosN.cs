@@ -45,5 +45,21 @@ namespace CapaNegocios
             return value;
         }
 
+
+        public string MantenimientoSolicitudUsuarios(UsuariosSolicitud SUsuario, string accion)
+        {
+            return UsuariosD.MantenimientoSolicitudUsuarios(SUsuario, accion);
+        }
+
+        public DataTable ListaSolicitudUsuario()
+        {
+            return UsuariosD.ListarSolicitudUsuarios();
+        }
+
+        [Obsolete]
+        public bool ValidacionSolicitudUsuarios(UsuariosSolicitud SUsuario)
+        {
+            return UsuariosD.ValidarSolicitudUsuario(SUsuario);
+        }
     }
 }

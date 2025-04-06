@@ -6,12 +6,15 @@ using CapaEntidades;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Security.Cryptography;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 
 namespace CapaDatos
 {
     public class UsuariosD
     {
         private readonly ConexionDB _conexion = new ConexionDB();
+        Generales g=new Generales();
 
         #region "MostrarListaUsuarios"
         public DataTable ListarUsuarios()
@@ -94,7 +97,8 @@ namespace CapaDatos
                                 UsuarioName = dr["Nombre"].ToString(),
                                 UsuarioApellidos = dr["Apellidos"].ToString(),
                                 UsuarioUserName = dr["Nombre de Usuario"].ToString(),
-                                RoleID = Convert.ToInt32(dr["RoleID"])
+                                RoleID = Convert.ToInt32(dr["RoleID"]),
+                                UsuarioEstado = bool.Parse(dr["Estado"].ToString())
                                 // Puedes mapear RoleCode y RoleName si los necesitas
                             };
                         }
@@ -140,6 +144,36 @@ namespace CapaDatos
                 mensaje = ex.Message;
             }
             return mensaje;
+        }
+        #endregion
+
+        #region "Verificar Sesión de Usuario"
+        public bool VerificarSesion(string usuarioCode, string token)
+        {
+            bool sesionValida = false;
+            try
+            {
+                using (var cmd = new SqlCommand("SPVerificarSesion", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UsuarioCode", usuarioCode);
+                    cmd.Parameters.AddWithValue("@token", token);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            sesionValida = true;
+                        }
+                    }
+                    _conexion.CerrarConexion();
+                }
+            }
+            catch (Exception)
+            {
+                sesionValida = false;
+            }
+            return sesionValida;
         }
         #endregion
 
@@ -192,5 +226,105 @@ namespace CapaDatos
                 return Convert.ToBase64String(tokenData);
             }
         }
+
+
+        #region "Mantenimiento de Clientes"
+        public string MantenimientoSolicitudUsuarios(UsuariosSolicitud usuarioS, string accion)
+        {
+            try
+            {
+                Generales g = new Generales();
+                g.accion = accion;
+                using (var cmd = new SqlCommand("sp_ManageUsuariosSolicitud", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@SolicitudCode", usuarioS.SolicitudCode);
+                    cmd.Parameters.AddWithValue("@Cedula", usuarioS.Cedula);
+                    cmd.Parameters.AddWithValue("@Name", usuarioS.Name);
+                    cmd.Parameters.AddWithValue("@Apellidos", usuarioS.Apellidos);
+                    if(accion =="2")
+                    {
+                        cmd.Parameters.AddWithValue("@SolcitudAceptada", usuarioS.SolcitudAceptada);
+                        cmd.Parameters.AddWithValue("@SolcitudRechaza", usuarioS.SolcitudRechaza);
+                        cmd.Parameters.AddWithValue("@SolcitudEstado", usuarioS.SolcitudEstado);
+                        cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.UsuarioID);
+                    }
+                    // Agrega aquí los demás parámetros que tu SP requiera
+                    cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
+                    cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
+                    cmd.ExecuteNonQuery();
+                    _conexion.CerrarConexion();
+                    return cmd.Parameters["@accion"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                g.modulo = "Mantenimiento Solicitud Usuarios" + "\n" + "Modulo de Mantenimiento Usuarios";
+                g.msj = ex.Message;
+                return g.msj;
+            }
+        }
+        #endregion
+
+
+        #region "MostrarListaUsuarios"
+        public DataTable ListarSolicitudUsuarios()
+        {
+            using (var cmd = new SqlCommand("SPListaSolicitudUsuarios", _conexion.AbrirConexion()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                var dataTable = new DataTable();
+                using (var dataAdapter = new SqlDataAdapter(cmd))
+                {
+                    dataAdapter.Fill(dataTable);
+                }
+                _conexion.CerrarConexion();
+                return dataTable;
+            }
+        }
+        #endregion
+        //*********************************************************************************************
+        //Metodos para traer la informacion o la cuenta a recuperar.
+        [Obsolete]
+        public bool ValidarSolicitudUsuario(UsuariosSolicitud users)
+        {
+            bool value;
+            UsuariosSolicitud usuario = null;
+            try
+            {
+                using (var cmd = new SqlCommand("ValidarUsuario", _conexion.AbrirConexion()))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Cedula", users.Cedula);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            usuario = new UsuariosSolicitud
+                            {
+                                SolicitudCode = dr["Usuario ID"].ToString(),
+                                Cedula = int.Parse(dr["Cedula"].ToString()),
+                                Name = dr["Nombre"].ToString(),
+                                Apellidos = dr["Apellidos"].ToString(),
+                                SolcitudEstado = bool.Parse(dr["Estado"].ToString())
+                            };
+                        }
+                    }
+                    _conexion.CerrarConexion();
+                    if (usuario != null)
+                        value = true;
+                    else
+                        value = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                value = false;
+                g.modulo = "Validar Solicitud Usuarios"+"\n"+"Modulo de Solicitud Usuarios";
+                g.msj= ex.Message;  
+            }
+            return value;
+        }
+        //************************************************************************************************
     }
 }
