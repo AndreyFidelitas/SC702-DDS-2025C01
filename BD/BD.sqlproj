@@ -110,6 +110,7 @@
     <Build Include="dbo\Stored Procedures\sp_ValidarUsuarioSolicitud.sql" />
     <Build Include="dbo\Stored Procedures\sp_ManageUsuariosSolicitud.sql" />
     <Build Include="dbo\Stored Procedures\MantenimientoSolicitud.sql" />
+    <Build Include="dbo\Stored Procedures\SPMantenimientoTransacCamion_Cilindros.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />
