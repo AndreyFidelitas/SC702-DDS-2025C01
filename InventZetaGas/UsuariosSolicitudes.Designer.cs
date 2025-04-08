@@ -38,10 +38,7 @@
             label6 = new Label();
             label1 = new Label();
             cbRol = new ComboBox();
-            txtUsuario = new TextBox();
-            lblPlaca = new Label();
             groupBox1 = new GroupBox();
-            btnRechazar = new Button();
             btnAccept = new Button();
             txtApellidos = new TextBox();
             lblZona = new Label();
@@ -86,8 +83,6 @@
             gbUsuarios.Controls.Add(label6);
             gbUsuarios.Controls.Add(label1);
             gbUsuarios.Controls.Add(cbRol);
-            gbUsuarios.Controls.Add(txtUsuario);
-            gbUsuarios.Controls.Add(lblPlaca);
             gbUsuarios.Controls.Add(groupBox1);
             gbUsuarios.Controls.Add(txtApellidos);
             gbUsuarios.Controls.Add(lblZona);
@@ -96,7 +91,7 @@
             gbUsuarios.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbUsuarios.Location = new Point(12, 37);
             gbUsuarios.Name = "gbUsuarios";
-            gbUsuarios.Size = new Size(910, 367);
+            gbUsuarios.Size = new Size(887, 367);
             gbUsuarios.TabIndex = 15;
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
@@ -156,56 +151,25 @@
             cbRol.Size = new Size(292, 24);
             cbRol.TabIndex = 15;
             // 
-            // txtUsuario
-            // 
-            txtUsuario.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtUsuario.Location = new Point(41, 210);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(289, 22);
-            txtUsuario.TabIndex = 10;
-            // 
-            // lblPlaca
-            // 
-            lblPlaca.AutoSize = true;
-            lblPlaca.Font = new Font("Microsoft Sans Serif", 10F);
-            lblPlaca.Location = new Point(38, 190);
-            lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(131, 17);
-            lblPlaca.TabIndex = 9;
-            lblPlaca.Text = "Nombre de Usuario";
-            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnRechazar);
             groupBox1.Controls.Add(btnAccept);
-            groupBox1.Location = new Point(41, 263);
+            groupBox1.Location = new Point(38, 263);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(846, 77);
+            groupBox1.Size = new Size(843, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
-            // 
-            // btnRechazar
-            // 
-            btnRechazar.Image = (Image)resources.GetObject("btnRechazar.Image");
-            btnRechazar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRechazar.Location = new Point(677, 21);
-            btnRechazar.Name = "btnRechazar";
-            btnRechazar.Size = new Size(163, 43);
-            btnRechazar.TabIndex = 2;
-            btnRechazar.Text = "Rechazar";
-            btnRechazar.UseVisualStyleBackColor = true;
-            btnRechazar.Click += btnRechazar_Click;
             // 
             // btnAccept
             // 
             btnAccept.Image = (Image)resources.GetObject("btnAccept.Image");
             btnAccept.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAccept.Location = new Point(499, 21);
+            btnAccept.Location = new Point(640, 21);
             btnAccept.Name = "btnAccept";
             btnAccept.Size = new Size(158, 43);
             btnAccept.TabIndex = 0;
-            btnAccept.Text = "Aceptar";
+            btnAccept.Text = "Verificar";
             btnAccept.UseVisualStyleBackColor = true;
             btnAccept.Click += btnAccept_Click;
             // 
@@ -254,7 +218,7 @@
             gvSolicitudU.Location = new Point(12, 410);
             gvSolicitudU.Name = "gvSolicitudU";
             gvSolicitudU.RowHeadersWidth = 51;
-            gvSolicitudU.Size = new Size(910, 238);
+            gvSolicitudU.Size = new Size(887, 238);
             gvSolicitudU.TabIndex = 16;
             // 
             // UsuariosSolicitudes
@@ -288,10 +252,7 @@
         private Label label6;
         private Label label1;
         private ComboBox cbRol;
-        private TextBox txtUsuario;
-        private Label lblPlaca;
         private GroupBox groupBox1;
-        private Button btnRechazar;
         private Button btnAccept;
         private TextBox txtApellidos;
         private Label lblZona;

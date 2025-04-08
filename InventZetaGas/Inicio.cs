@@ -55,9 +55,7 @@ namespace PlayerUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new UsuariosSolicitudes());
             hideSubMenu();
         }
 

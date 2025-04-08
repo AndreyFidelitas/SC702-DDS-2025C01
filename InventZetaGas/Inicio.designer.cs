@@ -415,7 +415,7 @@
             button3.Padding = new Padding(35, 0, 0, 0);
             button3.Size = new Size(250, 40);
             button3.TabIndex = 1;
-            button3.Text = "Usuarios";
+            button3.Text = "Solicitud Usuarios";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
