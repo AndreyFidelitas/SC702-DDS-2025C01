@@ -32,6 +32,7 @@ namespace InventZetaGas
         private void UsuariosSolicitudes_Load(object sender, EventArgs e)
         {
             CargarListaRoles();
+            CargarDatos();
             cbRol.SelectedIndex = -1;
         }
 
@@ -53,16 +54,16 @@ namespace InventZetaGas
 
         #region Metodos Generales
         //metodo para cargar las provincias
-        
-        public void Limpiar() 
+
+        public void Limpiar()
         {
             txtCedula.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
         }
-        
-        
-        
+
+
+
         public void CargarListaRoles()
         {
             cbRol.DataSource = RolesN.CargarRoles();
@@ -70,6 +71,11 @@ namespace InventZetaGas
             cbRol.ValueMember = "Codigo Rol";
         }
 
+        public void CargarDatos() 
+        {
+            gvSolicitudU.ReadOnly = true;
+            gvSolicitudU.DataSource = userN.ListaSolicitudUsuario();
+        }
 
         private string GenerarNombreUsuario(string nombre, string apellidos)
         {

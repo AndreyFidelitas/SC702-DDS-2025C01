@@ -61,5 +61,6 @@ namespace CapaNegocios
         {
             return UsuariosD.ValidarSolicitudUsuario(SUsuario);
         }
+
     }
 }
