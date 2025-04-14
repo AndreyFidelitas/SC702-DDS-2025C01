@@ -1,5 +1,4 @@
 ﻿
--- Ejemplo de ejecución:
  --EXEC SPMantenimientoUsuarios null,305100255, 'Daniel', 'Rojas', 'Drojas', 'password123', 'token123', 1, 1, '1';
  --EXEC SPMantenimientoUsuarios null,305160774, 'Andrey', 'Sanchez', 'Asanchez', 'password123', 'token123', 1, 1, '1';
  --EXEC SPMantenimientoUsuarios null,118240183, 'Clifford', 'Garos', 'Cgaros', 'password123', 'token123', 1, 1, '1';
@@ -10,11 +9,7 @@
  --EXEC SPMantenimientoUsuarios null,102060452, 'Jorge', 'Navarro', 'Jnavarro', 'password123', 'token123', 1, 3, '1';
  --EXEC SPMantenimientoUsuarios null,206190454, 'Bryan', 'Mata', 'Bmata', 'password123', 'token123', 1, 3, '1';
  --EXEC SPMantenimientoUsuarios null,501140240, 'Jesus', 'Arce', 'Jarce', 'password123', 'token123', 1, 3, '1';
-
 --Select * from Usuarios
-
---ALTER TABLE Usuarios 
---ALTER COLUMN Cedula BIGINT;
 
 CREATE PROCEDURE [dbo].[SPMantenimientoUsuarios]
 (

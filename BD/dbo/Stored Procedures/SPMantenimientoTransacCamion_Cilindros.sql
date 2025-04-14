@@ -1,4 +1,31 @@
 ﻿
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-01-05','2025-01-06',2,32,1,1,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-01-08','2025-01-09',4,66,2,2,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-01-10','2025-01-11',7,200,3,3,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-01-15','2025-01-15',1,25,4,4,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-01-20','2025-01-22',3,45,5,5,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-01-23','2025-01-25',8,51,6,6,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-02-01','2025-02-02',9,38,7,1,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL, '2025-02-05','2025-02-06',5,11,8,2,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL, '2025-02-10','2025-02-10',6,25,9,3,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-02-12','2025-02-14',10,59,10,4,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-02-18','2025-02-19',11,45,1,5,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-02-25','2025-02-26',12,33,2,6,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-02','2025-03-03',13,25,3,1,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-05','2025-03-07',15,32,4,2,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-09','2025-03-10',14,69,5,3,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-12','2025-03-12',2,34,5,4,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-15','2025-03-16',8,55,6,5,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-20','2025-03-22',5,11,7,6,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-25','2025-03-25',10,61,8,1,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-03-29','2025-03-30',11,47,9,2,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-04-01','2025-04-02',6,24,8,3,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-04-04','2025-04-05',9,44,1,4,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-04-06','2025-04-06',7,55,2,5,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-04-08','2025-04-09',14,70,3,6,1,'1';
+--EXEC SPMantenimientoTransacCamion_Cilindros NULL,'2025-04-11','2025-04-12',3,44,4,1,1,'1';
+--select * from TransacCamion_Cilindros
+
 CREATE PROCEDURE [dbo].[SPMantenimientoTransacCamion_Cilindros]
 (
     @TransacID INT = NULL,         -- Identificador del registro; se usa en actualización o eliminación

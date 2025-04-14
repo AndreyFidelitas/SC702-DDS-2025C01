@@ -1,6 +1,4 @@
 ﻿
-
-
 --EXEC SPMantenimientoRutas null,'Servicentro La Tica en la Lima de Cartago - McDonalds en las Ruinas de Cartago - Trova Servicentros', 1,'1';
 --EXEC SPMantenimientoRutas null,'Trova Servicentro Oreamuno - Trova Servicentro Desamparados - Kratos Apertura(Servicentro en Paseo Metropoli)', 1,'1';
 --EXEC SPMantenimientoRutas null,'Lemaysa en Barrio Cuba - Promociones Turisticas el Tropico en Tibas', 1,'1';
@@ -22,15 +20,12 @@
 --EXEC SPMantenimientoRutas null,'Starbucks de Lima, 100 m norte de la catedral - Papa John''s de Guápiles, cerca de la rotonda principal - Wingstop de Florencia, al lado de la terminal de buses', 1,'1';
 --EXEC SPMantenimientoRutas null,'McDonald''s de Limón, 50 m sur del hospital - KFC de Lima, cerca de la plaza pública - Chipotle de Bagaces, a 2 cuadras del colegio', 1,'1';
 --EXEC SPMantenimientoRutas null,'Papa John''s de Coyol, costado oeste de la estación de tren - Pizza Hut de Guápiles, 150 m este del parque municipal', 1,'1';
-
---exec SPMantenimientoRutas '','35',1,'1'
-
---select * from  Rutas
+--select * from Rutas;
 
 CREATE PROCEDURE [dbo].[SPMantenimientoRutas]
 (
 	@RutaCode	varchar(5)	,
-	@Ruta		varchar(100),
+	@Ruta		varchar(255),
 	@RutaStatus bit			,
     @accion VARCHAR(50) OUTPUT
 )

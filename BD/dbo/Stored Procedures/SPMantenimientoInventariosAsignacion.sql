@@ -1,4 +1,31 @@
-﻿
+﻿--EXEC SPMantenimientoInventariosAsignacion null,1,1,1,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,2,2,2,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,3,3,3,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,4,4,4,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,5,5,5,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,6,6,6,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,7,7,1,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,8,8,2,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,9,9,3,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,10,10,4,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,11,11,5,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,12,12,6,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,13,13,1,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,14,14,2,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,15,15,3,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,16,16,4,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,17,17,5,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,18,18,6,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,19,19,1,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,20,20,2,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,21,21,3,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,22,1,4,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,23,2,5,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,24,3,6,1,'1';
+--EXEC SPMantenimientoInventariosAsignacion null,25,4,1,1,'1';
+
+--select * from InventariosAsignacion
+
 CREATE PROCEDURE [dbo].[SPMantenimientoInventariosAsignacion]
 (
     @InventAsign INT = NULL,       -- Identificador del registro (se usa en actualización y eliminación)
