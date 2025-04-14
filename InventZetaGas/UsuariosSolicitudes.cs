@@ -62,11 +62,24 @@ namespace InventZetaGas
             txtApellidos.Text = "";
         }
 
-
+        public void SeleecionarDatos(DataGridViewCellEventArgs e)
+        {
+            // Verifica que el índice de fila sea válido
+            if (e.RowIndex >= 0)
+            {
+                // Obtén la fila seleccionada
+                DataGridViewRow row = gvSolicitudU.Rows[e.RowIndex];
+                // Asigna los valores de las celdas a los TextBox
+                txtCodeUser.Text = row.Cells["Solicitud Code"].Value?.ToString();
+                txtCedula.Text = row.Cells["Cedula"].Value?.ToString();
+                txtNombre.Text = row.Cells["Nombre"].Value?.ToString();
+                txtApellidos.Text = row.Cells["Apellidos"].Value?.ToString();
+            }
+        }
 
         public void CargarListaRoles()
         {
-            cbRol.DataSource = RolesN.CargarRoles();
+            cbRol.DataSource = RolesN.CargarRoles(); 
             cbRol.DisplayMember = "Rol";
             cbRol.ValueMember = "Codigo Rol";
         }
