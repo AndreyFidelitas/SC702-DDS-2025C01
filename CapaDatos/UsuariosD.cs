@@ -244,8 +244,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@Apellidos", usuarioS.Apellidos);
                     if(accion =="2")
                     {
-                        cmd.Parameters.AddWithValue("@SolcitudAceptada", usuarioS.SolcitudAceptada);
-                        cmd.Parameters.AddWithValue("@SolcitudRechaza", usuarioS.SolcitudRechaza);
+                        cmd.Parameters.AddWithValue("@SolcitudAceptada", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@SolcitudRechaza", DateTime.Now);
                         cmd.Parameters.AddWithValue("@SolcitudEstado", usuarioS.SolcitudEstado);
                         cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.UsuarioID);
                     }

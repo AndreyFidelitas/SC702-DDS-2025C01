@@ -51,6 +51,10 @@ namespace InventZetaGas
 
         }
 
+        private void gvSolicitudU_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SeleecionarDatos(e);
+        }
 
         #region Metodos Generales
         //metodo para cargar las provincias
@@ -79,12 +83,12 @@ namespace InventZetaGas
 
         public void CargarListaRoles()
         {
-            cbRol.DataSource = RolesN.CargarRoles(); 
+            cbRol.DataSource = RolesN.CargarRoles();
             cbRol.DisplayMember = "Rol";
             cbRol.ValueMember = "Codigo Rol";
         }
 
-        public void CargarDatos() 
+        public void CargarDatos()
         {
             gvSolicitudU.ReadOnly = true;
             gvSolicitudU.DataSource = userN.ListaSolicitudUsuario();
@@ -175,7 +179,7 @@ namespace InventZetaGas
                     else
                     {
                         ApiResponse apiResponse = await userN.ObtenerDatosCedulaAsync(int.Parse(txtCedula.Text));
-                        if (apiResponse != null)
+                        if (apiResponse.Cedula != null)
                         {
                             string[] nombreCompleto = apiResponse.Nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             if (nombreCompleto.Length > 0)
@@ -208,16 +212,17 @@ namespace InventZetaGas
                                 }
 
                                 userE.UsuarioName = nombres;
-                                userE.UsuarioApellidos  = apellidos;
+                                userE.UsuarioApellidos = apellidos;
                                 userE.UsuarioUserName = GenerarNombreUsuario(nombres, apellidos);
-                                userE.Password= GenerarContraseña(nombres, apellidos, txtCedula.Text);
-                                userE.UsuarioEstado= true;
+                                userE.Password = GenerarContraseña(nombres, apellidos, txtCedula.Text);
+                                userE.UsuarioEstado = true;
                             }
                         }
                         else
                         {
                             if (ValidarCampos() == true)
                             {
+                                SuserE.Cedula = int.Parse(txtCedula.Text);
                                 if (userN.ValidacionSolicitudUsuarios(SuserE) == true)
                                 {
                                     MessageBox.Show("Ya el usuario existe", "Usuario Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -276,6 +281,5 @@ namespace InventZetaGas
         }
         //****************************************************************************************
         #endregion
-
     }
 }

@@ -220,6 +220,7 @@
             gvSolicitudU.RowHeadersWidth = 51;
             gvSolicitudU.Size = new Size(887, 238);
             gvSolicitudU.TabIndex = 16;
+            gvSolicitudU.CellContentClick += gvSolicitudU_CellContentClick;
             // 
             // UsuariosSolicitudes
             // 
