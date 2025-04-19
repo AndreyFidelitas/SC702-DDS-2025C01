@@ -31,9 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             panelSideMenu = new Panel();
             btnExit = new Button();
-            btnHelp = new Button();
             panelToolsSubMenu = new Panel();
-            button7 = new Button();
             button5 = new Button();
             btnUsuarios = new Button();
             button12 = new Button();
@@ -55,6 +53,7 @@
             panelPlayer = new Panel();
             panelChildForm = new Panel();
             pictureBox9 = new PictureBox();
+            button7 = new Button();
             panelSideMenu.SuspendLayout();
             panelToolsSubMenu.SuspendLayout();
             panelPlaylistSubMenu.SuspendLayout();
@@ -70,7 +69,6 @@
             panelSideMenu.AutoScroll = true;
             panelSideMenu.BackColor = Color.FromArgb(11, 7, 17);
             panelSideMenu.Controls.Add(btnExit);
-            panelSideMenu.Controls.Add(btnHelp);
             panelSideMenu.Controls.Add(panelToolsSubMenu);
             panelSideMenu.Controls.Add(btnTools);
             panelSideMenu.Controls.Add(panelPlaylistSubMenu);
@@ -106,28 +104,6 @@
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
             // 
-            // btnHelp
-            // 
-            btnHelp.BackColor = Color.FromArgb(1, 38, 90);
-            btnHelp.Dock = DockStyle.Top;
-            btnHelp.FlatAppearance.BorderSize = 0;
-            btnHelp.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
-            btnHelp.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
-            btnHelp.FlatStyle = FlatStyle.Flat;
-            btnHelp.ForeColor = Color.White;
-            btnHelp.Image = (Image)resources.GetObject("btnHelp.Image");
-            btnHelp.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHelp.Location = new Point(0, 710);
-            btnHelp.Name = "btnHelp";
-            btnHelp.Padding = new Padding(5, 0, 0, 0);
-            btnHelp.Size = new Size(250, 39);
-            btnHelp.TabIndex = 8;
-            btnHelp.Text = "  Help";
-            btnHelp.TextAlign = ContentAlignment.MiddleLeft;
-            btnHelp.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnHelp.UseVisualStyleBackColor = false;
-            btnHelp.Click += btnHelp_Click;
-            // 
             // panelToolsSubMenu
             // 
             panelToolsSubMenu.BackColor = Color.FromArgb(35, 32, 39);
@@ -141,25 +117,6 @@
             panelToolsSubMenu.Name = "panelToolsSubMenu";
             panelToolsSubMenu.Size = new Size(250, 203);
             panelToolsSubMenu.TabIndex = 7;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.FromArgb(26, 26, 26);
-            button7.Dock = DockStyle.Top;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 38, 46);
-            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 38, 46);
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.ForeColor = Color.White;
-            button7.Location = new Point(0, 158);
-            button7.Name = "button7";
-            button7.Padding = new Padding(35, 0, 0, 0);
-            button7.Size = new Size(250, 45);
-            button7.TabIndex = 4;
-            button7.Text = "Asignaciones";
-            button7.TextAlign = ContentAlignment.MiddleLeft;
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click_1;
             // 
             // button5
             // 
@@ -178,6 +135,7 @@
             button5.Text = "Inventarios";
             button5.TextAlign = ContentAlignment.MiddleLeft;
             button5.UseVisualStyleBackColor = false;
+            button5.Visible = false;
             button5.Click += button5_Click_1;
             // 
             // btnUsuarios
@@ -216,6 +174,7 @@
             button12.Text = "Clientes";
             button12.TextAlign = ContentAlignment.MiddleLeft;
             button12.UseVisualStyleBackColor = false;
+            button12.Visible = false;
             button12.Click += button12_Click;
             // 
             // button13
@@ -512,6 +471,26 @@
             pictureBox9.TabIndex = 2;
             pictureBox9.TabStop = false;
             // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(26, 26, 26);
+            button7.Dock = DockStyle.Top;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 38, 46);
+            button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 38, 46);
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.ForeColor = Color.White;
+            button7.Location = new Point(0, 158);
+            button7.Name = "button7";
+            button7.Padding = new Padding(35, 0, 0, 0);
+            button7.Size = new Size(250, 45);
+            button7.TabIndex = 4;
+            button7.Text = "Asignaciones";
+            button7.TextAlign = ContentAlignment.MiddleLeft;
+            button7.UseVisualStyleBackColor = false;
+            button7.Visible = false;
+            button7.Click += button7_Click_1;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -565,9 +544,8 @@
         private System.Windows.Forms.Panel panelChildForm;
         private PictureBox pictureBox9;
         private PictureBox pictureBox1;
-        private Button btnHelp;
-        private Button button7;
         private Button button5;
+        private Button button7;
     }
 }
 

@@ -165,7 +165,7 @@ namespace InventZetaGas
             if (!SesionUsuario.SesionActiva())
             {
                 MessageBox.Show("No hay una sesión activa. Por favor, inicie sesión nuevamente.", "Error de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                
                 return;
             }
 
@@ -216,6 +216,8 @@ namespace InventZetaGas
                                 userE.UsuarioUserName = GenerarNombreUsuario(nombres, apellidos);
                                 userE.Password = GenerarContraseña(nombres, apellidos, txtCedula.Text);
                                 userE.UsuarioEstado = true;
+
+                                userN.MantenimientoUsuarios(userE,"1");
                             }
                         }
                         else
