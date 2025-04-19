@@ -198,5 +198,11 @@ namespace PlayerUI
             openChildForm(new InventZetaGas.InventarioDetalle());
             hideSubMenu();
         }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new Usuarios());
+            hideSubMenu();
+        }
     }
 }

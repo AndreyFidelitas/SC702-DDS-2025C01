@@ -35,18 +35,7 @@
             label1 = new Label();
             lblTotalCilindros = new Label();
             nUD_TotalCilindros = new NumericUpDown();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            numericUpDown4 = new NumericUpDown();
-            numericUpDown5 = new NumericUpDown();
             notifyIcon1 = new NotifyIcon(components);
-            pictureBox4 = new PictureBox();
             numericUpDown7 = new NumericUpDown();
             label8 = new Label();
             comboBox1 = new ComboBox();
@@ -55,25 +44,36 @@
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             gbUsuarios = new GroupBox();
+            pictureBox4 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox7 = new PictureBox();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            numericUpDown1 = new NumericUpDown();
+            label2 = new Label();
+            label6 = new Label();
+            numericUpDown2 = new NumericUpDown();
+            numericUpDown3 = new NumericUpDown();
+            numericUpDown4 = new NumericUpDown();
+            numericUpDown5 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)nUD_TotalCilindros).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            gbUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            gbUsuarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // cbZonas
@@ -121,108 +121,10 @@
             nUD_TotalCilindros.Size = new Size(142, 22);
             nUD_TotalCilindros.TabIndex = 4;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10F);
-            label2.Location = new Point(54, 279);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 17);
-            label2.TabIndex = 5;
-            label2.Text = "10 litros";
-            label2.Click += label2_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10F);
-            label3.Location = new Point(217, 279);
-            label3.Name = "label3";
-            label3.Size = new Size(58, 17);
-            label3.TabIndex = 6;
-            label3.Text = "20 litros";
-            label3.Click += label3_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10F);
-            label4.Location = new Point(381, 279);
-            label4.Name = "label4";
-            label4.Size = new Size(58, 17);
-            label4.TabIndex = 7;
-            label4.Text = "25 litros";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10F);
-            label5.Location = new Point(522, 279);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 17);
-            label5.TabIndex = 8;
-            label5.Text = "35 litros";
-            label5.Click += label5_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(671, 279);
-            label6.Name = "label6";
-            label6.Size = new Size(58, 17);
-            label6.TabIndex = 9;
-            label6.Text = "45 litros";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(28, 299);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 11;
-            // 
-            // numericUpDown2
-            // 
-            numericUpDown2.Location = new Point(188, 299);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(120, 23);
-            numericUpDown2.TabIndex = 12;
-            // 
-            // numericUpDown3
-            // 
-            numericUpDown3.Location = new Point(351, 299);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(120, 23);
-            numericUpDown3.TabIndex = 13;
-            // 
-            // numericUpDown4
-            // 
-            numericUpDown4.Location = new Point(492, 299);
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(120, 23);
-            numericUpDown4.TabIndex = 14;
-            // 
-            // numericUpDown5
-            // 
-            numericUpDown5.Location = new Point(643, 299);
-            numericUpDown5.Name = "numericUpDown5";
-            numericUpDown5.Size = new Size(120, 23);
-            numericUpDown5.TabIndex = 15;
-            // 
             // notifyIcon1
             // 
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(18, 328);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(142, 129);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 20;
-            pictureBox4.TabStop = false;
             // 
             // numericUpDown7
             // 
@@ -315,6 +217,16 @@
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Cilindros";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(18, 328);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(142, 129);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 20;
+            pictureBox4.TabStop = false;
+            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -355,6 +267,94 @@
             pictureBox7.TabIndex = 37;
             pictureBox7.TabStop = false;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 10F);
+            label3.Location = new Point(217, 279);
+            label3.Name = "label3";
+            label3.Size = new Size(58, 17);
+            label3.TabIndex = 6;
+            label3.Text = "20 litros";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10F);
+            label4.Location = new Point(381, 279);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 17);
+            label4.TabIndex = 7;
+            label4.Text = "25 litros";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 10F);
+            label5.Location = new Point(522, 279);
+            label5.Name = "label5";
+            label5.Size = new Size(58, 17);
+            label5.TabIndex = 8;
+            label5.Text = "35 litros";
+            label5.Click += label5_Click;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(28, 299);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.TabIndex = 11;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10F);
+            label2.Location = new Point(54, 279);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 17);
+            label2.TabIndex = 5;
+            label2.Text = "10 litros";
+            label2.Click += label2_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 10F);
+            label6.Location = new Point(671, 279);
+            label6.Name = "label6";
+            label6.Size = new Size(58, 17);
+            label6.TabIndex = 9;
+            label6.Text = "45 litros";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(188, 299);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(120, 23);
+            numericUpDown2.TabIndex = 12;
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Location = new Point(351, 299);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(120, 23);
+            numericUpDown3.TabIndex = 13;
+            // 
+            // numericUpDown4
+            // 
+            numericUpDown4.Location = new Point(492, 299);
+            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Size = new Size(120, 23);
+            numericUpDown4.TabIndex = 14;
+            // 
+            // numericUpDown5
+            // 
+            numericUpDown5.Location = new Point(643, 299);
+            numericUpDown5.Name = "numericUpDown5";
+            numericUpDown5.Size = new Size(120, 23);
+            numericUpDown5.TabIndex = 15;
+            // 
             // Cilindros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -380,21 +380,21 @@
             Name = "Cilindros";
             Text = "Cilindros";
             ((System.ComponentModel.ISupportInitialize)nUD_TotalCilindros).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             gbUsuarios.ResumeLayout(false);
             gbUsuarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -406,18 +406,7 @@
         private Label label1;
         private Label lblTotalCilindros;
         private NumericUpDown nUD_TotalCilindros;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown4;
-        private NumericUpDown numericUpDown5;
         private NotifyIcon notifyIcon1;
-        private PictureBox pictureBox4;
         private NumericUpDown numericUpDown7;
         private Label label8;
         private ComboBox comboBox1;
@@ -426,9 +415,20 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private GroupBox gbUsuarios;
+        private PictureBox pictureBox4;
         private PictureBox pictureBox2;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private PictureBox pictureBox7;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private NumericUpDown numericUpDown1;
+        private Label label2;
+        private Label label6;
+        private NumericUpDown numericUpDown2;
+        private NumericUpDown numericUpDown3;
+        private NumericUpDown numericUpDown4;
+        private NumericUpDown numericUpDown5;
     }
 }
