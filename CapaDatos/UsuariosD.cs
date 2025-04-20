@@ -244,10 +244,12 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@Apellidos", usuarioS.Apellidos);
                     if(accion =="2")
                     {
-                        cmd.Parameters.AddWithValue("@SolcitudAceptada", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@SolcitudRechaza", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@SolcitudEstado", usuarioS.SolcitudEstado);
-                        cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.UsuarioID);
+                        if (usuarioS.SolcitudEstado==false)
+                            cmd.Parameters.AddWithValue("@SolcitudRechaza", DateTime.Now);
+                        else
+                            cmd.Parameters.AddWithValue("@SolcitudAceptada", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@SolcitudEstado ", usuarioS.SolcitudEstado);
+                        //cmd.Parameters.AddWithValue("@UsuarioCedula", usuarioS.UsuarioID);
                     }
                     // Agrega aquí los demás parámetros que tu SP requiera
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;

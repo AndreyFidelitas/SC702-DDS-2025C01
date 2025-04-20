@@ -32,6 +32,8 @@
             label3 = new Label();
             label5 = new Label();
             gbUsuarios = new GroupBox();
+            txtcode = new TextBox();
+            label2 = new Label();
             txtCedula = new TextBox();
             label7 = new Label();
             txtNombre = new TextBox();
@@ -42,8 +44,6 @@
             btnAccept = new Button();
             txtApellidos = new TextBox();
             lblZona = new Label();
-            txtCodeUser = new TextBox();
-            lblCode = new Label();
             gvSolicitudU = new DataGridView();
             gbUsuarios.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -77,6 +77,8 @@
             // gbUsuarios
             // 
             gbUsuarios.BackColor = Color.White;
+            gbUsuarios.Controls.Add(txtcode);
+            gbUsuarios.Controls.Add(label2);
             gbUsuarios.Controls.Add(txtCedula);
             gbUsuarios.Controls.Add(label7);
             gbUsuarios.Controls.Add(txtNombre);
@@ -86,8 +88,6 @@
             gbUsuarios.Controls.Add(groupBox1);
             gbUsuarios.Controls.Add(txtApellidos);
             gbUsuarios.Controls.Add(lblZona);
-            gbUsuarios.Controls.Add(txtCodeUser);
-            gbUsuarios.Controls.Add(lblCode);
             gbUsuarios.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbUsuarios.Location = new Point(12, 37);
             gbUsuarios.Name = "gbUsuarios";
@@ -96,10 +96,30 @@
             gbUsuarios.TabStop = false;
             gbUsuarios.Text = "Datos de Usuarios";
             // 
+            // txtcode
+            // 
+            txtcode.Enabled = false;
+            txtcode.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtcode.Location = new Point(38, 48);
+            txtcode.Name = "txtcode";
+            txtcode.Size = new Size(292, 22);
+            txtcode.TabIndex = 24;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10F);
+            label2.Location = new Point(38, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(109, 17);
+            label2.TabIndex = 23;
+            label2.Text = "Codigo Solicitud";
+            // 
             // txtCedula
             // 
+            txtCedula.Enabled = false;
             txtCedula.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCedula.Location = new Point(38, 48);
+            txtCedula.Location = new Point(38, 96);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(292, 22);
             txtCedula.TabIndex = 22;
@@ -108,7 +128,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 10F);
-            label7.Location = new Point(38, 28);
+            label7.Location = new Point(38, 76);
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
@@ -116,8 +136,9 @@
             // 
             // txtNombre
             // 
+            txtNombre.Enabled = false;
             txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtNombre.Location = new Point(38, 96);
+            txtNombre.Location = new Point(38, 144);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(292, 22);
             txtNombre.TabIndex = 20;
@@ -126,7 +147,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F);
-            label6.Location = new Point(38, 76);
+            label6.Location = new Point(38, 124);
             label6.Name = "label6";
             label6.Size = new Size(58, 17);
             label6.TabIndex = 19;
@@ -136,7 +157,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(389, 76);
+            label1.Location = new Point(383, 28);
             label1.Name = "label1";
             label1.Size = new Size(29, 17);
             label1.TabIndex = 16;
@@ -146,7 +167,7 @@
             // 
             cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(389, 96);
+            cbRol.Location = new Point(383, 48);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(292, 24);
             cbRol.TabIndex = 15;
@@ -175,8 +196,9 @@
             // 
             // txtApellidos
             // 
+            txtApellidos.Enabled = false;
             txtApellidos.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtApellidos.Location = new Point(38, 157);
+            txtApellidos.Location = new Point(38, 205);
             txtApellidos.Name = "txtApellidos";
             txtApellidos.Size = new Size(292, 22);
             txtApellidos.TabIndex = 3;
@@ -185,30 +207,11 @@
             // 
             lblZona.AutoSize = true;
             lblZona.Font = new Font("Microsoft Sans Serif", 10F);
-            lblZona.Location = new Point(41, 133);
+            lblZona.Location = new Point(41, 181);
             lblZona.Name = "lblZona";
             lblZona.Size = new Size(65, 17);
             lblZona.TabIndex = 2;
             lblZona.Text = "Apellidos";
-            // 
-            // txtCodeUser
-            // 
-            txtCodeUser.Enabled = false;
-            txtCodeUser.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeUser.Location = new Point(389, 48);
-            txtCodeUser.Name = "txtCodeUser";
-            txtCodeUser.Size = new Size(292, 22);
-            txtCodeUser.TabIndex = 1;
-            // 
-            // lblCode
-            // 
-            lblCode.AutoSize = true;
-            lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(389, 28);
-            lblCode.Name = "lblCode";
-            lblCode.Size = new Size(105, 17);
-            lblCode.TabIndex = 0;
-            lblCode.Text = "Codigo Usuario";
             // 
             // gvSolicitudU
             // 
@@ -257,8 +260,8 @@
         private Button btnAccept;
         private TextBox txtApellidos;
         private Label lblZona;
-        private TextBox txtCodeUser;
-        private Label lblCode;
         private DataGridView gvSolicitudU;
+        private TextBox txtcode;
+        private Label label2;
     }
 }

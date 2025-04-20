@@ -61,9 +61,11 @@ namespace InventZetaGas
 
         public void Limpiar()
         {
+            txtcode.Text = "";
             txtCedula.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
+            CargarDatos();
         }
 
         public void SeleecionarDatos(DataGridViewCellEventArgs e)
@@ -74,7 +76,7 @@ namespace InventZetaGas
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvSolicitudU.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
-                txtCodeUser.Text = row.Cells["Solicitud Code"].Value?.ToString();
+                txtcode.Text = row.Cells["Solicitud Code"].Value?.ToString();
                 txtCedula.Text = row.Cells["Cedula"].Value?.ToString();
                 txtNombre.Text = row.Cells["Nombre"].Value?.ToString();
                 txtApellidos.Text = row.Cells["Apellidos"].Value?.ToString();
@@ -181,59 +183,67 @@ namespace InventZetaGas
                         ApiResponse apiResponse = await userN.ObtenerDatosCedulaAsync(int.Parse(txtCedula.Text));
                         if (apiResponse.Cedula != null)
                         {
-                            string[] nombreCompleto = apiResponse.Nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                            if (nombreCompleto.Length > 0)
+                            if (ValidarCampos() == false)
                             {
-                                string nombres = "";
-                                string apellidos = "";
+                                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Limpiar();
+                            }
+                            else
+                            { 
+                                string[] nombreCompleto = apiResponse.Nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                                if (nombreCompleto.Length > 0)
+                                {
+                                    string nombres = "";
+                                    string apellidos = "";
 
-                                // Si solo hay una parte, asumimos que es nombre
-                                if (nombreCompleto.Length == 1)
-                                {
-                                    nombres = nombreCompleto[0];
-                                }
-                                // Si hay dos partes, asumimos nombre y apellido
-                                else if (nombreCompleto.Length == 2)
-                                {
-                                    nombres = nombreCompleto[0];
-                                    apellidos = nombreCompleto[1];
-                                }
-                                // Si hay tres partes, asumimos un nombre y dos apellidos
-                                else if (nombreCompleto.Length == 3)
-                                {
-                                    nombres = nombreCompleto[0];
-                                    apellidos = nombreCompleto[1] + " " + nombreCompleto[2];
-                                }
-                                // Si hay cuatro o más partes
-                                else if (nombreCompleto.Length >= 4)
-                                {
-                                    nombres = nombreCompleto[0] + " " + nombreCompleto[1];
-                                    apellidos = nombreCompleto[2] + " " + nombreCompleto[3];
-                                }
+                                    // Si solo hay una parte, asumimos que es nombre
+                                    if (nombreCompleto.Length == 1)
+                                    {
+                                        nombres = nombreCompleto[0];
+                                    }
+                                    // Si hay dos partes, asumimos nombre y apellido
+                                    else if (nombreCompleto.Length == 2)
+                                    {
+                                        nombres = nombreCompleto[0];
+                                        apellidos = nombreCompleto[1];
+                                    }
+                                    // Si hay tres partes, asumimos un nombre y dos apellidos
+                                    else if (nombreCompleto.Length == 3)
+                                    {
+                                        nombres = nombreCompleto[0];
+                                        apellidos = nombreCompleto[1] + " " + nombreCompleto[2];
+                                    }
+                                    // Si hay cuatro o más partes
+                                    else if (nombreCompleto.Length >= 4)
+                                    {
+                                        nombres = nombreCompleto[0] + " " + nombreCompleto[1];
+                                        apellidos = nombreCompleto[2] + " " + nombreCompleto[3];
+                                    }
+                                    userE.UsuarioCode = "U0000";
+                                    userE.Cedula= int.Parse(txtCedula.Text);
+                                    userE.UsuarioName = nombres;
+                                    userE.UsuarioApellidos = apellidos;
+                                    userE.UsuarioUserName = GenerarNombreUsuario(nombres, apellidos);
+                                    userE.Password = GenerarContraseña(nombres, apellidos, txtCedula.Text);
+                                    userE.RoleID= cbRol.SelectedIndex+2;
+                                    userE.UsuarioEstado = true;
 
-                                userE.UsuarioName = nombres;
-                                userE.UsuarioApellidos = apellidos;
-                                userE.UsuarioUserName = GenerarNombreUsuario(nombres, apellidos);
-                                userE.Password = GenerarContraseña(nombres, apellidos, txtCedula.Text);
-                                userE.UsuarioEstado = true;
+                                    userN.MantenimientoUsuarios(userE, "1");
 
-                                userN.MantenimientoUsuarios(userE,"1");
+                                    SuserE.SolcitudEstado = true;
+                                    Mantenimiento("2");
+
+                                    Limpiar();
+                                }
                             }
                         }
                         else
                         {
                             if (ValidarCampos() == true)
                             {
-                                SuserE.Cedula = int.Parse(txtCedula.Text);
-                                if (userN.ValidacionSolicitudUsuarios(SuserE) == true)
-                                {
-                                    MessageBox.Show("Ya el usuario existe", "Usuario Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    Mantenimiento("2");
-                                    Limpiar();
-                                }
+                                SuserE.SolcitudEstado = false;
+                               Mantenimiento("2");
+                               Limpiar(); 
                             }
                             else
                             {
@@ -269,12 +279,18 @@ namespace InventZetaGas
                 return valid;
             }
 
+            if (cbRol.SelectedIndex==-1)
+            {
+                return valid;
+            }
+
             valid = true;
             return valid;
         }
         //****************************************************************************************
         private void Mantenimiento(string accion)
         {
+            SuserE.SolicitudCode = txtcode.Text; 
             SuserE.Cedula = Int32.Parse(txtCedula.Text);
             SuserE.Name = txtNombre.Text;
             SuserE.Apellidos = txtApellidos.Text;
