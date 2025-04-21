@@ -228,7 +228,11 @@ namespace InventZetaGas
                                     userE.RoleID= cbRol.SelectedIndex+2;
                                     userE.UsuarioEstado = true;
 
-                                    userN.MantenimientoUsuarios(userE, "1");
+                                    
+                                    var value= userN.MantenimientoUsuarios(userE, "1");
+
+                                    txtNombre.Text = nombres;
+                                    txtApellidos.Text= apellidos;
 
                                     SuserE.SolcitudEstado = true;
                                     Mantenimiento("2");
