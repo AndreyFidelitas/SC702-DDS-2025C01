@@ -1,6 +1,7 @@
 ﻿using CapaEntidades;
 using CapaNegocios;
 using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -237,6 +238,10 @@ namespace InventZetaGas
                                     SuserE.SolcitudEstado = true;
                                     Mantenimiento("2");
 
+                                    //******************************
+                                    //mensaje
+                                    MessageBox.Show(value, "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    //******************************
                                     Limpiar();
                                 }
                             }
@@ -300,6 +305,9 @@ namespace InventZetaGas
             SuserE.Apellidos = txtApellidos.Text;
             g.accion = accion;
             g.msj = userN.MantenimientoSolicitudUsuarios(SuserE, g.accion);
+
+            if (accion=="1")
+             MessageBox.Show(g.msj, "Solicitud", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         //****************************************************************************************
         #endregion

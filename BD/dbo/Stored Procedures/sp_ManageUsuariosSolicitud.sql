@@ -6,8 +6,8 @@ CREATE PROCEDURE [dbo].[sp_ManageUsuariosSolicitud]
     @Cedula INT = NULL,
     @Name VARCHAR(100) = NULL,
     @Apellidos VARCHAR(100) = NULL,
-    @SolcitudAceptada DATETIME = NULL,
-    @SolcitudRechaza DATETIME = NULL,
+    @SolcitudAceptada DATETIME  = NULL,
+    @SolcitudRechaza DATETIME  = NULL,
     @SolcitudEstado BIT = NULL,
     @UsuarioCedula INT = NULL,
 	@accion VARCHAR(500) OUTPUT 
@@ -50,8 +50,8 @@ BEGIN
 			null				,
 			null
 		);
-    
-		SET @accion = 'Se generó el usuario en nuestra base de datos: ' + @codnuevo;
+
+		SET @accion = 'Se generó la solicitud en nuestra base de datos: ' + @codnuevo;
         PRINT @accion;
 	
 	END
@@ -73,6 +73,7 @@ BEGIN
             Apellidos			=	@Apellidos			,
             SolcitudAceptada	=	@SolcitudAceptada	,
             SolcitudRechaza		=	@SolcitudRechaza	,
+			SolcitudEstado		=	@SolcitudEstado		,
             UsuarioID			=	@UsuarioID
         WHERE
 			SolicitudCode		=	@SolicitudCode	
