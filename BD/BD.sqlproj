@@ -112,6 +112,7 @@
     <Build Include="dbo\Stored Procedures\MantenimientoSolicitud.sql" />
     <Build Include="dbo\Stored Procedures\SPMantenimientoTransacCamion_Cilindros.sql" />
     <Build Include="dbo\Stored Procedures\SPListaSolicitudUsuarios.sql" />
+    <Build Include="dbo\Tables\LogEventos.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />

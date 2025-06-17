@@ -21,7 +21,7 @@ BEGIN
     BEGIN
         
 		declare @codnuevo varchar(5), @codmax varchar(5)
-		set @codmax = (select max(ClientesCode) from Clientes)
+		set @codmax = (select max(SolicitudCode) from UsuariosSolcitud)
 		set @codmax = isnull(@codmax,'S0000')
 		set @codnuevo = 'S'+RIGHT(RIGHT(@codmax,4)+10001,4)
 
