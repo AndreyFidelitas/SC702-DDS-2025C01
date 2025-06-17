@@ -68,9 +68,23 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                var value = ex.GetType().ToString();
-                return value;
+                return LogsInserted(ex.ToString());
             }
+        }
+
+        [Obsolete]
+        private string LogsInserted(string ex)
+        {
+
+            LogsD log = new LogsD();
+            LogsE logE = new LogsE();
+
+            logE.UsuarioID = 0;
+            logE.TablaAfectada = "Roles";
+            logE.Modulo = "Roles";
+            logE.Detalles = ex;
+            var value = log.MantenimientoLogs(logE,"1"); 
+            return value.ToString();
         }
         #endregion
     }

@@ -24,6 +24,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@UsuarioID", LogsE.UsuarioID);
                     cmd.Parameters.AddWithValue("@TablaAfectada", LogsE.TablaAfectada);
                     cmd.Parameters.AddWithValue("@Modulo", LogsE.Modulo);
+                    cmd.Parameters.AddWithValue("@Detalles", LogsE.Detalles);
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
