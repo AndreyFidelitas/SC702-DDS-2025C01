@@ -106,6 +106,26 @@ namespace InventZetaGas
             g.msj = rolesN.MantenimientoRoles(RolesE, g.accion);
             MessageBox.Show(g.msj, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        public bool ValidarCampos()
+        {
+            bool valid = false;
+
+            // Verifica si algún campo está vacío devuelve  un false
+            if (string.IsNullOrEmpty(txtRol.Text))
+            {
+                return valid;
+            }
+
+            if (rbtnActive.Checked== false && rbtnInactive.Checked==false)
+            {
+                return valid;
+            }
+
+            valid = true;
+            return valid;
+        }
+
         #endregion
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -115,31 +135,37 @@ namespace InventZetaGas
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtRol.Text))
-            {
-                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (string.IsNullOrEmpty(txtCodeRol.Text))
+            if(ValidarCampos()==true)
             {
                 // Pregunta si desea registrar el siguiente dato.
                 if (MessageBox.Show($"¿Deseas registrar a {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
+
+
+
                     // Método para realizar el insert en SQL con la acción "1".
                     Mantenimiento("1");
                     Limpiar();
                 }
             }
+            else
+                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            // Pregunta si desea modificar el dato.
-            if (MessageBox.Show($"¿Deseas modificar {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (ValidarCampos() == true)
             {
-                EstadosModificacion();
-                Mantenimiento("2");
-                Limpiar();
+                // Pregunta si desea modificar el dato.
+                if (MessageBox.Show($"¿Deseas modificar {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    EstadosModificacion();
+                    Mantenimiento("2");
+                    Limpiar();
+                }
             }
+            else
+                MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
