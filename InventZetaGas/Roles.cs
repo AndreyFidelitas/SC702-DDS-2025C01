@@ -7,8 +7,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InventZetaGas
 {
@@ -126,6 +128,26 @@ namespace InventZetaGas
             return valid;
         }
 
+        public bool ValidarCamposEspeciales()
+        {
+            // Expresión regular que permite sólo letras, números y espacios
+            string pattern = @"^[a-zA-Z0-9\s]+$";
+            bool valid = false;
+
+            if (!Regex.IsMatch(txtRol.Text, pattern))
+            {
+                return valid;
+            }
+
+            if (txtRol.Text.Length > 0 && char.IsDigit(txtRol.Text[0]))
+            {
+                return valid;
+            }
+
+            valid = true;
+            return valid;
+        }
+
         #endregion
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -142,10 +164,19 @@ namespace InventZetaGas
                 {
 
 
+                    if (ValidarCampos() == true)
+                    {
+                        // Método para realizar el insert en SQL con la acción "1".
+                        Mantenimiento("1");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("no debe contener caracteres especiales y/o no puede iniciar con un número", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Limpiar();
+                    }
 
-                    // Método para realizar el insert en SQL con la acción "1".
-                    Mantenimiento("1");
-                    Limpiar();
+
                 }
             }
             else
@@ -159,9 +190,17 @@ namespace InventZetaGas
                 // Pregunta si desea modificar el dato.
                 if (MessageBox.Show($"¿Deseas modificar {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    EstadosModificacion();
-                    Mantenimiento("2");
-                    Limpiar();
+                    if (ValidarCampos() == true)
+                    {
+                        EstadosModificacion();
+                        Mantenimiento("2");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("no debe contener caracteres especiales y/o no puede iniciar con un número", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Limpiar();
+                    }
                 }
             }
             else
