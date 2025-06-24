@@ -130,22 +130,32 @@ namespace InventZetaGas
 
         public bool ValidarCamposEspeciales()
         {
-            // Expresión regular que permite sólo letras, números y espacios
+            // Patrón que solo permite letras, números y espacios
             string pattern = @"^[a-zA-Z0-9\s]+$";
-            bool valid = false;
+            string texto = txtRol.Text;
 
-            if (!Regex.IsMatch(txtRol.Text, pattern))
+            // Verifica que el campo no esté vacío
+            if (string.IsNullOrWhiteSpace(texto))
             {
-                return valid;
+                MessageBox.Show("El campo no puede estar vacío.","Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
 
-            if (txtRol.Text.Length > 0 && char.IsDigit(txtRol.Text[0]))
+            // Verifica que no empiece con número
+            if (char.IsDigit(texto[0]))
             {
-                return valid;
+                MessageBox.Show("El texto no puede comenzar con un número.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
 
-            valid = true;
-            return valid;
+            // Verifica que no tenga caracteres especiales
+            if (!Regex.IsMatch(texto, pattern))
+            {
+                MessageBox.Show("No se permiten caracteres especiales.","Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
         #endregion
@@ -162,21 +172,24 @@ namespace InventZetaGas
                 // Pregunta si desea registrar el siguiente dato.
                 if (MessageBox.Show($"¿Deseas registrar a {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-
-
-                    if (ValidarCampos() == true)
+                    if(ValidarCamposEspeciales() == false) 
                     {
-                        // Método para realizar el insert en SQL con la acción "1".
-                        Mantenimiento("1");
                         Limpiar();
                     }
-                    else
+                    else 
                     {
-                        MessageBox.Show("no debe contener caracteres especiales y/o no puede iniciar con un número", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Limpiar();
+                        if (ValidarCampos() == true)
+                        {
+                            // Método para realizar el insert en SQL con la acción "1".
+                            Mantenimiento("1");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Limpiar();
+                        }
                     }
-
-
                 }
             }
             else
@@ -190,16 +203,23 @@ namespace InventZetaGas
                 // Pregunta si desea modificar el dato.
                 if (MessageBox.Show($"¿Deseas modificar {txtRol.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    if (ValidarCampos() == true)
+                    if (ValidarCamposEspeciales() == false)
                     {
-                        EstadosModificacion();
-                        Mantenimiento("2");
                         Limpiar();
                     }
                     else
                     {
-                        MessageBox.Show("no debe contener caracteres especiales y/o no puede iniciar con un número", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Limpiar();
+                        if (ValidarCampos() == true)
+                        {
+                            EstadosModificacion();
+                            Mantenimiento("2");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Limpiar();
+                        }
                     }
                 }
             }
