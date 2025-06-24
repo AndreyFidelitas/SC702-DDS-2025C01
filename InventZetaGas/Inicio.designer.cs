@@ -400,6 +400,7 @@
             button4.Text = "Permisos";
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = false;
+            button4.Visible = false;
             button4.Click += button4_Click;
             // 
             // button3

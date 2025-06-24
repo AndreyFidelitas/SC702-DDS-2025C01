@@ -111,7 +111,7 @@
             groupBox1.Controls.Add(btnNew);
             groupBox1.Location = new Point(15, 298);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(760, 77);
+            groupBox1.Size = new Size(644, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
@@ -126,6 +126,7 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
@@ -152,6 +153,7 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Visible = false;
             btnModify.Click += btnModify_Click;
             // 
             // btnNew

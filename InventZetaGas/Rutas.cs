@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidades;
@@ -62,15 +63,14 @@ namespace InventZetaGas
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No se pueden actualizar las rutas por el momento.", "En mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //MantenimientosBotones(2);
+            //MessageBox.Show("No se pueden actualizar las rutas por el momento.", "En mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MantenimientosBotones(2);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             MessageBox.Show("No se puede Eliminar las rutas por el momento.", "En mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // MantenimientosBotones(3);
+            MantenimientosBotones(3);
         }
 
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
@@ -136,6 +136,37 @@ namespace InventZetaGas
             }
         }
 
+        public bool ValidarCamposEspeciales()
+        {
+            // Patrón que solo permite letras, números y espacios
+            string pattern = @"^[a-zA-Z0-9\s]+$";
+            string texto = txtRuta.Text;
+
+            // Verifica que el campo no esté vacío
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                MessageBox.Show("El campo no puede estar vacío.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Verifica que no empiece con número
+            if (char.IsDigit(texto[0]))
+            {
+                MessageBox.Show("El texto no puede comenzar con un número.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Verifica que no tenga caracteres especiales
+            if (!Regex.IsMatch(texto, pattern))
+            {
+                MessageBox.Show("No se permiten caracteres especiales.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+
         //metodo general de mantenimientos  
         public void MantenimientosBotones(int opcion)
         {
@@ -146,26 +177,52 @@ namespace InventZetaGas
                     if (string.IsNullOrEmpty(txtRuta.Text))
                         MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    if (ValidarCampos() == true)
+                    if (ValidarCamposEspeciales() == false)
                     {
-                        if (MessageBox.Show($"¿Deseas registrar a {txtRuta.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            // Método para realizar el insert en SQL con la acción "1".
-                            Mantenimiento("1");
-                            Limpiar();
-                        }
+                        Limpiar();
                     }
                     else
-                        MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    {
+                        if (ValidarCampos() == true)
+                        {
+                            if (MessageBox.Show($"¿Deseas registrar a {txtRuta.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                // Método para realizar el insert en SQL con la acción "1".
+                                Mantenimiento("1");
+                                Limpiar();
+                            }
+                        }
+                        else
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    }
+
+
 
                     break;
                 case 2:
                     // Pregunta si desea modificar el dato.
-                    if (MessageBox.Show($"¿Deseas modificar {txtRuta.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+
+                    if (ValidarCamposEspeciales() == false)
                     {
-                        EstadosModificacion();
-                        Mantenimiento("2");
                         Limpiar();
+                    }
+                    else
+                    {
+                        if (ValidarCampos() == true)
+                        {
+
+                            if (MessageBox.Show($"¿Deseas modificar {txtRuta.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                EstadosModificacion();
+                                Mantenimiento("2");
+                                Limpiar();
+                            }
+                        }
+                        else
+                            MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                     break;
 
@@ -191,7 +248,7 @@ namespace InventZetaGas
                 return valid;
             }
 
-            if (rbtnActive.Checked == false && rbtnActive.Checked == false)
+            if (rbtnActive.Checked == false && rbtnInactive.Checked == false)
             {
                 return valid;
             }
