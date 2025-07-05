@@ -55,7 +55,7 @@ namespace CapaDatos
         //Metodo para insertar y actualizar zonas
         {
             try
-                {
+            {
                     
                     Generales g= new Generales();
                     g.accion = accion;
@@ -72,12 +72,25 @@ namespace CapaDatos
                         _conexion.CerrarConexion();
                         return cmd.Parameters["@accion"].Value.ToString();
                     }
-                }
-                catch (Exception ex)
-                {
-                    var value = ex.GetType().ToString();
-                    return value;
-                }
+            }
+            catch (Exception ex)
+            {
+                return LogsInserted(ex.ToString());
+            }
+        }
+
+        [Obsolete]
+        private string LogsInserted(string ex)
+        {
+            LogsD log = new LogsD();
+            LogsE logE = new LogsE();
+
+            logE.UsuarioID = 0;
+            logE.TablaAfectada = "Zonas";
+            logE.Modulo = "Zonas";
+            logE.Detalles = ex;
+            var value = log.MantenimientoLogs(logE, "1");
+            return value.ToString();
         }
         #endregion
     }
