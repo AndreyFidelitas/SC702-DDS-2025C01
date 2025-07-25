@@ -176,6 +176,7 @@
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             btnUsuarios.UseVisualStyleBackColor = false;
+            btnUsuarios.Visible = false;
             btnUsuarios.Click += button10_Click;
             // 
             // button12
@@ -237,7 +238,6 @@
             btnTools.TextAlign = ContentAlignment.MiddleLeft;
             btnTools.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnTools.UseVisualStyleBackColor = false;
-            btnTools.Visible = false;
             btnTools.Click += btnTools_Click;
             // 
             // panelPlaylistSubMenu
