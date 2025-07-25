@@ -302,14 +302,16 @@ namespace CapaDatos
                     {
                         if (dr.Read())
                         {
-                            usuario = new UsuariosSolicitud
-                            {
-                                SolicitudCode = dr["Usuario ID"].ToString(),
-                                Cedula = int.Parse(dr["Cedula"].ToString()),
-                                Name = dr["Nombre"].ToString(),
-                                Apellidos = dr["Apellidos"].ToString(),
-                                SolcitudEstado = bool.Parse(dr["Estado"].ToString())
-                            };
+                            
+                            //usuario = new UsuariosSolicitud();
+                            
+                            usuario.SolicitudCode = dr["Usuario ID"].ToString();
+                            usuario.Cedula = int.Parse(dr["Cedula"].ToString());
+                            usuario.Name = dr["Nombre"].ToString();
+                            usuario.Apellidos = dr["Apellidos"].ToString();
+                            var estado = dr["Estado"].ToString().Trim().ToLower();
+                            usuario.SolcitudEstado = estado == "activo" || estado == "1" || estado == "true";
+                            
                         }
                     }
                     _conexion.CerrarConexion();

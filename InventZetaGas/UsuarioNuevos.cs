@@ -35,9 +35,11 @@ namespace InventZetaGas
         {
             if(ValidarCampos()==true)
             {
+                Inicializar("1");
                 if (userN.ValidacionSolicitudUsuarios(userE) == true) 
                 {
-                    MessageBox.Show("Ya el usuario existe","Usuario Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ya el usuario existe:"+userE.Name,"Usuario Existente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
                 }
                 else
                 {
@@ -61,6 +63,15 @@ namespace InventZetaGas
             userE.Apellidos = txtApellido.Text;
             g.accion = accion;
             g.msj = userN.MantenimientoSolicitudUsuarios(userE, g.accion);
+        }
+
+        private void Inicializar(string accion)
+        {
+            userE.Cedula = Int32.Parse(txtCedula.Text);
+            userE.Name = txtNombre.Text;
+            userE.Apellidos = txtApellido.Text;
+            //g.accion = accion;
+            //g.msj = userN.MantenimientoSolicitudUsuarios(userE, g.accion);
         }
 
         private void Limpiar()
