@@ -114,6 +114,7 @@
     <Build Include="dbo\Stored Procedures\SPListaSolicitudUsuarios.sql" />
     <Build Include="dbo\Tables\LogEventos.sql" />
     <Build Include="dbo\Stored Procedures\SPInsertarLogEvento.sql" />
+    <Build Include="dbo\Tables\Ventas.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\SPActualizarToken.sql" />

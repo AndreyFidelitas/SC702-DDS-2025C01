@@ -1,0 +1,20 @@
+﻿CREATE TABLE Ventas (
+    Planta VARCHAR(100),
+    Planta_ID INT,
+    Vendedor VARCHAR(150),
+    Ruta VARCHAR(150),
+    Fecha DATETIME,
+    Mes VARCHAR(20),
+    Codigo_Cliente INT,
+    Cliente VARCHAR(255),
+    Tipo_Cliente VARCHAR(100),
+    Categoria_Cliente VARCHAR(100),
+    Codigo_Subcliente INT,
+    Subcliente VARCHAR(150),
+    Producto VARCHAR(10),
+    Categoria VARCHAR(50),
+    Cantidad DECIMAL(10, 2),
+    Litros DECIMAL(10, 2),
+    Otros_Impuestos DECIMAL(10, 2),
+    Total DECIMAL(12, 2)
+);
