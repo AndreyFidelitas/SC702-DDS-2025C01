@@ -56,9 +56,6 @@ namespace InventZetaGas
             MantenimientosBotones(3);
         }
 
-
-
-
         private void rbtnActive_CheckedChanged(object sender, EventArgs e)
         {
             Estados();
@@ -240,7 +237,7 @@ namespace InventZetaGas
                     if (MessageBox.Show($"¿Deseas eliminar {txtCamion.Text}?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         //metodo para validar los campos
-                        if (ValidarCampos() == true)
+                        if (ValidarCampos() == false)
                             MessageBox.Show("Campos sin completar, por favor llenar los datos", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
                         {
