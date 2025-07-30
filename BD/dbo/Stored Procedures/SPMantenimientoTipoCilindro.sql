@@ -6,7 +6,7 @@
 --exec SPMantenimientoTipoCilindro NULL,'20 LBS',1,'1';
 --exec SPMantenimientoTipoCilindro NULL,'35 LBS',1,'1';
 --exec SPMantenimientoTipoCilindro NULL,'100 LBS',1,'1';
---exec SPMantenimientoTipoCilindro NULL,'Granel',1,'1';
+--exec SPMantenimientoTipoCilindro M0001,'Granel',1,'3';
 --select * FROM TipoCilindro
 
 CREATE PROCEDURE [dbo].[SPMantenimientoTipoCilindro]
@@ -84,6 +84,42 @@ BEGIN
 		else
         BEGIN
             SET @accion = 'No se encontró la medida de cilindro"' + @LoteLitraje + '".';
+        END
+    END
+	 ELSE IF (@accion = '3') -- Desactivar TipoCilindro existente
+    BEGIN
+       -- Validar si el registro existe por LoteLitraje
+        IF EXISTS (SELECT 1 FROM TipoCilindro WHERE LoteLitraje = @LoteLitraje)
+        BEGIN
+            UPDATE TipoCilindro
+            SET 
+				TipoCilindroStatus=0
+			from 
+				TipoCilindro t with(nolock)
+            WHERE 
+                 TipoCilindroCode =  @TipoCilindroCode;
+
+            SET @accion = 'Se desactivo el cilindro: ' + @LoteLitraje;
+			print @accion;
+        END
+        ELSE
+		IF EXISTS (SELECT 1 FROM TipoCilindro WHERE TipoCilindroCode = @TipoCilindroCode)
+        BEGIN
+            UPDATE TipoCilindro
+            SET 
+				TipoCilindroStatus=0
+			from 
+				TipoCilindro t with(nolock)
+            WHERE 
+                 TipoCilindroCode =  @TipoCilindroCode;
+
+            SET @accion = 'Se desactivo el cilindro: ' + @LoteLitraje;
+			print @accion;
+        END
+		else
+        BEGIN
+            SET @accion = 'No se encontró la medida de cilindro"' + @LoteLitraje + '".';
+			print @accion;
         END
     END
 END
