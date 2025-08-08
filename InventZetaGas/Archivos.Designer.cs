@@ -34,12 +34,12 @@
             gbRaza = new GroupBox();
             groupBox1 = new GroupBox();
             btnGuardarLotes = new Button();
-            btnDelete = new Button();
             btnModify = new Button();
-            txtCodeRuta = new TextBox();
+            txtarchivo = new TextBox();
             lblCode = new Label();
             txtCantidad = new TextBox();
             label1 = new Label();
+            progressBar1 = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)dgvExcel).BeginInit();
             gbRaza.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -68,7 +68,7 @@
             gbRaza.BackColor = Color.White;
             gbRaza.Controls.Add(groupBox1);
             gbRaza.Controls.Add(btnModify);
-            gbRaza.Controls.Add(txtCodeRuta);
+            gbRaza.Controls.Add(txtarchivo);
             gbRaza.Controls.Add(lblCode);
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
             gbRaza.Location = new Point(28, 23);
@@ -76,12 +76,11 @@
             gbRaza.Size = new Size(887, 303);
             gbRaza.TabIndex = 7;
             gbRaza.TabStop = false;
-            gbRaza.Text = "Datos de Rutas";
+            gbRaza.Text = "Datos de Archivos";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(btnGuardarLotes);
-            groupBox1.Controls.Add(btnDelete);
             groupBox1.Location = new Point(19, 202);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(493, 77);
@@ -100,19 +99,6 @@
             btnGuardarLotes.UseVisualStyleBackColor = true;
             btnGuardarLotes.Click += btnGuardarLotes_Click;
             // 
-            // btnDelete
-            // 
-            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(325, 21);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(143, 37);
-            btnDelete.TabIndex = 3;
-            btnDelete.Text = "Eliminar";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Visible = false;
-            // 
             // btnModify
             // 
             btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
@@ -126,14 +112,14 @@
             btnModify.UseVisualStyleBackColor = true;
             btnModify.Click += btnModify_Click;
             // 
-            // txtCodeRuta
+            // txtarchivo
             // 
-            txtCodeRuta.Enabled = false;
-            txtCodeRuta.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeRuta.Location = new Point(41, 76);
-            txtCodeRuta.Name = "txtCodeRuta";
-            txtCodeRuta.Size = new Size(303, 22);
-            txtCodeRuta.TabIndex = 1;
+            txtarchivo.Enabled = false;
+            txtarchivo.Font = new Font("Microsoft Sans Serif", 9.75F);
+            txtarchivo.Location = new Point(41, 76);
+            txtarchivo.Name = "txtarchivo";
+            txtarchivo.Size = new Size(303, 22);
+            txtarchivo.TabIndex = 1;
             // 
             // lblCode
             // 
@@ -164,11 +150,19 @@
             label1.TabIndex = 9;
             label1.Text = "Total Registros";
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(348, 655);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(567, 23);
+            progressBar1.TabIndex = 10;
+            // 
             // Archivos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1103, 729);
+            Controls.Add(progressBar1);
             Controls.Add(label1);
             Controls.Add(txtCantidad);
             Controls.Add(gbRaza);
@@ -190,12 +184,12 @@
         private OpenFileDialog fdArchivo;
         private GroupBox gbRaza;
         private GroupBox groupBox1;
-        private Button btnDelete;
         private Button btnModify;
-        private TextBox txtCodeRuta;
+        private TextBox txtarchivo;
         private Label lblCode;
         private TextBox txtCantidad;
         private Label label1;
         private Button btnGuardarLotes;
+        private ProgressBar progressBar1;
     }
 }

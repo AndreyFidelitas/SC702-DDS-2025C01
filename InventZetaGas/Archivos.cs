@@ -17,6 +17,7 @@ namespace InventZetaGas
         private int currentBatch = 0;   // Índice del lote actual
         private List<List<object>> allRows = new List<List<object>>();  // Lista completa de filas para paginación
         private List<string> columnHeaders = new List<string>(); // Para almacenar los encabezados de las columnas
+        private bool isLoadingFile = false; // Flag para controlar si se está cargando un archivo
 
         public Archivos()
         {
@@ -25,6 +26,13 @@ namespace InventZetaGas
 
         private async void btnModify_Click(object sender, EventArgs e)
         {
+            // Validar si ya se está cargando un archivo
+            if (isLoadingFile)
+            {
+                MessageBox.Show("Ya se está cargando un archivo. Por favor espere a que termine el proceso.", "Archivo en proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             OpenFileDialog fdArchivo = new OpenFileDialog();
             fdArchivo.Filter = "Archivos de Excel (*.xlsx;*.xls)|*.xlsx;*.xls";
             fdArchivo.Title = "Seleccionar archivo de Excel";
@@ -33,8 +41,21 @@ namespace InventZetaGas
             {
                 try
                 {
+                    isLoadingFile = true; // Marcar que se está cargando un archivo
+                    
+                    // Guardar el nombre del archivo en txtarchivo
+                    txtarchivo.Text = System.IO.Path.GetFileName(fdArchivo.FileName);
+                    
                     columnHeaders.Clear(); // Limpiar la lista antes de cargar nuevos datos
                     allRows.Clear(); // Limpiar la lista antes de cargar nuevos datos
+
+                    // Configurar y mostrar ProgressBar
+                    BeginInvoke(new Action(() =>
+                    {
+                        progressBar1.Style = ProgressBarStyle.Marquee;
+                        progressBar1.MarqueeAnimationSpeed = 30;
+                        progressBar1.Visible = true;
+                    }));
 
                     // Cargar el archivo Excel en segundo plano para no congelar la interfaz
                     await Task.Run(() =>
@@ -43,11 +64,24 @@ namespace InventZetaGas
                         var workbook = new XLWorkbook(fdArchivo.FileName);
                         var worksheet = workbook.Worksheet(1);  // Cargar la primera hoja del Excel
 
+                        // Obtener el número total de filas para el progreso
+                        var totalRows = worksheet.RowsUsed().Count();
+                        int currentRowIndex = 0;
                         bool firstRow = true;
+
+                        BeginInvoke(new Action(() =>
+                        {
+                            progressBar1.Style = ProgressBarStyle.Blocks;
+                            progressBar1.Minimum = 0;
+                            progressBar1.Maximum = totalRows;
+                            progressBar1.Value = 0;
+                        }));
 
                         // Recorrer todas las filas del archivo Excel
                         foreach (var row in worksheet.RowsUsed())
                         {
+                            currentRowIndex++;
+                            
                             if (firstRow)
                             {
                                 // Capturar los encabezados de las columnas
@@ -67,6 +101,15 @@ namespace InventZetaGas
                                 }
                                 allRows.Add(currentRowData);  // Almacenar todas las filas en la lista
                             }
+
+                            // Actualizar ProgressBar cada 1000 filas para no sobrecargar la UI
+                            if (currentRowIndex % 1000 == 0 || currentRowIndex == totalRows)
+                            {
+                                BeginInvoke(new Action(() =>
+                                {
+                                    progressBar1.Value = Math.Min(currentRowIndex, progressBar1.Maximum);
+                                }));
+                            }
                         }
                     }); // Fin de Task.Run
 
@@ -82,19 +125,31 @@ namespace InventZetaGas
                             dgvExcel.Columns.Add(header, header);
                         }
 
-                        // Mensaje de depuración para verificar el conteo de columnas
-                        MessageBox.Show($"Número de columnas agregadas: {dgvExcel.Columns.Count}"); 
-
                         // Establecer la cantidad total de filas
                         txtCantidad.Text = allRows.Count.ToString();
                         dgvExcel.RowCount = allRows.Count;
                         dgvExcel.Refresh();
+                        
+                        // Ocultar ProgressBar y mostrar mensaje de éxito
+                        progressBar1.Visible = false;
+                        MessageBox.Show($"Archivo cargado exitosamente. Número de columnas: {dgvExcel.Columns.Count}, Filas: {allRows.Count}"); 
+                        
+                        isLoadingFile = false; // Marcar que terminó la carga
                     }));
                 }
                 catch (Exception ex)
                 {
+                    BeginInvoke(new Action(() =>
+                    {
+                        progressBar1.Visible = false; // Ocultar ProgressBar en caso de error
+                    }));
+                    isLoadingFile = false; // Marcar que terminó la carga (con error)
                     MessageBox.Show($"Error al abrir el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                isLoadingFile = false; // Marcar que no se seleccionó archivo
             }
         }
 
@@ -117,91 +172,231 @@ namespace InventZetaGas
             }
         }
 
-        private async Task GuardarLotesEnBaseDeDatos()
+        private async Task GuardarPrimeros300000Registros()
         {
-            int batchSaveSize = 100000; // 100,000 registros por lote
-            VentasN ventasNegocio = new VentasN(); // Instanciar la clase de negocio
-
-            while (allRows.Count > 0)
+            const int MAX_RECORDS = 300000;
+            const int BATCH_SIZE = 10000; // Lotes más pequeños para mejor rendimiento
+            
+            VentasN ventasNegocio = new VentasN();
+            int totalGuardados = 0;
+            int registrosParaProcesar = Math.Min(MAX_RECORDS, allRows.Count);
+            
+            try
             {
-                int recordsToProcess = Math.Min(batchSaveSize, allRows.Count);
-                List<List<object>> currentBatchRaw = allRows.GetRange(0, recordsToProcess);
-                List<VentasE> ventasParaGuardar = new List<VentasE>();
-
-                // Mapear los datos raw del Excel a objetos VentasE
-                foreach (var rowData in currentBatchRaw)
+                // Probar la conexión a la base de datos antes de iniciar
+                if (!await ProbarConexionBaseDatos())
                 {
-                    VentasE venta = new VentasE();
-                    for (int i = 0; i < columnHeaders.Count; i++)
+                    MessageBox.Show("No se puede conectar a la base de datos. Verifique la configuración de conexión.", "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Configurar ProgressBar
+                progressBar1.Style = ProgressBarStyle.Blocks;
+                progressBar1.Minimum = 0;
+                progressBar1.Maximum = registrosParaProcesar;
+                progressBar1.Value = 0;
+                progressBar1.Visible = true;
+                Application.DoEvents();
+                
+                Console.WriteLine($"Iniciando guardado de {registrosParaProcesar} registros en lotes de {BATCH_SIZE}");
+                
+                // Procesar en lotes hasta alcanzar 300,000 registros
+                for (int indiceInicio = 0; indiceInicio < registrosParaProcesar; indiceInicio += BATCH_SIZE)
+                {
+                    // Calcular cuántos registros tomar en este lote
+                    int registrosEnLote = Math.Min(BATCH_SIZE, registrosParaProcesar - indiceInicio);
+                    int registrosDisponibles = Math.Min(registrosEnLote, allRows.Count);
+                    
+                    if (registrosDisponibles <= 0) break;
+                    
+                    // Tomar los primeros registros del allRows
+                    List<List<object>> loteActual = allRows.GetRange(0, registrosDisponibles);
+                    List<VentasE> ventasLote = new List<VentasE>();
+                    
+                    Console.WriteLine($"Procesando lote {(indiceInicio / BATCH_SIZE) + 1}: {registrosDisponibles} registros");
+                    
+                    // Convertir los datos raw a objetos VentasE
+                    foreach (var fila in loteActual)
                     {
-                        string header = columnHeaders[i];
-                        object value = rowData.Count > i ? rowData[i] : null; // Manejar filas con menos columnas
-
-                        try
+                        VentasE venta = ConvertirFilaAVenta(fila);
+                        if (venta != null)
                         {
-                            // Mapeo basado en el esquema de la tabla Ventas
-                            switch (header)
-                            {
-                                case "Planta": venta.Planta = Convert.ToString(value); break;
-                                case "Planta_ID": venta.Planta_ID = value != null ? Convert.ToInt32(value) : 0; break;
-                                case "Vendedor": venta.Vendedor = Convert.ToString(value); break;
-                                case "Ruta": venta.Ruta = Convert.ToString(value); break;
-                                case "Fecha": venta.Fecha = value != null ? Convert.ToDateTime(value) : DateTime.MinValue; break;
-                                case "Mes": venta.Mes = Convert.ToString(value); break;
-                                case "Codigo_Cliente": venta.Codigo_Cliente = value != null ? Convert.ToInt32(value) : 0; break;
-                                case "Cliente": venta.Cliente = Convert.ToString(value); break;
-                                case "Tipo_Cliente": venta.Tipo_Cliente = Convert.ToString(value); break;
-                                case "Categoria_Cliente": venta.Categoria_Cliente = Convert.ToString(value); break;
-                                case "Codigo_Subcliente": venta.Codigo_Subcliente = value != null ? Convert.ToInt32(value) : 0; break;
-                                case "Subcliente": venta.Subcliente = Convert.ToString(value); break;
-                                case "Producto": venta.Producto = Convert.ToString(value); break;
-                                case "Categoria": venta.Categoria = Convert.ToString(value); break;
-                                case "Cantidad": venta.Cantidad = value != null ? Convert.ToDecimal(value) : 0m; break;
-                                case "Litros": venta.Litros = value != null ? Convert.ToDecimal(value) : 0m; break;
-                                case "Otros_Impuestos": venta.Otros_Impuestos = value != null ? Convert.ToDecimal(value) : 0m; break;
-                                case "Total": venta.Total = value != null ? Convert.ToDecimal(value) : 0m; break;
-                                default: /* Ignorar columnas no mapeadas */ break;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Error de conversión para columna '{header}' con valor '{value}': {ex.Message}");
-                            // Considerar asignar valores predeterminados o lanzar una excepción específica
+                            ventasLote.Add(venta);
                         }
                     }
-                    ventasParaGuardar.Add(venta);
-                }
-
-                try
-                {
-                    MessageBox.Show($"Guardando {recordsToProcess} registros en la base de datos...");
-
-                    // Llamar al método de inserción masiva en la capa de negocio
-                    await ventasNegocio.InsertarVentasBulk(ventasParaGuardar);
-
-                    // Una vez guardado, eliminar del principio de allRows
-                    allRows.RemoveRange(0, recordsToProcess);
-
-                    BeginInvoke(new Action(() =>
+                    
+                    // Guardar el lote en la base de datos
+                    if (ventasLote.Count > 0)
                     {
-                        txtCantidad.Text = allRows.Count.ToString(); // Actualizar el contador de registros restantes
-                        dgvExcel.RowCount = allRows.Count; // Actualizar el DataGridView
-                        dgvExcel.Refresh();
-                    }));
-
-                    MessageBox.Show($"Lote de {recordsToProcess} registros guardado y eliminado de memoria. Registros restantes: {allRows.Count}");
+                        try
+                        {
+                            Console.WriteLine($"Intentando guardar {ventasLote.Count} registros en la base de datos...");
+                            await ventasNegocio.InsertarVentasBulk(ventasLote);
+                            
+                            // Eliminar los registros procesados de allRows
+                            allRows.RemoveRange(0, registrosDisponibles);
+                            totalGuardados += registrosDisponibles;
+                            
+                            // Actualizar interfaz
+                            progressBar1.Value = totalGuardados;
+                            txtCantidad.Text = allRows.Count.ToString();
+                            dgvExcel.RowCount = allRows.Count;
+                            dgvExcel.Refresh();
+                            Application.DoEvents();
+                            
+                            Console.WriteLine($"✓ Lote guardado exitosamente. Total: {totalGuardados}/{registrosParaProcesar}, Restantes: {allRows.Count}");
+                        }
+                        catch (Exception exLote)
+                        {
+                            string errorDetallado = $"Error al guardar lote {(indiceInicio / BATCH_SIZE) + 1}: {exLote.Message}";
+                            if (exLote.InnerException != null)
+                            {
+                                errorDetallado += $"\nError interno: {exLote.InnerException.Message}";
+                            }
+                            Console.WriteLine($"❌ {errorDetallado}");
+                            throw new Exception(errorDetallado, exLote);
+                        }
+                    }
+                    
+                    // Si ya guardamos 300,000, parar
+                    if (totalGuardados >= MAX_RECORDS)
+                    {
+                        break;
+                    }
                 }
-                catch (Exception ex)
+                
+                // Proceso completado
+                progressBar1.Visible = false;
+                string mensaje = $"Proceso completado exitosamente.\n" +
+                               $"Registros guardados: {totalGuardados:N0}\n" +
+                               $"Registros restantes en memoria: {allRows.Count:N0}";
+                
+                Console.WriteLine($"PROCESO COMPLETADO: {totalGuardados} registros guardados, {allRows.Count} restantes");
+                MessageBox.Show(mensaje, "Guardado Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                progressBar1.Visible = false;
+                string errorMsg = $"Error durante el proceso de guardado: {ex.Message}";
+                Console.WriteLine($"ERROR: {errorMsg}");
+                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+        private VentasE ConvertirFilaAVenta(List<object> fila)
+        {
+            try
+            {
+                VentasE venta = new VentasE();
+                
+                for (int i = 0; i < columnHeaders.Count && i < fila.Count; i++)
                 {
-                    MessageBox.Show($"Error al guardar un lote: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    // Puedes decidir si quieres detener el proceso o intentar con el siguiente lote
-                    break; // Detener el proceso en caso de error
+                    string header = columnHeaders[i];
+                    object value = fila[i];
+                    
+                    switch (header.ToUpper())
+                    {
+                        case "PLANTA": 
+                            venta.Planta = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "PLANTA_ID": 
+                            venta.Planta_ID = ConvertToInt(value); 
+                            break;
+                        case "VENDEDOR": 
+                            venta.Vendedor = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "RUTA": 
+                            venta.Ruta = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "FECHA": 
+                            venta.Fecha = ConvertToDateTime(value); 
+                            break;
+                        case "MES": 
+                            venta.Mes = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "CODIGO_CLIENTE": 
+                            venta.Codigo_Cliente = ConvertToInt(value); 
+                            break;
+                        case "CLIENTE": 
+                            venta.Cliente = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "TIPO_CLIENTE": 
+                            venta.Tipo_Cliente = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "CATEGORIA_CLIENTE": 
+                            venta.Categoria_Cliente = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "CODIGO_SUBCLIENTE": 
+                            venta.Codigo_Subcliente = ConvertToInt(value); 
+                            break;
+                        case "SUBCLIENTE": 
+                            venta.Subcliente = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "PRODUCTO": 
+                            venta.Producto = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "CATEGORIA": 
+                            venta.Categoria = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "CANTIDAD": 
+                            venta.Cantidad = ConvertToDecimal(value); 
+                            break;
+                        case "LITROS": 
+                            venta.Litros = ConvertToDecimal(value); 
+                            break;
+                        case "OTROS_IMPUESTOS": 
+                            venta.Otros_Impuestos = ConvertToDecimal(value); 
+                            break;
+                        case "TOTAL": 
+                            venta.Total = ConvertToDecimal(value); 
+                            break;
+                    }
+                }
+                
+                return venta;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al convertir fila: {ex.Message}");
+                return null;
+            }
+        }
+        
+        private int ConvertToInt(object value)
+        {
+            if (value == null) return 0;
+            if (int.TryParse(value.ToString(), out int result)) return result;
+            return 0;
+        }
+        
+        private decimal ConvertToDecimal(object value)
+        {
+            if (value == null) return 0m;
+            if (decimal.TryParse(value.ToString(), out decimal result)) return result;
+            return 0m;
+        }
+        
+        private DateTime ConvertToDateTime(object value)
+        {
+            if (value == null) return DateTime.MinValue;
+            if (DateTime.TryParse(value.ToString(), out DateTime result)) return result;
+            return DateTime.MinValue;
+        }
+        
+        private async Task<bool> ProbarConexionBaseDatos()
+        {
+            try
+            {
+                using (var connection = new System.Data.SqlClient.SqlConnection(CapaDatos.SQL.ConexionDB.CadenaConexion))
+                {
+                    await connection.OpenAsync();
+                    Console.WriteLine("✓ Conexión a la base de datos exitosa.");
+                    return true;
                 }
             }
-
-            if (allRows.Count == 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("Todos los registros han sido guardados en la base de datos.");
+                Console.WriteLine($"❌ Error al conectar a la base de datos: {ex.Message}");
+                return false;
             }
         }
 
@@ -212,7 +407,21 @@ namespace InventZetaGas
                 MessageBox.Show("No hay registros para guardar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            await GuardarLotesEnBaseDeDatos();
+            
+            // Configurar ProgressBar inmediatamente antes de iniciar
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = Math.Min(300000, allRows.Count);
+            progressBar1.Value = 0;
+            progressBar1.Visible = true;
+            
+            // Actualizar la interfaz para que se muestre el ProgressBar
+            Application.DoEvents();
+            
+            // Mostrar mensaje de inicio
+            MessageBox.Show($"Iniciando guardado de {Math.Min(300000, allRows.Count)} registros en la base de datos...", "Guardando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            await GuardarPrimeros300000Registros();
         }
 
         // Los métodos btnCargarMas_Click y btnAdd_Click ya no son necesarios para la paginación con VirtualMode
