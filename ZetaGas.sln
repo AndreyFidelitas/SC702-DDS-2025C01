@@ -7,11 +7,11 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BD", "BD\BD.sqlproj", "{E21
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventZetaGas", "InventZetaGas\InventZetaGas.csproj", "{9376730C-A9F5-4487-A734-3939254346CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{90DF722F-C3C7-4560-A786-CD19EBCAC0CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocios", "CapaNegocios\CapaNegocios.csproj", "{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaNegocios", "CapaNegocios\CapaNegocios.csproj", "{26E9EB4E-7DA1-4D62-B14A-007D8F50F3FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidades", "CapaEntidades\CapaEntidades.csproj", "{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaEntidades", "CapaEntidades\CapaEntidades.csproj", "{CBE64D6B-12FD-4A6F-B6AC-CDD7599F5BC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

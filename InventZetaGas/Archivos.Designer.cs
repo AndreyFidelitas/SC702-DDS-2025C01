@@ -33,13 +33,13 @@
             fdArchivo = new OpenFileDialog();
             gbRaza = new GroupBox();
             groupBox1 = new GroupBox();
+            btnGuardarLotes = new Button();
             btnDelete = new Button();
             btnModify = new Button();
             txtCodeRuta = new TextBox();
             lblCode = new Label();
             txtCantidad = new TextBox();
             label1 = new Label();
-            btnGuardarLotes = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvExcel).BeginInit();
             gbRaza.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -87,6 +87,18 @@
             groupBox1.Size = new Size(493, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
+            // 
+            // btnGuardarLotes
+            // 
+            btnGuardarLotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            btnGuardarLotes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGuardarLotes.Location = new Point(22, 17);
+            btnGuardarLotes.Name = "btnGuardarLotes";
+            btnGuardarLotes.Size = new Size(143, 41);
+            btnGuardarLotes.TabIndex = 10;
+            btnGuardarLotes.Text = "Guardar Lotes";
+            btnGuardarLotes.UseVisualStyleBackColor = true;
+            btnGuardarLotes.Click += btnGuardarLotes_Click;
             // 
             // btnDelete
             // 
@@ -151,18 +163,6 @@
             label1.Size = new Size(104, 17);
             label1.TabIndex = 9;
             label1.Text = "Total Registros";
-            // 
-            // btnGuardarLotes
-            // 
-            btnGuardarLotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnGuardarLotes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardarLotes.Location = new Point(22, 17);
-            btnGuardarLotes.Name = "btnGuardarLotes";
-            btnGuardarLotes.Size = new Size(143, 41);
-            btnGuardarLotes.TabIndex = 10;
-            btnGuardarLotes.Text = "Guardar Lotes";
-            btnGuardarLotes.UseVisualStyleBackColor = true;
-            btnGuardarLotes.Click += btnGuardarLotes_Click;
             // 
             // Archivos
             // 
