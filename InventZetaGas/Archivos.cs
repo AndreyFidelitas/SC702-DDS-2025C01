@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocios;
@@ -129,6 +130,14 @@ namespace InventZetaGas
                         txtCantidad.Text = allRows.Count.ToString();
                         dgvExcel.RowCount = allRows.Count;
                         dgvExcel.Refresh();
+                        
+                        // Mostrar columnas detectadas en consola para debugging
+                        Console.WriteLine("=== COLUMNAS DETECTADAS EN EXCEL ===");
+                        for (int i = 0; i < columnHeaders.Count; i++)
+                        {
+                            Console.WriteLine($"{i}: '{columnHeaders[i]}'");
+                        }
+                        Console.WriteLine("====================================");
                         
                         // Ocultar ProgressBar y mostrar mensaje de éxito
                         progressBar1.Visible = false;
@@ -288,10 +297,27 @@ namespace InventZetaGas
             {
                 VentasE venta = new VentasE();
                 
+                // Debug: mostrar encabezados y valores para la primera fila
+                if (fila == allRows.FirstOrDefault())
+                {
+                    Console.WriteLine("=== DEBUG: Encabezados y valores de la primera fila ===");
+                    for (int debug = 0; debug < columnHeaders.Count && debug < fila.Count; debug++)
+                    {
+                        Console.WriteLine($"Columna {debug}: '{columnHeaders[debug]}' = '{fila[debug]}'");
+                    }
+                    Console.WriteLine("===============================================");
+                }
+                
                 for (int i = 0; i < columnHeaders.Count && i < fila.Count; i++)
                 {
                     string header = columnHeaders[i];
                     object value = fila[i];
+                    
+                    // Debug específico para código de cliente
+                    if (header.ToUpper().Contains("CLIENTE") && header.ToUpper().Contains("CODIGO"))
+                    {
+                        Console.WriteLine($"DEBUG Codigo_Cliente: Columna='{header}' Valor='{value}' Tipo={value?.GetType().Name}");
+                    }
                     
                     switch (header.ToUpper())
                     {
@@ -299,21 +325,42 @@ namespace InventZetaGas
                             venta.Planta = Convert.ToString(value) ?? ""; 
                             break;
                         case "PLANTA_ID": 
-                            venta.Planta_ID = ConvertToInt(value); 
+                        case "PLANTAID":
+                            venta.PlantaID = ConvertToInt(value); 
+                            break;
+                        case "RUTA": 
+                            venta.Ruta = Convert.ToString(value) ?? ""; 
+                            break;
+                        case "RUTA_ID":
+                        case "RUTAID":
+                            venta.RutaID = ConvertToInt(value);
                             break;
                         case "VENDEDOR": 
                             venta.Vendedor = Convert.ToString(value) ?? ""; 
                             break;
-                        case "RUTA": 
-                            venta.Ruta = Convert.ToString(value) ?? ""; 
+                        case "VENDEDOR_ID":
+                        case "VENDEDORID":
+                            venta.VendedorID = ConvertToInt(value);
                             break;
                         case "FECHA": 
                             venta.Fecha = ConvertToDateTime(value); 
                             break;
                         case "MES": 
-                            venta.Mes = Convert.ToString(value) ?? ""; 
+                            venta.Mes = Convert.ToString(value) ?? ""; // Mantener para compatibilidad
                             break;
-                        case "CODIGO_CLIENTE": 
+                        case "CODIGO_CLIENTE":
+                        case "CODIGOCLIENTE": 
+                        case "CODIGO CLIENTE":
+                        case "COD_CLIENTE":
+                        case "CODCLIENTE":
+                        case "COD CLIENTE":
+                        case "CLIENT_CODE":
+                        case "CLIENTCODE":
+                        case "CLIENTE_ID":
+                        case "CLIENTEID":
+                        case "ID_CLIENTE":
+                        case "IDCLIENTE":
+                            Console.WriteLine($"MAPEO CODIGO_CLIENTE: '{header}' = '{value}' -> {ConvertToInt(value)}");
                             venta.Codigo_Cliente = ConvertToInt(value); 
                             break;
                         case "CLIENTE": 
@@ -352,6 +399,39 @@ namespace InventZetaGas
                     }
                 }
                 
+                // Asignar valores por defecto para campos obligatorios si no se encontraron en el Excel
+                if (venta.PlantaID == 0 && !string.IsNullOrEmpty(venta.Planta))
+                {
+                    venta.PlantaID = 1; // Valor por defecto, ajustar según sea necesario
+                }
+                
+                if (venta.RutaID == 0 && !string.IsNullOrEmpty(venta.Ruta))
+                {
+                    venta.RutaID = 1; // Valor por defecto, ajustar según sea necesario
+                }
+                
+                if (venta.VendedorID == 0 && !string.IsNullOrEmpty(venta.Vendedor))
+                {
+                    venta.VendedorID = 1; // Valor por defecto, ajustar según sea necesario
+                }
+                
+                // Validar que los campos obligatorios no estén vacíos
+                if (venta.Fecha == DateTime.MinValue)
+                {
+                    venta.Fecha = DateTime.Now; // Usar fecha actual como fallback
+                }
+                
+                // Solo asignar valor por defecto si realmente no se pudo leer del Excel
+                if (venta.Codigo_Cliente == 0)
+                {
+                    Console.WriteLine($"WARNING: Codigo_Cliente es 0, asignando valor por defecto");
+                    venta.Codigo_Cliente = 1; // Cliente por defecto
+                }
+                else
+                {
+                    Console.WriteLine($"Codigo_Cliente leído correctamente: {venta.Codigo_Cliente}");
+                }
+                
                 return venta;
             }
             catch (Exception ex)
@@ -364,7 +444,46 @@ namespace InventZetaGas
         private int ConvertToInt(object value)
         {
             if (value == null) return 0;
-            if (int.TryParse(value.ToString(), out int result)) return result;
+            
+            // Manejar diferentes tipos que pueden venir del Excel
+            switch (value)
+            {
+                case int intValue:
+                    return intValue;
+                case double doubleValue:
+                    return (int)doubleValue;
+                case decimal decimalValue:
+                    return (int)decimalValue;
+                case float floatValue:
+                    return (int)floatValue;
+                case string stringValue:
+                    // Limpiar espacios y caracteres especiales
+                    stringValue = stringValue.Trim();
+                    if (string.IsNullOrEmpty(stringValue)) return 0;
+                    
+                    // Remover comas, puntos decimales solo si es un número entero
+                    if (stringValue.Contains(".") && stringValue.Split('.')[1].All(c => c == '0'))
+                    {
+                        stringValue = stringValue.Split('.')[0];
+                    }
+                    
+                    if (int.TryParse(stringValue, out int result)) 
+                    {
+                        Console.WriteLine($"ConvertToInt: '{value}' -> {result}");
+                        return result;
+                    }
+                    
+                    // Intentar como double y convertir a int
+                    if (double.TryParse(stringValue, out double doubleResult))
+                    {
+                        int intResult = (int)doubleResult;
+                        Console.WriteLine($"ConvertToInt (via double): '{value}' -> {intResult}");
+                        return intResult;
+                    }
+                    break;
+            }
+            
+            Console.WriteLine($"ConvertToInt FAILED: '{value}' (Type: {value?.GetType().Name}) -> 0");
             return 0;
         }
         

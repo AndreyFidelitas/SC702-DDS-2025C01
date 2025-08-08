@@ -36,13 +36,12 @@ namespace CapaDatos
             // Crear un DataTable que coincida con la estructura de la tabla de la base de datos
             DataTable dt = new DataTable();
             
-            // No incluir la columna ID si es IDENTITY (auto-incremental)
+            // No incluir VentaID porque es IDENTITY (auto-incremental)
+            dt.Columns.Add("PlantaID", typeof(int));
             dt.Columns.Add("Planta", typeof(string));
-            dt.Columns.Add("Planta_ID", typeof(int));
-            dt.Columns.Add("Vendedor", typeof(string));
+            dt.Columns.Add("RutaID", typeof(int));
             dt.Columns.Add("Ruta", typeof(string));
             dt.Columns.Add("Fecha", typeof(DateTime));
-            dt.Columns.Add("Mes", typeof(string));
             dt.Columns.Add("Codigo_Cliente", typeof(int));
             dt.Columns.Add("Cliente", typeof(string));
             dt.Columns.Add("Tipo_Cliente", typeof(string));
@@ -55,28 +54,31 @@ namespace CapaDatos
             dt.Columns.Add("Litros", typeof(decimal));
             dt.Columns.Add("Otros_Impuestos", typeof(decimal));
             dt.Columns.Add("Total", typeof(decimal));
+            dt.Columns.Add("VendedorID", typeof(int));
+            dt.Columns.Add("Vendedor", typeof(string));
 
             foreach (var venta in ventas)
             {
                 DataRow dr = dt.NewRow();
-                dr["Planta"] = venta.Planta;
-                dr["Planta_ID"] = venta.Planta_ID;
-                dr["Vendedor"] = venta.Vendedor;
-                dr["Ruta"] = venta.Ruta;
+                dr["PlantaID"] = venta.PlantaID;
+                dr["Planta"] = venta.Planta ?? (object)DBNull.Value;
+                dr["RutaID"] = venta.RutaID;
+                dr["Ruta"] = venta.Ruta ?? (object)DBNull.Value;
                 dr["Fecha"] = venta.Fecha;
-                dr["Mes"] = venta.Mes;
                 dr["Codigo_Cliente"] = venta.Codigo_Cliente;
-                dr["Cliente"] = venta.Cliente;
-                dr["Tipo_Cliente"] = venta.Tipo_Cliente;
-                dr["Categoria_Cliente"] = venta.Categoria_Cliente;
-                dr["Codigo_Subcliente"] = venta.Codigo_Subcliente;
-                dr["Subcliente"] = venta.Subcliente;
-                dr["Producto"] = venta.Producto;
-                dr["Categoria"] = venta.Categoria;
-                dr["Cantidad"] = venta.Cantidad;
-                dr["Litros"] = venta.Litros;
-                dr["Otros_Impuestos"] = venta.Otros_Impuestos;
-                dr["Total"] = venta.Total;
+                dr["Cliente"] = venta.Cliente ?? (object)DBNull.Value;
+                dr["Tipo_Cliente"] = venta.Tipo_Cliente ?? (object)DBNull.Value;
+                dr["Categoria_Cliente"] = venta.Categoria_Cliente ?? (object)DBNull.Value;
+                dr["Codigo_Subcliente"] = venta.Codigo_Subcliente == 0 ? (object)DBNull.Value : venta.Codigo_Subcliente;
+                dr["Subcliente"] = venta.Subcliente ?? (object)DBNull.Value;
+                dr["Producto"] = venta.Producto ?? (object)DBNull.Value;
+                dr["Categoria"] = venta.Categoria ?? (object)DBNull.Value;
+                dr["Cantidad"] = venta.Cantidad == 0 ? (object)DBNull.Value : venta.Cantidad;
+                dr["Litros"] = venta.Litros == 0 ? (object)DBNull.Value : venta.Litros;
+                dr["Otros_Impuestos"] = venta.Otros_Impuestos == 0 ? (object)DBNull.Value : venta.Otros_Impuestos;
+                dr["Total"] = venta.Total == 0 ? (object)DBNull.Value : venta.Total;
+                dr["VendedorID"] = venta.VendedorID;
+                dr["Vendedor"] = venta.Vendedor ?? (object)DBNull.Value;
                 dt.Rows.Add(dr);
             }
 
@@ -95,13 +97,12 @@ namespace CapaDatos
                         Console.WriteLine($"Filas copiadas hasta ahora: {e.RowsCopied}");
                     };
 
-                    // Mapeo explícito de columnas (solo las que existen en nuestro DataTable)
+                    // Mapeo explícito de columnas según la nueva estructura de la tabla
+                    bulkCopy.ColumnMappings.Add("PlantaID", "PlantaID");
                     bulkCopy.ColumnMappings.Add("Planta", "Planta");
-                    bulkCopy.ColumnMappings.Add("Planta_ID", "Planta_ID");
-                    bulkCopy.ColumnMappings.Add("Vendedor", "Vendedor");
+                    bulkCopy.ColumnMappings.Add("RutaID", "RutaID");
                     bulkCopy.ColumnMappings.Add("Ruta", "Ruta");
                     bulkCopy.ColumnMappings.Add("Fecha", "Fecha");
-                    bulkCopy.ColumnMappings.Add("Mes", "Mes");
                     bulkCopy.ColumnMappings.Add("Codigo_Cliente", "Codigo_Cliente");
                     bulkCopy.ColumnMappings.Add("Cliente", "Cliente");
                     bulkCopy.ColumnMappings.Add("Tipo_Cliente", "Tipo_Cliente");
@@ -114,6 +115,8 @@ namespace CapaDatos
                     bulkCopy.ColumnMappings.Add("Litros", "Litros");
                     bulkCopy.ColumnMappings.Add("Otros_Impuestos", "Otros_Impuestos");
                     bulkCopy.ColumnMappings.Add("Total", "Total");
+                    bulkCopy.ColumnMappings.Add("VendedorID", "VendedorID");
+                    bulkCopy.ColumnMappings.Add("Vendedor", "Vendedor");
 
                     try
                     {
@@ -132,12 +135,12 @@ namespace CapaDatos
         private async Task InsertarConInsertTradicional(List<VentasE> ventas)
         {
             const string insertQuery = @"
-                INSERT INTO Ventas (Planta, Planta_ID, Vendedor, Ruta, Fecha, Mes, Codigo_Cliente, Cliente, 
+                INSERT INTO Ventas (PlantaID, Planta, RutaID, Ruta, Fecha, Codigo_Cliente, Cliente, 
                                   Tipo_Cliente, Categoria_Cliente, Codigo_Subcliente, Subcliente, Producto, 
-                                  Categoria, Cantidad, Litros, Otros_Impuestos, Total)
-                VALUES (@Planta, @Planta_ID, @Vendedor, @Ruta, @Fecha, @Mes, @Codigo_Cliente, @Cliente, 
+                                  Categoria, Cantidad, Litros, Otros_Impuestos, Total, VendedorID, Vendedor)
+                VALUES (@PlantaID, @Planta, @RutaID, @Ruta, @Fecha, @Codigo_Cliente, @Cliente, 
                         @Tipo_Cliente, @Categoria_Cliente, @Codigo_Subcliente, @Subcliente, @Producto, 
-                        @Categoria, @Cantidad, @Litros, @Otros_Impuestos, @Total)";
+                        @Categoria, @Cantidad, @Litros, @Otros_Impuestos, @Total, @VendedorID, @Vendedor)";
 
             using (SqlConnection connection = new SqlConnection(ConexionDB.CadenaConexion))
             {
@@ -151,24 +154,25 @@ namespace CapaDatos
                         {
                             using (SqlCommand cmd = new SqlCommand(insertQuery, connection, transaction))
                             {
+                                cmd.Parameters.AddWithValue("@PlantaID", venta.PlantaID);
                                 cmd.Parameters.AddWithValue("@Planta", venta.Planta ?? (object)DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Planta_ID", venta.Planta_ID);
-                                cmd.Parameters.AddWithValue("@Vendedor", venta.Vendedor ?? (object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@RutaID", venta.RutaID);
                                 cmd.Parameters.AddWithValue("@Ruta", venta.Ruta ?? (object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Fecha", venta.Fecha);
-                                cmd.Parameters.AddWithValue("@Mes", venta.Mes ?? (object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Codigo_Cliente", venta.Codigo_Cliente);
                                 cmd.Parameters.AddWithValue("@Cliente", venta.Cliente ?? (object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Tipo_Cliente", venta.Tipo_Cliente ?? (object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Categoria_Cliente", venta.Categoria_Cliente ?? (object)DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Codigo_Subcliente", venta.Codigo_Subcliente);
+                                cmd.Parameters.AddWithValue("@Codigo_Subcliente", venta.Codigo_Subcliente == 0 ? (object)DBNull.Value : venta.Codigo_Subcliente);
                                 cmd.Parameters.AddWithValue("@Subcliente", venta.Subcliente ?? (object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Producto", venta.Producto ?? (object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Categoria", venta.Categoria ?? (object)DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Cantidad", venta.Cantidad);
-                                cmd.Parameters.AddWithValue("@Litros", venta.Litros);
-                                cmd.Parameters.AddWithValue("@Otros_Impuestos", venta.Otros_Impuestos);
-                                cmd.Parameters.AddWithValue("@Total", venta.Total);
+                                cmd.Parameters.AddWithValue("@Cantidad", venta.Cantidad == 0 ? (object)DBNull.Value : venta.Cantidad);
+                                cmd.Parameters.AddWithValue("@Litros", venta.Litros == 0 ? (object)DBNull.Value : venta.Litros);
+                                cmd.Parameters.AddWithValue("@Otros_Impuestos", venta.Otros_Impuestos == 0 ? (object)DBNull.Value : venta.Otros_Impuestos);
+                                cmd.Parameters.AddWithValue("@Total", venta.Total == 0 ? (object)DBNull.Value : venta.Total);
+                                cmd.Parameters.AddWithValue("@VendedorID", venta.VendedorID);
+                                cmd.Parameters.AddWithValue("@Vendedor", venta.Vendedor ?? (object)DBNull.Value);
 
                                 await cmd.ExecuteNonQueryAsync();
                             }

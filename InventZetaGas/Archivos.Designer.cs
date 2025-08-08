@@ -90,10 +90,11 @@
             // btnGuardarLotes
             // 
             btnGuardarLotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            btnGuardarLotes.Image = (Image)resources.GetObject("btnGuardarLotes.Image");
             btnGuardarLotes.ImageAlign = ContentAlignment.MiddleLeft;
             btnGuardarLotes.Location = new Point(22, 17);
             btnGuardarLotes.Name = "btnGuardarLotes";
-            btnGuardarLotes.Size = new Size(143, 41);
+            btnGuardarLotes.Size = new Size(178, 37);
             btnGuardarLotes.TabIndex = 10;
             btnGuardarLotes.Text = "Guardar Lotes";
             btnGuardarLotes.UseVisualStyleBackColor = true;
@@ -104,7 +105,7 @@
             btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnModify.Image = (Image)resources.GetObject("btnModify.Image");
             btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(369, 66);
+            btnModify.Location = new Point(369, 67);
             btnModify.Name = "btnModify";
             btnModify.Size = new Size(143, 41);
             btnModify.TabIndex = 1;
