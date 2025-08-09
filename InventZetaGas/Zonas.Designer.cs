@@ -270,13 +270,18 @@
             gvZonas.AllowUserToDeleteRows = false;
             gvZonas.AllowUserToOrderColumns = true;
             gvZonas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gvZonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvZonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             gvZonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvZonas.Location = new Point(12, 475);
             gvZonas.Name = "gvZonas";
+            gvZonas.RowHeadersVisible = false;
+            gvZonas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gvZonas.MultiSelect = false;
             gvZonas.Size = new Size(974, 211);
             gvZonas.TabIndex = 1;
             gvZonas.CellContentClick += gvZonas_CellContentClick;
+            gvZonas.CellClick += gvZonas_CellClick;
+            gvZonas.DataBindingComplete += gvZonas_DataBindingComplete;
             // 
             // label1
             // 

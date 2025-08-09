@@ -21,11 +21,26 @@ namespace InventZetaGas
         ZonasE ZonasE = new ZonasE();
         Generales g = new Generales();
         private DataView dataView;
+        private int columnIndexZonaID = -1;
+        private int columnIndexNombreZona = -1;
+        private int columnIndexProvincia = -1;
+        private int columnIndexEstado = -1;
 
 
         public Zonas()
         {
             InitializeComponent();
+            EnableDoubleBuffering(gvZonas);
+        }
+
+        private void EnableDoubleBuffering(DataGridView grid)
+        {
+            try
+            {
+                var doubleBufferedProperty = typeof(DataGridView).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                doubleBufferedProperty?.SetValue(grid, true, null);
+            }
+            catch { }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -38,6 +53,7 @@ namespace InventZetaGas
             CargarDatos();
             CargarListaProvincias();
             cbProvincias.SelectedIndex = -1;
+            CachearIndicesColumnas();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -67,7 +83,18 @@ namespace InventZetaGas
 
         private void gvZonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleecionarDatos(e);
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
+        }
+
+        private void gvZonas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -145,6 +172,62 @@ namespace InventZetaGas
             gvZonas.DataSource = ZonasN.ListaZona();
         }
 
+        private void gvZonas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                gvZonas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                gvZonas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            }
+            catch { }
+            CachearIndicesColumnas();
+        }
+
+        private void CachearIndicesColumnas()
+        {
+            columnIndexZonaID = GetColumnIndexByNameOrHeaderText("Zona ID");
+            columnIndexNombreZona = GetColumnIndexByNameOrHeaderText("Nombre Zona");
+            columnIndexProvincia = GetColumnIndexByNameOrHeaderText("Provincia");
+            columnIndexEstado = GetColumnIndexByNameOrHeaderText("Estado");
+        }
+
+        private int GetColumnIndexByNameOrHeaderText(string key)
+        {
+            if (gvZonas.Columns == null) return -1;
+            foreach (DataGridViewColumn col in gvZonas.Columns)
+            {
+                if (string.Equals(col.Name, key, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(col.HeaderText, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return col.Index;
+                }
+            }
+            return -1;
+        }
+
+        private void SeleccionarFila(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= gvZonas.Rows.Count) return;
+            var row = gvZonas.Rows[rowIndex];
+
+            if (columnIndexZonaID >= 0)
+                txtCodeZona.Text = row.Cells[columnIndexZonaID].Value?.ToString();
+            if (columnIndexNombreZona >= 0)
+                txtZona.Text = row.Cells[columnIndexNombreZona].Value?.ToString();
+            if (columnIndexProvincia >= 0)
+                cbProvincias.Text = row.Cells[columnIndexProvincia].Value?.ToString();
+
+            var estado = columnIndexEstado >= 0 ? row.Cells[columnIndexEstado].Value?.ToString() : null;
+            if (string.Equals(estado, "Activo", StringComparison.OrdinalIgnoreCase))
+            {
+                rbtnActive.Checked = true;
+            }
+            else if (string.Equals(estado, "Inactivo", StringComparison.OrdinalIgnoreCase))
+            {
+                rbtnInactive.Checked = true;
+            }
+        }
+
         private void Mantenimiento(string accion)
         {
             ZonasE.ZonasCode = txtCodeZona.Text;
@@ -207,10 +290,13 @@ namespace InventZetaGas
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvZonas.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
-                txtCodeZona.Text = row.Cells["Zona ID"].Value?.ToString();
-                txtZona.Text = row.Cells["Nombre Zona"].Value?.ToString();
-                cbProvincias.Text = row.Cells["Provincia"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
+                if (columnIndexZonaID >= 0)
+                    txtCodeZona.Text = row.Cells[columnIndexZonaID].Value?.ToString();
+                if (columnIndexNombreZona >= 0)
+                    txtZona.Text = row.Cells[columnIndexNombreZona].Value?.ToString();
+                if (columnIndexProvincia >= 0)
+                    cbProvincias.Text = row.Cells[columnIndexProvincia].Value?.ToString();
+                var estado = columnIndexEstado >= 0 ? row.Cells[columnIndexEstado].Value?.ToString() : null;
                 if (estado == "Activo")
                 {
                     rbtnActive.Checked = true;
