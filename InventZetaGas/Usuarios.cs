@@ -26,11 +26,29 @@ namespace InventZetaGas
         RolesN RolesN = new RolesN();
         Generales g = new Generales();
         private DataView dataView;
+        private int columnIndexUsuarioID = -1;
+        private int columnIndexCedula = -1;
+        private int columnIndexNombre = -1;
+        private int columnIndexApellidos = -1;
+        private int columnIndexNombreUsuario = -1;
+        private int columnIndexIdRol = -1;
+        private int columnIndexEstado = -1;
 
 
         public Usuarios()
         {
             InitializeComponent();
+            EnableDoubleBuffering(gvUsuarios);
+        }
+
+        private void EnableDoubleBuffering(DataGridView grid)
+        {
+            try
+            {
+                var doubleBufferedProperty = typeof(DataGridView).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                doubleBufferedProperty?.SetValue(grid, true, null);
+            }
+            catch { }
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
@@ -46,6 +64,7 @@ namespace InventZetaGas
             CargarDatos();
             CargarListaRoles();
             cbRol.SelectedIndex = -1;
+            CachearIndicesColumnas();
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -76,7 +95,18 @@ namespace InventZetaGas
 
         private void gvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleecionarDatos(e);
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
+        }
+
+        private void gvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
         }
 
         //boton para buscar informacion
@@ -106,6 +136,17 @@ namespace InventZetaGas
         {
             gvUsuarios.ReadOnly = true;
             gvUsuarios.DataSource = userN.ListaUsuario();
+        }
+
+        private void gvUsuarios_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                gvUsuarios.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                gvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            }
+            catch { }
+            CachearIndicesColumnas();
         }
 
         //Boton para buscar la cedula del usuario.
@@ -469,13 +510,19 @@ namespace InventZetaGas
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvUsuarios.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
-                txtCodeUser.Text = row.Cells["Usuario ID"].Value?.ToString();
-                txtCedula.Text = row.Cells["Cedula"].Value?.ToString();
-                txtNombre.Text = row.Cells["Nombre"].Value?.ToString();
-                txtApellidos.Text = row.Cells["Apellidos"].Value?.ToString();
-                txtUsuario.Text = row.Cells["Nombre de Usuario"].Value?.ToString();
-                cbRol.Text = row.Cells["ID Rol"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
+                if (columnIndexUsuarioID >= 0)
+                    txtCodeUser.Text = row.Cells[columnIndexUsuarioID].Value?.ToString();
+                if (columnIndexCedula >= 0)
+                    txtCedula.Text = row.Cells[columnIndexCedula].Value?.ToString();
+                if (columnIndexNombre >= 0)
+                    txtNombre.Text = row.Cells[columnIndexNombre].Value?.ToString();
+                if (columnIndexApellidos >= 0)
+                    txtApellidos.Text = row.Cells[columnIndexApellidos].Value?.ToString();
+                if (columnIndexNombreUsuario >= 0)
+                    txtUsuario.Text = row.Cells[columnIndexNombreUsuario].Value?.ToString();
+                if (columnIndexIdRol >= 0)
+                    cbRol.Text = row.Cells[columnIndexIdRol].Value?.ToString();
+                var estado = columnIndexEstado >= 0 ? row.Cells[columnIndexEstado].Value?.ToString() : null;
                 if (estado == "Activo")
                 {
                     rbtnActive.Checked = true;
@@ -484,6 +531,60 @@ namespace InventZetaGas
                 {
                     rbtnInactive.Checked = true;
                 }
+            }
+        }
+
+        private void CachearIndicesColumnas()
+        {
+            columnIndexUsuarioID = GetColumnIndexByNameOrHeaderText("Usuario ID");
+            columnIndexCedula = GetColumnIndexByNameOrHeaderText("Cedula");
+            columnIndexNombre = GetColumnIndexByNameOrHeaderText("Nombre");
+            columnIndexApellidos = GetColumnIndexByNameOrHeaderText("Apellidos");
+            columnIndexNombreUsuario = GetColumnIndexByNameOrHeaderText("Nombre de Usuario");
+            columnIndexIdRol = GetColumnIndexByNameOrHeaderText("ID Rol");
+            columnIndexEstado = GetColumnIndexByNameOrHeaderText("Estado");
+        }
+
+        private int GetColumnIndexByNameOrHeaderText(string key)
+        {
+            if (gvUsuarios.Columns == null) return -1;
+            foreach (DataGridViewColumn col in gvUsuarios.Columns)
+            {
+                if (string.Equals(col.Name, key, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(col.HeaderText, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return col.Index;
+                }
+            }
+            return -1;
+        }
+
+        private void SeleccionarFila(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= gvUsuarios.Rows.Count) return;
+            var row = gvUsuarios.Rows[rowIndex];
+
+            if (columnIndexUsuarioID >= 0)
+                txtCodeUser.Text = row.Cells[columnIndexUsuarioID].Value?.ToString();
+            if (columnIndexCedula >= 0)
+                txtCedula.Text = row.Cells[columnIndexCedula].Value?.ToString();
+            if (columnIndexNombre >= 0)
+                txtNombre.Text = row.Cells[columnIndexNombre].Value?.ToString();
+            if (columnIndexApellidos >= 0)
+                txtApellidos.Text = row.Cells[columnIndexApellidos].Value?.ToString();
+            if (columnIndexNombreUsuario >= 0)
+                txtUsuario.Text = row.Cells[columnIndexNombreUsuario].Value?.ToString();
+            if (columnIndexIdRol >= 0)
+                cbRol.Text = row.Cells[columnIndexIdRol].Value?.ToString();
+
+            var estado = columnIndexEstado >= 0 ? row.Cells[columnIndexEstado].Value?.ToString() : null;
+            if (string.Equals(estado, "Activo", StringComparison.OrdinalIgnoreCase))
+            {
+                rbtnActive.Checked = true;
+            }
+            else if (string.Equals(estado, "Inactivo", StringComparison.OrdinalIgnoreCase))
+            {
+                rbtnInactive.Checked = true;
             }
         }
 
