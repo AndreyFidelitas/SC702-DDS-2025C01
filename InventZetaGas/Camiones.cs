@@ -28,12 +28,18 @@ namespace InventZetaGas
         CamionesE camionE = new CamionesE();
         Generales g = new Generales();
         private DataView dataView;
+        private int columnIndexCamionID = -1;
+        private int columnIndexMarca = -1;
+        private int columnIndexPesaje = -1;
+        private int columnIndexPlaca = -1;
+        private int columnIndexEstado = -1;
 
 
         #region Metodos del formulario
         private void Camiones_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            CachearIndicesColumnas();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -91,6 +97,33 @@ namespace InventZetaGas
             gvCamiones.ReadOnly = true;
             gvCamiones.DataSource = camionN.ListaCamion();
         }
+
+        private void Camiones_Shown(object sender, EventArgs e)
+        {
+            EnableDoubleBuffering(gvCamiones);
+        }
+
+        private void EnableDoubleBuffering(DataGridView grid)
+        {
+            try
+            {
+                var doubleBufferedProperty = typeof(DataGridView).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                doubleBufferedProperty?.SetValue(grid, true, null);
+            }
+            catch { }
+        }
+
+        private void gvCamiones_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                gvCamiones.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                gvCamiones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            }
+            catch { }
+            CachearIndicesColumnas();
+        }
+
         //************************************************
         //metodo para limpiar los campos
         public void Limpiar()
@@ -102,6 +135,54 @@ namespace InventZetaGas
             rbtnActive.Checked = false;
             rbtnInactive.Checked = false;
             CargarDatos();
+        }
+        
+        private void CachearIndicesColumnas()
+        {
+            columnIndexCamionID = GetColumnIndexByNameOrHeaderText("Camión ID");
+            columnIndexMarca = GetColumnIndexByNameOrHeaderText("Marca");
+            columnIndexPesaje = GetColumnIndexByNameOrHeaderText("Pesaje Camion");
+            columnIndexPlaca = GetColumnIndexByNameOrHeaderText("Placa");
+            columnIndexEstado = GetColumnIndexByNameOrHeaderText("Estado");
+        }
+
+        private int GetColumnIndexByNameOrHeaderText(string key)
+        {
+            if (gvCamiones.Columns == null) return -1;
+            foreach (DataGridViewColumn col in gvCamiones.Columns)
+            {
+                if (string.Equals(col.Name, key, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(col.HeaderText, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return col.Index;
+                }
+            }
+            return -1;
+        }
+
+        private void SeleccionarFila(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= gvCamiones.Rows.Count) return;
+            var row = gvCamiones.Rows[rowIndex];
+
+            if (columnIndexCamionID >= 0)
+                txtCodeCamion.Text = row.Cells[columnIndexCamionID].Value?.ToString();
+            if (columnIndexMarca >= 0)
+                txtCamion.Text = row.Cells[columnIndexMarca].Value?.ToString();
+            if (columnIndexPesaje >= 0)
+                txtPesaje.Text = row.Cells[columnIndexPesaje].Value?.ToString();
+            if (columnIndexPlaca >= 0)
+                txtPlaca.Text = row.Cells[columnIndexPlaca].Value?.ToString();
+
+            var estado = columnIndexEstado >= 0 ? row.Cells[columnIndexEstado].Value?.ToString() : null;
+            if (string.Equals(estado, "Activo", StringComparison.OrdinalIgnoreCase))
+            {
+                rbtnActive.Checked = true;
+            }
+            else if (string.Equals(estado, "Inactivo", StringComparison.OrdinalIgnoreCase))
+            {
+                rbtnInactive.Checked = true;
+            }
         }
         //************************************************************************************************
         // metodo para seleccionar los radio button sea activo o inactivo
@@ -326,7 +407,18 @@ namespace InventZetaGas
 
         private void gvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleccionarInformacion(e);
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
+        }
+
+        private void gvCamiones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
         }
     }
 }

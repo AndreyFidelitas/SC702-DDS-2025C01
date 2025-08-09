@@ -57,10 +57,10 @@
             label2.Cursor = Cursors.Hand;
             label2.Font = new Font("Microsoft Sans Serif", 12F);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(12, 9);
+            label2.Location = new Point(14, 12);
             label2.Name = "label2";
             label2.Padding = new Padding(3, 0, 3, 0);
-            label2.Size = new Size(26, 20);
+            label2.Size = new Size(32, 25);
             label2.TabIndex = 11;
             label2.Text = "X";
             label2.Click += label2_Click;
@@ -73,11 +73,18 @@
             gvCilindros.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gvCilindros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvCilindros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvCilindros.Location = new Point(21, 445);
+            gvCilindros.Location = new Point(24, 593);
+            gvCilindros.Margin = new Padding(3, 4, 3, 4);
+            gvCilindros.MultiSelect = false;
             gvCilindros.Name = "gvCilindros";
-            gvCilindros.Size = new Size(874, 244);
+            gvCilindros.RowHeadersVisible = false;
+            gvCilindros.RowHeadersWidth = 51;
+            gvCilindros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gvCilindros.Size = new Size(999, 325);
             gvCilindros.TabIndex = 10;
+            gvCilindros.CellClick += gvCilindros_CellClick;
             gvCilindros.CellContentClick += gvCilindros_CellContentClick;
+            gvCilindros.DataBindingComplete += gvCilindros_DataBindingComplete;
             // 
             // gbRaza
             // 
@@ -90,9 +97,11 @@
             gbRaza.Controls.Add(txtCodeCilindro);
             gbRaza.Controls.Add(lblTipoCilindroCode);
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
-            gbRaza.Location = new Point(21, 47);
+            gbRaza.Location = new Point(24, 63);
+            gbRaza.Margin = new Padding(3, 4, 3, 4);
             gbRaza.Name = "gbRaza";
-            gbRaza.Size = new Size(874, 392);
+            gbRaza.Padding = new Padding(3, 4, 3, 4);
+            gbRaza.Size = new Size(999, 523);
             gbRaza.TabIndex = 9;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Cilindros";
@@ -102,9 +111,11 @@
             // 
             groupBox2.Controls.Add(rbtnInactive);
             groupBox2.Controls.Add(rbtnActive);
-            groupBox2.Location = new Point(393, 38);
+            groupBox2.Location = new Point(449, 51);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(245, 129);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(280, 172);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Estado";
@@ -112,9 +123,10 @@
             // rbtnInactive
             // 
             rbtnInactive.AutoSize = true;
-            rbtnInactive.Location = new Point(25, 79);
+            rbtnInactive.Location = new Point(29, 105);
+            rbtnInactive.Margin = new Padding(3, 4, 3, 4);
             rbtnInactive.Name = "rbtnInactive";
-            rbtnInactive.Size = new Size(71, 20);
+            rbtnInactive.Size = new Size(87, 24);
             rbtnInactive.TabIndex = 1;
             rbtnInactive.TabStop = true;
             rbtnInactive.Text = "Inactivo";
@@ -124,9 +136,10 @@
             // rbtnActive
             // 
             rbtnActive.AutoSize = true;
-            rbtnActive.Location = new Point(25, 38);
+            rbtnActive.Location = new Point(29, 51);
+            rbtnActive.Margin = new Padding(3, 4, 3, 4);
             rbtnActive.Name = "rbtnActive";
-            rbtnActive.Size = new Size(62, 20);
+            rbtnActive.Size = new Size(76, 24);
             rbtnActive.TabIndex = 0;
             rbtnActive.TabStop = true;
             rbtnActive.Text = "Activo";
@@ -140,9 +153,11 @@
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnModify);
             groupBox1.Controls.Add(btnNew);
-            groupBox1.Location = new Point(15, 298);
+            groupBox1.Location = new Point(17, 397);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(842, 77);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(962, 103);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
@@ -151,9 +166,10 @@
             btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDelete.Location = new Point(480, 21);
+            btnDelete.Location = new Point(549, 28);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(143, 50);
+            btnDelete.Size = new Size(163, 67);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
@@ -164,9 +180,10 @@
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdd.Location = new Point(164, 21);
+            btnAdd.Location = new Point(187, 28);
+            btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(137, 50);
+            btnAdd.Size = new Size(157, 67);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Agregar";
             btnAdd.UseVisualStyleBackColor = true;
@@ -177,9 +194,10 @@
             btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnModify.Image = (Image)resources.GetObject("btnModify.Image");
             btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(307, 21);
+            btnModify.Location = new Point(351, 28);
+            btnModify.Margin = new Padding(3, 4, 3, 4);
             btnModify.Name = "btnModify";
-            btnModify.Size = new Size(158, 50);
+            btnModify.Size = new Size(181, 67);
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
@@ -190,9 +208,10 @@
             btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnNew.Image = (Image)resources.GetObject("btnNew.Image");
             btnNew.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNew.Location = new Point(16, 21);
+            btnNew.Location = new Point(18, 28);
+            btnNew.Margin = new Padding(3, 4, 3, 4);
             btnNew.Name = "btnNew";
-            btnNew.Size = new Size(124, 50);
+            btnNew.Size = new Size(142, 67);
             btnNew.TabIndex = 0;
             btnNew.Text = "Nuevo";
             btnNew.UseVisualStyleBackColor = true;
@@ -201,18 +220,19 @@
             // txtCilindro
             // 
             txtCilindro.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCilindro.Location = new Point(41, 145);
+            txtCilindro.Location = new Point(47, 193);
+            txtCilindro.Margin = new Padding(3, 4, 3, 4);
             txtCilindro.Name = "txtCilindro";
-            txtCilindro.Size = new Size(289, 22);
+            txtCilindro.Size = new Size(330, 26);
             txtCilindro.TabIndex = 3;
             // 
             // lblLoteLitraje
             // 
             lblLoteLitraje.AutoSize = true;
             lblLoteLitraje.Font = new Font("Microsoft Sans Serif", 10F);
-            lblLoteLitraje.Location = new Point(41, 117);
+            lblLoteLitraje.Location = new Point(47, 156);
             lblLoteLitraje.Name = "lblLoteLitraje";
-            lblLoteLitraje.Size = new Size(79, 17);
+            lblLoteLitraje.Size = new Size(93, 20);
             lblLoteLitraje.TabIndex = 2;
             lblLoteLitraje.Text = "Tipo Litraje";
             // 
@@ -220,18 +240,19 @@
             // 
             txtCodeCilindro.Enabled = false;
             txtCodeCilindro.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCodeCilindro.Location = new Point(41, 76);
+            txtCodeCilindro.Location = new Point(47, 101);
+            txtCodeCilindro.Margin = new Padding(3, 4, 3, 4);
             txtCodeCilindro.Name = "txtCodeCilindro";
-            txtCodeCilindro.Size = new Size(292, 22);
+            txtCodeCilindro.Size = new Size(333, 26);
             txtCodeCilindro.TabIndex = 1;
             // 
             // lblTipoCilindroCode
             // 
             lblTipoCilindroCode.AutoSize = true;
             lblTipoCilindroCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblTipoCilindroCode.Location = new Point(41, 38);
+            lblTipoCilindroCode.Location = new Point(47, 51);
             lblTipoCilindroCode.Name = "lblTipoCilindroCode";
-            lblTipoCilindroCode.Size = new Size(103, 17);
+            lblTipoCilindroCode.Size = new Size(123, 20);
             lblTipoCilindroCode.TabIndex = 0;
             lblTipoCilindroCode.Text = "Código Cilindro";
             // 
@@ -240,22 +261,23 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15F);
             label1.ForeColor = SystemColors.GrayText;
-            label1.Location = new Point(430, 9);
+            label1.Location = new Point(491, 12);
             label1.Name = "label1";
-            label1.Size = new Size(229, 25);
+            label1.Size = new Size(293, 29);
             label1.TabIndex = 8;
             label1.Text = "Módulo Tipos de Cilindro";
             label1.Click += label1_Click;
             // 
             // TipoCilindro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 729);
+            ClientSize = new Size(1261, 972);
             Controls.Add(label2);
             Controls.Add(gvCilindros);
             Controls.Add(gbRaza);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "TipoCilindro";
             Text = "TipoCilindro";
             Load += TipoCilindro_Load;

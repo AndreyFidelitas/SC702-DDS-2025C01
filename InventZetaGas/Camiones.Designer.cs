@@ -354,13 +354,18 @@
             gvCamiones.AllowUserToDeleteRows = false;
             gvCamiones.AllowUserToOrderColumns = true;
             gvCamiones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            gvCamiones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvCamiones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             gvCamiones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvCamiones.Location = new Point(12, 473);
             gvCamiones.Name = "gvCamiones";
+            gvCamiones.RowHeadersVisible = false;
+            gvCamiones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gvCamiones.MultiSelect = false;
             gvCamiones.Size = new Size(887, 211);
             gvCamiones.TabIndex = 5;
             gvCamiones.CellContentClick += gvCamiones_CellContentClick;
+            gvCamiones.CellClick += gvCamiones_CellClick;
+            gvCamiones.DataBindingComplete += gvCamiones_DataBindingComplete;
             // 
             // Camiones
             // 
