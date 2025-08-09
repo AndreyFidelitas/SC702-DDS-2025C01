@@ -95,6 +95,7 @@
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtBuscar.Location = new Point(99, 372);
             txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Digite la Provincia";
             txtBuscar.Size = new Size(625, 22);
             txtBuscar.TabIndex = 11;
             txtBuscar.TextChanged += txtBuscar_TextChanged;

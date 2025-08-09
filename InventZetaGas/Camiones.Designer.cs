@@ -164,6 +164,7 @@
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtBuscar.Location = new Point(99, 397);
             txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Digite la Marca";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
             txtBuscar.TextChanged += txtBuscar_TextChanged;

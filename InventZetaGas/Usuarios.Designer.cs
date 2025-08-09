@@ -200,6 +200,7 @@
             txtBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
             txtBuscar.Location = new Point(99, 413);
             txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Digite la cédula";
             txtBuscar.Size = new Size(643, 22);
             txtBuscar.TabIndex = 14;
             // 
