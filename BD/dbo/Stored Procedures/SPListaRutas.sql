@@ -9,7 +9,7 @@ BEGIN
 		Ruta		[Ruta]				,
 		case 
 		when RutaStatus=1 then 'Activo'
-		else 'Ianctivo'
+		else 'Inactivo'
 		end			[Estado]
 	FROM 
 		Rutas with(nolock)
