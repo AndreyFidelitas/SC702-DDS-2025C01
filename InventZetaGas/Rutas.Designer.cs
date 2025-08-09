@@ -225,11 +225,16 @@
             gvRutas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gvRutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvRutas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvRutas.RowHeadersVisible = false;
+            gvRutas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gvRutas.MultiSelect = false;
             gvRutas.Location = new Point(22, 458);
             gvRutas.Name = "gvRutas";
             gvRutas.Size = new Size(954, 254);
             gvRutas.TabIndex = 8;
             gvRutas.CellContentClick += gvRutas_CellContentClick;
+            gvRutas.CellClick += gvRutas_CellClick;
+            gvRutas.DataBindingComplete += gvRutas_DataBindingComplete;
             // 
             // Rutas
             // 

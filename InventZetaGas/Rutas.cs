@@ -21,11 +21,25 @@ namespace InventZetaGas
         RutasE rE = new RutasE();
         Generales g = new Generales();
         private DataView dataView;
+        private int columnIndexCodigoRuta = -1;
+        private int columnIndexRuta = -1;
+        private int columnIndexEstado = -1;
 
         #region Funciones del formulario
         public Rutas()
         {
             InitializeComponent();
+            EnableDoubleBuffering(gvRutas);
+        }
+
+        private void EnableDoubleBuffering(DataGridView grid)
+        {
+            try
+            {
+                var doubleBufferedProperty = typeof(DataGridView).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                doubleBufferedProperty?.SetValue(grid, true, null);
+            }
+            catch { }
         }
 
         private void gvRutas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,20 +48,15 @@ namespace InventZetaGas
             // Verifica que el índice de fila sea válido
             if (e.RowIndex >= 0)
             {
-                // Obtén la fila seleccionada
-                DataGridViewRow row = gvRutas.Rows[e.RowIndex];
-                // Asigna los valores de las celdas a los TextBox
-                txtCodeRuta.Text = row.Cells["Codigo Ruta"].Value?.ToString();
-                txtRuta.Text = row.Cells["Ruta"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
-                if (estado == "Activo")
-                {
-                    rbtnActive.Checked = true;
-                }
-                else if (estado == "Inactivo")
-                {
-                    rbtnInactive.Checked = true;
-                }
+                SeleccionarFila(e.RowIndex);
+            }
+        }
+
+        private void gvRutas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
             }
         }
 
@@ -86,6 +95,7 @@ namespace InventZetaGas
         private void Rutas_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            CachearIndicesColumnas();
         }
         #endregion
         //**********************************************************************
@@ -104,6 +114,66 @@ namespace InventZetaGas
         {
             gvRutas.ReadOnly = true;    
             gvRutas.DataSource = rN.ListaRutas();
+        }
+
+        private void gvRutas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                gvRutas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                gvRutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            }
+            catch { }
+            CachearIndicesColumnas();
+        }
+
+        private void CachearIndicesColumnas()
+        {
+            columnIndexCodigoRuta = GetColumnIndexByNameOrHeaderText("Codigo Ruta");
+            columnIndexRuta = GetColumnIndexByNameOrHeaderText("Ruta");
+            columnIndexEstado = GetColumnIndexByNameOrHeaderText("Estado");
+        }
+
+        private int GetColumnIndexByNameOrHeaderText(string key)
+        {
+            if (gvRutas.Columns == null) return -1;
+            foreach (DataGridViewColumn col in gvRutas.Columns)
+            {
+                if (string.Equals(col.Name, key, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(col.HeaderText, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return col.Index;
+                }
+            }
+            return -1;
+        }
+
+        private void SeleccionarFila(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= gvRutas.Rows.Count) return;
+            var row = gvRutas.Rows[rowIndex];
+
+            if (columnIndexCodigoRuta >= 0)
+                txtCodeRuta.Text = row.Cells[columnIndexCodigoRuta].Value?.ToString();
+
+            if (columnIndexRuta >= 0)
+                txtRuta.Text = row.Cells[columnIndexRuta].Value?.ToString();
+
+            string estado = null;
+            if (columnIndexEstado >= 0)
+                estado = row.Cells[columnIndexEstado].Value?.ToString();
+
+            if (!string.IsNullOrWhiteSpace(estado))
+            {
+                if (string.Equals(estado, "Activo", StringComparison.OrdinalIgnoreCase))
+                {
+                    rbtnActive.Checked = true;
+                }
+                else if (string.Equals(estado, "Inactivo", StringComparison.OrdinalIgnoreCase))
+                {
+                    rbtnInactive.Checked = true;
+                }
+            }
         }
 
         // metodo para seleccionar los radio button sea activo o inactivo
@@ -276,14 +346,16 @@ namespace InventZetaGas
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvRutas.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
-                txtCodeRuta.Text = row.Cells["Codigo Ruta"].Value?.ToString();
-                txtRuta.Text = row.Cells["Ruta"].Value?.ToString();
-                var estado = row.Cells["Estado"].Value.ToString();
-                if (estado == "Activo")
+                if (columnIndexCodigoRuta >= 0)
+                    txtCodeRuta.Text = row.Cells[columnIndexCodigoRuta].Value?.ToString();
+                if (columnIndexRuta >= 0)
+                    txtRuta.Text = row.Cells[columnIndexRuta].Value?.ToString();
+                var estado = columnIndexEstado >= 0 ? row.Cells[columnIndexEstado].Value?.ToString() : null;
+                if (string.Equals(estado, "Activo", StringComparison.OrdinalIgnoreCase))
                 {
                     rbtnActive.Checked = true;
                 }
-                else if (estado == "Inactivo")
+                else if (string.Equals(estado, "Inactivo", StringComparison.OrdinalIgnoreCase))
                 {
                     rbtnInactive.Checked = true;
                 }
