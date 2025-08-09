@@ -126,7 +126,6 @@
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Visible = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
