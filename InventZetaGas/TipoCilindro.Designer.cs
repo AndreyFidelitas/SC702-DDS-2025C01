@@ -233,7 +233,7 @@
             lblTipoCilindroCode.Name = "lblTipoCilindroCode";
             lblTipoCilindroCode.Size = new Size(103, 17);
             lblTipoCilindroCode.TabIndex = 0;
-            lblTipoCilindroCode.Text = "Codigo Cilindro";
+            lblTipoCilindroCode.Text = "Código Cilindro";
             // 
             // label1
             // 
@@ -244,7 +244,7 @@
             label1.Name = "label1";
             label1.Size = new Size(229, 25);
             label1.TabIndex = 8;
-            label1.Text = "Modulo Tipos de Cilindro";
+            label1.Text = "Módulo Tipos de Cilindro";
             label1.Click += label1_Click;
             // 
             // TipoCilindro

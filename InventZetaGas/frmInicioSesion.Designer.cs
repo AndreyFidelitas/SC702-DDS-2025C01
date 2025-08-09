@@ -141,7 +141,7 @@ namespace InventZetaGas
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(202, 47);
             btnNew.TabIndex = 6;
-            btnNew.Text = "Iniciar Sesion";
+            btnNew.Text = "Iniciar Sesión";
             btnNew.UseVisualStyleBackColor = true;
             btnNew.Click += btnNew_Click;
             // 

@@ -85,7 +85,7 @@
             label1.Name = "label1";
             label1.Size = new Size(171, 25);
             label1.TabIndex = 3;
-            label1.Text = "Modulo Camiones";
+            label1.Text = "Módulo Camiones";
             // 
             // gbRaza
             // 

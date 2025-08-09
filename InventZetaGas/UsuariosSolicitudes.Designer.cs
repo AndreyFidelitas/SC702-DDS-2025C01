@@ -113,7 +113,7 @@
             label2.Name = "label2";
             label2.Size = new Size(109, 17);
             label2.TabIndex = 23;
-            label2.Text = "Codigo Solicitud";
+            label2.Text = "Código Solicitud";
             // 
             // txtCedula
             // 
@@ -132,7 +132,7 @@
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
-            label7.Text = "Cedula";
+            label7.Text = "Cédula";
             // 
             // txtNombre
             // 

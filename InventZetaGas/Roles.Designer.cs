@@ -60,7 +60,7 @@
             label1.Name = "label1";
             label1.Size = new Size(131, 25);
             label1.TabIndex = 4;
-            label1.Text = "Modulo Roles";
+            label1.Text = "Módulo Roles";
             // 
             // gbRaza
             // 
@@ -215,7 +215,7 @@
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(77, 17);
             lblCode.TabIndex = 0;
-            lblCode.Text = "Codigo Rol";
+            lblCode.Text = "Código Rol";
             // 
             // gvRoles
             // 

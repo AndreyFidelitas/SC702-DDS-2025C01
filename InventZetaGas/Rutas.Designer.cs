@@ -204,7 +204,7 @@
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(86, 17);
             lblCode.TabIndex = 0;
-            lblCode.Text = "Codigo Ruta";
+            lblCode.Text = "Código Ruta";
             // 
             // label1
             // 
@@ -215,7 +215,7 @@
             label1.Name = "label1";
             label1.Size = new Size(132, 25);
             label1.TabIndex = 7;
-            label1.Text = "Modulo Rutas";
+            label1.Text = "Módulo Rutas";
             // 
             // gvRutas
             // 

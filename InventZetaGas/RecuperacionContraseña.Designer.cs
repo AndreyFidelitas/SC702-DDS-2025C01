@@ -129,7 +129,7 @@
             linkLabel1.Size = new Size(101, 17);
             linkLabel1.TabIndex = 13;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Menu Principal";
+            linkLabel1.Text = "Menú Principal";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label2
