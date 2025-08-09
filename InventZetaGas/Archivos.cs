@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using CapaNegocios;
 using CapaDatos;
 using CapaEntidades;
+using DocumentFormat.OpenXml.Vml.Office;
 
 namespace InventZetaGas
 {
@@ -19,6 +20,7 @@ namespace InventZetaGas
         private List<List<object>> allRows = new List<List<object>>();  // Lista completa de filas para paginación
         private List<string> columnHeaders = new List<string>(); // Para almacenar los encabezados de las columnas
         private bool isLoadingFile = false; // Flag para controlar si se está cargando un archivo
+        
 
         public Archivos()
         {
@@ -43,10 +45,10 @@ namespace InventZetaGas
                 try
                 {
                     isLoadingFile = true; // Marcar que se está cargando un archivo
-                    
+
                     // Guardar el nombre del archivo en txtarchivo
                     txtarchivo.Text = System.IO.Path.GetFileName(fdArchivo.FileName);
-                    
+
                     columnHeaders.Clear(); // Limpiar la lista antes de cargar nuevos datos
                     allRows.Clear(); // Limpiar la lista antes de cargar nuevos datos
 
@@ -82,7 +84,7 @@ namespace InventZetaGas
                         foreach (var row in worksheet.RowsUsed())
                         {
                             currentRowIndex++;
-                            
+
                             if (firstRow)
                             {
                                 // Capturar los encabezados de las columnas
@@ -120,7 +122,7 @@ namespace InventZetaGas
                         // Limpiar y agregar columnas al DataGridView
                         dgvExcel.Columns.Clear();
                         // Asegurarse de que la generación automática de columnas esté deshabilitada para el modo virtual
-                        dgvExcel.AutoGenerateColumns = false; 
+                        dgvExcel.AutoGenerateColumns = false;
                         foreach (string header in columnHeaders)
                         {
                             dgvExcel.Columns.Add(header, header);
@@ -130,7 +132,7 @@ namespace InventZetaGas
                         txtCantidad.Text = allRows.Count.ToString();
                         dgvExcel.RowCount = allRows.Count;
                         dgvExcel.Refresh();
-                        
+
                         // Mostrar columnas detectadas en consola para debugging
                         Console.WriteLine("=== COLUMNAS DETECTADAS EN EXCEL ===");
                         for (int i = 0; i < columnHeaders.Count; i++)
@@ -138,11 +140,11 @@ namespace InventZetaGas
                             Console.WriteLine($"{i}: '{columnHeaders[i]}'");
                         }
                         Console.WriteLine("====================================");
-                        
+
                         // Ocultar ProgressBar y mostrar mensaje de éxito
                         progressBar1.Visible = false;
-                        MessageBox.Show($"Archivo cargado exitosamente. Número de columnas: {dgvExcel.Columns.Count}, Filas: {allRows.Count}"); 
-                        
+                        MessageBox.Show($"Archivo cargado exitosamente. Número de columnas: {dgvExcel.Columns.Count}, Filas: {allRows.Count}");
+
                         isLoadingFile = false; // Marcar que terminó la carga
                     }));
                 }
@@ -185,11 +187,11 @@ namespace InventZetaGas
         {
             const int MAX_RECORDS = 300000;
             const int BATCH_SIZE = 10000; // Lotes más pequeños para mejor rendimiento
-            
+
             VentasN ventasNegocio = new VentasN();
             int totalGuardados = 0;
             int registrosParaProcesar = Math.Min(MAX_RECORDS, allRows.Count);
-            
+
             try
             {
                 // Probar la conexión a la base de datos antes de iniciar
@@ -205,24 +207,24 @@ namespace InventZetaGas
                 progressBar1.Value = 0;
                 progressBar1.Visible = true;
                 Application.DoEvents();
-                
+
                 Console.WriteLine($"Iniciando guardado de {registrosParaProcesar} registros en lotes de {BATCH_SIZE}");
-                
+
                 // Procesar en lotes hasta alcanzar 300,000 registros
                 for (int indiceInicio = 0; indiceInicio < registrosParaProcesar; indiceInicio += BATCH_SIZE)
                 {
                     // Calcular cuántos registros tomar en este lote
                     int registrosEnLote = Math.Min(BATCH_SIZE, registrosParaProcesar - indiceInicio);
                     int registrosDisponibles = Math.Min(registrosEnLote, allRows.Count);
-                    
+
                     if (registrosDisponibles <= 0) break;
-                    
+
                     // Tomar los primeros registros del allRows
                     List<List<object>> loteActual = allRows.GetRange(0, registrosDisponibles);
                     List<VentasE> ventasLote = new List<VentasE>();
-                    
+
                     Console.WriteLine($"Procesando lote {(indiceInicio / BATCH_SIZE) + 1}: {registrosDisponibles} registros");
-                    
+
                     // Convertir los datos raw a objetos VentasE
                     foreach (var fila in loteActual)
                     {
@@ -232,7 +234,7 @@ namespace InventZetaGas
                             ventasLote.Add(venta);
                         }
                     }
-                    
+
                     // Guardar el lote en la base de datos
                     if (ventasLote.Count > 0)
                     {
@@ -240,18 +242,18 @@ namespace InventZetaGas
                         {
                             Console.WriteLine($"Intentando guardar {ventasLote.Count} registros en la base de datos...");
                             await ventasNegocio.InsertarVentasBulk(ventasLote);
-                            
+
                             // Eliminar los registros procesados de allRows
                             allRows.RemoveRange(0, registrosDisponibles);
                             totalGuardados += registrosDisponibles;
-                            
+
                             // Actualizar interfaz
                             progressBar1.Value = totalGuardados;
                             txtCantidad.Text = allRows.Count.ToString();
                             dgvExcel.RowCount = allRows.Count;
                             dgvExcel.Refresh();
                             Application.DoEvents();
-                            
+
                             Console.WriteLine($"✓ Lote guardado exitosamente. Total: {totalGuardados}/{registrosParaProcesar}, Restantes: {allRows.Count}");
                         }
                         catch (Exception exLote)
@@ -265,20 +267,20 @@ namespace InventZetaGas
                             throw new Exception(errorDetallado, exLote);
                         }
                     }
-                    
+
                     // Si ya guardamos 300,000, parar
                     if (totalGuardados >= MAX_RECORDS)
                     {
                         break;
                     }
                 }
-                
+
                 // Proceso completado
                 progressBar1.Visible = false;
                 string mensaje = $"Proceso completado exitosamente.\n" +
                                $"Registros guardados: {totalGuardados:N0}\n" +
                                $"Registros restantes en memoria: {allRows.Count:N0}";
-                
+
                 Console.WriteLine($"PROCESO COMPLETADO: {totalGuardados} registros guardados, {allRows.Count} restantes");
                 MessageBox.Show(mensaje, "Guardado Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -290,13 +292,13 @@ namespace InventZetaGas
                 MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private VentasE ConvertirFilaAVenta(List<object> fila)
         {
             try
             {
                 VentasE venta = new VentasE();
-                
+
                 // Debug: mostrar encabezados y valores para la primera fila
                 if (fila == allRows.FirstOrDefault())
                 {
@@ -307,49 +309,49 @@ namespace InventZetaGas
                     }
                     Console.WriteLine("===============================================");
                 }
-                
+
                 for (int i = 0; i < columnHeaders.Count && i < fila.Count; i++)
                 {
                     string header = columnHeaders[i];
                     object value = fila[i];
-                    
+
                     // Debug específico para código de cliente
                     if (header.ToUpper().Contains("CLIENTE") && header.ToUpper().Contains("CODIGO"))
                     {
                         Console.WriteLine($"DEBUG Codigo_Cliente: Columna='{header}' Valor='{value}' Tipo={value?.GetType().Name}");
                     }
-                    
+
                     switch (header.ToUpper())
                     {
-                        case "PLANTA": 
-                            venta.Planta = Convert.ToString(value) ?? ""; 
+                        case "PLANTA":
+                            venta.Planta = Convert.ToString(value) ?? "";
                             break;
-                        case "PLANTA_ID": 
+                        case "PLANTA_ID":
                         case "PLANTAID":
-                            venta.PlantaID = ConvertToInt(value); 
+                            venta.PlantaID = ConvertToInt(value);
                             break;
-                        case "RUTA": 
-                            venta.Ruta = Convert.ToString(value) ?? ""; 
+                        case "RUTA":
+                            venta.Ruta = Convert.ToString(value) ?? "";
                             break;
                         case "RUTA_ID":
                         case "RUTAID":
                             venta.RutaID = ConvertToInt(value);
                             break;
-                        case "VENDEDOR": 
-                            venta.Vendedor = Convert.ToString(value) ?? ""; 
+                        case "VENDEDOR":
+                            venta.Vendedor = Convert.ToString(value) ?? "";
                             break;
                         case "VENDEDOR_ID":
                         case "VENDEDORID":
                             venta.VendedorID = ConvertToInt(value);
                             break;
-                        case "FECHA": 
-                            venta.Fecha = ConvertToDateTime(value); 
+                        case "FECHA":
+                            venta.Fecha = ConvertToDateTime(value);
                             break;
-                        case "MES": 
+                        case "MES":
                             venta.Mes = Convert.ToString(value) ?? ""; // Mantener para compatibilidad
                             break;
                         case "CODIGO_CLIENTE":
-                        case "CODIGOCLIENTE": 
+                        case "CODIGOCLIENTE":
                         case "CODIGO CLIENTE":
                         case "COD_CLIENTE":
                         case "CODCLIENTE":
@@ -361,66 +363,66 @@ namespace InventZetaGas
                         case "ID_CLIENTE":
                         case "IDCLIENTE":
                             Console.WriteLine($"MAPEO CODIGO_CLIENTE: '{header}' = '{value}' -> {ConvertToInt(value)}");
-                            venta.Codigo_Cliente = ConvertToInt(value); 
+                            venta.Codigo_Cliente = ConvertToInt(value);
                             break;
-                        case "CLIENTE": 
-                            venta.Cliente = Convert.ToString(value) ?? ""; 
+                        case "CLIENTE":
+                            venta.Cliente = Convert.ToString(value) ?? "";
                             break;
-                        case "TIPO_CLIENTE": 
-                            venta.Tipo_Cliente = Convert.ToString(value) ?? ""; 
+                        case "TIPO_CLIENTE":
+                            venta.Tipo_Cliente = Convert.ToString(value) ?? "";
                             break;
-                        case "CATEGORIA_CLIENTE": 
-                            venta.Categoria_Cliente = Convert.ToString(value) ?? ""; 
+                        case "CATEGORIA_CLIENTE":
+                            venta.Categoria_Cliente = Convert.ToString(value) ?? "";
                             break;
-                        case "CODIGO_SUBCLIENTE": 
-                            venta.Codigo_Subcliente = ConvertToInt(value); 
+                        case "CODIGO_SUBCLIENTE":
+                            venta.Codigo_Subcliente = ConvertToInt(value);
                             break;
-                        case "SUBCLIENTE": 
-                            venta.Subcliente = Convert.ToString(value) ?? ""; 
+                        case "SUBCLIENTE":
+                            venta.Subcliente = Convert.ToString(value) ?? "";
                             break;
-                        case "PRODUCTO": 
-                            venta.Producto = Convert.ToString(value) ?? ""; 
+                        case "PRODUCTO":
+                            venta.Producto = Convert.ToString(value) ?? "";
                             break;
-                        case "CATEGORIA": 
-                            venta.Categoria = Convert.ToString(value) ?? ""; 
+                        case "CATEGORIA":
+                            venta.Categoria = Convert.ToString(value) ?? "";
                             break;
-                        case "CANTIDAD": 
-                            venta.Cantidad = ConvertToDecimal(value); 
+                        case "CANTIDAD":
+                            venta.Cantidad = ConvertToDecimal(value);
                             break;
-                        case "LITROS": 
-                            venta.Litros = ConvertToDecimal(value); 
+                        case "LITROS":
+                            venta.Litros = ConvertToDecimal(value);
                             break;
-                        case "OTROS_IMPUESTOS": 
-                            venta.Otros_Impuestos = ConvertToDecimal(value); 
+                        case "OTROS_IMPUESTOS":
+                            venta.Otros_Impuestos = ConvertToDecimal(value);
                             break;
-                        case "TOTAL": 
-                            venta.Total = ConvertToDecimal(value); 
+                        case "TOTAL":
+                            venta.Total = ConvertToDecimal(value);
                             break;
                     }
                 }
-                
+
                 // Asignar valores por defecto para campos obligatorios si no se encontraron en el Excel
                 if (venta.PlantaID == 0 && !string.IsNullOrEmpty(venta.Planta))
                 {
                     venta.PlantaID = 1; // Valor por defecto, ajustar según sea necesario
                 }
-                
+
                 if (venta.RutaID == 0 && !string.IsNullOrEmpty(venta.Ruta))
                 {
                     venta.RutaID = 1; // Valor por defecto, ajustar según sea necesario
                 }
-                
+
                 if (venta.VendedorID == 0 && !string.IsNullOrEmpty(venta.Vendedor))
                 {
                     venta.VendedorID = 1; // Valor por defecto, ajustar según sea necesario
                 }
-                
+
                 // Validar que los campos obligatorios no estén vacíos
                 if (venta.Fecha == DateTime.MinValue)
                 {
                     venta.Fecha = DateTime.Now; // Usar fecha actual como fallback
                 }
-                
+
                 // Solo asignar valor por defecto si realmente no se pudo leer del Excel
                 if (venta.Codigo_Cliente == 0)
                 {
@@ -431,7 +433,7 @@ namespace InventZetaGas
                 {
                     Console.WriteLine($"Codigo_Cliente leído correctamente: {venta.Codigo_Cliente}");
                 }
-                
+
                 return venta;
             }
             catch (Exception ex)
@@ -440,11 +442,11 @@ namespace InventZetaGas
                 return null;
             }
         }
-        
+
         private int ConvertToInt(object value)
         {
             if (value == null) return 0;
-            
+
             // Manejar diferentes tipos que pueden venir del Excel
             switch (value)
             {
@@ -460,19 +462,19 @@ namespace InventZetaGas
                     // Limpiar espacios y caracteres especiales
                     stringValue = stringValue.Trim();
                     if (string.IsNullOrEmpty(stringValue)) return 0;
-                    
+
                     // Remover comas, puntos decimales solo si es un número entero
                     if (stringValue.Contains(".") && stringValue.Split('.')[1].All(c => c == '0'))
                     {
                         stringValue = stringValue.Split('.')[0];
                     }
-                    
-                    if (int.TryParse(stringValue, out int result)) 
+
+                    if (int.TryParse(stringValue, out int result))
                     {
                         Console.WriteLine($"ConvertToInt: '{value}' -> {result}");
                         return result;
                     }
-                    
+
                     // Intentar como double y convertir a int
                     if (double.TryParse(stringValue, out double doubleResult))
                     {
@@ -482,25 +484,25 @@ namespace InventZetaGas
                     }
                     break;
             }
-            
+
             Console.WriteLine($"ConvertToInt FAILED: '{value}' (Type: {value?.GetType().Name}) -> 0");
             return 0;
         }
-        
+
         private decimal ConvertToDecimal(object value)
         {
             if (value == null) return 0m;
             if (decimal.TryParse(value.ToString(), out decimal result)) return result;
             return 0m;
         }
-        
+
         private DateTime ConvertToDateTime(object value)
         {
             if (value == null) return DateTime.MinValue;
             if (DateTime.TryParse(value.ToString(), out DateTime result)) return result;
             return DateTime.MinValue;
         }
-        
+
         private async Task<bool> ProbarConexionBaseDatos()
         {
             try
@@ -526,26 +528,38 @@ namespace InventZetaGas
                 MessageBox.Show("No hay registros para guardar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+
             // Configurar ProgressBar inmediatamente antes de iniciar
             progressBar1.Style = ProgressBarStyle.Blocks;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = Math.Min(300000, allRows.Count);
             progressBar1.Value = 0;
             progressBar1.Visible = true;
-            
+
             // Actualizar la interfaz para que se muestre el ProgressBar
             Application.DoEvents();
-            
+
             // Mostrar mensaje de inicio
             MessageBox.Show($"Iniciando guardado de {Math.Min(300000, allRows.Count)} registros en la base de datos...", "Guardando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+
             await GuardarPrimeros300000Registros();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
         }
 
         // Los métodos btnCargarMas_Click y btnAdd_Click ya no son necesarios para la paginación con VirtualMode
         // Se pueden eliminar o comentar si no tienen otro propósito.
 
+        //metodo para cargar los datos de SQL
+        public void CargarDatos()
+        {
+            VentasN ventasN = new VentasN();
+            dgvExcel.ReadOnly = true;
+            dgvExcel.DataSource = ventasN.CargarRoles();
+        }
     }
 
 

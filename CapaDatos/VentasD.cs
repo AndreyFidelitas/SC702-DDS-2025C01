@@ -190,5 +190,23 @@ namespace CapaDatos
                 }
             }
         }
+
+        #region "MostrarListaRoles"
+        public DataTable CargaLista()
+        {
+            using (var cmd = new SqlCommand("ListaVentas", _conexion.AbrirConexion()))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                var dataTable = new DataTable();
+                using (var dataAdapter = new SqlDataAdapter(cmd))
+                {
+                    dataAdapter.Fill(dataTable);
+                }
+                _conexion.CerrarConexion();
+                return dataTable;
+            }
+        }
+        #endregion
+
     }
 } 
