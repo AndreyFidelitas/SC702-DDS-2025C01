@@ -69,7 +69,7 @@ namespace InventZetaGas
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No se puede Eliminar las rutas por el momento.", "En mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("No se puede Eliminar las rutas por el momento.", "En mantenimiento", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MantenimientosBotones(3);
         }
 
