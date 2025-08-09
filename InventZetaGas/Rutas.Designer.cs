@@ -152,7 +152,6 @@
             btnModify.TabIndex = 1;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
-            btnModify.Visible = false;
             btnModify.Click += btnModify_Click;
             // 
             // btnNew
