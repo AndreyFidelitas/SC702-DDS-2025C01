@@ -216,14 +216,19 @@
             // gvSolicitudU
             // 
             gvSolicitudU.AllowUserToOrderColumns = true;
-            gvSolicitudU.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvSolicitudU.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             gvSolicitudU.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvSolicitudU.Location = new Point(12, 410);
             gvSolicitudU.Name = "gvSolicitudU";
+            gvSolicitudU.RowHeadersVisible = false;
             gvSolicitudU.RowHeadersWidth = 51;
+            gvSolicitudU.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gvSolicitudU.MultiSelect = false;
             gvSolicitudU.Size = new Size(887, 238);
             gvSolicitudU.TabIndex = 16;
             gvSolicitudU.CellContentClick += gvSolicitudU_CellContentClick;
+            gvSolicitudU.CellClick += gvSolicitudU_CellClick;
+            gvSolicitudU.DataBindingComplete += gvSolicitudU_DataBindingComplete;
             // 
             // UsuariosSolicitudes
             // 

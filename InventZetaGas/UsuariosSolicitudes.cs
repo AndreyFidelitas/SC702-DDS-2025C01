@@ -23,11 +23,26 @@ namespace InventZetaGas
         UsuariosSolicitud SuserE = new UsuariosSolicitud();
         Generales g = new Generales();
         private DataView dataView;
+        private int columnIndexSolicitudCode = -1;
+        private int columnIndexCedula = -1;
+        private int columnIndexNombre = -1;
+        private int columnIndexApellidos = -1;
 
 
         public UsuariosSolicitudes()
         {
             InitializeComponent();
+            EnableDoubleBuffering(gvSolicitudU);
+        }
+
+        private void EnableDoubleBuffering(DataGridView grid)
+        {
+            try
+            {
+                var doubleBufferedProperty = typeof(DataGridView).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                doubleBufferedProperty?.SetValue(grid, true, null);
+            }
+            catch { }
         }
 
         private void UsuariosSolicitudes_Load(object sender, EventArgs e)
@@ -35,6 +50,7 @@ namespace InventZetaGas
             CargarListaRoles();
             CargarDatos();
             cbRol.SelectedIndex = -1;
+            CachearIndicesColumnas();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -54,7 +70,18 @@ namespace InventZetaGas
 
         private void gvSolicitudU_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SeleecionarDatos(e);
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
+        }
+
+        private void gvSolicitudU_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                SeleccionarFila(e.RowIndex);
+            }
         }
 
         #region Metodos Generales
@@ -77,10 +104,14 @@ namespace InventZetaGas
                 // Obtén la fila seleccionada
                 DataGridViewRow row = gvSolicitudU.Rows[e.RowIndex];
                 // Asigna los valores de las celdas a los TextBox
-                txtcode.Text = row.Cells["Solicitud Code"].Value?.ToString();
-                txtCedula.Text = row.Cells["Cedula"].Value?.ToString();
-                txtNombre.Text = row.Cells["Nombre"].Value?.ToString();
-                txtApellidos.Text = row.Cells["Apellidos"].Value?.ToString();
+                if (columnIndexSolicitudCode >= 0)
+                    txtcode.Text = row.Cells[columnIndexSolicitudCode].Value?.ToString();
+                if (columnIndexCedula >= 0)
+                    txtCedula.Text = row.Cells[columnIndexCedula].Value?.ToString();
+                if (columnIndexNombre >= 0)
+                    txtNombre.Text = row.Cells[columnIndexNombre].Value?.ToString();
+                if (columnIndexApellidos >= 0)
+                    txtApellidos.Text = row.Cells[columnIndexApellidos].Value?.ToString();
             }
         }
 
@@ -95,6 +126,54 @@ namespace InventZetaGas
         {
             gvSolicitudU.ReadOnly = true;
             gvSolicitudU.DataSource = userN.ListaSolicitudUsuario();
+        }
+
+        private void gvSolicitudU_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                gvSolicitudU.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                gvSolicitudU.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            }
+            catch { }
+            CachearIndicesColumnas();
+        }
+
+        private void CachearIndicesColumnas()
+        {
+            columnIndexSolicitudCode = GetColumnIndexByNameOrHeaderText("Solicitud Code");
+            columnIndexCedula = GetColumnIndexByNameOrHeaderText("Cedula");
+            columnIndexNombre = GetColumnIndexByNameOrHeaderText("Nombre");
+            columnIndexApellidos = GetColumnIndexByNameOrHeaderText("Apellidos");
+        }
+
+        private int GetColumnIndexByNameOrHeaderText(string key)
+        {
+            if (gvSolicitudU.Columns == null) return -1;
+            foreach (DataGridViewColumn col in gvSolicitudU.Columns)
+            {
+                if (string.Equals(col.Name, key, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(col.HeaderText, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return col.Index;
+                }
+            }
+            return -1;
+        }
+
+        private void SeleccionarFila(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= gvSolicitudU.Rows.Count) return;
+            var row = gvSolicitudU.Rows[rowIndex];
+
+            if (columnIndexSolicitudCode >= 0)
+                txtcode.Text = row.Cells[columnIndexSolicitudCode].Value?.ToString();
+            if (columnIndexCedula >= 0)
+                txtCedula.Text = row.Cells[columnIndexCedula].Value?.ToString();
+            if (columnIndexNombre >= 0)
+                txtNombre.Text = row.Cells[columnIndexNombre].Value?.ToString();
+            if (columnIndexApellidos >= 0)
+                txtApellidos.Text = row.Cells[columnIndexApellidos].Value?.ToString();
         }
 
         private string GenerarNombreUsuario(string nombre, string apellidos)
