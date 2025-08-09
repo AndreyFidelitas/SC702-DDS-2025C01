@@ -287,7 +287,7 @@
             label1.Name = "label1";
             label1.Size = new Size(137, 25);
             label1.TabIndex = 2;
-            label1.Text = "Modulo Zonas";
+            label1.Text = "Módulo Zonas";
             // 
             // label2
             // 

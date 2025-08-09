@@ -124,7 +124,7 @@
             label7.Name = "label7";
             label7.Size = new Size(52, 17);
             label7.TabIndex = 21;
-            label7.Text = "Cedula";
+            label7.Text = "Cédula";
             // 
             // txtNombre
             // 
@@ -363,7 +363,7 @@
             lblCode.Name = "lblCode";
             lblCode.Size = new Size(105, 17);
             lblCode.TabIndex = 0;
-            lblCode.Text = "Codigo Usuario";
+            lblCode.Text = "Código Usuario";
             lblCode.Click += lblCode_Click;
             // 
             // gvUsuarios
@@ -400,7 +400,7 @@
             label5.Name = "label5";
             label5.Size = new Size(159, 25);
             label5.TabIndex = 13;
-            label5.Text = "Modulo Usuarios";
+            label5.Text = "Módulo Usuarios";
             // 
             // Usuarios
             // 
