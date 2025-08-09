@@ -121,10 +121,29 @@ namespace InventZetaGas
             try
             {
                 gvRutas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
-                gvRutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                ConfigureColumnsFill();
             }
             catch { }
             CachearIndicesColumnas();
+        }
+
+        private void ConfigureColumnsFill()
+        {
+            gvRutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            SetFillWeight("Codigo Ruta", 25);
+            SetFillWeight("Ruta", 55);
+            SetFillWeight("Estado", 20);
+        }
+
+        private void SetFillWeight(string key, float weight)
+        {
+            var colIndex = GetColumnIndexByNameOrHeaderText(key);
+            if (colIndex >= 0)
+            {
+                var col = gvRutas.Columns[colIndex];
+                col.FillWeight = weight;
+                col.MinimumWidth = 60;
+            }
         }
 
         private void CachearIndicesColumnas()
