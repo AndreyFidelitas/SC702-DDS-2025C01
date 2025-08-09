@@ -132,7 +132,8 @@ namespace InventZetaGas
             label1.Name = "label1";
             label1.Size = new Size(81, 17);
             label1.TabIndex = 5;
-            label1.Text = "Contrasena";
+            label1.Text = "Contraseña";
+            label1.Click += label1_Click;
             // 
             // btnNew
             // 
@@ -166,7 +167,7 @@ namespace InventZetaGas
             linkLabel1.Size = new Size(181, 17);
             linkLabel1.TabIndex = 8;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Ha olvidado la contrasena?";
+            linkLabel1.Text = "Ha olvidado la contraseña?";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label3

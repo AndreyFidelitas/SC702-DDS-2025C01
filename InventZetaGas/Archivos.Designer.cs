@@ -33,6 +33,7 @@
             fdArchivo = new OpenFileDialog();
             gbRaza = new GroupBox();
             groupBox1 = new GroupBox();
+            button1 = new Button();
             btnGuardarLotes = new Button();
             btnModify = new Button();
             txtarchivo = new TextBox();
@@ -40,7 +41,6 @@
             txtCantidad = new TextBox();
             label1 = new Label();
             progressBar1 = new ProgressBar();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvExcel).BeginInit();
             gbRaza.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -54,11 +54,10 @@
             dgvExcel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dgvExcel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvExcel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvExcel.Location = new Point(32, 487);
-            dgvExcel.Margin = new Padding(3, 4, 3, 4);
+            dgvExcel.Location = new Point(28, 365);
             dgvExcel.Name = "dgvExcel";
             dgvExcel.RowHeadersWidth = 51;
-            dgvExcel.Size = new Size(1014, 284);
+            dgvExcel.Size = new Size(887, 213);
             dgvExcel.TabIndex = 6;
             // 
             // fdArchivo
@@ -74,11 +73,9 @@
             gbRaza.Controls.Add(txtarchivo);
             gbRaza.Controls.Add(lblCode);
             gbRaza.Font = new Font("Microsoft Sans Serif", 9.75F);
-            gbRaza.Location = new Point(32, 31);
-            gbRaza.Margin = new Padding(3, 4, 3, 4);
+            gbRaza.Location = new Point(28, 23);
             gbRaza.Name = "gbRaza";
-            gbRaza.Padding = new Padding(3, 4, 3, 4);
-            gbRaza.Size = new Size(1014, 404);
+            gbRaza.Size = new Size(887, 303);
             gbRaza.TabIndex = 7;
             gbRaza.TabStop = false;
             gbRaza.Text = "Datos de Archivos";
@@ -87,23 +84,33 @@
             // 
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(btnGuardarLotes);
-            groupBox1.Location = new Point(22, 269);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(19, 202);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(563, 103);
+            groupBox1.Size = new Size(493, 77);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(229, 17);
+            button1.Name = "button1";
+            button1.Size = new Size(178, 37);
+            button1.TabIndex = 11;
+            button1.Text = "Cargar reporte";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnGuardarLotes
             // 
             btnGuardarLotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnGuardarLotes.Image = (Image)resources.GetObject("btnGuardarLotes.Image");
             btnGuardarLotes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardarLotes.Location = new Point(25, 23);
-            btnGuardarLotes.Margin = new Padding(3, 4, 3, 4);
+            btnGuardarLotes.Location = new Point(22, 17);
             btnGuardarLotes.Name = "btnGuardarLotes";
-            btnGuardarLotes.Size = new Size(203, 49);
+            btnGuardarLotes.Size = new Size(178, 37);
             btnGuardarLotes.TabIndex = 10;
             btnGuardarLotes.Text = "Guardar Lotes";
             btnGuardarLotes.UseVisualStyleBackColor = true;
@@ -114,10 +121,9 @@
             btnModify.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             btnModify.Image = (Image)resources.GetObject("btnModify.Image");
             btnModify.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModify.Location = new Point(422, 89);
-            btnModify.Margin = new Padding(3, 4, 3, 4);
+            btnModify.Location = new Point(369, 67);
             btnModify.Name = "btnModify";
-            btnModify.Size = new Size(163, 55);
+            btnModify.Size = new Size(143, 41);
             btnModify.TabIndex = 1;
             btnModify.Text = "Abrir";
             btnModify.UseVisualStyleBackColor = true;
@@ -127,19 +133,18 @@
             // 
             txtarchivo.Enabled = false;
             txtarchivo.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtarchivo.Location = new Point(47, 101);
-            txtarchivo.Margin = new Padding(3, 4, 3, 4);
+            txtarchivo.Location = new Point(41, 76);
             txtarchivo.Name = "txtarchivo";
-            txtarchivo.Size = new Size(346, 26);
+            txtarchivo.Size = new Size(303, 22);
             txtarchivo.TabIndex = 1;
             // 
             // lblCode
             // 
             lblCode.AutoSize = true;
             lblCode.Font = new Font("Microsoft Sans Serif", 10F);
-            lblCode.Location = new Point(47, 51);
+            lblCode.Location = new Point(41, 38);
             lblCode.Name = "lblCode";
-            lblCode.Size = new Size(95, 20);
+            lblCode.Size = new Size(80, 17);
             lblCode.TabIndex = 0;
             lblCode.Text = "Documento";
             // 
@@ -147,55 +152,38 @@
             // 
             txtCantidad.Enabled = false;
             txtCantidad.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCantidad.Location = new Point(32, 875);
-            txtCantidad.Margin = new Padding(3, 4, 3, 4);
+            txtCantidad.Location = new Point(28, 656);
             txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(346, 26);
+            txtCantidad.Size = new Size(303, 22);
             txtCantidad.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F);
-            label1.Location = new Point(32, 813);
+            label1.Location = new Point(28, 610);
             label1.Name = "label1";
-            label1.Size = new Size(123, 20);
+            label1.Size = new Size(104, 17);
             label1.TabIndex = 9;
             label1.Text = "Total Registros";
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(398, 873);
-            progressBar1.Margin = new Padding(3, 4, 3, 4);
+            progressBar1.Location = new Point(348, 655);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(648, 31);
+            progressBar1.Size = new Size(567, 23);
             progressBar1.TabIndex = 10;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(262, 23);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(203, 49);
-            button1.TabIndex = 11;
-            button1.Text = "Cargar reporte";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // Archivos
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1261, 972);
+            ClientSize = new Size(1103, 729);
             Controls.Add(progressBar1);
             Controls.Add(label1);
             Controls.Add(txtCantidad);
             Controls.Add(gbRaza);
             Controls.Add(dgvExcel);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Archivos";
             Text = "Archivos";
             Load += Archivos_Load;

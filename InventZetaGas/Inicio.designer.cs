@@ -99,7 +99,7 @@
             btnExit.Padding = new Padding(5, 0, 0, 0);
             btnExit.Size = new Size(233, 45);
             btnExit.TabIndex = 9;
-            btnExit.Text = "  Exit";
+            btnExit.Text = "Cerrar Sesión";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
             btnExit.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnExit.UseVisualStyleBackColor = false;
@@ -345,7 +345,7 @@
             btnPlaylist.Padding = new Padding(5, 0, 0, 0);
             btnPlaylist.Size = new Size(233, 51);
             btnPlaylist.TabIndex = 3;
-            btnPlaylist.Text = "  Gestion de Cilindros";
+            btnPlaylist.Text = "  Gestión de Cilindros";
             btnPlaylist.TextAlign = ContentAlignment.MiddleLeft;
             btnPlaylist.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPlaylist.UseVisualStyleBackColor = false;
