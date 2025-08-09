@@ -302,8 +302,7 @@ namespace CapaDatos
                     {
                         if (dr.Read())
                         {
-                            
-                            //usuario = new UsuariosSolicitud();
+                            usuario = new UsuariosSolicitud();
                             
                             usuario.SolicitudCode = dr["Usuario ID"].ToString();
                             usuario.Cedula = int.Parse(dr["Cedula"].ToString());
