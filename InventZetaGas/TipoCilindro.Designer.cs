@@ -220,10 +220,10 @@
             // txtCilindro
             // 
             txtCilindro.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtCilindro.Location = new Point(47, 193);
-            txtCilindro.Margin = new Padding(3, 4, 3, 4);
+            txtCilindro.Location = new Point(47, 197);
+            txtCilindro.MaxLength = 100;
             txtCilindro.Name = "txtCilindro";
-            txtCilindro.Size = new Size(330, 26);
+            txtCilindro.Size = new Size(289, 26);
             txtCilindro.TabIndex = 3;
             // 
             // lblLoteLitraje

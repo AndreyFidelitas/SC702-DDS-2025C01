@@ -38,9 +38,14 @@ namespace CapaDatos
                 using (var cmd = new SqlCommand("SPMantenimientoTipoCilindro", _conexion.AbrirConexion()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@TipoCilindroCode", TipoCilindro.TipoCilindroCode);
-                    cmd.Parameters.AddWithValue("@LoteLitraje", TipoCilindro.LoteLitraje);
-                    cmd.Parameters.AddWithValue("@TipoCilindroStatus", TipoCilindro.TipoCilindroStatus);
+                    var pCode = cmd.Parameters.Add("@TipoCilindroCode", SqlDbType.VarChar, 5);
+                    pCode.Value = (object?)TipoCilindro.TipoCilindroCode ?? DBNull.Value;
+
+                    var pLote = cmd.Parameters.Add("@LoteLitraje", SqlDbType.VarChar, 100);
+                    pLote.Value = (object?)TipoCilindro.LoteLitraje ?? string.Empty;
+
+                    var pStatus = cmd.Parameters.Add("@TipoCilindroStatus", SqlDbType.Bit);
+                    pStatus.Value = TipoCilindro.TipoCilindroStatus;
                     cmd.Parameters.Add("@accion", SqlDbType.VarChar, 50).Value = g.accion;
                     cmd.Parameters["@accion"].Direction = ParameterDirection.InputOutput;
                     cmd.ExecuteNonQuery();
